@@ -1,0 +1,130 @@
+\chapter{Analyse Complexe : La Rigidité Miraculeuse du Plan Complexe}
+
+\section{Le Monde Holomorphe : Une Condition Extraordinaire}
+
+\begin{objectif}
+    Introduire la notion de dérivabilité complexe (holomorphie) et montrer qu'elle est infiniment plus contraignante que la dérivabilité réelle. C'est une condition locale d'une rigidité géométrique spectaculaire : elle force une fonction à être localement une similitude. Cette rigidité est la source de tous les "miracles" de l'analyse complexe.
+\end{objectif}
+
+\begin{definition}[Dérivabilité Complexe (Holomorphie)]
+    Une fonction $f: U \to \mathbb{C}$ (où $U$ est un ouvert de $\mathbb{C}$) est \textbf{holomorphe} en $z_0 \in U$ si la limite du taux d'accroissement $\frac{f(z)-f(z_0)}{z-z_0}$ existe quand $z \to z_0$.
+\end{definition}
+
+\begin{theorem}[Équations de Cauchy-Riemann]
+    Soit $f(z) = f(x+iy) = P(x,y) + iQ(x,y)$. La fonction $f$ est holomorphe sur $U$ si et seulement si ses parties réelle $P$ et imaginaire $Q$ sont de classe $\mathcal{C}^1$ et vérifient les équations de Cauchy-Riemann :
+    $$ \frac{\partial P}{\partial x} = \frac{\partial Q}{\partial y} \quad \text{et} \quad \frac{\partial P}{\partial y} = -\frac{\partial Q}{\partial x} $$
+\end{theorem}
+
+\begin{remark}[La Contrainte Géométrique]
+    Ces équations ne sont pas anodines. Elles impliquent que le Jacobien de $f$ (vue comme une application de $\mathbb{R}^2$ dans $\mathbb{R}^2$) est la matrice d'une similitude directe. Cela signifie qu'une fonction holomorphe préserve les angles en tout point où sa dérivée n'est pas nulle. C'est une transformation conforme.
+\end{remark}
+
+\begin{example}[Fonctions holomorphes et non-holomorphes]
+    \begin{itemize}
+        \item $f(z) = z^n$ est holomorphe sur $\mathbb{C}$ (entière).
+        \item $f(z) = e^z = e^x(\cos y + i\sin y)$ est entière.
+        \item $f(z) = 1/z$ est holomorphe sur $\mathbb{C}^*$.
+        \item $f(z) = \bar{z} = x - iy$ n'est holomorphe en aucun point. Elle est $\mathbb{R}$-différentiable mais pas $\mathbb{C}$-différentiable.
+        \item $f(z) = |z|^2 = z\bar{z}$ n'est holomorphe qu'en $z=0$.
+    \end{itemize}
+\end{example}
+
+\section{L'Intégration Complexe et la Formule de Cauchy}
+
+\begin{objectif}
+    Développer l'outil principal de la théorie : l'intégration le long de chemins. Le théorème de Cauchy va révéler un premier miracle : l'intégrale d'une fonction holomorphe sur un lacet ne dépend que de la "topologie" du lacet. La formule de Cauchy en sera la conséquence spectaculaire, reliant les valeurs à l'intérieur d'un domaine à celles sur sa frontière.
+\end{objectif}
+
+\begin{definition}[Intégrale le long d'un chemin]
+    Soit $\gamma: [a,b] \to U$ un chemin $\mathcal{C}^1$ et $f: U \to \mathbb{C}$ une fonction continue. On définit $\int_\gamma f(z) dz = \int_a^b f(\gamma(t))\gamma'(t) dt$.
+\end{definition}
+
+\begin{theorem}[Théorème intégral de Cauchy]
+    Soit $U$ un ouvert étoilé de $\mathbb{C}$ et $f: U \to \mathbb{C}$ une fonction holomorphe. Alors, pour tout lacet (chemin fermé) $\gamma$ dans $U$, on a :
+    $$ \oint_\gamma f(z) dz = 0 $$
+\end{theorem}
+
+\begin{theorem}[Formule intégrale de Cauchy]
+    Sous les mêmes hypothèses, pour tout $z_0 \in U$ et pour tout lacet $\gamma$ simple entourant $z_0$, on a :
+    $$ f(z_0) = \frac{1}{2i\pi} \oint_\gamma \frac{f(z)}{z-z_0} dz $$
+\end{theorem}
+
+\begin{remark}[Le Principe "Local-Global"]
+    Cette formule est le cœur de la théorie. Elle est extraordinaire : la valeur d'une fonction holomorphe en un point est entièrement déterminée par ses valeurs sur un lacet qui l'entoure, aussi loin soit-il. L'information locale (en $z_0$) est encodée par une information globale (sur $\gamma$). C'est la première manifestation de la rigidité holomorphe.
+\end{remark}
+
+\section{Les Conséquences de la Rigidité Holomorphe}
+
+\begin{objectif}
+    Explorer les conséquences incroyables de la formule de Cauchy. On va voir qu'être une seule fois dérivable au sens complexe implique d'être infiniment dérivable, développable en série entière, et d'obéir à des principes très forts comme celui du maximum ou de Liouville.
+\end{objectif}
+
+\begin{corollary}[Développabilité en série entière]
+    Toute fonction holomorphe sur un disque ouvert est développable en série entière sur ce disque. Une fonction holomorphe est donc analytique.
+\end{corollary}
+
+\begin{theorem}[Inégalités de Cauchy et Théorème de Liouville]
+    La formule de Cauchy permet de majorer les dérivées successives. Une conséquence est le \textbf{théorème de Liouville} : toute fonction entière (holomorphe sur $\mathbb{C}$) et bornée est constante.
+\end{theorem}
+
+\begin{application}[Théorème Fondamental de l'Algèbre (d'Alembert-Gauss)]
+    Soit $P$ un polynôme non constant. Si $P$ n'a pas de racine dans $\mathbb{C}$, alors $1/P$ est une fonction entière. Comme $|P(z)| \to \infty$ quand $|z| \to \infty$, $1/P$ est bornée. D'après Liouville, $1/P$ est constante, donc $P$ est constant, ce qui est une contradiction.
+\end{application}
+
+\begin{theorem}[Principe du Maximum]
+    Le module d'une fonction holomorphe non constante sur un domaine ne peut pas atteindre son maximum à l'intérieur de ce domaine. Le maximum est nécessairement sur la frontière.
+\end{theorem}
+
+\begin{theorem}[Principe des zéros isolés]
+    Les zéros d'une fonction holomorphe non nulle sont isolés.
+\end{theorem}
+
+\begin{corollary}[Principe du prolongement analytique]
+    Si deux fonctions holomorphes sur un domaine coïncident sur un ensemble de points ayant un point d'accumulation dans ce domaine, alors elles sont égales sur tout le domaine.
+\end{corollary}
+
+\section{Analyse des Singularités et Théorème des Résidus}
+
+\begin{objectif}
+    Classifier les points où une fonction cesse d'être holomorphe et utiliser cette classification pour développer un outil de calcul d'intégrales d'une puissance phénoménale : le théorème des résidus.
+\end{objectif}
+
+\begin{theorem}[Séries de Laurent]
+    Toute fonction holomorphe sur une couronne $C(z_0, r, R)$ admet un unique développement en série de Laurent : $f(z) = \sum_{n=-\infty}^\infty a_n (z-z_0)^n$.
+\end{theorem}
+
+\begin{definition}[Classification des singularités isolées]
+    Soit $z_0$ une singularité isolée de $f$.
+    \begin{itemize}
+        \item \textbf{Singularité apparente (effaçable) :} La partie principale de la série de Laurent est nulle. $f$ est prolongeable par continuité.
+        \item \textbf{Pôle d'ordre $k$ :} La partie principale est finie et le premier coefficient non nul est $a_{-k}$. $|f(z)| \to \infty$ quand $z \to z_0$.
+        \item \textbf{Singularité essentielle :} La partie principale a une infinité de termes non nuls. Le comportement de $f$ au voisinage de $z_0$ est "chaotique".
+    \end{itemize}
+\end{definition}
+
+\begin{example}[Types de singularités]
+    \begin{itemize}
+        \item $f(z) = \frac{\sin(z)}{z}$ a une singularité apparente en 0.
+        \item $f(z) = \frac{e^z}{(z-1)^3}$ a un pôle d'ordre 3 en 1.
+        \item $f(z) = e^{1/z}$ a une singularité essentielle en 0. D'après le théorème de Casorati-Weierstrass, l'image de toute boule épointée de centre 0 est dense dans $\mathbb{C}$.
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Résidu]
+    Le \textbf{résidu} de $f$ en une singularité isolée $z_0$, noté $\mathrm{Res}(f, z_0)$, est le coefficient $a_{-1}$ de son développement en série de Laurent.
+\end{definition}
+
+\begin{theorem}[Théorème des Résidus]
+    Soit $f$ une fonction holomorphe sur un domaine $U$ sauf en un nombre fini de singularités isolées $z_k$. Pour tout lacet simple $\gamma$ dans $U$ n'entourant que ces singularités, on a :
+    $$ \oint_\gamma f(z) dz = 2i\pi \sum_k \mathrm{Res}(f, z_k) $$
+\end{theorem}
+
+\begin{application}[Calcul d'intégrales réelles]
+    C'est l'application la plus célèbre.
+    \begin{itemize}
+        \item \textbf{Fractions rationnelles :} $\int_{-\infty}^{+\infty} \frac{dx}{1+x^4}$. On intègre sur un demi-cercle dans le demi-plan supérieur et on fait tendre le rayon vers l'infini.
+        \item \textbf{Intégrales trigonométriques :} $\int_0^{2\pi} \frac{d\theta}{2+\cos\theta}$. On pose $z=e^{i\theta}$, l'intégrale devient une intégrale sur le cercle unité dans le plan complexe.
+        \item \textbf{Transformées de Fourier :} $\int_{-\infty}^{+\infty} \frac{\cos(x)}{1+x^2} dx$. On utilise le lemme de Jordan.
+        \item \textbf{Sommation de séries :} On peut montrer que $\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}$ en intégrant la fonction $f(z) = \frac{\pi \cot(\pi z)}{z^2}$ sur un grand carré.
+    \end{itemize}
+\end{application}

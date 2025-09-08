@@ -1,0 +1,141 @@
+\chapter{Théorie des Groupes : À la Recherche des Atomes de Symétrie}
+
+\section{L'Alphabet de la Symétrie}
+
+\begin{objectif}
+    Introduire le groupe comme la structure algébrique qui capture l'essence de la notion de \textbf{symétrie}. L'idée fondatrice est qu'un groupe n'est pas un objet abstrait, mais l'ensemble des transformations qui laissent un objet (géométrique, combinatoire, etc.) invariant. Nous allons définir le vocabulaire de base et étudier les groupes les plus fondamentaux.
+\end{objectif}
+
+\begin{definition}[Groupe]
+    Un groupe $(G, \cdot)$ est un ensemble muni d'une loi de composition interne associative, possédant un élément neutre et où tout élément admet un inverse.
+\end{definition}
+
+\begin{definition}[Sous-groupe et Théorème de Lagrange]
+    Un sous-ensemble non vide $H \subset G$ est un sous-groupe s'il est stable par la loi et par passage à l'inverse.
+    \textbf{Théorème de Lagrange :} Si $G$ est un groupe fini, l'ordre de tout sous-groupe de $G$ divise l'ordre de $G$.
+\end{definition}
+
+\begin{remark}[Une contrainte puissante mais limitée]
+    Le théorème de Lagrange est la première contrainte forte sur la structure d'un groupe fini. Il limite drastiquement les ordres possibles des sous-groupes. Attention, la réciproque est fausse en général (le groupe alterné $A_4$ d'ordre 12 n'a pas de sous-groupe d'ordre 6). Une grande partie de la théorie (Sylow) visera à établir des réciproques partielles.
+\end{remark}
+
+\begin{definition}[Groupe cyclique]
+    Un groupe est cyclique s'il est engendré par un seul de ses éléments.
+\end{definition}
+
+\begin{theorem}[Classification des groupes cycliques]
+    Un groupe cyclique infini est isomorphe à $(\mathbb{Z}, +)$. Un groupe cyclique fini d'ordre $n$ est isomorphe à $(\mathbb{Z}/n\mathbb{Z}, +)$.
+\end{theorem}
+
+\begin{application}[Cryptographie à clé publique]
+    Des protocoles comme l'échange de clés Diffie-Hellman ou le chiffrement ElGamal reposent sur la difficulté du problème du logarithme discret dans les grands groupes cycliques (typiquement, le groupe multiplicatif d'un corps fini). La structure simple des groupes cycliques permet des calculs efficaces, tandis que leur "dureté" cryptographique assure la sécurité.
+\end{application}
+
+\section{Structure Interne : Quotients et Morphismes}
+
+\begin{objectif}
+    Comprendre comment les groupes sont organisés de l'intérieur. Le concept de "quotient" est central : il s'agit d'une technique pour simplifier l'étude d'un groupe en "ignorant" une partie de sa structure (un sous-groupe distingué). Les théorèmes d'isomorphismes sont les règles de calcul de ce "calcul des quotients".
+\end{objectif}
+
+\begin{definition}[Sous-groupe distingué et Groupe Quotient]
+    Un sous-groupe $H$ de $G$ est \textbf{distingué} (ou normal), noté $H \triangleleft G$, s'il est stable par conjugaison ($gHg^{-1} = H$). Si $H \triangleleft G$, on peut munir l'ensemble des classes $G/H$ d'une structure de \textbf{groupe quotient}.
+\end{definition}
+
+\begin{theorem}[Premier Théorème d'Isomorphisme]
+    Pour tout morphisme de groupes $f: G \to G'$, on a l'isomorphisme canonique :
+    $$ G/\ker(f) \cong \mathrm{Im}(f) $$
+\end{theorem}
+
+\begin{remark}[La Factorisation Universelle]
+    Ce théorème est le plus important de la théorie "de base". Il dit que tout morphisme se décompose canoniquement en une surjection (passage au quotient), un isomorphisme, et une injection. Il nous permet d'identifier toutes les images possibles d'un groupe : ce sont, à isomorphisme près, ses quotients.
+\end{remark}
+
+\begin{definition}[Groupe dérivé et Commutateurs]
+    Le commutateur de $x, y$ est $[x,y] = xyx^{-1}y^{-1}$. Le groupe dérivé $D(G)$ est le sous-groupe engendré par tous les commutateurs.
+\end{definition}
+
+\begin{proposition}
+    $D(G)$ est le plus petit sous-groupe distingué de $G$ tel que le quotient $G/D(G)$ soit abélien. Ce quotient s'appelle l'abélianisé de $G$.
+\end{proposition}
+
+\begin{remark}[Mesurer le défaut de commutativité]
+    Le groupe dérivé est un "indicateur" de non-commutativité. Plus $D(G)$ est petit, plus $G$ "ressemble" à un groupe abélien. Un groupe est abélien si et seulement si son groupe dérivé est trivial.
+\end{remark}
+
+\section{Les Actions de Groupes : La Géométrie en Mouvement}
+
+\begin{objectif}
+    Faire vivre la théorie. L'étude des groupes abstraits prend tout son sens lorsqu'on les fait "agir" sur des ensembles. Cette notion est le pont entre l'algèbre et de nombreux autres domaines. C'est l'outil le plus puissant pour prouver des théorèmes de structure.
+\end{objectif}
+
+\begin{definition}[Action de groupe et ses composantes]
+    Une action de $G$ sur $X$ est un morphisme $G \to \mathfrak{S}(X)$.
+    L'\textbf{orbite} d'un élément $x \in X$ est l'ensemble des points atteignables depuis $x$.
+    Le \textbf{stabilisateur} de $x$ est le sous-groupe des éléments qui fixent $x$.
+\end{definition}
+
+\begin{theorem}[Relation Orbite-Stabilisateur]
+    Pour toute action d'un groupe fini $G$ sur un ensemble $X$, on a $|G| = |\mathcal{O}(x)| \times |\mathrm{Stab}(x)|$.
+\end{theorem}
+
+\begin{theorem}[Équation aux classes]
+    Si $G$ agit sur lui-même par conjugaison, on a $|G| = |Z(G)| + \sum_{i} [G : C(x_i)]$, où $Z(G)$ est le centre et $C(x_i)$ le centralisateur des représentants d'orbites non triviales.
+\end{theorem}
+
+\begin{application}[Structure des $p$-groupes]
+    Une conséquence immédiate de l'équation aux classes est que tout groupe dont l'ordre est la puissance d'un nombre premier $p$ (un $p$-groupe) a un centre non trivial. C'est un résultat très fort qui n'est pas du tout évident a priori.
+\end{application}
+
+\section{Le Programme de Classification : Les Atomes de Symétrie}
+
+\begin{objectif}
+    Mettre en œuvre notre machinerie pour décomposer les groupes finis en "briques élémentaires". Les théorèmes de Sylow sont l'outil principal de ce programme, et les groupes simples en sont les "atomes" indivisibles.
+\end{objectif}
+
+\begin{theorem}[Théorèmes de Sylow]
+    Soit $G$ un groupe d'ordre $n=p^k m$ avec $p$ premier et $p \nmid m$.
+    \begin{enumerate}
+        \item \textbf{(Existence)} Il existe au moins un $p$-Sylow (sous-groupe d'ordre $p^k$).
+        \item \textbf{(Inclusion et Conjugaison)} Les $p$-Sylow sont tous conjugués entre eux.
+        \item \textbf{(Nombre)} Le nombre $n_p$ de $p$-Sylow divise $m$ et $n_p \equiv 1 \pmod{p}$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{application}[Analyse de la structure des groupes d'ordre donné]
+    Les théorèmes de Sylow permettent une analyse fine des groupes de petit ordre. Par exemple, on peut montrer que tout groupe d'ordre 15 est cyclique. Les conditions sur $n_3$ et $n_5$ forcent $n_3=1$ et $n_5=1$. Le groupe est alors produit direct de ses Sylow, qui sont cycliques d'ordres premiers entre eux.
+\end{application}
+
+\begin{definition}[Groupe simple]
+    Un groupe est \textbf{simple} s'il n'admet aucun sous-groupe distingué propre non trivial.
+\end{definition}
+
+\begin{remark}[Les atomes de la théorie des groupes]
+    Les groupes simples sont aux groupes finis ce que les nombres premiers sont aux entiers. Le théorème de Jordan-Hölder nous dit que tout groupe fini peut être décomposé en une "suite de composition" dont les "facteurs" (les quotients successifs) sont des groupes simples. Comprendre les groupes simples, c'est donc comprendre les briques de base de tous les groupes.
+\end{remark}
+
+\begin{theorem}[Simplicité des groupes alternés]
+    Le groupe alterné $\mathcal{A}_n$ (le groupe des permutations de signature 1) est simple pour tout $n \geq 5$.
+\end{theorem}
+
+\begin{corollary}[Non-résolubilité de $\mathfrak{S}_n$ pour $n \geq 5$]
+    Puisque $\mathcal{A}_n$ est simple et non-abélien, la suite des groupes dérivés de $\mathfrak{S}_n$ stationne à $\mathcal{A}_n$ et n'atteint jamais le groupe trivial. $\mathfrak{S}_n$ n'est donc pas résoluble pour $n \geq 5$. C'est le point clé de la preuve de l'insolubilité de la quintique par radicaux.
+\end{corollary}
+
+\section{Reconstruire des Groupes : Le Produit Semi-direct}
+
+\begin{objectif}
+    Maintenant que nous savons décomposer des groupes, nous nous posons le problème inverse : comment construire des groupes complexes à partir de briques plus simples ? Le produit direct est trop restrictif (il ne produit que des structures "commutatives"). Le produit semi-direct est l'outil de construction non-abélien par excellence.
+\end{objectif}
+
+\begin{definition}[Produit semi-direct]
+    Soient $N$ et $H$ deux groupes et $\phi: H \to \mathrm{Aut}(N)$ un morphisme. Le produit semi-direct $N \rtimes_\phi H$ est le groupe construit sur l'ensemble $N \times H$ avec la loi :
+    $$(n_1, h_1) \cdot (n_2, h_2) = (n_1 \phi(h_1)(n_2), h_1 h_2)$$
+\end{definition}
+
+\begin{remark}[Une construction "tordue"]
+    Le morphisme $\phi$ "tord" la loi de composition. Il décrit la manière dont $H$ agit sur $N$ par automorphismes. Si $\phi$ est le morphisme trivial (tout est envoyé sur l'identité), on retrouve le produit direct.
+\end{remark}
+
+\begin{example}[Le groupe diédral]
+    Le groupe des isométries du polygone à $n$ côtés, $D_n$, est le prototype du produit semi-direct. Il peut être construit comme $D_n \cong \mathbb{Z}/n\mathbb{Z} \rtimes \mathbb{Z}/2\mathbb{Z}$, où $\mathbb{Z}/n\mathbb{Z}$ est le groupe des rotations et $\mathbb{Z}/2\mathbb{Z}$ est engendré par une réflexion. L'action non triviale de la réflexion sur les rotations (en inversant leur sens) est ce qui rend le groupe non-abélien.
+\end{example}

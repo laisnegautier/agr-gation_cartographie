@@ -1,0 +1,125 @@
+\chapter{Espaces Probabilisés : La Mesure de l'Incertitude}
+
+\section{Les Axiomes de Kolmogorov : Le Cadre de la Théorie}
+
+\begin{objectif}
+    Établir le socle axiomatique de la théorie des probabilités moderne. L'idée géniale de Kolmogorov est de réaliser que le langage de la théorie de la mesure est l'outil parfait pour modéliser l'incertitude. On va donc "traduire" le vocabulaire de l'aléatoire dans celui, rigoureux et puissant, de la mesure.
+\end{objectif}
+
+\begin{definition}[Espace probabilisé]
+    Un espace probabilisé est un triplet $(\Omega, \mathcal{F}, \mathbb{P})$ où :
+    \begin{itemize}
+        \item $\Omega$ est un ensemble, l'univers des possibles (ou "issues").
+        \item $\mathcal{F}$ est une tribu (ou $\sigma$-algèbre) sur $\Omega$. Ses éléments sont les \textbf{événements}.
+        \item $\mathbb{P}$ est une \textbf{mesure de probabilité} sur $(X, \mathcal{F})$, c'est-à-dire une mesure telle que $\mathbb{P}(\Omega)=1$.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}[La Probabilité est une Théorie de la Mesure]
+    C'est le point de vue fondamental qui unifie tout. Un espace probabilisé N'EST RIEN D'AUTRE qu'un espace mesuré de masse totale 1. Cette vision fait disparaître le "mystère" des probabilités : tous les théorèmes de la théorie de la mesure (convergence, Fubini...) s'appliqueront.
+\end{remark}
+
+\begin{definition}[Probabilité conditionnelle et Indépendance]
+    Soit $A, B$ deux événements avec $\mathbb{P}(B)>0$. La \textbf{probabilité conditionnelle} de $A$ sachant $B$ est $\mathbb{P}(A|B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$.
+    Deux événements $A$ et $B$ sont \textbf{indépendants} si $\mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$.
+\end{definition}
+
+\begin{theorem}[Formule des probabilités totales et Formule de Bayes]
+    \textbf{FPT :} Si $(B_i)$ est une partition de $\Omega$, alors $\mathbb{P}(A) = \sum_i \mathbb{P}(A|B_i)\mathbb{P}(B_i)$.
+    \textbf{Bayes :} $\mathbb{P}(B_i|A) = \frac{\mathbb{P}(A|B_i)\mathbb{P}(B_i)}{\sum_j \mathbb{P}(A|B_j)\mathbb{P}(B_j)}$.
+\end{theorem}
+\begin{remark}[Inférence et Apprentissage]
+    La formule de Bayes est le moteur de l'inférence statistique bayésienne. Elle nous dit comment mettre à jour nos croyances (la probabilité d'une cause $B_i$) à la lumière de nouvelles données (l'observation d'un effet $A$).
+\end{remark}
+
+\section{Variables Aléatoires : Les Fonctions de l'Aléatoire}
+
+\begin{objectif}
+    Démystifier le concept de "variable aléatoire". Ce n'est pas une "variable" au sens usuel, mais une \textbf{fonction} qui associe une valeur numérique (ou vectorielle) à chaque issue de l'univers. C'est l'objet mathématique qui nous permet de passer de la description des événements à la quantification des résultats.
+\end{objectif}
+
+\begin{definition}[Variable Aléatoire]
+    Une variable aléatoire (v.a.) réelle est une fonction \textbf{mesurable} $X: (\Omega, \mathcal{F}) \to (\mathbb{R}, \mathcal{B}(\mathbb{R}))$.
+\end{definition}
+
+\begin{definition}[Loi d'une Variable Aléatoire]
+    La \textbf{loi} de la v.a. $X$ est la mesure de probabilité $P_X$ sur $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ définie par $P_X(A) = \mathbb{P}(X \in A) = \mathbb{P}(X^{-1}(A))$.
+    C'est la \textbf{mesure image} de $\mathbb{P}$ par $X$.
+\end{definition}
+\begin{remark}[Séparer l'Aléatoire de l'Objet]
+    Cette définition est cruciale. Elle sépare l'espace abstrait de départ $(\Omega, \mathcal{F}, \mathbb{P})$ de l'espace d'arrivée concret $(\mathbb{R})$ où l'on fait nos calculs. Toute l'information "aléatoire" de $X$ est contenue dans sa loi $P_X$.
+\end{remark}
+
+\begin{definition}[Fonction de Répartition]
+    La fonction de répartition de $X$ est $F_X(x) = \mathbb{P}(X \le x) = P_X(]-\infty, x])$. Elle caractérise la loi $P_X$.
+    \begin{itemize}
+        \item Si $F_X$ est une fonction en escalier, la loi est \textbf{discrète}.
+        \item Si $F_X$ est absolument continue, i.e. $F_X(x) = \int_{-\infty}^x f_X(t)dt$, la loi est à \textbf{densité} $f_X$.
+    \end{itemize}
+\end{definition}
+
+\section{Espérance et Moments : L'Intégrale sur l'Univers}
+
+\begin{objectif}
+    Définir la "valeur moyenne" d'une variable aléatoire, l'espérance, comme une intégrale de Lebesgue. C'est l'application directe de la théorie de la mesure, qui donne un sens rigoureux à cette notion.
+\end{objectif}
+
+\begin{definition}[Espérance]
+    L'espérance d'une variable aléatoire $X$ est son intégrale par rapport à la mesure de probabilité $\mathbb{P}$ :
+    $$ E[X] = \int_\Omega X(\omega) d\mathbb{P}(\omega) $$
+    L'espérance existe si $X$ est intégrable au sens de Lebesgue.
+\end{definition}
+
+\begin{theorem}[Théorème de Transfert]
+    Le calcul de l'espérance peut être "transféré" de l'espace abstrait $\Omega$ à l'espace d'arrivée $\mathbb{R}$ :
+    $$ E[X] = \int_\mathbb{R} x dP_X(x) $$
+    Ce qui devient $\sum_i x_i \mathbb{P}(X=x_i)$ dans le cas discret et $\int_\mathbb{R} x f_X(x)dx$ dans le cas à densité.
+\end{theorem}
+
+\begin{definition}[Variance, Covariance et Moments]
+    \textbf{Variance :} $V(X) = E[(X-E[X])^2] = E[X^2] - (E[X])^2$. C'est une mesure de la dispersion de la loi.
+    \textbf{Covariance :} $\mathrm{Cov}(X,Y) = E[(X-E[X])(Y-E[Y])]$. Mesure le lien linéaire entre $X$ et $Y$.
+    \textbf{Moments :} Le moment d'ordre $k$ est $m_k=E[X^k]$.
+\end{definition}
+
+\begin{proposition}[Inégalités de Concentration]
+    \begin{itemize}
+        \item \textbf{Markov :} Pour $X \ge 0$, $\mathbb{P}(X \ge a) \le \frac{E[X]}{a}$.
+        \item \textbf{Bienaymé-Tchebychev :} $\mathbb{P}(|X-E[X]| \ge a) \le \frac{V(X)}{a^2}$.
+    \end{itemize}
+\end{proposition}
+
+\section{Les Théorèmes Limites : L'Émergence de l'Ordre}
+
+\begin{objectif}
+    Présenter les deux résultats les plus importants et les plus profonds de la théorie. Ils décrivent comment la somme d'un grand nombre de variables aléatoires indépendantes et identiquement distribuées (i.i.d.) cesse d'être aléatoire pour faire émerger un comportement déterministe (Loi des Grands Nombres) et une forme universelle (Théorème Central Limite).
+\end{objectif}
+
+\begin{definition}[Modes de Convergence des v.a.]
+    Soit $(X_n)$ une suite de v.a.
+    \begin{itemize}
+        \item \textbf{Presque sûre ($p.s.$) :} $X_n \to X$ si $\mathbb{P}(\{\omega \mid X_n(\omega) \to X(\omega)\}) = 1$.
+        \item \textbf{En probabilité ($P$) :} $X_n \to X$ si $\forall \epsilon>0, \mathbb{P}(|X_n-X|>\epsilon) \to 0$.
+        \item \textbf{En loi ($\mathcal{L}$) :} $X_n \to X$ si $F_{X_n}(x) \to F_X(x)$ en tout point de continuité de $F_X$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[Loi des Grands Nombres]
+    Soit $(X_n)$ une suite de v.a. i.i.d. d'espérance $\mu$. Soit $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ la moyenne empirique.
+    \begin{itemize}
+        \item \textbf{Loi Faible :} Si la variance est finie, $\bar{X}_n \xrightarrow{P} \mu$.
+        \item \textbf{Loi Forte (Kolmogorov) :} Si l'espérance est finie, $\bar{X}_n \xrightarrow{p.s.} \mu$.
+    \end{itemize}
+\end{theorem}
+\begin{remark}[La Stabilité des Moyennes]
+    Ce théorème est le fondement de l'assurance, des casinos, et de la méthode de Monte-Carlo. Il garantit que sur le long terme, les moyennes des résultats observés convergent vers la moyenne théorique. L'aléa se "moyenne" et disparaît à la limite.
+\end{remark}
+
+\begin{theorem}[Théorème Central Limite (Lindeberg-Lévy)]
+    Soit $(X_n)$ une suite de v.a. i.i.d. d'espérance $\mu$ et de variance finie $\sigma^2$. Alors la moyenne empirique normalisée converge en loi vers une loi normale centrée réduite :
+    $$ \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}} \xrightarrow{\mathcal{L}} \mathcal{N}(0,1) $$
+\end{theorem}
+
+\begin{remark}[L'Universalité de la Courbe de Gauss]
+    C'est un résultat miraculeux. Il dit que, quelles que soient les particularités de la loi de départ des $X_n$ (loi de Bernoulli, loi uniforme, etc.), la somme d'un grand nombre de ces variables aura toujours une distribution qui ressemble à une courbe de Gauss. La loi normale est un "attracteur" dans le monde des lois de probabilité. C'est pourquoi on la retrouve partout en nature et en sciences.
+\end{remark}

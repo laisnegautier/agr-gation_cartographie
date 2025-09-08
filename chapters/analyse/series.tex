@@ -1,0 +1,134 @@
+\chapter{Séries : L'Art de Dompter l'Infini}
+
+\section{Séries Numériques : Le Sens d'une Somme Infinie}
+
+\begin{objectif}
+    Donner un sens mathématique rigoureux à l'idée intuitive de "somme infinie". On développe une boîte à outils de critères de convergence pour déterminer si une telle somme est un nombre bien défini ou n'a pas de sens. La distinction entre convergence simple et convergence absolue est la première subtilité fondamentale.
+\end{objectif}
+
+\begin{definition}[Convergence et Nature d'une série]
+    Une série $\sum u_n$ converge si la suite de ses sommes partielles $S_N = \sum_{n=0}^N u_n$ converge. Elle converge \textbf{absolument} si la série $\sum |u_n|$ converge.
+\end{definition}
+
+\begin{proposition}[Convergence absolue $\implies$ Convergence]
+    La réciproque est fausse, ce qui donne lieu aux séries semi-convergentes.
+\end{proposition}
+
+\begin{example}[La série harmonique alternée]
+    La série $\sum_{n=1}^\infty \frac{(-1)^{n+1}}{n} = 1 - \frac{1}{2} + \frac{1}{3} - \dots$ converge (vers $\ln(2)$), mais ne converge pas absolument (la série harmonique $\sum \frac{1}{n}$ diverge).
+\end{example}
+
+\begin{theorem}[Critères de convergence pour les séries à termes positifs]
+    \begin{itemize}
+        \item \textbf{Comparaison :} Comparaison à une série de référence (Riemann, géométrique).
+        \item \textbf{Règle de d'Alembert :} Basée sur la limite du rapport $|u_{n+1}/u_n|$.
+        \item \textbf{Règle de Cauchy :} Basée sur la limite de $\sqrt[n]{|u_n|}$.
+        \item \textbf{Comparaison série-intégrale :} Permet d'étudier les séries de Riemann $\sum 1/n^\alpha$.
+    \end{itemize}
+\end{theorem}
+
+\begin{application}[Constante d'Euler-Mascheroni]
+    En étudiant la différence entre la série harmonique et l'intégrale de $1/t$, on montre l'existence de la constante d'Euler-Mascheroni $\gamma = \lim_{N \to \infty} \left( \sum_{n=1}^N \frac{1}{n} - \ln(N) \right)$.
+\end{application}
+
+\section{Séries de Fonctions : Construire de Nouveaux Objets}
+
+\begin{objectif}
+    Passer de la somme de nombres à la somme de fonctions. La question centrale devient : si une suite de fonctions $f_n$ possède une certaine propriété (continuité, dérivabilité, intégrabilité), la fonction somme $F = \sum f_n$ hérite-t-elle de cette propriété ? Cela dépend crucialement du \textbf{mode de convergence}.
+\end{objectif}
+
+\begin{definition}[Modes de convergence]
+    Soit une suite de fonctions $(f_n)$ sur un ensemble $X$.
+    \begin{itemize}
+        \item \textbf{Convergence simple :} Pour chaque $x \in X$, la suite numérique $(f_n(x))$ converge.
+        \item \textbf{Convergence uniforme :} $\sup_{x \in X} |f_n(x) - f(x)| \to 0$. C'est une convergence globale.
+        \item \textbf{Convergence normale (pour les séries) :} La série numérique $\sum \sup_X |f_n(x)|$ converge. C'est un critère pratique qui implique la convergence uniforme.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}[La force de la convergence uniforme]
+    La convergence simple est une notion faible et souvent pathologique. La convergence uniforme est la "bonne" notion qui permet de transférer les propriétés des termes de la série à la fonction somme. Elle assure que les graphes des fonctions $S_N$ se rapprochent "globalement" du graphe de $S$.
+\end{remark}
+
+\begin{theorem}[Théorèmes de transfert]
+    Si la série de fonctions $\sum f_n$ converge \textbf{uniformément} vers $S$ :
+    \begin{itemize}
+        \item Si les $f_n$ sont continues, alors $S$ est continue.
+        \item On peut intervertir série et intégrale : $\int_a^b S(x) dx = \sum_{n=0}^\infty \int_a^b f_n(x) dx$.
+        \item Si de plus les $f_n$ sont $\mathcal{C}^1$ et que la série des dérivées $\sum f'_n$ converge uniformément, on peut dériver terme à terme : $S' = \sum f'_n$.
+    \end{itemize}
+\end{theorem}
+
+\begin{example}[Construction de fonctions pathologiques]
+    On peut utiliser des séries de fonctions pour construire des objets contre-intuitifs. L'exemple le plus célèbre est la \textbf{fonction de Weierstrass}, $f(x) = \sum_{n=0}^\infty a^n \cos(b^n \pi x)$, qui est continue sur $\mathbb{R}$ mais dérivable en aucun point.
+\end{example}
+
+\section{Séries Entières : Le Pont entre Algèbre et Analyse}
+
+\begin{objectif}
+    Étudier les "polynômes de degré infini". Les séries entières sont des objets remarquables qui jouissent d'une régularité exceptionnelle à l'intérieur de leur disque de convergence. Elles sont le pont entre les fonctions analytiques et l'algèbre des polynômes.
+\end{objectif}
+
+\begin{definition}[Série entière et Rayon de convergence]
+    Une série entière est une série de fonctions de la forme $\sum a_n z^n$. Il existe un $R \in [0, \infty]$, le \textbf{rayon de convergence}, tel que la série converge absolument pour $|z|<R$ et diverge pour $|z|>R$.
+\end{definition}
+
+\begin{theorem}[Régularité de la somme]
+    La somme d'une série entière est une fonction \textbf{continue} et même \textbf{infiniment dérivable} (ou holomorphe) à l'intérieur de son disque de convergence. On peut dériver et intégrer terme à terme.
+\end{theorem}
+
+\begin{remark}[La rigidité analytique]
+    Ce théorème est spectaculaire. Une série entière se comporte comme un polynôme : on peut la manipuler terme à terme. La connaissance des coefficients $\{a_n\}$ (une information "algébrique") détermine entièrement la fonction somme et toutes ses dérivées (une information "analytique").
+\end{remark}
+
+\begin{example}[Développements en série entière usuels]
+    \begin{itemize}
+        \item $e^z = \sum_{n=0}^\infty \frac{z^n}{n!}$ pour $z \in \mathbb{C}$. ($R=\infty$)
+        \item $\frac{1}{1-z} = \sum_{n=0}^\infty z^n$ pour $|z|<1$. ($R=1$)
+        \item $\ln(1+x) = \sum_{n=1}^\infty \frac{(-1)^{n+1}x^n}{n}$ pour $|x|<1$. ($R=1$)
+    \end{itemize}
+\end{example}
+
+\begin{application}[Résolution d'équations différentielles]
+    On peut chercher des solutions d'EDO sous forme de séries entières. Par exemple, pour l'équation d'Airy $y'' - xy = 0$, on suppose $y(x) = \sum a_n x^n$. On injecte dans l'équation, et on trouve une relation de récurrence sur les coefficients $a_n$, ce qui permet de définir les fonctions d'Airy.
+\end{application}
+
+\section{Séries de Fourier : La Décomposition Harmonique}
+
+\begin{objectif}
+    Changer de point de vue : au lieu de "construire" une fonction, on cherche à la "décomposer" en une somme de fonctions de base simples et oscillantes (les sinus et cosinus). C'est le passage de la base polynomiale $\{x^n\}$ (pour les séries entières) à la base trigonométrique $\{e^{inx}\}$.
+\end{objectif}
+
+\begin{definition}[Coefficients et Série de Fourier]
+    Pour une fonction $f$ $2\pi$-périodique et intégrable, ses coefficients de Fourier sont $c_n(f) = \frac{1}{2\pi}\int_0^{2\pi} f(t)e^{-int}dt$. Sa série de Fourier est $S(f)(x) = \sum_{n=-\infty}^\infty c_n(f) e^{inx}$.
+\end{definition}
+
+\begin{theorem}[Théorème de Convergence de Dirichlet]
+    Si $f$ est $2\pi$-périodique et $\mathcal{C}^1$ par morceaux, alors sa série de Fourier converge en tout point $x$ vers $\frac{1}{2}(f(x^+) + f(x^-))$.
+\end{theorem}
+
+\begin{theorem}[Identité de Parseval]
+    Si $f$ est de carré intégrable, alors sa série de Fourier converge vers $f$ au sens de la norme $L^2$, et on a :
+    $$ \frac{1}{2\pi} \int_0^{2\pi} |f(t)|^2 dt = \sum_{n=-\infty}^\infty |c_n(f)|^2 $$
+\end{theorem}
+
+\begin{remark}[La vision Hilbertienne]
+    Ce théorème est la traduction du théorème de Pythagore dans l'espace de Hilbert $L^2([0,2\pi])$. Il signifie que la famille des $\{e^{inx}\}$ (normalisée) forme une base orthonormale de cet espace. L'énergie totale du signal ($L^2$ norm) est la somme des énergies de ses composantes harmoniques.
+\end{remark}
+
+\begin{example}[Décomposition de signaux simples]
+    \begin{itemize}
+        \item Une fonction "créneau" (égale à 1 sur $[0, \pi]$ et -1 sur $[\pi, 2\pi]$) se décompose en une somme infinie de sinus d'harmoniques impaires.
+        \item Une fonction "dents de scie" se décompose en une somme de sinus.
+    \end{itemize}
+\end{example}
+
+\begin{application}[Résolution de l'équation de la chaleur]
+    La méthode de séparation des variables pour l'équation de la chaleur $\frac{\partial u}{\partial t} = \frac{\partial^2 u}{\partial x^2}$ sur un segment mène naturellement à une décomposition de la solution en série de Fourier. Les conditions aux limites sélectionnent la base (sinus ou cosinus), et l'équation différentielle transforme les coefficients de Fourier de la condition initiale $u(0,x)$ en $c_n(t) = c_n(0)e^{-n^2 t}$.
+\end{application}
+
+\begin{application}[Calcul de sommes de séries numériques]
+    En appliquant la formule de Parseval à la série de Fourier de fonctions simples, on peut calculer des sommes célèbres. Par exemple, avec la fonction $f(x)=x$ sur $[-\pi, \pi]$, Parseval donne :
+    $$ \sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6} $$
+    C'est le problème de Bâle, résolu par Euler.
+\end{application}

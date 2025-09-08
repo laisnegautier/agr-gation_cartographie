@@ -1,0 +1,106 @@
+\chapter{Topologie : La Dialectique du Local et du Global}
+
+\section{Espaces Métriques : La Structure Locale}
+
+\begin{objectif}
+    Les espaces métriques sont notre point de départ car ils formalisent la notion de \textbf{distance}, qui est une notion \textbf{locale}. Ils nous permettent de parler de "boules", de "proximité infinitésimale", et donc de convergence. C'est le cadre nécessaire pour faire de l'analyse "à la Newton/Leibniz", basée sur des arguments locaux.
+\end{objectif}
+
+\begin{definition}[Espace métrique]
+    Un espace métrique $(X, d)$ est un ensemble muni d'une distance. Il induit une topologie où les ouverts sont les réunions de boules ouvertes.
+\end{definition}
+
+\begin{definition}[Continuité de Cauchy vs. Topologique]
+    Dans un espace métrique, la continuité en un point $x_0$ s'exprime par le critère "$\epsilon-\delta$". C'est une vision très locale. La définition topologique (l'image réciproque d'un ouvert est un ouvert) est une formulation globale qui se révélera plus puissante.
+\end{definition}
+
+\section{Complétude : La Propriété Analytique par Excellence}
+
+\begin{objectif}
+    Isoler LA propriété qui permet de faire de l'Analyse. La complétude est la garantie que les processus d'approximation convergent. C'est une propriété non-topologique (elle dépend de la métrique, pas seulement des ouverts) et fondamentalement locale.
+\end{objectif}
+
+\begin{definition}[Suite de Cauchy et Espace Complet]
+    Une suite $(x_n)$ est de Cauchy si ses termes se rapprochent les uns des autres. Un espace est complet si de telles suites convergent toujours.
+\end{definition}
+
+\begin{theorem}[Théorème du point fixe de Banach-Picard]
+    Dans un espace métrique \textbf{complet}, une application \textbf{strictement contractante} admet un unique point fixe.
+\end{theorem}
+
+\begin{remark}[La Puissance de la Complétude]
+    La preuve de ce théorème est constructive : on choisit un point et on itère. La condition de contraction assure que la suite des itérées est de Cauchy. La complétude assure que cette suite converge, et la limite est le point fixe. Sans complétude, la suite "voudrait" converger, mais la limite pourrait être un "trou" dans l'espace. La complétude bouche ces trous.
+\end{remark}
+
+\begin{theorem}[Théorème de Baire]
+    Dans un espace métrique complet, une intersection dénombrable d'ouverts denses est dense. De manière équivalente, un espace complet n'est pas une union dénombrable de fermés d'intérieur vide.
+\end{theorem}
+
+\begin{remark}[Un outil "négatif" d'existence]
+    Le théorème de Baire est un outil d'une puissance phénoménale. Il ne construit rien, mais il nous dit qu'un espace complet est "gros" et ne peut pas être "trop petit" (une union dénombrable de "parties maigres"). On l'utilise pour prouver des résultats d'existence en montrant que l'ensemble des objets "pathologiques" est maigre, donc son complémentaire (les objets "gentils") est non vide. C'est la base des grands théorèmes de l'analyse fonctionnelle.
+\end{remark}
+
+\section{Compacité : La Propriété Globale et Géométrique}
+
+\begin{objectif}
+    Introduire la notion de compacité, qui est d'une nature très différente de la complétude. La compacité n'est pas une propriété locale mais \textbf{globale}. Elle concerne la "taille" et la "forme" de l'espace tout entier. C'est l'analogue topologique de la "finitude".
+\end{objectif}
+
+\begin{definition}[Compacité de Borel-Lebesgue]
+    Un espace topologique $K$ est compact si de tout recouvrement par des ouverts, on peut extraire un sous-recouvrement fini.
+\end{definition}
+
+\begin{definition}[Compacité séquentielle]
+    Un espace métrique $K$ est séquentiellement compact si de toute suite de $K$, on peut extraire une sous-suite convergente. Pour les espaces métriques, les deux notions coïncident.
+\end{definition}
+
+\begin{theorem}[Caractérisation dans $\mathbb{R}^n$ (Borel-Lebesgue)]
+    Une partie de $\mathbb{R}^n$ est compacte si et seulement si elle est fermée et bornée.
+\end{theorem}
+
+\begin{remark}[La Fin de l'Intuition]
+    Attention, ce théorème est un "piège" de la dimension finie. En dimension infinie, une partie fermée et bornée n'est (presque) jamais compacte (cf. Lemme de Riesz). C'est pourquoi la définition de Borel-Lebesgue, plus abstraite, est la bonne.
+\end{remark}
+
+\begin{theorem}[Propriétés fondamentales]
+    L'image d'un compact par une application continue est compacte. En particulier, une fonction continue sur un compact à valeurs réelles est bornée et atteint ses bornes.
+\end{theorem}
+
+\begin{application}[Existence de minima/maxima]
+    C'est l'application la plus importante de la compacité. En optimisation, en calcul des variations, en analyse, on veut souvent minimiser une "énergie" ou un "coût" (une fonctionnelle continue). Si l'espace des configurations possibles est compact, l'existence d'un minimum est garantie.
+\end{application}
+
+\begin{remark}[Complétude vs. Compacité : La Grande Dialectique]
+    Votre question est au cœur du sujet. Lequel est le plus important ?
+    \begin{itemize}
+        \item La \textbf{Complétude} est une propriété \textbf{analytique et locale}. Elle est indispensable pour les processus \textbf{itératifs} et les constructions de limites (point fixe, complétion d'un espace, etc). Elle nous permet de travailler "au voisinage" d'un point.
+        \item La \textbf{Compacité} est une propriété \textbf{géométrique et globale}. Elle est indispensable pour les théorèmes d'**existence globaux**. Elle nous permet de passer du local au global, et de garantir qu'une recherche sur un ensemble infini peut se ramener à un cas fini.
+    \end{itemize}
+    Ce ne sont pas des notions concurrentes, mais complémentaires. L'analyse fonctionnelle est l'art de les utiliser conjointement. Souvent, on travaille dans un espace complet (Banach), et on cherche des sous-ensembles compacts (via Arzelà-Ascoli, Banach-Alaoglu...) pour y prouver des résultats d'existence.
+\end{remark}
+
+\section{Autres Propriétés Topologiques Fondamentales}
+
+\begin{objectif}
+    Compléter notre vocabulaire avec deux autres notions structurales : la connexité (l'espace est "d'un seul tenant") et la séparation (les points sont "discernables").
+\end{objectif}
+
+\begin{definition}[Connexité]
+    Un espace est connexe s'il n'est pas union disjointe de deux ouverts non vides. Il est connexe par arcs si tout couple de points peut être relié par un chemin continu.
+\end{definition}
+
+\begin{proposition}[Connexité par arcs $\implies$ Connexité]
+    La réciproque est fausse. L'exemple classique est la courbe sinus du topologue, $F = \{ (x, \sin(1/x)) \mid x \in ]0,1] \} \cup \{0\} \times [-1,1]$.
+\end{proposition}
+
+\begin{theorem}[Théorème des valeurs intermédiaires]
+    L'image d'un connexe par une application continue est connexe. Le TVI n'est qu'un corollaire de ce fait topologique fondamental, car les connexes de $\mathbb{R}$ sont les intervalles.
+\end{theorem}
+
+\begin{definition}[Axiomes de séparation (Hausdorff)]
+    Un espace est séparé (ou de Hausdorff, noté $T_2$) si deux points distincts admettent des voisinages ouverts disjoints.
+\end{definition}
+
+\begin{remark}[Une condition de "bonne santé"]
+    La séparation est une hypothèse technique minimale pour faire de l'analyse "sérieuse". Dans un espace séparé, une suite convergente a une limite unique. La quasi-totalité des espaces que l'on rencontre (espaces métriques, topologies faibles sur les duaux...) sont séparés.
+\end{remark}

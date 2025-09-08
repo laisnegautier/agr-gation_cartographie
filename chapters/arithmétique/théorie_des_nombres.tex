@@ -1,0 +1,151 @@
+\chapter{Arithmétique : La Structure Cachée des Nombres Entiers}
+
+\section{Division Euclidienne et PGCD : L'Algorithme Fondateur}
+
+\begin{objectif}
+    Établir le socle de toute l'arithmétique. La division euclidienne est une propriété d'apparence modeste, mais elle est le moteur de tout le reste. D'elle découlent les notions de PGCD, les relations de Bézout et de Gauss, qui sont les outils de base pour explorer la structure multiplicative de $\mathbb{Z}$.
+\end{objectif}
+
+\begin{theorem}[Division Euclidienne dans $\mathbb{Z}$]
+    Pour tout $(a,b) \in \mathbb{Z} \times \mathbb{Z}^*$, il existe un unique couple $(q,r) \in \mathbb{Z}^2$ (quotient, reste) tel que $a = bq + r$ et $0 \leq r < |b|$.
+\end{theorem}
+
+\begin{remark}[Le Point de Départ de la Théorie des Anneaux]
+    Cette propriété fait de l'anneau $\mathbb{Z}$ un \textbf{anneau euclidien}. C'est la propriété la plus forte dans la hiérarchie des anneaux (Euclidien $\implies$ Principal $\implies$ Factoriel), ce qui explique pourquoi l'arithmétique dans $\mathbb{Z}$ est si "bien comportée".
+\end{remark}
+
+\begin{definition}[PGCD et Algorithme d'Euclide]
+    Le Plus Grand Commun Diviseur (PGCD) de $a$ et $b$ est le plus grand entier positif qui divise à la fois $a$ et $b$.
+    L'\textbf{algorithme d'Euclide} est une procédure itérative qui calcule le PGCD de deux nombres en utilisant des divisions euclidiennes successives. C'est l'un des plus anciens algorithmes non triviaux de l'histoire.
+\end{definition}
+
+\begin{theorem}[Théorème de Bézout]
+    Soient $a, b \in \mathbb{Z}$. L'ensemble des combinaisons linéaires $\{ax+by \mid x,y \in \mathbb{Z}\}$ est exactement l'ensemble des multiples de leur PGCD, $\mathrm{pgcd}(a,b)\mathbb{Z}$.
+    En particulier, $a$ et $b$ sont premiers entre eux si et seulement s'il existe $u,v \in \mathbb{Z}$ tels que $au+bv=1$.
+\end{theorem}
+
+\begin{application}[Inverse modulaire]
+    L'identité de Bézout est constructive (grâce à l'algorithme d'Euclide étendu). Elle permet de calculer l'inverse d'un élément dans l'anneau $\mathbb{Z}/n\mathbb{Z}$. L'inverse de $a$ modulo $n$ existe si $\mathrm{pgcd}(a,n)=1$, et l'algorithme nous donne $u,v$ tels que $au+nv=1$, ce qui signifie $au \equiv 1 \pmod n$. L'inverse de $a$ est $u$.
+\end{application}
+
+\begin{theorem}[Lemme de Gauss]
+    Si un entier $a$ divise le produit $bc$ et que $a$ est premier avec $b$, alors $a$ divise $c$.
+\end{theorem}
+
+\section{Nombres Premiers et Factorisation Unique}
+
+\begin{objectif}
+    Introduire les "atomes" de l'arithmétique : les nombres premiers. Le résultat central de cette section, le Théorème Fondamental de l'Arithmétique, est la pierre angulaire de la théorie des nombres, affirmant que tout entier se décompose de manière unique en un "assemblage" de ces atomes.
+\end{objectif}
+
+\begin{definition}[Nombre Premier]
+    Un entier $p > 1$ est \textbf{premier} s'il n'admet que deux diviseurs positifs : 1 et lui-même.
+\end{definition}
+
+\begin{lemma}[Lemme d'Euclide]
+    Un entier $p > 1$ est premier si et seulement si pour tous entiers $a,b$, on a : $p|ab \implies p|a$ ou $p|b$.
+\end{lemma}
+\begin{remark}[La Vraie Définition de la Primalité]
+    Cette propriété est conceptuellement plus forte que la définition par les diviseurs. C'est elle qui garantit l'unicité de la décomposition. Dans les anneaux plus généraux, c'est cette propriété qui définit un "élément premier".
+\end{remark}
+
+\begin{theorem}[Théorème Fondamental de l'Arithmétique]
+    Tout entier $n \ge 2$ se décompose de manière unique (à l'ordre près des facteurs) en un produit de nombres premiers.
+\end{theorem}
+
+\begin{theorem}[Théorème d'Euclide sur l'infinité des nombres premiers]
+    Il existe une infinité de nombres premiers. La preuve classique par l'absurde (considérer $P+1$ où $P$ est le produit des premiers) est un modèle d'élégance mathématique.
+\end{theorem}
+
+\begin{theorem}[Théorème des Nombres Premiers (admis)]
+    Soit $\pi(x)$ le nombre de nombres premiers inférieurs ou égaux à $x$. Alors, on a l'équivalent asymptotique :
+    $$ \pi(x) \underset{x\to\infty}{\sim} \frac{x}{\ln(x)} $$
+\end{theorem}
+\begin{remark}[Le Pont entre Arithmétique et Analyse]
+    Ce théorème est un résultat profond qui illustre que pour comprendre la distribution (très irrégulière) des nombres premiers, des outils d'analyse (en l'occurrence, l'analyse complexe et la fonction $\zeta$ de Riemann) sont nécessaires.
+\end{remark}
+
+\section{Arithmétique Modulaire : Les Mondes Finis de $\mathbb{Z}/n\mathbb{Z}$}
+
+\begin{objectif}
+    Étudier la structure de l'anneau $\mathbb{Z}/n\mathbb{Z}$. C'est le monde de l'"arithmétique de l'horloge", où l'on s'intéresse aux restes de la division. Ces structures finies sont d'une richesse incroyable et sont au cœur de la cryptographie moderne.
+\end{objectif}
+
+\begin{definition}[Anneau des entiers modulo $n$]
+    La relation de congruence modulo $n$ est une relation d'équivalence sur $\mathbb{Z}$. L'ensemble des classes d'équivalence, noté $\mathbb{Z}/n\mathbb{Z}$, est muni d'une structure d'anneau commutatif unitaire.
+\end{definition}
+
+\begin{proposition}[Groupe des inversibles]
+    Un élément $\bar{k} \in \mathbb{Z}/n\mathbb{Z}$ est inversible si et seulement si $\mathrm{pgcd}(k,n)=1$. L'ensemble des inversibles, noté $(\mathbb{Z}/n\mathbb{Z})^\times$, forme un groupe multiplicatif d'ordre $\varphi(n)$, où $\varphi$ est l'indicateur d'Euler.
+\end{proposition}
+
+\begin{corollary}
+    $\mathbb{Z}/n\mathbb{Z}$ est un corps si et seulement si $n$ est un nombre premier. Ce corps est noté $\mathbb{F}_n$.
+\end{corollary}
+
+\begin{theorem}[Théorème d'Euler]
+    Soit $n \ge 2$. Pour tout entier $a$ premier avec $n$, on a $a^{\varphi(n)} \equiv 1 \pmod n$.
+    En particulier (Petit Théorème de Fermat), si $p$ est premier et $p \nmid a$, alors $a^{p-1} \equiv 1 \pmod p$.
+\end{theorem}
+
+\begin{theorem}[Théorème des Restes Chinois]
+    Si $m$ et $n$ sont premiers entre eux, alors l'application naturelle de $\mathbb{Z}/mn\mathbb{Z}$ vers $\mathbb{Z}/m\mathbb{Z} \times \mathbb{Z}/n\mathbb{Z}$ est un isomorphisme d'anneaux.
+\end{theorem}
+
+\begin{application}[Cryptosystème RSA]
+    Le système RSA est basé sur ces résultats. On choisit deux grands nombres premiers $p,q$ et on pose $n=pq$. $\varphi(n)=(p-1)(q-1)$ est facile à calculer si on connaît $p,q$, mais très difficile sinon. On choisit un exposant de chiffrement $e$ premier avec $\varphi(n)$ et on calcule son inverse $d$ modulo $\varphi(n)$ (grâce à Bézout). Le message $M$ est chiffré par $C = M^e \pmod n$. Le déchiffrement se fait par $C^d = (M^e)^d = M^{ed} = M^{1+k\varphi(n)} \equiv M \pmod n$ par le théorème d'Euler.
+\end{application}
+
+\section{Résidus Quadratiques et la Loi de Réciprocité}
+
+\begin{objectif}
+    Aborder un des plus beaux résultats de la théorie des nombres, qualifié par Gauss de "Théorème d'Or". La loi de réciprocité quadratique révèle une symétrie cachée et profonde entre les nombres premiers.
+\end{objectif}
+
+\begin{definition}[Résidu Quadratique et Symbole de Legendre]
+    Soit $p$ un premier impair. Un entier $a$ est un \textbf{résidu quadratique} modulo $p$ s'il est un carré non nul modulo $p$.
+    Le \textbf{symbole de Legendre} $\left(\frac{a}{p}\right)$ vaut $1$ si $a$ est un résidu quadratique, $-1$ sinon, et $0$ si $p|a$.
+\end{definition}
+
+\begin{theorem}[Loi de Réciprocité Quadratique de Gauss]
+    Soient $p$ et $q$ deux nombres premiers impairs distincts. Alors :
+    $$ \left(\frac{p}{q}\right) \left(\frac{q}{p}\right) = (-1)^{\frac{p-1}{2}\frac{q-1}{2}} $$
+    \textbf{Lois complémentaires :} $\left(\frac{-1}{p}\right) = (-1)^{(p-1)/2}$ et $\left(\frac{2}{p}\right) = (-1)^{(p^2-1)/8}$.
+\end{theorem}
+
+\begin{remark}[Un Dialogue entre les Nombres Premiers]
+    Cette loi est stupéfiante. Elle affirme que la question "est-ce que $p$ est un carré modulo $q$ ?" est directement liée à la question "est-ce que $q$ est un carré modulo $p$ ?". Cette symétrie n'a aucune raison apparente d'exister. La chercher à la démontrer a conduit au développement de pans entiers de l'algèbre et de la théorie des nombres.
+\end{remark}
+
+\begin{application}[Calcul efficace du symbole de Legendre]
+    La loi de réciprocité, utilisée conjointement avec la multiplicativité du symbole et les lois complémentaires, permet de calculer $\left(\frac{a}{p}\right)$ de manière très efficace, sans avoir à lister tous les carrés modulo $p$, en utilisant un algorithme similaire à l'algorithme d'Euclide.
+\end{application}
+
+\section{Introduction aux Équations Diophantiennes}
+
+\begin{objectif}
+    Donner un aperçu du domaine qui cherche les solutions entières ou rationnelles d'équations polynomiales. C'est un domaine d'une richesse et d'une difficulté extrêmes, qui connecte l'arithmétique à la géométrie algébrique.
+\end{objectif}
+
+\begin{proposition}[Équations linéaires $ax+by=c$]
+    Cette équation admet des solutions entières $(x,y)$ si et seulement si $\mathrm{pgcd}(a,b)$ divise $c$. L'algorithme d'Euclide étendu permet de trouver une solution particulière.
+\end{proposition}
+
+\begin{theorem}[Triplets Pythagoriciens]
+    Les solutions entières primitives de l'équation $x^2+y^2=z^2$ sont entièrement paramétrées par la formule $(u^2-v^2, 2uv, u^2+v^2)$ où $u, v$ sont des entiers premiers entre eux de parité contraire.
+\end{theorem}
+
+\begin{theorem}[Théorème des deux carrés de Fermat]
+    Un nombre premier impair $p$ peut s'écrire comme une somme de deux carrés, $p = a^2+b^2$, si et seulement si $p \equiv 1 \pmod 4$.
+\end{theorem}
+
+\begin{remark}[Le Pont vers l'Arithmétique des Anneaux]
+    Ce théorème se démontre élégamment en étudiant l'arithmétique de l'anneau des entiers de Gauss $\mathbb{Z}[i]$. Un premier $p$ est une somme de deux carrés si et seulement s'il n'est plus "premier" dans $\mathbb{Z}[i]$ (il se factorise en $(a+ib)(a-ib)$). C'est l'un des premiers exemples où l'étude d'un anneau plus grand que $\mathbb{Z}$ permet de résoudre un problème sur $\mathbb{Z}$.
+\end{remark}
+
+\begin{theorem}[Grand Théorème de Fermat (Wiles, 1994)]
+    Pour tout entier $n \ge 3$, l'équation $x^n+y^n=z^n$ n'a pas de solution en entiers non nuls.
+\end{theorem}
+\begin{remark}[Un Sommet des Mathématiques]
+    La preuve de ce théorème, longue de plus de 100 pages, est un monument des mathématiques du XXe siècle. Elle repose sur des outils extrêmement sophistiqués (courbes elliptiques, formes modulaires), montrant que des questions d'arithmétique élémentaire peuvent être d'une profondeur insondable.
+\end{remark}

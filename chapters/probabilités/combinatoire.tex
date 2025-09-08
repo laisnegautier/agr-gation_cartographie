@@ -1,0 +1,100 @@
+\chapter{Combinatoire et Graphes : L'Art de Dénombrer et de Connecter}
+
+\section{Principes Fondamentaux du Dénombrement}
+
+\begin{objectif}
+    Établir les principes de base du comptage et introduire l'outil le plus puissant de la combinatoire énumérative : les séries génératrices, qui encodent une suite infinie de nombres dans un objet analytique (une série formelle ou une fonction).
+\end{objectif}
+
+\begin{definition}[Coefficients Binomiaux et Formule du Binôme]
+    $\binom{n}{k}$ est le nombre de façons de choisir $k$ objets parmi $n$. Formule du binôme : $(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}$.
+\end{definition}
+
+\begin{proposition}[Formule du Crible de Poincaré (Principe d'Inclusion-Exclusion)]
+    Pour des ensembles finis $A_1, \dots, A_n$ :
+    $$ |\cup_{i=1}^n A_i| = \sum_i |A_i| - \sum_{i<j} |A_i \cap A_j| + \sum_{i<j<k} |A_i \cap A_j \cap A_k| - \dots $$
+\end{proposition}
+\begin{application}[Nombre de dérangements]
+    La formule du crible permet de calculer le nombre de permutations d'un ensemble à $n$ éléments qui n'ont aucun point fixe.
+\end{application}
+
+\begin{definition}[Séries Génératrices]
+    La série génératrice (ordinaire) d'une suite $(a_n)_{n \in \mathbb{N}}$ est la série formelle $A(x) = \sum_{n=0}^\infty a_n x^n$.
+\end{definition}
+\begin{remark}[Un Dictionnaire Combinatoire-Analyse]
+    Les séries génératrices sont un "dictionnaire" qui traduit des opérations combinatoires sur les suites en opérations algébriques sur les séries.
+    \begin{itemize}
+        \item Somme de suites $\leftrightarrow$ Somme des séries.
+        \item Produit de convolution $\leftrightarrow$ Produit des séries.
+        \item Décalage de suite $\leftrightarrow$ Multiplication/Division par $x$.
+    \end{itemize}
+\end{remark}
+
+\begin{example}[Nombres de Fibonacci]
+    La suite de Fibonacci est définie par $F_{n+2} = F_{n+1} + F_n$. Cette relation de récurrence se traduit par une équation sur la série génératrice $F(x)$, ce qui permet de trouver sa fraction rationnelle : $F(x) = \frac{x}{1-x-x^2}$. En décomposant cette fraction en éléments simples, on retrouve la formule de Binet pour $F_n$.
+\end{example}
+
+\begin{example}[Nombres de Catalan]
+    Les nombres de Catalan $C_n$ comptent de très nombreux objets (chemins de Dyck, triangulations de polygones...). Leur série génératrice vérifie une équation quadratique, ce qui permet de trouver une formule explicite pour $C_n$.
+\end{example}
+
+\section{Le Langage des Graphes}
+
+\begin{objectif}
+    Introduire le vocabulaire de base de la théorie des graphes, qui est le langage mathématique pour modéliser des relations entre des objets.
+\end{objectif}
+
+\begin{definition}[Graphe]
+    Un graphe (simple) $G=(V,E)$ est la donnée d'un ensemble de sommets $V$ et d'un ensemble d'arêtes $E \subset \mathcal{P}_2(V)$ (paires de sommets).
+    On définit le degré d'un sommet, la notion de chemin, de cycle, de connexité.
+\end{definition}
+
+\begin{proposition}[Lemme des poignées de main]
+    La somme des degrés des sommets d'un graphe est égale à deux fois le nombre d'arêtes. En particulier, le nombre de sommets de degré impair est pair.
+\end{proposition}
+
+\begin{definition}[Types de Graphes]
+    \begin{itemize}
+        \item \textbf{Graphe complet $K_n$} : Tous les sommets sont reliés.
+        \item \textbf{Graphe biparti} : L'ensemble des sommets peut être partitionné en deux ensembles $X,Y$ tels que toute arête relie un sommet de $X$ à un sommet de $Y$.
+        \item \textbf{Arbre} : Graphe connexe et sans cycle.
+    \end{itemize}
+\end{definition}
+\begin{theorem}[Caractérisation des arbres]
+    Un graphe à $n$ sommets est un arbre si et seulement s'il est connexe et a $n-1$ arêtes.
+\end{theorem}
+
+\section{Théorèmes Fondamentaux de la Théorie des Graphes}
+
+\begin{objectif}
+    Présenter quelques résultats classiques et puissants qui illustrent les différents types de questions que l'on se pose en théorie des graphes.
+\end{objectif}
+
+\begin{theorem}[Cycles Eulériens et Hamiltoniens]
+    \begin{itemize}
+        \item \textbf{(Euler)} Un graphe connexe admet un cycle eulérien (qui passe par chaque arête exactement une fois) si et seulement si tous ses sommets sont de degré pair.
+        \item \textbf{(Hamiltonien)} Trouver une condition nécessaire et suffisante pour l'existence d'un cycle hamiltonien (qui passe par chaque sommet exactement une fois) est un problème NP-complet. C'est le problème du voyageur de commerce.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Théorème de Hall sur les Mariages]
+    Dans un graphe biparti $G=(X \cup Y, E)$, il existe un couplage parfait (qui couvre tous les sommets de $X$) si et seulement si pour tout sous-ensemble $A \subset X$, le nombre de ses voisins $|N(A)|$ est au moins égal à $|A|$.
+\end{theorem}
+\begin{remark}[La Condition du Voisinage]
+    Ce théorème est le prototype des résultats de "combinatoire extrémale". Il donne une condition locale (sur les sous-ensembles) qui garantit une propriété globale (l'existence d'un couplage).
+\end{remark}
+
+\begin{definition}[Coloration de Graphe]
+    Une $k$-coloration d'un graphe est une attribution d'une couleur (parmi $k$) à chaque sommet de sorte que deux sommets adjacents aient des couleurs différentes. Le nombre chromatique $\chi(G)$ est le plus petit $k$ pour lequel une telle coloration existe.
+\end{definition}
+
+\begin{theorem}[Théorème des Quatre Couleurs (admis)]
+    Tout graphe planaire (qui peut être dessiné sur un plan sans que les arêtes ne se croisent) a un nombre chromatique inférieur ou égal à 4.
+\end{theorem}
+
+\begin{theorem}[Théorème de Turan (cas simple)]
+    Le nombre maximal d'arêtes dans un graphe à $n$ sommets qui ne contient aucun triangle ($K_3$) est $\lfloor n^2/4 \rfloor$. Ce maximum est atteint par le graphe biparti complet équilibré.
+\end{theorem}
+\begin{remark}[Théorie Extrémale]
+    Ce résultat est le point de départ de la théorie des graphes extrémale, qui cherche à déterminer le nombre maximal d'arêtes qu'un graphe peut avoir sans contenir un certain sous-graphe interdit.
+\end{remark}

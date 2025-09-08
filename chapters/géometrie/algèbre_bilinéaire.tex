@@ -1,0 +1,85 @@
+\chapter{Algèbre Bilinéaire : La Géométrie Cachée des Espaces Vectoriels}
+
+\section{Formes Bilinéaires et Dualité}
+
+\begin{objectif}
+    Enrichir la structure d'un espace vectoriel en introduisant une nouvelle opération : une manière de "multiplier" deux vecteurs pour obtenir un scalaire. Cette opération, la forme bilinéaire, est le concept le plus fondamental de la géométrie algébrique. On explore le lien intime entre cette nouvelle structure et la dualité.
+\end{objectif}
+
+\begin{definition}[Forme bilinéaire]
+    Soit $E$ un $K$-espace vectoriel. Une application $\phi: E \times E \to K$ est une \textbf{forme bilinéaire} si elle est linéaire par rapport à chaque variable.
+    Elle est \textbf{symétrique} si $\phi(x,y)=\phi(y,x)$ et \textbf{antisymétrique} si $\phi(x,y)=-\phi(y,x)$.
+\end{definition}
+
+\begin{definition}[Matrice d'une forme bilinéaire]
+    Dans une base $\mathcal{B}=(e_i)$ de $E$, la matrice de $\phi$ est $M = (\phi(e_i, e_j))_{i,j}$. La formule de changement de base est $M' = P^T M P$, où $P$ est la matrice de passage. On dit que les matrices $M$ et $M'$ sont \textbf{congruentes}.
+\end{definition}
+
+\begin{definition}[Forme non-dégénérée et Rang]
+    Le \textbf{noyau} d'une forme bilinéaire $\phi$ est $N = \{ x \in E \mid \forall y \in E, \phi(x,y)=0 \}$.
+    $\phi$ est \textbf{non-dégénérée} si son noyau est réduit à $\{0\}$.
+    Le \textbf{rang} de $\phi$ est le rang de sa matrice dans n'importe quelle base.
+\end{definition}
+
+\begin{proposition}[Lien avec la dualité]
+    Une forme bilinéaire $\phi$ induit deux morphismes canoniques de $E$ dans son dual $E^*$, donnés par $\phi_g: x \mapsto \phi(x, \cdot)$ et $\phi_d: y \mapsto \phi(\cdot, y)$.
+    $\phi$ est non-dégénérée si et seulement si ces morphismes sont des isomorphismes.
+\end{proposition}
+\begin{remark}[La Géométrie vient de l'Identification à l'Espace Dual]
+    C'est une idée très profonde. Une forme bilinéaire non-dégénérée permet d'identifier l'espace $E$ (points) avec son dual $E^*$ (formes linéaires / "hyperplans"). C'est cette identification qui est à l'origine de toute la géométrie de l'espace.
+\end{remark}
+
+\section{Formes Quadratiques : L'Étude des "Longueurs au Carré"}
+
+\begin{objectif}
+    Se concentrer sur le cas des formes bilinéaires symétriques, qui sont plus riches. Toute forme bilinéaire symétrique $\phi$ définit une "fonction longueur au carré", la forme quadratique $q(x) = \phi(x,x)$, qui capture l'essentiel de la géométrie. On cherche à simplifier ces formes quadratiques en trouvant une "bonne" base.
+\end{objectif}
+
+\begin{definition}[Forme quadratique]
+    Une application $q: E \to K$ est une \textbf{forme quadratique} s'il existe une forme bilinéaire $\phi$ telle que $q(x)=\phi(x,x)$. Si la caractéristique du corps est différente de 2, il existe une unique forme bilinéaire symétrique (la forme polaire) associée à $q$, donnée par la formule de polarisation :
+    $$ \phi(x,y) = \frac{1}{2} (q(x+y) - q(x) - q(y)) $$
+\end{definition}
+
+\begin{definition}[Orthogonalité]
+    Deux vecteurs $x,y$ sont \textbf{orthogonaux} pour $\phi$ si $\phi(x,y)=0$. L'orthogonal d'une partie $A \subset E$ est $A^\perp = \{ x \in E \mid \forall a \in A, \phi(x,a)=0 \}$. Une base est orthogonale si ses vecteurs sont deux à deux orthogonaux.
+\end{definition}
+
+\begin{theorem}[Réduction de Gauss]
+    Toute forme quadratique sur un espace de dimension finie (en car. $\neq 2$) est "diagonalisable". C'est-à-dire qu'il existe une base orthogonale $(e_i)$ dans laquelle la forme quadratique s'écrit comme une somme de carrés :
+    $$ q(x_1 e_1 + \dots + x_n e_n) = \sum_{i=1}^n \lambda_i x_i^2 \quad (\text{avec } \lambda_i = q(e_i)) $$
+    L'algorithme de décomposition de Gauss est une procédure effective pour trouver une telle base.
+\end{theorem}
+
+\section{La Loi d'Inertie de Sylvester : Classifier les Géométries}
+
+\begin{objectif}
+    Aller au-delà de la "diagonalisation" et classifier les formes quadratiques sur les corps $\mathbb{R}$ et $\mathbb{C}$. Le résultat central est la loi d'inertie de Sylvester, qui affirme qu'une forme quadratique réelle est entièrement caractérisée par un couple d'entiers : sa signature.
+\end{objectif}
+
+\begin{theorem}[Classification sur $\mathbb{C}$]
+    Deux formes quadratiques sur un $\mathbb{C}$-espace vectoriel de dimension finie sont équivalentes (i.e. peuvent être représentées par la même matrice dans des bases bien choisies) si et seulement si elles ont le même rang. Toute forme quadratique de rang $r$ peut s'écrire $x_1^2 + \dots + x_r^2$ dans une certaine base.
+\end{theorem}
+
+\begin{theorem}[Loi d'Inertie de Sylvester]
+    Soit $q$ une forme quadratique sur un $\mathbb{R}$-espace vectoriel de dimension finie. Il existe une base orthogonale dans laquelle $q(x)$ s'écrit :
+    $$ q(x) = \sum_{i=1}^s x_i^2 - \sum_{i=s+1}^{s+t} x_i^2 $$
+    Le couple d'entiers $(s,t)$ ne dépend pas de la base choisie. C'est la \textbf{signature} de la forme quadratique. Le rang est $r=s+t$.
+\end{theorem}
+
+\begin{remark}[Une Classification des Géométries]
+    La signature est l'invariant fondamental qui classifie toutes les géométries "bilinéaires" sur un espace vectoriel réel.
+    \begin{itemize}
+        \item Signature $(n,0)$ : Géométrie \textbf{Euclidienne}. La "longueur au carré" est toujours positive.
+        \item Signature $(n-1,1)$ : Géométrie \textbf{Lorentzienne} ou de \textbf{Minkowski}. C'est le cadre de la relativité restreinte, où le temps a un signe opposé aux dimensions d'espace.
+        \item Signature $(p,q)$ quelconque : Géométrie \textbf{pseudo-riemannienne}.
+    \end{itemize}
+\end{remark}
+
+\begin{definition}[Forme définie et Cône isotrope]
+    Une forme quadratique $q$ est :
+    \begin{itemize}
+        \item \textbf{Définie positive} si $q(x)>0$ pour tout $x \neq 0$. (Signature $(n,0)$)
+        \item \textbf{Définie négative} si $q(x)<0$ pour tout $x \neq 0$. (Signature $(0,n)$)
+    \end{itemize}
+    Le \textbf{cône isotrope} est l'ensemble des vecteurs non nuls $x$ tels que $q(x)=0$. Pour une forme définie, il est vide. Pour la métrique de Minkowski, c'est le "cône de lumière".
+\end{definition}

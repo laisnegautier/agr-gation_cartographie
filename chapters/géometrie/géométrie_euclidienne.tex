@@ -1,0 +1,104 @@
+\chapter{Géométrie Euclidienne : La Structure de notre Intuition}
+
+\section{Le Produit Scalaire : La Mesure des Longueurs et des Angles}
+
+\begin{objectif}
+    Se spécialiser au cas le plus important et le plus intuitif de l'algèbre bilinéaire : les espaces euclidiens, où la forme bilinéaire est symétrique et définie positive. Cette positivité est la clé qui permet de définir des notions familières de longueur, distance et angle, jetant un pont entre l'algèbre abstraite et la géométrie de notre perception.
+\end{objectif}
+
+\begin{definition}[Produit Scalaire et Espace Euclidien]
+    Un \textbf{produit scalaire} sur un $\mathbb{R}$-espace vectoriel $E$ est une forme bilinéaire symétrique définie positive, notée $\langle \cdot, \cdot \rangle$.
+    Un espace vectoriel de dimension finie muni d'un produit scalaire est un \textbf{espace euclidien}.
+\end{definition}
+
+\begin{definition}[Norme et Distance Euclidiennes]
+    La norme euclidienne associée est $\|x\| = \sqrt{\langle x, x \rangle}$. La distance est $d(x,y) = \|x-y\|$.
+\end{definition}
+
+\begin{theorem}[Inégalité de Cauchy-Schwarz]
+    Pour tout $x,y \in E$, on a $|\langle x, y \rangle| \le \|x\| \|y\|$, avec égalité si et seulement si les vecteurs sont colinéaires.
+\end{theorem}
+\begin{remark}[La Notion d'Angle]
+    Cette inégalité est fondamentale car elle garantit que la quantité $\frac{\langle x, y \rangle}{\|x\| \|y\|}$ est toujours dans $[-1, 1]$, ce qui permet de \textit{définir} l'angle $\theta$ entre deux vecteurs non nuls par $\cos(\theta) = \frac{\langle x, y \rangle}{\|x\| \|y\|}$.
+\end{remark}
+
+\section{Orthogonalité et Bases Orthonormées}
+
+\begin{objectif}
+    Exploiter la notion d'orthogonalité pour construire les "meilleures" bases possibles pour un espace euclidien : les bases orthonormées. Dans une telle base, tous les calculs (projections, coordonnées, distances) deviennent extraordinairement simples.
+\end{objectif}
+
+\begin{definition}[Base Orthonormée]
+    Une base $(e_i)$ est \textbf{orthonormée} si $\langle e_i, e_j \rangle = \delta_{ij}$ (symbole de Kronecker).
+\end{definition}
+
+\begin{proposition}[Calculs dans une base orthonormée]
+    Si $\mathcal{B}=(e_i)$ est une base orthonormée, les coordonnées d'un vecteur $x$ sont simplement $x_i = \langle x, e_i \rangle$. Le produit scalaire et la norme se calculent comme à l'accoutumée :
+    $$ \langle x, y \rangle = \sum_i x_i y_i \quad \text{et} \quad \|x\|^2 = \sum_i x_i^2 $$
+\end{proposition}
+\begin{remark}[La Simplification Ultime]
+    Une base orthonormée est le "système de coordonnées cartésiennes" idéal. Elle transforme la géométrie euclidienne abstraite en l'algèbre vectorielle simple de $\mathbb{R}^n$ avec son produit scalaire usuel.
+\end{remark}
+
+\begin{theorem}[Procédé d'Orthonormalisation de Gram-Schmidt]
+    A partir de n'importe quelle base d'un espace euclidien, on peut construire une base orthonormée.
+\end{theorem}
+
+\begin{corollary}
+    Tout espace euclidien admet une base orthonormée.
+\end{corollary}
+
+\begin{theorem}[Projection Orthogonale]
+    Soit $F$ un sous-espace vectoriel d'un espace euclidien $E$. Alors $E = F \oplus F^\perp$. Tout vecteur $x \in E$ se décompose de manière unique en $x = p_F(x) + p_{F^\perp}(x)$, où $p_F(x)$ est la projection orthogonale de $x$ sur $F$. De plus, $p_F(x)$ est le point de $F$ le plus proche de $x$.
+\end{theorem}
+
+\section{Les Transformations Euclidiennes : Isométries et Similitudes}
+
+\begin{objectif}
+    Étudier les transformations qui préservent la structure euclidienne. Ce sont les "symétries" de l'espace euclidien. On se concentrera sur les isométries (qui préservent les distances) et on montrera qu'elles forment un groupe fondamental, le groupe orthogonal.
+\end{objectif}
+
+\begin{definition}[Isométrie (Endomorphisme Orthogonal)]
+    Un endomorphisme $u \in \mathcal{L}(E)$ est une \textbf{isométrie} (ou est orthogonal) s'il préserve le produit scalaire : $\forall x,y, \langle u(x), u(y) \rangle = \langle x, y \rangle$.
+    Cela équivaut à préserver la norme.
+\end{definition}
+
+\begin{definition}[Groupe Orthogonal $O(E)$]
+    L'ensemble des isométries de $E$ forme un groupe pour la composition, appelé \textbf{groupe orthogonal} et noté $O(E)$.
+    La matrice d'une isométrie dans une base orthonormée est une matrice orthogonale ($M^T M = I_n$).
+\end{definition}
+
+\begin{theorem}[Classification des isométries en dimension 2]
+    Toute isométrie du plan euclidien est soit une \textbf{rotation} (si $\det=1$), soit une \textbf{réflexion} (si $\det=-1$).
+\end{theorem}
+
+\begin{theorem}[Théorème de Rotation d'Euler]
+    Toute isométrie directe (de déterminant 1) de l'espace euclidien de dimension 3 est une \textbf{rotation} autour d'un axe.
+\end{theorem}
+
+\section{Endomorphismes d'un Espace Euclidien et Théorème Spectral}
+
+\begin{objectif}
+    Utiliser la structure euclidienne pour étudier les endomorphismes. L'existence d'un produit scalaire permet de définir l'adjoint d'un endomorphisme, ce qui mène à la classe très importante des endomorphismes auto-adjoints (ou symétriques). Le théorème spectral est le résultat culminant, montrant que ces endomorphismes sont précisément ceux que l'on peut diagonaliser dans une "bonne" base géométrique (orthonormée).
+\end{objectif}
+
+\begin{proposition}[Adjoint d'un endomorphisme]
+    Pour tout $u \in \mathcal{L}(E)$, il existe un unique endomorphisme $u^*$, appelé l'\textbf{adjoint} de $u$, tel que :
+    $$ \forall x,y \in E, \quad \langle u(x), y \rangle = \langle x, u^*(y) \rangle $$
+    Dans une base orthonormée, la matrice de $u^*$ est la transposée de la matrice de $u$.
+\end{proposition}
+
+\begin{definition}[Endomorphisme auto-adjoint (ou symétrique)]
+    Un endomorphisme $u$ est \textbf{auto-adjoint} (ou symétrique) si $u=u^*$.
+\end{definition}
+
+\begin{theorem}[Théorème Spectral]
+    Un endomorphisme d'un espace euclidien est auto-adjoint si et seulement s'il existe une base orthonormée de $E$ formée de vecteurs propres de $u$.
+\end{theorem}
+\begin{remark}[Le Triomphe de la Géométrie]
+    C'est la version "euclidienne" de la réduction. Alors que la simple diagonalisation ne garantit rien sur la géométrie de la base de vecteurs propres, le théorème spectral garantit que pour les endomorphismes symétriques, on peut trouver une base qui est "parfaite" à la fois pour l'algèbre (elle diagonalise) et pour la géométrie (elle est orthonormée).
+\end{remark}
+
+\begin{application}[Décomposition en valeurs singulières (SVD)]
+    Même si un endomorphisme $u$ n'est pas symétrique, l'endomorphisme $u^*u$ l'est. En appliquant le théorème spectral à $u^*u$, on peut démontrer la décomposition en valeurs singulières : tout endomorphisme $u$ peut s'écrire $u = O_1 D O_2$, où $O_1, O_2$ sont des isométries et $D$ est "diagonale". C'est un outil fondamental en analyse de données (ACP), en traitement d'images, etc.
+\end{application}

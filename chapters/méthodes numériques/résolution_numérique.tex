@@ -1,0 +1,108 @@
+\chapter{Résolution Numérique : L'Art de l'Approximation Efficace}
+
+\section{Résolution d'Équations Non Linéaires $f(x)=0$}
+
+\begin{objectif}
+    Développer des algorithmes itératifs pour trouver les racines d'une fonction, c'est-à-dire les zéros de $f(x)=0$. La philosophie est de partir d'une estimation et de la raffiner à chaque étape. La qualité d'une méthode se juge à sa vitesse de convergence et à la robustesse de cette convergence.
+\end{objectif}
+
+\begin{definition}[Ordre de convergence]
+    Soit $(x_n)$ une suite qui converge vers $x^*$. La convergence est d'ordre $p$ s'il existe $C>0$ tel que $|x_{n+1}-x^*| \le C |x_n - x^*|^p$.
+    \begin{itemize}
+        \item $p=1$ : Convergence \textbf{linéaire} (l'erreur est réduite d'un facteur constant à chaque étape).
+        \item $p=2$ : Convergence \textbf{quadratique} (le nombre de chiffres significatifs double à chaque étape).
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}[Méthode de la bissection (dichotomie)]
+    Si $f$ est continue sur $[a,b]$ avec $f(a)f(b)<0$, l'algorithme consiste à couper l'intervalle en deux à chaque étape et à conserver la moitié où le changement de signe persiste.
+    La convergence est \textbf{lente} (linéaire, avec un facteur 1/2) mais \textbf{toujours garantie}.
+\end{proposition}
+
+\begin{theorem}[Méthode de Newton]
+    Partant d'une estimation $x_n$, on approxime $f$ par sa tangente en $x_n$. La nouvelle estimation $x_{n+1}$ est le zéro de cette tangente :
+    $$ x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)} $$
+    Si $f$ est $\mathcal{C}^2$ et que $f'(x^*) \neq 0$, la convergence est (localement) \textbf{quadratique}.
+\end{theorem}
+\begin{remark}[La Ferrari des algorithmes]
+    La méthode de Newton est extraordinairement rapide lorsqu'elle converge. Cependant, elle a des défauts : elle nécessite le calcul de la dérivée, et sa convergence n'est que locale. Un mauvais point de départ peut mener à une divergence ou à un comportement chaotique.
+\end{remark}
+
+\begin{application}[Calcul de $\sqrt{a}$]
+    Pour trouver la racine de $f(x)=x^2-a=0$, la méthode de Newton donne l'itération $x_{n+1} = x_n - \frac{x_n^2-a}{2x_n} = \frac{1}{2}(x_n + \frac{a}{x_n})$. C'est l'algorithme de Héron, utilisé par les Babyloniens.
+\end{application}
+
+\section{Interpolation et Approximation Polynomiale}
+
+\begin{objectif}
+    Étant donné un ensemble de points (des données), construire une fonction (souvent un polynôme) qui passe par ces points (interpolation) ou qui les "approche au mieux" (approximation).
+\end{objectif}
+
+\begin{theorem}[Interpolation de Lagrange]
+    Étant donnés $n+1$ points $(x_i, y_i)$ avec des abscisses distinctes, il existe un \textbf{unique} polynôme $P$ de degré au plus $n$ tel que $P(x_i)=y_i$ pour tout $i$.
+    Les polynômes de base de Lagrange $L_i(X) = \prod_{j \neq i} \frac{X-x_j}{x_i-x_j}$ fournissent une construction explicite : $P(X) = \sum y_i L_i(X)$.
+\end{theorem}
+
+\begin{remark}[Phénomène de Runge]
+    L'interpolation polynomiale de haut degré peut être un désastre. Si on interpole la fonction $f(x)=\frac{1}{1+25x^2}$ sur $[-1,1]$ avec des points équidistants, les polynômes d'interpolation oscillent de manière sauvage près des bords lorsque le degré augmente. Cela montre que "plus de points" ne signifie pas toujours "meilleure approximation globale".
+\end{remark}
+
+\begin{proposition}[Nœuds de Tchebychev]
+    Pour minimiser l'erreur d'interpolation sur un intervalle, il faut choisir des nœuds non pas équidistants, mais resserrés sur les bords. Les racines des polynômes de Tchebychev sont un choix quasi-optimal.
+\end{proposition}
+
+\begin{application}[Approximation par les Moindres Carrés]
+    Quand les données $(x_i, y_i)$ sont bruitées, on ne cherche plus un polynôme qui passe exactement par les points, mais un polynôme de bas degré $P$ qui minimise la somme des carrés des erreurs $\sum_i (y_i - P(x_i))^2$. Ce problème d'optimisation se ramène à la résolution d'un système linéaire (les équations normales), ce qui est un problème de projection orthogonale.
+\end{application}
+
+\section{Intégration Numérique (Quadrature)}
+
+\begin{objectif}
+    Calculer une valeur approchée de l'intégrale définie $I = \int_a^b f(x) dx$, souvent parce que l'on ne connaît pas de primitive de $f$.
+\end{objectif}
+
+\begin{definition}[Formules de Newton-Cotes]
+    L'idée est d'approcher $\int_a^b f(x) dx$ par $\int_a^b P(x) dx$, où $P$ est un polynôme d'interpolation de $f$ en des points équidistants.
+    \begin{itemize}
+        \item \textbf{Méthode des rectangles} (degré 0).
+        \item \textbf{Méthode des trapèzes} (degré 1).
+        \item \textbf{Méthode de Simpson} (degré 2), qui est d'ordre 3, étonnamment élevé.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[Formules de Quadrature de Gauss-Legendre]
+    Pour calculer $\int_{-1}^1 f(x) dx$, il est possible de faire beaucoup mieux que Newton-Cotes. Une formule de quadrature de Gauss à $n$ points est de la forme $\sum_{i=1}^n w_i f(x_i)$. En choisissant \textbf{judicieusement} les poids $w_i$ et les nœuds $x_i$ (qui sont les racines du $n$-ième polynôme de Legendre), on peut obtenir une méthode d'ordre $2n-1$, ce qui est extraordinairement efficace.
+\end{theorem}
+
+\section{Algèbre Linéaire Numérique}
+
+\begin{objectif}
+    Développer des algorithmes efficaces et numériquement stables pour résoudre les deux problèmes centraux de l'algèbre linéaire : la résolution de systèmes linéaires $Ax=b$ et le calcul de valeurs propres.
+\end{objectif}
+
+\begin{definition}[Conditionnement]
+    Le \textbf{conditionnement} d'une matrice inversible $A$ est $\mathrm{cond}(A) = \|A\| \|A^{-1}\|$. Il mesure la sensibilité de la solution $x$ aux perturbations des données $A$ et $b$. Si $\mathrm{cond}(A)$ est grand, le problème est \textbf{mal conditionné} et difficile à résoudre numériquement.
+\end{definition}
+
+\begin{proposition}[Méthodes Directes pour $Ax=b$]
+    \begin{itemize}
+        \item \textbf{Élimination de Gauss et Décomposition LU :} C'est l'algorithme de base, qui consiste à transformer $A$ en une matrice triangulaire supérieure $U$ par des opérations élémentaires sur les lignes, ce qui revient à factoriser $A=LU$. La \textbf{stratégie du pivot partiel} est essentielle pour garantir la stabilité numérique.
+        \item \textbf{Décomposition de Cholesky :} Si $A$ est symétrique définie positive, on peut la factoriser sous la forme $A=B B^T$, où $B$ est triangulaire inférieure. C'est deux fois plus rapide que LU.
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}[Méthodes Itératives pour $Ax=b$]
+    Pour les systèmes très grands et creux (issus des EDP), les méthodes directes sont trop coûteuses. On utilise des méthodes itératives qui construisent une suite $x_k$ convergeant vers la solution. L'idée est de décomposer $A=M-N$ et d'itérer $M x_{k+1} = N x_k + b$.
+    \begin{itemize}
+        \item \textbf{Méthode de Jacobi :} $M$ est la diagonale de $A$.
+        \item \textbf{Méthode de Gauss-Seidel :} $M$ est la partie triangulaire inférieure de $A$.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Convergence des méthodes itératives]
+    La suite $(x_k)$ converge vers la solution de $Ax=b$ pour tout $x_0$ si et seulement si le rayon spectral de la matrice d'itération $J=M^{-1}N$ est strictement inférieur à 1.
+\end{theorem}
+
+\begin{application}[Calcul de valeurs propres : Méthode de la puissance]
+    Pour trouver la valeur propre de plus grand module d'une matrice $A$, on peut utiliser l'algorithme simple de la \textbf{méthode de la puissance} : on part d'un vecteur $x_0$ et on calcule la suite $x_{k+1} = \frac{A x_k}{\|A x_k\|}$. Sous de bonnes conditions, cette suite converge vers le vecteur propre associé à la valeur propre dominante.
+\end{application}

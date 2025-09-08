@@ -1,0 +1,264 @@
+\chapter{Algèbre linéaire}
+
+\section{Espace vectoriel}
+
+Soit $\IK$ un corps commutatif.
+\begin{definition}[Axiomes d'un $\IK$-espace vectoriel]
+\end{definition}
+
+\begin{definition}[Famille libre]
+\end{definition}
+
+\begin{definition}[Famille génératrice]
+\end{definition}
+
+\begin{definition}[Base]
+\end{definition}
+
+\begin{definition}[Dimension]
+	$n\in\IN$ si base est de cardinal fini.
+\end{definition}
+
+\begin{definition}[Sous-espace vectoriel]
+	Soit $A$ une partie de $E$ un $\IK$-e.v.
+	On note $\Vect A$ le \emph{sous-espace vectoriel}
+	$$\Vect A = \cap_{S\subset E} S$$
+	de tout $\IK$-e.v. $S$ contenant $A$.
+\end{definition}
+
+\begin{definition}[Stabilité]
+\end{definition}
+
+\begin{proposition}[Critère pour déterminer si c'est un e.v.]
+	Critère pour déterminer si un ensemble est un e.v. : 
+	en utilisant le fait que c'est un s.e.v d'un e.v. le contenant.
+	Exemple : fonctions continues de R dans R est un sev de l'ev des fonctions de R dans R.
+\end{proposition}
+
+\begin{definition}[Morphisme d'espaces vectoriel]
+\end{definition}
+
+\begin{definition}[Endomorphisme]
+\end{definition}
+
+\begin{definition}[Isomorphisme]
+\end{definition}
+
+\begin{definition}[Automorphisme]
+\end{definition}
+
+\begin{proposition}[Critère d'injectivité/surjectivité dans le cas fini]
+	E s'injecte dans F si $\card E \leq \card F$.
+	Surjecte si $\geq$.
+	Ne s'applique pas si une des bases est de dimension infinie.
+\end{proposition}
+
+\begin{theorem}[Théorème des bases isomorphes]
+	Deux bases sont de même cardinal s'il existe un isomorphisme entre ces deux bases.
+\end{theorem}
+
+\begin{example}
+	Ici on donne un calcul explicite de comment on "calcul" ou complète une famille libre
+	pour former une base, en utilisant l'élimination de Gauss.
+\end{example}
+
+\begin{definition}[s.e.v. supplémentaires]
+\end{definition}
+
+\begin{remark}
+	Ca permet de décomposer un EV compliqué en sev potentiellement plus simples.
+\end{remark}
+
+\begin{proposition}[Projection d'un vecteur sur un s.e.v]
+	Soit $E = U \oplus V$ de dimension finie.
+	Alors l'écriture de $x\in E$ sur $U$ et $V$ est unique.
+\end{proposition}
+
+\begin{remark}
+	Ici en fait on donne un premier exemple de récupération stratégique d'information
+	sur des vecteurs. Application potentielle qu'on verra un peu plus tard : 
+	décomposer une rotation en angles d'Euler selon une séquence choisie.
+\end{remark}
+
+
+\section{Dualité d'un espace vectoriel}
+Soit $\IK$ un corps commutatif.
+
+-> Objectif : faire comprendre que l'espace des formes linéaires est 
+le point de vue 'relationnel' des e.v.
+\begin{definition}[Forme linéaire]	
+\end{definition}
+
+\begin{definition}[Espace vectoriel dual]
+\end{definition}
+
+\begin{theorem}[Double dual d'un e.v.]
+	Soit $E$ un $\IR$-e.v.
+	Dans le cas fini, $\left(E^*\right)^* = E$.
+\end{theorem}
+
+\begin{remark}
+	Insister sur la naturalité de cet isomorphisme (i.e. il n'est pas de nature constructiviste, contrairement à l'isomorphisme entre un EV et son dual).
+	Egalement, insister sur l'impact de la dualité : le dual d'un e.v. permet d'avoir 
+	une approche plus 'fonctionnelle' des vecteurs, et il se trouve que des fois, il est beaucoup plus
+	facile de travailler dans des espaces de fonctions (notemment parce qu'on peut avoir une structure d'anneau sur cet espace).
+\end{remark}
+
+
+\section{Théorie des endomorphismes}
+
+On suppose $E$ un e.v. de dimension finie.
+
+--> Objectifs : on sépare en 2 parties le cours.
+La première partie consiste à simplement faire de la théorie de matrice.
+La deuxième à faire sur les endomorphismes, et donc à mettre en lien avec les matrices.
+
+Le gros objectif de cette sous-leçon est de faire donner un point de vue un 
+peu plus "géométrique" des e.v., ce qui est -potentiellement- plus naturel pour le jeune mathématicien.
+Sauf que 'géométrique' implique des notions déjà vue au lycée comme l'"orthogonalité" ou le parallélisme.
+Ces notions prennent une forme particulière si on veut s'affranchir de toute notion de norme (et donc ca amène 
+aux espaces quotients).
+
+\subsection{Matrices}
+A FAIRE, et à voir si on ne le met pas en même temps que les endomorphismes.
+
+\subsection{Endomorphisme d'espaces vectoriels}
+\begin{definition}[Groupe linéaire]
+\end{definition}
+
+\begin{definition}[Noyau et image d'un endomorphisme]
+\end{definition}
+
+\begin{proposition}[Critère d'injectivité / surjectivité via noyau/image]
+\end{proposition}
+
+\begin{definition}[Dimension et rang d'un endomorphisme]
+\end{definition}
+
+\begin{definition}[Espace vectoriel quotient]
+\end{definition}
+
+\begin{remark}
+	Vulgariser la notion de quotient comme la notion de complémentaire structuré.
+	Commencer à apporter le fait qu'on peut étudier un sev V de E via son 'complémentaire' E/V.
+	C'est une nouvelle approche lorsque V est trop compliqué: mtn on a soit V, soit son dual, soit E/V, ou soit $(E/V)^*$ comme outils d'études.
+\end{remark}
+
+\begin{definition}[Codimension, conoyau, corang]
+\end{definition}
+
+\begin{definition}[]
+	
+\end{definition}
+
+\begin{definition}[Application transposée]
+\end{definition}
+
+\begin{theorem}[Relations entre $\im f$, $\ker f$, $\im f^t$ et $\ker f^t$]
+	relations entre domaine/codomaine des endomorphismes et leurs transposés.
+\end{theorem}
+\begin{remark}
+	Quel est l'intérêt de ce théorème ?
+	On peut étudier un s.e.v en tant que l'image d'un endomorphisme, et par conséquent
+	l'étudier comme le noyau de cet endo transposé (cf théorème d'après).
+\end{remark}
+
+\begin{theorem}[Théorèmes d'isomorphismes d'e.v. 1 2 et 3]
+	$1. E/\ker f \cong \im f$
+
+	Pour $U\subset V$ deux s.e.v de E,
+	$2. \left(E/V\right) / \left(E/U\right) \cong V/U$
+
+	Et enfin, l'intersection "linéarisée" pour deux $U$ et $V$ s.e.v. quelconques de $E$:
+	$3. E / \left(U \cap V\right) \cong \left(E/U\right)\oplus\left(E/V\right)$
+\end{theorem}
+
+\begin{remark}
+	Ca y est on a une approche quand même beaucoup plus géométrique.
+	Allons encore plus loin : on a réussi à encoder l'intersection avec les e.v.,
+	maintenant on va voir que les endomorphismes d'e.v. encodent également d'autres
+	notions qui ont l'air initialement "métriques" : le volume (ça amène au déterminant et 
+	donc on avoir une partie plus calculatoire sur les matrices en exercices.)
+\end{remark}
+
+\begin{definition}[Déterminant d'un endomorphisme, d'une matrice]
+\end{definition}
+
+\begin{remark}
+	Le signe du déterminant encode l'orientation (utiliser l'exemple
+	des 2 bases canoniques de $\IR^3$ avec les deux mains: il y en 2 qui sont naturelles !)
+
+	Egalement, la valeur du déterminant correspond au volume du parallélogramme formé par la base.
+\end{remark}
+
+\begin{example}
+	Ah ba la plein de calculs exo etc
+\end{example}
+
+Maintenant qu'on a les bases, on passe à ce qui est pratique:
+\section{Réduction d'endomorphisme}
+
+\begin{definition}[Valeurs propres d'un endomorphisme]
+\end{definition}
+
+\begin{definition}[Polynôme caractéristique d'un endomorphisme]
+\end{definition}
+
+\begin{definition}[Sous-espaces stables associés]
+\end{definition}
+
+\begin{theorem}[Supplémentarité des sous-espaces stables]
+\end{theorem}
+
+
+\begin{theorem}[Théorème des noyaux]
+	Preuve utilise surement le théorème précédent.
+\end{theorem}
+
+\begin{remark}
+	Bon maintenant on fait quoi en fait ?
+	Ca a servi à quoi ? Ca c'est une question légitime.
+	On va donc donner des exemples concrets qui sont géométriques.
+	Plus particulièrement, on regarde un sous-groupe de l'e.v. des fonctions,
+	et on va décomposer un vecteur de $\IR^3$ selon une homothétie et une rotation de $O_3(\IR)$
+\end{remark}
+
+
+\begin{definition}[Diagonalisation]
+\end{definition}
+
+\begin{definition}[Trigonalisation]
+\end{definition}
+
+\begin{definition}[Groupe orthogonal]
+\end{definition}
+
+\begin{definition}[Homothétie]
+\end{definition}
+
+\begin{proposition}[Théorème de rotation d'Euler]
+	Décomposition d'un élément du groupe orthogonal (i.e. d'une rotation).
+	Unicité selon la séquence choisie (NB : il n'y a pas de décomposition "canonique" !)
+\end{proposition}
+
+\begin{remark}
+	on en arrive à des décompositions d'endomorphisme en plusieurs parties : on entame donc sur les plus classiques
+\end{remark}
+
+\begin{theorem}[Décomposition de Jordan]
+\end{theorem}
+
+\begin{definition}[Endomorphisme nilpotent]
+\end{definition}
+
+\begin{theorem}[Décomposition de Dunford]
+\end{theorem}
+
+\begin{theorem}[Décomposition de Schur]
+\end{theorem}
+
+\begin{remark}
+	Utiliser ce théorème d'un point de vue calculatoire en utilisant la décomposition de Schur
+	afin de retrouver une première décomposition de la rotation d'un vecteur selon des plans 2-à-2 orthogonaux.
+\end{remark}
+

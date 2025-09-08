@@ -1,0 +1,118 @@
+\chapter{Théorie de la Mesure : Refonder l'Intégrale sur des Bases Solides}
+
+\section{Mesurer les Ensembles : Tribus et Mesures}
+
+\begin{objectif}
+    Construire une théorie rigoureuse de la "taille" (longueur, aire, volume, probabilité...) des ensembles. Confrontés à des ensembles très "exotiques", nous devons abandonner l'idée de pouvoir tout mesurer. L'objectif est de définir une classe d'ensembles "mesurables" (une tribu) suffisamment grande pour tous les besoins de l'analyse, et sur laquelle on peut définir une fonction "mesure" cohérente.
+\end{objectif}
+
+\begin{definition}[Tribu ou $\sigma$-algèbre]
+    Une \textbf{tribu} (ou $\sigma$-algèbre) sur un ensemble $X$ est une collection $\mathcal{A}$ de parties de $X$ telle que :
+    \begin{enumerate}
+        \item $X \in \mathcal{A}$.
+        \item $\mathcal{A}$ est stable par passage au complémentaire.
+        \item $\mathcal{A}$ est stable par union \textbf{dénombrable}.
+    \end{enumerate}
+    Le couple $(X, \mathcal{A})$ est un \textbf{espace mesurable}.
+\end{definition}
+\begin{remark}[La Stabilité Dénombrable]
+    L'hypothèse de stabilité par union \textit{dénombrable} (et non quelconque comme en topologie) est le cœur de la théorie. C'est le bon équilibre : assez forte pour permettre les passages à la limite, mais assez restrictive pour éviter les paradoxes de type Banach-Tarski qui émergent si on essaie de tout mesurer.
+\end{remark}
+
+\begin{definition}[Mesure]
+    Une \textbf{mesure} sur un espace mesurable $(X, \mathcal{A})$ est une fonction $\mu: \mathcal{A} \to [0, \infty]$ telle que $\mu(\emptyset)=0$ et qui est \textbf{$\sigma$-additive} : pour toute suite $(A_n)$ d'ensembles de $\mathcal{A}$ deux à deux disjoints, $\mu(\cup_{n=1}^\infty A_n) = \sum_{n=1}^\infty \mu(A_n)$.
+\end{definition}
+
+\begin{theorem}[Construction de la mesure de Lebesgue (via Carathéodory)]
+    Il existe une unique mesure $\lambda$ sur la tribu borélienne de $\mathbb{R}$ (la plus petite tribu contenant tous les ouverts) qui coïncide avec la longueur sur les intervalles. On peut ensuite compléter cette tribu pour obtenir la \textbf{tribu de Lebesgue}, qui contient tous les ensembles "utiles" à l'analyse, et bien plus.
+\end{theorem}
+
+\begin{example}[Ensembles de mesure nulle]
+    \begin{itemize}
+        \item Tout ensemble dénombrable (comme $\mathbb{Q}$) est de mesure de Lebesgue nulle.
+        \item L'\textbf{ensemble de Cantor} est un exemple de compact non dénombrable, totalement discontinu, et de mesure de Lebesgue nulle. C'est un objet fractal qui montre que la notion de "taille" est subtile.
+    \end{itemize}
+\end{example}
+
+\section{L'Intégrale de Lebesgue : Une Révolution Conceptuelle}
+
+\begin{objectif}
+    Construire une nouvelle intégrale, basée sur une philosophie radicalement différente de celle de Riemann. Au lieu de découper le domaine de définition (l'axe des abscisses), Lebesgue a l'idée de découper le domaine d'arrivée (l'axe des ordonnées).
+\end{objectif}
+
+\begin{definition}[Fonction mesurable]
+    Une fonction $f: (X, \mathcal{A}) \to (Y, \mathcal{B})$ est mesurable si l'image réciproque de tout ensemble mesurable de $Y$ est un ensemble mesurable de $X$. C'est l'analogue de la continuité pour les espaces mesurables.
+\end{definition}
+
+\begin{proposition}[Construction de l'intégrale de Lebesgue]
+    L'intégrale est construite en trois étapes :
+    \begin{enumerate}
+        \item \textbf{Pour les fonctions étagées positives} ($f = \sum a_i \mathbf{1}_{A_i}$) : $\int f d\mu = \sum a_i \mu(A_i)$.
+        \item \textbf{Pour les fonctions mesurables positives} $f \ge 0$ : $\int f d\mu = \sup \{ \int s d\mu \mid s \text{ étagée, } 0 \le s \le f \}$.
+        \item \textbf{Pour une fonction mesurable quelconque} $f$ : On la décompose en $f=f^+ - f^-$. Si $\int |f| d\mu < \infty$, on dit que $f$ est intégrable et on pose $\int f d\mu = \int f^+ d\mu - \int f^- d\mu$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{remark}[La Philosophie de Lebesgue vs. Riemann]
+    Imaginez que vous devez payer une grande somme avec des pièces et des billets.
+    \begin{itemize}
+        \item \textbf{Riemann :} Il prend les pièces et billets dans l'ordre où ils sortent de votre portefeuille (découpage du domaine) et les additionne au fur et à mesure.
+        \item \textbf{Lebesgue :} Il commence par trier toutes les pièces et tous les billets par valeur (découpage du codomaine). Il compte combien il a de pièces de 1€, de 2€, de billets de 5€, etc., puis il fait une seule grande somme : (nb de pièces de 1€)x1€ + (nb de billets de 5€)x5€...
+    \end{itemize}
+    L'approche de Lebesgue est plus sophistiquée, mais bien plus efficace pour des ensembles de valeurs "compliqués". [Image comparing Riemann and Lebesgue integration methods]
+\end{remark}
+
+\section{Les Théorèmes de Convergence : La Puissance Retrouvée}
+
+\begin{objectif}
+    Montrer le gain spectaculaire de cette nouvelle construction. Les problèmes d'interversion de limites et d'intégrales, qui étaient un cauchemar avec l'intégrale de Riemann, sont résolus par des théorèmes d'une élégance et d'une puissance remarquables.
+\end{objectif}
+
+\begin{theorem}[Théorème de Convergence Monotone (Beppo-Levi)]
+    Soit $(f_n)$ une suite croissante de fonctions mesurables positives. Alors :
+    $$ \int \lim_{n\to\infty} f_n d\mu = \lim_{n\to\infty} \int f_n d\mu $$
+    L'interversion est toujours possible, même si la limite est infinie.
+\end{theorem}
+
+\begin{lemma}[Lemme de Fatou]
+    Soit $(f_n)$ une suite de fonctions mesurables positives. Alors :
+    $$ \int \liminf_{n\to\infty} f_n d\mu \le \liminf_{n\to\infty} \int f_n d\mu $$
+\end{lemma}
+
+\begin{theorem}[Théorème de Convergence Dominée de Lebesgue]
+    Soit $(f_n)$ une suite de fonctions mesurables qui converge presque partout vers une fonction $f$. S'il existe une fonction \textbf{intégrable} $g$ (la "dominatrice") telle que $|f_n(x)| \le g(x)$ pour tout $n$ et presque tout $x$, alors $f$ est intégrable et :
+    $$ \int f d\mu = \lim_{n\to\infty} \int f_n d\mu $$
+\end{theorem}
+
+\begin{remark}[La Clé de l'Analyse Moderne]
+    Le théorème de convergence dominée est le "couteau suisse" de l'analyste. L'hypothèse de domination est souvent facile à vérifier et permet de justifier rigoureusement des passages à la limite qui seraient impossibles autrement. C'est l'un des théorèmes les plus utiles de toutes les mathématiques.
+\end{remark}
+
+\section{Le Lien avec l'Analyse Fonctionnelle et Fubini}
+
+\begin{objectif}
+    Connecter la théorie de la mesure à ses deux grandes applications : la construction des espaces fonctionnels modernes ($L^p$) et le calcul d'intégrales multiples (Fubini).
+\end{objectif}
+
+\begin{theorem}[Théorème de Riesz-Fischer]
+    Les espaces de fonctions $L^p(\Omega, \mu)$ sont des espaces de Banach pour tout $p \in [1, \infty]$.
+\end{theorem}
+\begin{remark}[La Résolution du Problème de Complétude]
+    C'est le résultat qui justifie a posteriori toute la construction. En changeant de théorie de l'intégration, on a non seulement gagné en généralité et en puissance, mais on a aussi "réparé" la structure des espaces de fonctions, les rendant complets et donc aptes à l'usage des outils de l'analyse fonctionnelle.
+\end{remark}
+
+\begin{theorem}[Théorèmes de Fubini]
+    Soient $(X, \mathcal{A}, \mu)$ et $(Y, \mathcal{B}, \nu)$ deux espaces mesurés $\sigma$-finis.
+    \begin{itemize}
+        \item \textbf{(Fubini-Tonelli)} Si $f: X \times Y \to [0, \infty]$ est mesurable positive, alors les intégrales itérées et l'intégrale double sont égales (éventuellement infinies). On peut toujours intervertir l'ordre d'intégration.
+        \item \textbf{(Fubini-Lebesgue)} Si $f: X \times Y \to \mathbb{C}$ est \textbf{intégrable} pour la mesure produit, alors les intégrales itérées existent et sont égales à l'intégrale double.
+    \end{itemize}
+\end{theorem}
+
+\begin{application}[Calcul de l'intégrale de Gauss]
+    On veut calculer $I = \int_{-\infty}^\infty e^{-x^2} dx$. On calcule $I^2$ :
+    $$ I^2 = \left( \int_{-\infty}^\infty e^{-x^2} dx \right) \left( \int_{-\infty}^\infty e^{-y^2} dy \right) = \int_{\mathbb{R}^2} e^{-(x^2+y^2)} dx dy $$
+    La fonction $e^{-(x^2+y^2)}$ est positive, donc on peut appliquer Fubini-Tonelli et passer en coordonnées polaires :
+    $$ I^2 = \int_0^{2\pi} \int_0^\infty e^{-r^2} r dr d\theta = 2\pi \left[ -\frac{1}{2} e^{-r^2} \right]_0^\infty = \pi $$
+    D'où $I = \sqrt{\pi}$. Le passage en polaires est rigoureusement justifié par Fubini.
+\end{application}

@@ -1,0 +1,106 @@
+\chapter{Intégration de Riemann : La Gloire et les Limites d'une Idée Intuitive}
+
+
+\section{La Construction de l'Intégrale : L'Idée Géométrique}
+
+\begin{objectif}
+    Construire rigoureusement l'intégrale à partir de l'idée la plus intuitive qui soit : approcher l'aire sous une courbe par des rectangles. On va formaliser cette idée d'approximation par le bas et par le haut (sommes de Darboux) pour "piéger" la valeur de l'intégrale.
+\end{objectif}
+
+\begin{definition}[Subdivisions et Sommes de Darboux]
+    Soit $f: [a,b] \to \mathbb{R}$ une fonction bornée. Soit $\sigma = (x_0, \dots, x_n)$ une subdivision de $[a,b]$. On pose $m_i = \inf_{[x_i, x_{i+1}]} f$ et $M_i = \sup_{[x_i, x_{i+1}]} f$.
+    \begin{itemize}
+        \item La \textbf{somme de Darboux inférieure} est $s(f, \sigma) = \sum_{i=0}^{n-1} m_i (x_{i+1}-x_i)$.
+        \item La \textbf{somme de Darboux supérieure} est $S(f, \sigma) = \sum_{i=0}^{n-1} M_i (x_{i+1}-x_i)$.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}[L'Encadrement]
+    L'idée de Darboux est de créer un encadrement de l'aire "vraie" qui est indépendant de tout choix de points intermédiaires (contrairement aux sommes de Riemann). Pour toute subdivision, on a $s(f, \sigma) \le \text{Aire} \le S(f, \sigma)$. Raffiner une subdivision resserre cet encadrement.
+\end{remark}
+
+\begin{definition}[Intégrabilité au sens de Riemann]
+    Une fonction bornée $f$ est \textbf{Riemann-intégrable} sur $[a,b]$ si son intégrale inférieure et son intégrale supérieure coïncident :
+    $$ \sup_{\sigma} s(f, \sigma) = \inf_{\sigma} S(f, \sigma) $$
+    Cette valeur commune est alors notée $\int_a^b f(x) dx$.
+    Un critère équivalent est que pour tout $\epsilon > 0$, il existe une subdivision $\sigma$ telle que $S(f,\sigma) - s(f,\sigma) < \epsilon$.
+\end{definition}
+
+\section{Le Champ d'Application : Quelles Fonctions sont Intégrables ?}
+
+\begin{objectif}
+    Identifier les classes de fonctions pour lesquelles cette construction fonctionne. On verra que l'intégrale de Riemann est très robuste pour les fonctions "régulières", mais qu'elle est très sensible aux discontinuités "abondantes".
+\end{objectif}
+
+\begin{theorem}[Classes de fonctions intégrables]
+    \begin{itemize}
+        \item Toute fonction \textbf{continue} sur $[a,b]$ est Riemann-intégrable.
+        \item Toute fonction \textbf{monotone} sur $[a,b]$ est Riemann-intégrable.
+        \item Toute fonction continue par morceaux sur $[a,b]$ est Riemann-intégrable.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Critère de Lebesgue pour l'intégrabilité de Riemann]
+    Une fonction bornée $f: [a,b] \to \mathbb{R}$ est Riemann-intégrable si et seulement si l'ensemble de ses points de discontinuité est de \textbf{mesure de Lebesgue nulle}.
+\end{theorem}
+
+\begin{remark}[La Puissance et la Limite de l'Intégrale de Riemann]
+    Ce théorème est extraordinaire. Il nous dit que l'intégrale de Riemann est "aveugle" aux pathologies qui se produisent sur des ensembles "petits" (de mesure nulle). On peut avoir une infinité de discontinuités, tant qu'elles sont négligeables.
+    Cependant, ce théorème montre aussi la limite de la théorie : pour la comprendre pleinement, on a besoin du langage de la "mesure de Lebesgue", qui est l'objet de la théorie suivante. L'intégrale de Riemann n'est pas auto-contenue.
+\end{remark}
+
+\begin{example}[Des cas fascinants]
+    \begin{itemize}
+        \item La \textbf{fonction de Thomae} (ou "popcorn") est discontinue sur tous les rationnels et continue sur tous les irrationnels de $[0,1]$. L'ensemble de ses discontinuités, $\mathbb{Q} \cap [0,1]$, est dénombrable et donc de mesure nulle. Elle est donc Riemann-intégrable (et son intégrale vaut 0).
+        \item La \textbf{fonction de Dirichlet}, $\mathbf{1}_{\mathbb{Q}}$, est discontinue en tout point de $[0,1]$. L'ensemble de ses discontinuités est $[0,1]$, qui n'est pas de mesure nulle. Elle n'est donc \textbf{pas} Riemann-intégrable.
+    \end{itemize}
+\end{example}
+
+\section{Les Théorèmes Fondamentaux : Le Pont entre Intégrale et Dérivée}
+
+\begin{objectif}
+    Révéler la connexion miraculeuse entre deux concepts a priori distincts : l'intégrale (une notion "globale" d'aire) et la dérivée (une notion "locale" de pente). Ce lien est le cœur du calcul différentiel et intégral.
+\end{objectif}
+
+\begin{theorem}[Premier Théorème Fondamental de l'Analyse]
+    Soit $f: [a,b] \to \mathbb{R}$ une fonction continue. La fonction "aire" $F(x) = \int_a^x f(t) dt$ est de classe $\mathcal{C}^1$ sur $[a,b]$ et vérifie $F'(x) = f(x)$. L'intégration est donc un processus qui "régularise" les fonctions.
+\end{theorem}
+
+\begin{theorem}[Second Théorème Fondamental de l'Analyse]
+    Soit $F: [a,b] \to \mathbb{R}$ une fonction de classe $\mathcal{C}^1$. Alors :
+    $$ \int_a^b F'(t) dt = F(b) - F(a) $$
+\end{theorem}
+\begin{remark}[La Dualité Intégration/Dérivation]
+    Ces deux théorèmes montrent que la dérivation et l'intégration (à une constante près) sont des opérations inverses l'une de l'autre. C'est ce qui rend le calcul d'intégrales possible : au lieu de calculer des limites de sommes de Riemann, il suffit de trouver une primitive.
+\end{remark}
+
+\begin{application}[Formules de calcul]
+    Les deux grandes techniques de calcul d'intégrales, l'\textbf{intégration par parties} et le \textbf{changement de variables}, sont des corollaires directs de ce lien et des formules de dérivation d'un produit et d'une composée.
+\end{application}
+
+\section{Extensions et Limites de la Théorie}
+
+\begin{objectif}
+    Étendre la notion d'intégrale aux domaines non compacts (intervalles infinis) et aux fonctions non bornées. Puis, identifier les faiblesses structurelles profondes de la théorie de Riemann qui motivent la construction d'une nouvelle théorie (celle de Lebesgue).
+\end{objectif}
+
+\begin{definition}[Intégrales Impropres (ou Généralisées)]
+    On étend la notion d'intégrale en passant à la limite :
+    \begin{itemize}
+        \item Sur un intervalle non borné : $\int_a^\infty f(t) dt = \lim_{X \to \infty} \int_a^X f(t) dt$.
+        \item Pour une fonction non bornée en $a$ : $\int_a^b f(t) dt = \lim_{\epsilon \to 0^+} \int_{a+\epsilon}^b f(t) dt$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}[La fonction Gamma d'Euler]
+    La fonction $\Gamma(x) = \int_0^\infty t^{x-1}e^{-t}dt$ est définie par une intégrale impropre aux deux bornes. Elle généralise la factorielle aux nombres complexes.
+\end{example}
+
+\begin{remark}[Les Faiblesses Structurelles de l'Intégrale de Riemann]
+    Malgré son succès, la théorie de Riemann souffre de deux défauts majeurs qui la rendent inadaptée à l'analyse moderne.
+    \begin{enumerate}
+        \item \textbf{Le problème de la complétude :} L'espace des fonctions Riemann-intégrables sur $[a,b]$, muni de la norme $L^1$ ou $L^2$, n'est \textbf{pas un espace de Banach}. Il y a des suites de Cauchy de fonctions Riemann-intégrables qui convergent vers des fonctions non-Riemann-intégrables. C'est un cadre trop "troué" pour l'analyse fonctionnelle.
+        \item \textbf{Le problème de l'interversion des limites :} Les théorèmes permettant d'intervertir les limites et l'intégrale sont très faibles. La convergence simple ne suffit pas, et même la convergence dominée requiert des hypothèses très fortes (comme la convergence uniforme) qui sont souvent fausses en pratique.
+    \end{enumerate}
+    Ces défauts ne sont pas des problèmes techniques que l'on peut "réparer". Ils sont inhérents à la construction même de l'intégrale, basée sur le découpage du domaine de définition. Pour les surmonter, il faudra changer de philosophie : c'est l'objet de la théorie de la mesure et de l'intégration de Lebesgue.
+\end{remark}

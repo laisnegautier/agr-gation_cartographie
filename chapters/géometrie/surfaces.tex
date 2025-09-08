@@ -1,0 +1,83 @@
+\chapter{Surfaces et Variétés : De la Géométrie Locale au Global}
+
+\section{La Notion de Variété : L'Abstraction d'une "Surface"}
+
+\begin{objectif}
+    Généraliser la notion de surface. Une variété est un espace topologique qui "ressemble localement" à $\mathbb{R}^n$, mais dont la structure globale peut être très compliquée (tore, sphère...). C'est le cadre naturel pour faire de la géométrie et de l'analyse sur des espaces courbes, sans forcément les voir comme des objets plongés dans un $\mathbb{R}^N$ plus grand.
+\end{objectif}
+
+\begin{definition}[Sous-variété de $\mathbb{R}^N$]
+    Une partie $M \subset \mathbb{R}^N$ est une \textbf{sous-variété} de dimension $n$ si, pour tout point $p \in M$, il existe un voisinage $U$ de $p$ dans $\mathbb{R}^N$ et une submersion $f: U \to \mathbb{R}^{N-n}$ telle que $M \cap U = f^{-1}(0)$.
+    (Autres définitions équivalentes : redressement par un difféomorphisme, graphe local).
+\end{definition}
+
+\begin{example}
+    La sphère $\mathbb{S}^2 = \{(x,y,z) \mid x^2+y^2+z^2=1\}$ est une sous-variété de dimension 2 de $\mathbb{R}^3$. Le groupe orthogonal $O(n)$ est une sous-variété de l'espace des matrices $\mathcal{M}_n(\mathbb{R})$.
+\end{example}
+
+\begin{definition}[Variété Différentielle Abstraite]
+    Une \textbf{variété différentielle} de dimension $n$ est un espace topologique séparé à base dénombrable $M$ muni d'un \textbf{atlas}, c'est-à-dire une collection de cartes $(U_i, \phi_i)$ où les $U_i$ recouvrent $M$, $\phi_i: U_i \to \mathbb{R}^n$ est un homéomorphisme sur un ouvert, et les applications de changement de cartes $\phi_j \circ \phi_i^{-1}$ sont des difféomorphismes.
+\end{definition}
+\begin{remark}[La Terre est une variété]
+    La Terre est une sphère. On ne peut pas la représenter avec une seule carte plane sans singularités (aux pôles). Un atlas est une collection de cartes qui se chevauchent et décrivent la totalité du globe. Les changements de cartes assurent que les notions de "dérivabilité" sont compatibles entre les différentes cartes.
+\end{remark}
+
+\section{L'Espace Tangent et les Géodésiques}
+
+\begin{objectif}
+    Définir l'analogue d'un "vecteur vitesse" ou d'un "plan tangent" pour une variété abstraite. L'espace tangent en un point est l'espace vectoriel qui constitue la meilleure approximation linéaire de la variété au voisinage de ce point.
+\end{objectif}
+
+\begin{definition}[Espace Tangent $T_p M$]
+    L'espace tangent en un point $p \in M$ peut être défini de plusieurs manières équivalentes : par les classes d'équivalence de courbes paramétrées passant par $p$, ou de manière plus abstraite comme l'espace des dérivations au point $p$. C'est un espace vectoriel de même dimension que la variété.
+\end{definition}
+
+\begin{definition}[Géodésique]
+    Une \textbf{géodésique} est une courbe tracée sur une variété qui généralise la notion de "ligne droite". C'est une courbe qui minimise localement la distance entre les points. De manière équivalente, c'est une courbe dont le vecteur vitesse reste parallèle à lui-même (accélération nulle dans la variété).
+\end{definition}
+
+\begin{example}
+    \begin{itemize}
+        \item Les géodésiques du plan euclidien sont les droites.
+        \item Les géodésiques de la sphère sont les grands cercles.
+        \item Les géodésiques d'un cylindre sont les hélices.
+    \end{itemize}
+\end{example}
+
+\section{Le Théorème de Gauss-Bonnet : Le Pont entre Géométrie et Topologie}
+
+\begin{objectif}
+    Présenter l'un des plus beaux et des plus importants théorèmes de la géométrie, qui relie une quantité purement \textbf{géométrique} (la courbure, qui est locale) à une quantité purement \textbf{topologique} (la caractéristique d'Euler, qui est globale et invariante par déformation).
+\end{objectif}
+
+\begin{definition}[Caractéristique d'Euler-Poincaré]
+    Pour une surface polyédrique, la caractéristique d'Euler est $\chi = S - A + F$ (Sommets - Arêtes + Faces). Pour une surface différentielle compacte, elle peut être définie par une triangulation. C'est un invariant topologique.
+    \begin{itemize}
+        \item Pour une sphère, $\chi = 2$.
+        \item Pour un tore, $\chi = 0$.
+        \item Pour un tore à $g$ trous, $\chi = 2 - 2g$.
+    \end{itemize}
+\end{definition}
+\begin{remark}[Un Invariant Topologique]
+    La caractéristique d'Euler ne change pas si on déforme la surface continûment. Un cube et une sphère ont tous deux $\chi=2$. C'est une mesure du nombre de "trous" de la surface.
+\end{remark}
+
+\begin{theorem}[Formule de Gauss-Bonnet pour un triangle géodésique]
+    Soit $T$ un triangle dont les côtés sont des géodésiques sur une surface $S$, et dont les angles aux sommets sont $\alpha_1, \alpha_2, \alpha_3$. Alors :
+    $$ \iint_T K dA + (\pi - \alpha_1) + (\pi - \alpha_2) + (\pi - \alpha_3) = 2\pi $$
+    Où $K$ est la courbure de Gauss. Ceci peut se réécrire : $\sum \alpha_i - \pi = \iint_T K dA$.
+    La somme des angles d'un triangle n'est plus $\pi$ ! L'excès angulaire est exactement l'intégrale de la courbure.
+\end{theorem}
+
+\begin{theorem}[Théorème de Gauss-Bonnet Global]
+    Soit $S$ une surface compacte, orientable, sans bord. Alors :
+    $$ \iint_S K dA = 2\pi \chi(S) $$
+\end{theorem}
+\begin{remark}[La Connexion Ultime]
+    Ce théorème est un résultat d'une profondeur immense.
+    \begin{itemize}
+        \item Le membre de gauche est de nature \textbf{géométrique/analytique}. Il dépend de la métrique de la surface et se calcule par une intégrale.
+        \item Le membre de droite est de nature \textbf{topologique/combinatoire}. C'est un entier qui ne dépend que de la forme globale de la surface.
+    \end{itemize}
+    Le théorème affirme que peu importe comment on "cabosse" ou déforme une sphère, si on intègre sa courbure de Gauss sur toute sa surface, on trouvera \textit{toujours} $4\pi$ (car $\chi(\mathbb{S}^2)=2$). Pour un tore, on trouvera toujours 0. C'est le point de départ de vastes généralisations au XXe siècle (théorie de l'indice, etc.).
+\end{remark}

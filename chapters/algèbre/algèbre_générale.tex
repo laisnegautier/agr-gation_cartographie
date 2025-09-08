@@ -1,0 +1,113 @@
+\chapter{Algèbre Générale : L'Architecture des Structures}
+
+\section{Le Zoo des Structures Algébriques}
+
+\begin{objectif}
+    Poser les fondations. L'algèbre est l'étude des ensembles munis de lois. Nous allons cartographier le "zoo" des structures algébriques, en partant des plus générales (pauvres en axiomes) vers les plus riches et contraignantes. L'idée est de comprendre que chaque axiome ajouté n'est pas une complication, mais une source de nouveaux théorèmes puissants.
+\end{objectif}
+
+\begin{definition}[Le chemin vers les groupes]
+    \begin{itemize}
+        \item \textbf{Magma $(E, *)$ :} Un simple ensemble avec une loi de composition interne. (Ex: $(\mathbb{Z}, -)$)
+        \item \textbf{Demi-groupe (Semigroup) :} Un magma où la loi est associative. (Ex: $(\mathbb{N}^*, +)$)
+        \item \textbf{Monoïde :} Un demi-groupe avec un élément neutre. (Ex: $(\mathbb{N}, +)$, l'ensemble des mots sur un alphabet avec la concaténation)
+        \item \textbf{Groupe :} Un monoïde où tout élément est inversible. (Ex: $(\mathbb{Z}, +)$, $(\mathbb{Q}^*,\cdot)$)
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Les structures à deux lois]
+    \begin{itemize}
+        \item \textbf{Anneau (Ring) $(A, +, \cdot)$ :} $(A,+)$ est un groupe abélien, $(A,\cdot)$ est un monoïde, et la multiplication est distributive sur l'addition. (Ex: $\mathbb{Z}$, $\mathbb{Z}/n\mathbb{Z}$, les matrices carrées $\mathcal{M}_n(\mathbb{R})$)
+        \item \textbf{Corps (Field) $(K, +, \cdot)$ :} Un anneau commutatif où tout élément non nul est inversible pour la multiplication. (Ex: $\mathbb{Q}, \mathbb{R}, \mathbb{C}, \mathbb{F}_p$)
+    \end{itemize}
+\end{definition}
+
+\begin{remark}[La Richesse vient des Contraintes]
+    Un corps est une structure très "rigide" : presque tout est fixé. C'est pourquoi on a une théorie très puissante (l'algèbre linéaire) sur les corps. Les anneaux sont beaucoup plus variés et "sauvages". Par exemple, dans un anneau général, $ab=0$ n'implique pas $a=0$ ou $b=0$ (diviseurs de zéro). La hiérarchie des structures est une échelle de "rigidité" croissante.
+\end{remark}
+
+\section{Le Triptyque Universel : Sous-structures, Morphismes, Quotients}
+
+\begin{objectif}
+    Dégager les trois concepts transversaux qui forment la grammaire de toute l'algèbre. Quelle que soit la structure, on cherche toujours à comprendre ses parties (sous-structures), les applications qui la préservent (morphismes), et la manière de la simplifier (quotients).
+\end{objectif}
+
+\begin{definition}[Sous-structures]
+    Une sous-structure est une partie d'une structure qui est elle-même une structure du même type avec les lois induites.
+    \begin{itemize}
+        \item \textbf{Sous-groupe :} Stable par la loi et l'inverse.
+        \item \textbf{Sous-anneau :} Stable par $+$ et $\cdot$, contient le neutre multiplicatif.
+        \item \textbf{Idéal :} Le concept clé pour les anneaux. Un sous-groupe additif $I$ de $A$ tel que pour tout $a \in A$ et $x \in I$, $ax \in I$ et $xa \in I$.
+    \end{itemize}
+\end{definition}
+
+\begin{remark}[Pourquoi les idéaux ?]
+    Un sous-anneau n'est pas la "bonne" notion pour construire un quotient d'anneau. L'idéal est exactement la structure qui se comporte comme le noyau d'un morphisme d'anneau. Il est "absorbant", ce qui permet de définir une multiplication cohérente sur les classes d'équivalence.
+\end{remark}
+
+\begin{definition}[Morphismes]
+    Un morphisme est une application entre deux structures de même type qui "respecte" les lois. Le \textbf{noyau} est l'ensemble des éléments envoyés sur l'élément neutre. L'\textbf{image} est l'ensemble des éléments atteints.
+\end{definition}
+
+\begin{theorem}[Le Premier Théorème d'Isomorphisme (Forme Générale)]
+    Pour tout morphisme $\phi: A \to B$, l'image $\mathrm{Im}(\phi)$ est isomorphe à l'ensemble de départ $A$ "quotienté par ce qui est rendu trivial", c'est-à-dire le noyau $\ker(\phi)$.
+    \begin{itemize}
+        \item Pour les groupes : $G/\ker(\phi) \cong \mathrm{Im}(\phi)$.
+        \item Pour les anneaux : $A/\ker(\phi) \cong \mathrm{Im}(\phi)$.
+    \end{itemize}
+\end{theorem}
+
+\section{L'Action : Quand les Structures Agissent sur le Monde}
+
+\begin{objectif}
+    Montrer que l'algèbre devient véritablement puissante quand on l'utilise pour décrire les transformations d'autres objets. L'étude des actions de groupes est fondamentale, mais on peut généraliser cette idée aux anneaux via la notion de module, unifiant ainsi l'algèbre linéaire et la théorie des groupes abéliens.
+\end{objectif}
+
+\begin{definition}[Module sur un anneau]
+    Soit $A$ un anneau. Un \textbf{$A$-module} est la généralisation d'un espace vectoriel où les scalaires sont pris dans l'anneau $A$ au lieu d'un corps. C'est un groupe abélien $(M,+)$ muni d'une "multiplication par les scalaires" de $A$ qui est distributive et associative.
+\end{definition}
+
+\begin{example}
+    \begin{itemize}
+        \item Si $A$ est un corps $K$, un $A$-module est un $K$-espace vectoriel.
+        \item Tout groupe abélien est un $\mathbb{Z}$-module.
+        \item Soit $u$ un endomorphisme d'un $K$-espace vectoriel $V$. Alors $V$ peut être muni d'une structure de $K[X]$-module où le polynôme $X$ agit comme l'endomorphisme $u$.
+    \end{itemize}
+\end{example}
+
+\begin{theorem}[Théorème de Structure des Modules de Type Fini sur un Anneau Principal]
+    Soit $A$ un anneau principal et $M$ un $A$-module de type fini. Alors $M$ se décompose de manière unique en une somme directe :
+    $$ M \cong A^r \oplus A/(a_1) \oplus A/(a_2) \oplus \dots \oplus A/(a_k) $$
+    où $r$ est le rang de $M$ et les $(a_i)$ sont les facteurs invariants de $M$ ($a_1 | a_2 | \dots | a_k$).
+\end{theorem}
+
+\begin{remark}[Un Théorème "Monstre" Unificateur]
+    Ce théorème abstrait est l'un des plus puissants de l'algèbre. Il unifie des pans entiers des mathématiques. Ses deux applications principales sont des résultats majeurs que l'on démontre habituellement par des voies très différentes.
+\end{remark}
+
+\begin{application}[Classification des groupes abéliens de type fini]
+    Un groupe abélien est un $\mathbb{Z}$-module. $\mathbb{Z}$ est un anneau principal. Le théorème s'applique directement et nous dit que tout groupe abélien de type fini est isomorphe à un produit de la forme $\mathbb{Z}^r \times \mathbb{Z}/n_1\mathbb{Z} \times \dots \times \mathbb{Z}/n_k\mathbb{Z}$. C'est la classification complète de ces groupes.
+\end{application}
+
+\begin{application}[Réduction des endomorphismes]
+    Soit $u \in \mathcal{L}(V)$ où $V$ est un $K$-e.v. de dimension finie. On munit $V$ de sa structure de $K[X]$-module. $K[X]$ est un anneau principal. Le théorème s'applique et la décomposition en facteurs invariants correspond à la \textbf{décomposition de Frobenius} (avec les polynômes compagnons). La décomposition en facteurs primaires (utilisant le lemme des restes chinois) correspond à la \textbf{décomposition de Jordan}. Ce théorème contient donc toute la théorie de la réduction.
+\end{application}
+
+\section{Vers l'Algèbre Universelle et les Catégories}
+
+\begin{objectif}
+    Conclure en ouvrant la porte à une vision plus moderne et abstraite, celle qui définit les objets non par leur contenu, mais par leurs relations avec les autres objets, via les "propriétés universelles". C'est l'essence de la théorie des catégories.
+\end{objectif}
+
+\begin{definition}[Propriété Universelle]
+    Une propriété universelle caractérise un objet $U$ par l'existence et l'unicité d'un morphisme vers (ou depuis) tout autre objet $X$ de la même catégorie.
+\end{definition}
+
+\begin{example}[Propriété universelle du groupe quotient]
+    Soit $H \triangleleft G$. Le groupe quotient $G/H$ et la surjection canonique $\pi: G \to G/H$ sont caractérisés par la propriété universelle suivante : pour tout morphisme de groupes $\phi: G \to K$ tel que $H \subset \ker(\phi)$, il existe un \textbf{unique} morphisme $\tilde{\phi}: G/H \to K$ tel que $\phi = \tilde{\phi} \circ \pi$.
+    Cela signifie que $G/H$ est la manière la plus "économique" et "universelle" de rendre $H$ trivial.
+\end{example}
+
+\begin{remark}[La Pensée Catégorique]
+    Cette approche est au cœur de l'algèbre moderne (et de la géométrie algébrique, topologie algébrique...). On ne construit plus les objets "à la main", on les définit par la propriété qu'ils doivent vérifier. Le produit tensoriel, le groupe libre, la localisation d'anneaux... tous sont définis par des propriétés universelles. C'est un changement de perspective très puissant qui unifie l'ensemble de l'algèbre.
+\end{remark}

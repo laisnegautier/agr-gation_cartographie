@@ -1,0 +1,87 @@
+\chapter{Analyse Convexe : La Géométrie de l'Optimisation}
+
+\section{Le Langage de la Convexité}
+
+\begin{objectif}
+    Introduire les objets fondamentaux de l'analyse convexe. La convexité est une propriété géométrique extraordinairement puissante qui garantit que les minima locaux sont des minima globaux, et qui assure l'existence et l'unicité de solutions à de nombreux problèmes d'approximation.
+\end{objectif}
+
+\begin{definition}[Ensemble Convexe]
+    Une partie $C$ d'un espace vectoriel $E$ est \textbf{convexe} si pour tous $x,y \in C$, le segment $[x,y] = \{tx + (1-t)y \mid t \in [0,1]\}$ est inclus dans $C$.
+\end{definition}
+
+\begin{definition}[Enveloppe Convexe]
+    L'enveloppe convexe d'une partie $A$, notée $\mathrm{conv}(A)$, est le plus petit ensemble convexe contenant $A$.
+\end{definition}
+
+\begin{theorem}[Théorème de Carathéodory]
+    Dans un espace de dimension $n$, tout point de l'enveloppe convexe d'un ensemble $A$ peut s'écrire comme une combinaison convexe de au plus $n+1$ points de $A$.
+\end{theorem}
+
+\begin{definition}[Fonction Convexe]
+    Soit $C$ un convexe. Une fonction $f: C \to \mathbb{R}$ est \textbf{convexe} si pour tous $x,y \in C$ et $t \in [0,1]$ :
+    $$ f(tx + (1-t)y) \le t f(x) + (1-t)f(y) $$
+    Géométriquement, la corde est au-dessus de la courbe. L'épigraphe de $f$ est un ensemble convexe.
+\end{definition}
+
+\begin{proposition}[Caractérisation différentielle]
+    Si $f$ est de classe $\mathcal{C}^1$, $f$ est convexe si et seulement si $\forall x,y, f(y) \ge f(x) + \langle \nabla f(x), y-x \rangle$ (la courbe est au-dessus de ses tangentes).
+    Si $f$ est de classe $\mathcal{C}^2$, $f$ est convexe si et seulement si sa matrice Hessienne est semi-définie positive en tout point.
+\end{proposition}
+
+\section{Théorèmes de Séparation et Points Extrémaux}
+
+\begin{objectif}
+    Montrer comment les ensembles convexes peuvent être étudiés "de l'extérieur" (par les hyperplans qui les séparent) et "de l'intérieur" (par leurs briques de base, les points extrémaux).
+\end{objectif}
+
+\begin{theorem}[Théorèmes de Séparation de Hahn-Banach]
+    C'est la version géométrique du théorème de Hahn-Banach.
+    \begin{itemize}
+        \item \textbf{Première forme :} Deux convexes non vides et disjoints, dont l'un est ouvert, peuvent être séparés par un hyperplan affine.
+        \item \textbf{Seconde forme :} Deux convexes compacts non vides et disjoints peuvent être séparés \textbf{strictement}.
+    \end{itemize}
+\end{theorem}
+\begin{remark}[La Dualité Géométrique]
+    Ces théorèmes sont fondamentaux. Ils impliquent qu'un ensemble convexe fermé est l'intersection de tous les demi-espaces fermés qui le contiennent. Cela permet de ramener l'étude d'un objet convexe complexe à l'étude d'objets beaucoup plus simples, les demi-espaces.
+\end{remark}
+
+\begin{definition}[Point extrémal]
+    Un point $x$ d'un convexe $C$ est \textbf{extrémal} s'il n'est le milieu d'aucun segment non trivial inclus dans $C$. Ce sont les "coins" ou les "sommets" du convexe.
+\end{definition}
+
+\begin{theorem}[Théorème de Krein-Milman]
+    Tout convexe compact d'un espace localement convexe (en particulier, un Banach) est l'enveloppe convexe fermée de ses points extrémaux.
+\end{theorem}
+\begin{remark}[La Reconstruction par les Atomes]
+    Ce théorème est magnifique. Il dit qu'un objet convexe compact, potentiellement très complexe, est entièrement déterminé par ses "atomes", les points extrémaux.
+\end{remark}
+
+\begin{example}
+    \begin{itemize}
+        \item Les points extrémaux d'un polygone sont ses sommets.
+        \item Les points extrémaux d'un disque sont les points de son cercle frontière.
+        \item La boule unité de l'espace $L^1([0,1])$ n'a aucun point extrémal.
+    \end{itemize}
+\end{example}
+
+\section{Autres Théorèmes Géométriques Fondamentaux}
+
+\begin{objectif}
+    Présenter quelques autres résultats classiques de la géométrie convexe en dimension finie.
+\end{objectif}
+
+\begin{theorem}[Théorème de Helly]
+    Soit une famille finie d'au moins $n+1$ ensembles convexes dans $\mathbb{R}^n$. Si toute sous-famille de $n+1$ de ces convexes a une intersection non vide, alors l'intersection de tous les convexes de la famille est non vide.
+\end{theorem}
+
+\begin{theorem}[Théorème du Point Fixe de Brouwer]
+    Toute application continue d'une boule fermée de $\mathbb{R}^n$ dans elle-même admet au moins un point fixe.
+\end{theorem}
+\begin{remark}[Un Résultat Non Constructif]
+    Ce théorème garantit l'existence d'un point fixe, mais ne donne aucune méthode pour le trouver. Sa preuve repose sur des arguments de topologie algébrique (homologie) et n'est pas au programme de l'agrégation, mais le résultat doit être connu.
+\end{remark}
+
+\begin{application}[Équilibre de Nash en théorie des jeux]
+    Le théorème de Brouwer peut être utilisé pour prouver l'existence d'un équilibre de Nash dans un jeu à $n$ joueurs. L'ensemble des stratégies mixtes est un convexe compact, et on construit une fonction continue sur cet ensemble dont les points fixes correspondent aux équilibres.
+\end{application}

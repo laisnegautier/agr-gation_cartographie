@@ -1,0 +1,134 @@
+\chapter{Équations Différentielles : L'Art de Prédire le Futur}
+
+\section{Existence et Unicité : Le Socle Déterministe}
+
+\begin{objectif}
+    Établir le dogme fondamental de la physique classique : le déterminisme. Étant donné un état initial, l'évolution future du système est unique et entièrement déterminée. Le théorème de Cauchy-Lipschitz est la traduction mathématique de ce principe. On explorera la portée et les limites de ce résultat.
+\end{objectif}
+
+\begin{definition}[Problème de Cauchy]
+    Un problème de Cauchy est la donnée d'une équation différentielle $y' = f(t,y)$ et d'une condition initiale $y(t_0) = y_0$, où $f$ est une fonction définie sur un ouvert $U \subset \mathbb{R} \times E$ à valeurs dans un espace de Banach $E$.
+\end{definition}
+
+\begin{theorem}[Théorème de Cauchy-Lipschitz]
+    Si $f$ est continue et \textbf{localement lipschitzienne} par rapport à sa deuxième variable, alors pour toute condition initiale $(t_0, y_0) \in U$, il existe une solution \textbf{locale unique} au problème de Cauchy.
+\end{theorem}
+
+\begin{lemma}[Lemme de Grönwall]
+    C'est le lemme technique clé pour prouver l'unicité et étudier la dépendance des solutions par rapport aux conditions initiales. Il permet de contrôler une fonction qui vérifie une certaine inégalité différentielle.
+\end{lemma}
+
+\begin{theorem}[Théorème d'existence de Peano-Arzelà]
+    Si $f$ est seulement \textbf{continue} (et $E$ de dimension finie), alors il existe au moins une solution locale au problème de Cauchy. L'unicité n'est plus garantie.
+\end{theorem}
+
+\begin{example}[La nécessité de la condition de Lipschitz]
+    Considérons le problème de Cauchy $y' = 3\sqrt[3]{y^2}$ avec $y(0)=0$.
+    \begin{itemize}
+        \item La fonction $y_1(t) = 0$ est une solution évidente.
+        \item La fonction $y_2(t) = t^3$ est aussi une solution.
+    \end{itemize}
+    Il n'y a pas unicité. La fonction $y \mapsto \sqrt[3]{y^2}$ n'est pas lipschitzienne au voisinage de 0.
+\end{example}
+
+\begin{theorem}[Théorème de sortie des compacts]
+    Toute solution maximale $(J, y)$ d'un problème de Cauchy est définie sur un intervalle ouvert $J=]t_{min}, t_{max}[$. Si $t_{max} < \infty$, alors la solution "explose" en temps fini : pour tout compact $K \subset U$, il existe un temps $t_K < t_{max}$ tel que pour $t > t_K$, $(t, y(t)) \notin K$.
+\end{theorem}
+
+\section{Équations Différentielles Linéaires : Un Monde Structuré}
+
+\begin{objectif}
+    Montrer que lorsque les équations sont linéaires, la théorie devient globale et la structure des solutions est entièrement gouvernée par l'algèbre linéaire. C'est l'illustration la plus parfaite de l'interaction entre l'analyse et l'algèbre.
+\end{objectif}
+
+\begin{proposition}[Structure de l'ensemble des solutions]
+    Pour une équation linéaire homogène $y' = A(t)y$, l'ensemble des solutions est un espace vectoriel de dimension $n$ (si $E=\mathbb{R}^n$).
+    Pour l'équation avec second membre $y' = A(t)y + b(t)$, l'ensemble des solutions est un espace affine de la forme $y_p + \ker(L)$, où $y_p$ est une solution particulière.
+\end{proposition}
+
+\begin{definition}[Wronskien]
+    Le wronskien d'une famille de $n$ solutions $(y_1, \dots, y_n)$ est le déterminant $W(t) = \det(y_1(t), \dots, y_n(t))$. Les solutions forment une base si et seulement si leur wronskien est non nul en un point (et donc en tout point).
+\end{definition}
+
+\begin{theorem}[Systèmes Linéaires à Coefficients Constants]
+    Pour le système $Y' = AY$ où $A$ est une matrice constante, la solution unique au problème de Cauchy $Y(t_0)=Y_0$ est donnée par :
+    $$ Y(t) = e^{(t-t_0)A} Y_0 $$
+    où $e^{tA} = \sum_{k=0}^\infty \frac{(tA)^k}{k!}$ est l'exponentielle de matrice.
+\end{theorem}
+
+\begin{remark}[La Réduction des Endomorphismes en action]
+    Le comportement qualitatif de toutes les solutions est entièrement dicté par le spectre de la matrice $A$. Le calcul de $e^{tA}$ se fait via la réduction de $A$ (diagonalisation, décomposition de Dunford).
+    \begin{itemize}
+        \item Les valeurs propres à partie réelle négative induisent une convergence vers 0.
+        \item Les valeurs propres à partie réelle positive induisent une divergence.
+        \item Les parties imaginaires des valeurs propres induisent des oscillations.
+    \end{itemize}
+\end{remark}
+
+\begin{example}[Portraits de phase en dimension 2 pour $Y'=AY$]
+    \begin{itemize}
+        \item $\lambda_1 < \lambda_2 < 0$ : \textbf{Nœud stable}. Toutes les trajectoires convergent vers l'origine.
+        \item $\lambda_1 < 0 < \lambda_2$ : \textbf{Col} ou \textbf{Selle}. Point d'équilibre instable. 
+        \item $\lambda = a \pm ib$ avec $a < 0$ : \textbf{Foyer stable}. Les trajectoires spiralent en convergeant vers l'origine. 
+        \item $\lambda = \pm ib$ : \textbf{Centre}. Les trajectoires sont des ellipses fermées.
+    \end{itemize}
+\end{example}
+
+\section{Étude Qualitative : Dessiner le Futur sans Calculer}
+
+\begin{objectif}
+    Changer de philosophie. Pour les systèmes non-linéaires, trouver des solutions explicites est souvent impossible. L'idée est alors d'étudier directement le comportement global des solutions (stabilité, périodicité, comportement asymptotique) à partir du champ de vecteurs. C'est la naissance de la théorie des systèmes dynamiques.
+\end{objectif}
+
+\begin{definition}[Système autonome et points d'équilibre]
+    Un système est autonome si $y' = f(y)$ (le champ de vecteurs ne dépend pas du temps). Un point $y_0$ est un point d'équilibre (ou critique) si $f(y_0)=0$.
+\end{definition}
+
+\begin{theorem}[Stabilité par Linéarisation]
+    Soit $y_0$ un point d'équilibre d'un système $y'=f(y)$. On note $A = J_f(y_0)$ la matrice jacobienne de $f$ en $y_0$.
+    \begin{itemize}
+        \item Si toutes les valeurs propres de $A$ ont une partie réelle strictement négative, alors $y_0$ est asymptotiquement stable.
+        \item Si au moins une valeur propre de $A$ a une partie réelle strictement positive, alors $y_0$ est instable.
+    \end{itemize}
+\end{theorem}
+
+\begin{example}[Le pendule simple]
+    L'équation du pendule est $\theta'' + \frac{g}{L}\sin\theta = 0$. On la transforme en un système du premier ordre.
+    \begin{itemize}
+        \item L'équilibre $(\theta=0, \omega=0)$ (position basse) est un centre pour le système linéarisé (stable).
+        \item L'équilibre $(\theta=\pi, \omega=0)$ (position haute) est un col pour le système linéarisé (instable).
+    \end{itemize}
+    Le portrait de phase montre des orbites périodiques autour de l'équilibre stable. 
+\end{example}
+
+\begin{example}[Le modèle prédateur-proie de Lotka-Volterra]
+    Un système de deux équations non-linéaires modélisant l'évolution de populations de proies ($x$) et de prédateurs ($y$). Les solutions sont des cycles périodiques fermés autour d'un point d'équilibre, illustrant une cohabitation oscillatoire.
+\end{example}
+
+\section{Introduction aux Équations aux Dérivées Partielles (EDP)}
+
+\begin{objectif}
+    Ouvrir une fenêtre sur le monde des EDP en étudiant les trois équations linéaires prototypiques du second ordre. Chacune modélise une classe de phénomènes physiques fondamentalement différente et possède un comportement mathématique distinct.
+\end{objectif}
+
+\begin{definition}[Les trois EDP canoniques]
+    \begin{itemize}
+        \item \textbf{Équation de la chaleur (Parabolique) :} $\frac{\partial u}{\partial t} - \Delta u = 0$. Modélise les phénomènes de diffusion.
+        \item \textbf{Équation des ondes (Hyperbolique) :} $\frac{\partial^2 u}{\partial t^2} - \Delta u = 0$. Modélise les phénomènes de propagation.
+        \item \textbf{Équation de Laplace (Elliptique) :} $\Delta u = 0$. Modélise les états d'équilibre.
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}[Propriétés qualitatives]
+    \begin{itemize}
+        \item \textbf{Chaleur :} Effet \textbf{régularisant infini}. Même avec une donnée initiale discontinue, la solution est $C^\infty$ pour tout $t>0$. L'information se propage à une vitesse infinie.
+        \item \textbf{Ondes :} L'information se propage à \textbf{vitesse finie}. Les singularités de la donnée initiale se propagent le long des caractéristiques.
+        \item \textbf{Laplace :} Les solutions (fonctions harmoniques) sont analytiques et vérifient le \textbf{principe du maximum} (le max est atteint sur le bord du domaine).
+    \end{itemize}
+\end{proposition}
+
+\begin{application}[Solution de l'équation de la chaleur par séries de Fourier]
+    Pour l'équation de la chaleur sur $[0, \pi]$ avec conditions aux limites nulles et donnée initiale $u(0,x)=f(x)$, on cherche une solution par séparation des variables de la forme $u(t,x) = \sum_{n=1}^\infty b_n(t) \sin(nx)$. On obtient une EDO pour chaque coefficient $b_n$, ce qui donne la solution :
+    $$ u(t,x) = \sum_{n=1}^\infty c_n e^{-n^2 t} \sin(nx) $$
+    où les $c_n$ sont les coefficients de Fourier de $f$. On voit l'effet régularisant : les hautes fréquences (grands $n$) sont exponentiellement atténuées très rapidement.
+\end{application}

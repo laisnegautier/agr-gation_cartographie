@@ -1,0 +1,118 @@
+\chapter{Anneaux et Polynômes : L'Héritage de l'Arithmétique}
+
+\section{Le Bestiaire des Anneaux : Une Hiérarchie de "Gentillesse"}
+
+\begin{objectif}
+    Construire une hiérarchie des anneaux commutatifs unitaires. L'idée est de partir de la structure la plus générale et d'ajouter progressivement des axiomes qui nous rapprochent des propriétés familières de l'arithmétique des entiers $\mathbb{Z}$. Chaque nouvel axiome définit une classe d'anneaux plus "gentille", où des théorèmes plus puissants s'appliquent.
+\end{objectif}
+
+\begin{definition}[Anneau intègre (Integral Domain)]
+    Un anneau commutatif unitaire $A$ est \textbf{intègre} si $ab=0 \implies a=0$ ou $b=0$. C'est le cadre minimal pour faire de l'arithmétique, car on peut "simplifier" ($ab=ac \implies b=c$ si $a \neq 0$).
+\end{definition}
+
+\begin{definition}[Anneau factoriel (Unique Factorization Domain - UFD)]
+    Un anneau intègre $A$ est \textbf{factoriel} si tout élément non nul et non inversible se décompose de manière \textbf{unique} (à l'ordre et aux inversibles près) en un produit d'éléments irréductibles. C'est le cadre où la "décomposition en facteurs premiers" a un sens.
+\end{definition}
+
+\begin{definition}[Anneau principal (Principal Ideal Domain - PID)]
+    Un anneau intègre $A$ est \textbf{principal} si tout idéal de $A$ est principal, c'est-à-dire engendré par un seul élément.
+\end{definition}
+
+\begin{definition}[Anneau euclidien (Euclidean Domain)]
+    Un anneau intègre $A$ est \textbf{euclidien} s'il existe une fonction $v: A \setminus \{0\} \to \mathbb{N}$ (un "stathme") telle que pour tous $a, b \in A$ avec $b \neq 0$, il existe $q, r \in A$ avec $a = bq + r$ et ($r=0$ ou $v(r) < v(b)$). C'est le cadre où l'algorithme d'Euclide et la division euclidienne fonctionnent.
+\end{definition}
+
+\begin{theorem}[La Hiérarchie des Anneaux]
+    On a la chaîne d'implications strictes :
+    $$ \text{Corps} \implies \text{Anneau Euclidien} \implies \text{Anneau Principal} \implies \text{Anneau Factoriel} \implies \text{Anneau Intègre} $$
+\end{theorem}
+
+\begin{example}[Exemples et Contre-exemples Fondamentaux]
+    \begin{itemize}
+        \item $\mathbb{Z}$ et $K[X]$ (où $K$ est un corps) sont euclidiens. L'anneau des entiers de Gauss $\mathbb{Z}[i]$ l'est aussi.
+        \item L'anneau $\mathbb{Z}[\frac{1+i\sqrt{19}}{2}]$ est un exemple célèbre d'anneau principal qui n'est pas euclidien.
+        \item L'anneau des polynômes à plusieurs indéterminées $K[X,Y]$ ou l'anneau $\mathbb{Z}[X]$ sont factoriels mais \textbf{non principaux}. Par exemple, l'idéal $(2,X)$ de $\mathbb{Z}[X]$ n'est pas engendré par un seul polynôme.
+        \item L'anneau $\mathbb{Z}[i\sqrt{5}]$ n'est \textbf{pas factoriel}. On y a deux décompositions distinctes de 6 en irréductibles : $6 = 2 \cdot 3 = (1+i\sqrt{5})(1-i\sqrt{5})$. L'unicité de la factorisation est perdue.
+    \end{itemize}
+\end{example}
+
+\section{L'Arithmétique dans les Anneaux Factoriels}
+
+\begin{objectif}
+    Généraliser les notions de divisibilité et de "nombres premiers" au cadre des anneaux factoriels. On clarifiera la distinction subtile mais cruciale entre un élément "irréductible" et un élément "premier".
+\end{objectif}
+
+\begin{proposition}[Éléments Irréductibles vs. Premiers]
+    Soit $a$ un élément non nul et non inversible d'un anneau intègre $A$.
+    \begin{itemize}
+        \item $a$ est \textbf{irréductible} s'il ne peut pas s'écrire comme un produit de deux non-inversibles. (On ne peut pas le "casser" davantage).
+        \item $a$ est \textbf{premier} si $a | bc \implies a|b$ ou $a|c$. (C'est le lemme d'Euclide).
+    \end{itemize}
+\end{proposition}
+
+\begin{proposition}
+    Dans un anneau intègre, tout élément premier est irréductible. La réciproque est vraie si et seulement si l'anneau est factoriel.
+\end{proposition}
+
+\begin{remark}[La Clé de la Factorialité]
+    Cette équivalence est le cœur de la factorialité. Dans $\mathbb{Z}[i\sqrt{5}]$, l'élément 2 est irréductible, mais il n'est pas premier car $2 | (1+i\sqrt{5})(1-i\sqrt{5})=6$, mais 2 ne divise aucun des deux facteurs. C'est cette défaillance du lemme d'Euclide qui cause la non-unicité de la décomposition.
+\end{remark}
+
+\section{Les Anneaux de Polynômes : L'Objet Central}
+
+\begin{objectif}
+    Étudier les propriétés arithmétiques du ring $A[X]$ en fonction de celles de $A$. Le résultat principal est un théorème de transfert de la factorialité, qui est un des piliers de l'algèbre commutative. On développera ensuite une boîte à outils pour tester l'irréductibilité, la "primalité" des polynômes.
+\end{objectif}
+
+\begin{lemma}[Lemme de Gauss]
+    Soit $A$ un anneau factoriel de corps des fractions $K$. Un polynôme $P \in A[X]$ non constant est irréductible dans $A[X]$ si et seulement s'il est primitif et irréductible dans $K[X]$.
+\end{lemma}
+
+\begin{theorem}[Théorème Fondamental]
+    Si $A$ est un anneau factoriel, alors l'anneau des polynômes $A[X]$ est aussi un anneau factoriel.
+\end{theorem}
+
+\begin{corollary}
+    Par récurrence, les anneaux $\mathbb{Z}[X_1, \dots, X_n]$ et $K[X_1, \dots, X_n]$ (où $K$ est un corps) sont factoriels.
+\end{corollary}
+
+\begin{theorem}[Critères d'Irréductibilité sur Q[X] (ou sur le corps des fractions d'un UFD)]
+    \begin{itemize}
+        \item \textbf{Contenu :} Un polynôme de $\mathbb{Z}[X]$ est irréductible sur $\mathbb{Q}[X]$ ssi il l'est sur $\mathbb{Z}[X]$.
+        \item \textbf{Eisenstein :} Soit $P(X) = a_n X^n + \dots + a_0 \in \mathbb{Z}[X]$. S'il existe un nombre premier $p$ tel que $p \nmid a_n$, $p | a_i$ pour $i<n$, et $p^2 \nmid a_0$, alors $P$ est irréductible sur $\mathbb{Q}$.
+        \item \textbf{Réduction modulo $p$ :} Si la réduction $\bar{P}$ de $P$ modulo $p$ est irréductible dans $\mathbb{F}_p[X]$ (et $\deg(\bar{P})=\deg(P)$), alors $P$ est irréductible sur $\mathbb{Q}$.
+    \end{itemize}
+\end{theorem}
+
+\begin{application}[Irréductibilité du polynôme cyclotomique $\Phi_p$]
+    Le $p$-ième polynôme cyclotomique est $\Phi_p(X) = \frac{X^p-1}{X-1} = X^{p-1} + \dots + 1$. Il est irréductible sur $\mathbb{Q}$.
+    \textit{Preuve :} On considère $\Phi_p(X+1) = \frac{(X+1)^p-1}{X} = \sum_{k=1}^p \binom{p}{k} X^{k-1}$. Tous les coefficients binomiaux sont divisibles par $p$, sauf le coefficient dominant. Le coefficient constant est $\binom{p}{1}=p$, qui n'est pas divisible par $p^2$. Par le critère d'Eisenstein (translaté), $\Phi_p(X+1)$ est irréductible, donc $\Phi_p(X)$ l'est aussi.
+\end{application}
+
+\section{Polynômes Symétriques, Résultant et Discriminant}
+
+\begin{objectif}
+    Développer des outils avancés pour étudier les relations entre les racines d'un polynôme sans avoir à les calculer. Les polynômes symétriques fournissent le langage, et le résultant/discriminant sont des outils de calcul effectifs.
+\end{objectif}
+
+\begin{definition}[Polynômes Symétriques Élémentaires]
+    Les polynômes symétriques élémentaires en $n$ variables $X_1, \dots, X_n$ sont :
+    $\sigma_1 = \sum X_i$, $\sigma_2 = \sum_{i<j} X_i X_j$, ..., $\sigma_n = X_1 \cdots X_n$.
+\end{definition}
+
+\begin{theorem}[Théorème Fondamental des Polynômes Symétriques]
+    Tout polynôme symétrique à coefficients dans un anneau $A$ peut s'écrire de manière unique comme un polynôme en les polynômes symétriques élémentaires à coefficients dans $A$.
+\end{theorem}
+
+\begin{remark}[Le lien universel entre coefficients et racines]
+    Si $P(X) = \prod (X-x_i) = X^n - c_1 X^{n-1} + \dots + (-1)^n c_n$, alors les coefficients $c_k$ sont précisément les polynômes symétriques élémentaires évalués aux racines $x_i$ : $c_k = \sigma_k(x_1, \dots, x_n)$. Le théorème précédent implique que toute expression symétrique des racines peut être réécrite en fonction des coefficients du polynôme, sans connaître les racines elles-mêmes.
+\end{remark}
+
+\begin{definition}[Résultant et Discriminant]
+    Soient $P, Q$ deux polynômes. Le \textbf{résultant} $\mathrm{Res}(P,Q)$ est le déterminant de leur matrice de Sylvester. Il est nul si et seulement si $P$ et $Q$ ont une racine commune.
+    Le \textbf{discriminant} de $P$ est (à un facteur près) $\mathrm{Res}(P, P')$. Il est nul si et seulement si $P$ a une racine multiple. Pour $P(X) = a_n \prod (X-x_i)$, on a $\Delta = a_n^{2n-2} \prod_{i<j} (x_i-x_j)^2$.
+\end{definition}
+
+\begin{application}[Calcul explicite en théorie de Galois]
+    Le discriminant est un outil essentiel. Par exemple, le groupe de Galois d'un polynôme irréductible de degré 3 sur $\mathbb{Q}$ est soit $\mathfrak{S}_3$, soit le sous-groupe cyclique $\mathcal{A}_3$. Lequel des deux ? On calcule le discriminant $\Delta$. Si $\sqrt{\Delta}$ est dans $\mathbb{Q}$, le groupe est $\mathcal{A}_3$. Sinon, c'est $\mathfrak{S}_3$.
+\end{application}

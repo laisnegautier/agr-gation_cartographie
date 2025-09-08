@@ -1,0 +1,98 @@
+\chapter{Équations Différentielles Numériques : Approximer le Continu par le Discret}
+
+\section{Principes Fondamentaux de la Discrétisation}
+
+\begin{objectif}
+    Poser les bases de la résolution numérique des EDO. L'idée est de remplacer le problème continu $y'=f(t,y)$ par un schéma de récurrence discret $y_{n+1} = \Phi(h, t_n, y_n)$ qui approche la solution à des instants $t_n = t_0+nh$. Le défi est de s'assurer que notre approximation discrète reste "fidèle" à la véritable solution continue. Trois notions clés gouvernent cette fidélité : la consistance, la stabilité et la convergence.
+\end{objectif}
+
+\begin{definition}[Erreur, Ordre et Consistance]
+    Soit $y(t)$ la solution exacte. L'erreur de consistance locale est $\epsilon_n(h) = y(t_{n+1}) - \Phi(h, t_n, y(t_n))$. C'est l'erreur que le schéma commet en une seule étape si on part de la solution exacte.
+    \begin{itemize}
+        \item Un schéma est \textbf{consistant} si $\epsilon_n(h) = o(h)$.
+        \item Un schéma est d'**ordre** $p$ si $\epsilon_n(h) = \mathcal{O}(h^{p+1})$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Stabilité]
+    Un schéma est \textbf{stable} si de petites perturbations (erreurs d'arrondi, erreurs sur la condition initiale) ne sont pas amplifiées de manière explosive au fil des itérations. C'est une notion de robustesse et de bon conditionnement du schéma numérique.
+\end{definition}
+
+\begin{definition}[Convergence]
+    Un schéma est \textbf{convergent} si l'erreur globale (la différence entre la solution numérique et la solution exacte en un temps donné) tend vers zéro lorsque le pas $h$ tend vers zéro.
+\end{definition}
+
+\begin{theorem}[Théorème d'Équivalence de Lax-Richtmyer]
+    Pour un schéma numérique consistant qui résout un problème bien posé :
+    $$ \textbf{Stabilité} \iff \textbf{Convergence} $$
+\end{theorem}
+\begin{remark}[Le Théorème Fondamental]
+    Ce théorème est la pierre angulaire de l'analyse numérique des EDO. Il nous dit que pour garantir la convergence (le but ultime), il "suffit" de vérifier deux choses : la consistance (le schéma approxime bien l'équation localelement, ce qui se fait par des développements de Taylor) et la stabilité (le schéma ne fait pas exploser les erreurs).
+\end{remark}
+
+\section{Les Méthodes à un Pas : Le Futur ne dépend que du Présent}
+
+\begin{objectif}
+    Étudier la famille la plus simple de schémas, où le calcul de $y_{n+1}$ ne dépend que de l'information en $t_n$. On explorera le compromis entre simplicité (Euler explicite), stabilité (Euler implicite) et précision (Runge-Kutta).
+\end{objectif}
+
+\begin{definition}[Schéma d'Euler Explicite]
+    Basé sur l'approximation de Taylor à l'ordre 1 : $y(t+h) \approx y(t) + h y'(t)$.
+    Le schéma est : $y_{n+1} = y_n + h f(t_n, y_n)$.
+    Il est d'ordre 1.
+\end{definition}
+
+\begin{definition}[Schéma d'Euler Implicite]
+    Basé sur une approximation "à l'arrivée" : $y(t+h) \approx y(t) + h y'(t+h)$.
+    Le schéma est : $y_{n+1} = y_n + h f(t_{n+1}, y_{n+1})$.
+    Il est d'ordre 1. Il nécessite de résoudre une équation (souvent non-linéaire) à chaque étape pour trouver $y_{n+1}$.
+\end{definition}
+
+\begin{remark}[Le Coût de la Stabilité]
+    L'Euler implicite est plus coûteux, mais il est beaucoup plus stable. Il est \textbf{A-stable}, ce qui le rend indispensable pour les problèmes dits "raides".
+\end{remark}
+
+\begin{definition}[Problèmes Raides (Stiff Problems)]
+    Un système différentiel est raide s'il combine des dynamiques à des échelles de temps très différentes (certaines composantes évoluent très vite, d'autres très lentement).
+\end{definition}
+
+\begin{application}[Chimie et Biologie]
+    La cinétique chimique et les réseaux de régulation biologique sont des sources majeures de problèmes raides. Les schémas explicites, contraints par la dynamique la plus rapide, nécessiteraient un pas $h$ ridiculement petit pour rester stables, même si l'on s'intéresse à l'évolution lente. Les schémas implicites sont alors la seule solution viable.
+\end{application}
+
+\begin{definition}[Méthodes de Runge-Kutta]
+    L'idée est d'améliorer l'ordre de la méthode en évaluant $f$ en des points intermédiaires de l'intervalle $[t_n, t_{n+1}]$ pour obtenir une meilleure estimation de la "pente moyenne".
+    Le schéma de Runge-Kutta classique d'ordre 4 (RK4) est le plus célèbre :
+    $$ y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4) $$
+    où les $k_i$ sont des évaluations successives de $f$.
+\end{definition}
+
+\section{Les Méthodes Multipas : La Mémoire du Passé}
+
+\begin{objectif}
+    Construire des schémas d'ordre plus élevé en utilisant non seulement le point précédent $y_n$, mais aussi plusieurs points du passé ($y_{n-1}, y_{n-2}, \dots$).
+\end{objectif}
+
+\begin{definition}[Schémas d'Adams-Bashforth (explicites)]
+    L'idée est d'approcher $y(t_{n+1}) = y(t_n) + \int_{t_n}^{t_{n+1}} f(t, y(t)) dt$ en remplaçant la fonction $f$ par le polynôme qui interpole les valeurs $f_k = f(t_k, y_k)$ aux points précédents $t_n, t_{n-1}, \dots$.
+\end{definition}
+
+\begin{definition}[Schémas d'Adams-Moulton (implicites)]
+    Même idée, mais le polynôme d'interpolation utilise aussi le point (inconnu) $t_{n+1}$. Ces méthodes sont plus stables et plus précises à nombre de pas égal.
+\end{definition}
+
+\begin{definition}[Méthodes Prédicteur-Correcteur]
+    On combine les deux approches pour obtenir le meilleur des deux mondes :
+    \begin{enumerate}
+        \item \textbf{Prédiction :} On calcule une première estimation $\tilde{y}_{n+1}$ avec une méthode explicite (e.g. Adams-Bashforth).
+        \item \textbf{Correction :} On utilise cette estimation pour évaluer le terme implicite $f(t_{n+1}, \tilde{y}_{n+1})$ et on réinjecte dans une méthode implicite (e.g. Adams-Moulton) pour obtenir une valeur $y_{n+1}$ plus précise.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Barrières de Dahlquist]
+    Ces deux résultats théoriques fondamentaux limitent l'optimisme dans la conception de schémas multipas.
+    \begin{itemize}
+        \item \textbf{Première barrière :} Un schéma multipas linéaire stable est d'ordre au plus $k+2$ (si $k$ est pair) ou $k+1$ (si $k$ est impair), où $k$ est le nombre de pas.
+        \item \textbf{Seconde barrière :} Il n'existe pas de schéma multipas linéaire A-stable d'ordre supérieur à 2.
+    \end{itemize}
+\end{theorem}

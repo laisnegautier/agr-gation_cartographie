@@ -1,0 +1,97 @@
+\chapter{Calcul Différentiel en Dimension Infinie : Généraliser la Dérivée dans les Espaces de Banach}
+
+\section{La Notion de Différentiabilité}
+
+\begin{objectif}
+    Étendre la notion de dérivée aux fonctions entre espaces de Banach. L'idée clé de la différentiabilité en un point est l'existence d'une "meilleure approximation linéaire locale". En dimension finie, cette approximation est la matrice Jacobienne. En dimension infinie, l'objet qui joue ce rôle est une application linéaire continue, la différentielle de Fréchet.
+\end{objectif}
+
+\begin{definition}[Différentielle de Gâteaux (Dérivée Directionnelle)]
+    Soient $E, F$ des e.v.n. et $f: U \subset E \to F$. La \textbf{dérivée de Gâteaux} de $f$ en $a \in U$ dans la direction $h \in E$ est la limite (si elle existe) :
+    $$ D_h f(a) = \lim_{t \to 0} \frac{f(a+th)-f(a)}{t} $$
+    C'est l'analogue de la dérivée directionnelle.
+\end{definition}
+
+\begin{definition}[Différentielle de Fréchet]
+    $f$ est \textbf{Fréchet-différentiable} en $a \in U$ s'il existe une application \textbf{linéaire continue} $L \in \mathcal{L}(E,F)$ telle que :
+    $$ f(a+h) = f(a) + L(h) + o(\|h\|) \quad \text{quand } h \to 0 $$
+    L'application $L$ est unique, on la note $df(a)$ et on l'appelle la différentielle de $f$ en $a$.
+\end{definition}
+
+\begin{remark}[Fréchet $\implies$ Gâteaux $\implies$ Continuité]
+    La Fréchet-différentiabilité est une notion très forte. Elle implique la Gâteaux-différentiabilité dans toutes les directions (et $D_h f(a) = df(a)(h)$) et la continuité en ce point. La réciproque est fausse en général. La Fréchet-différentiabilité est la "bonne" généralisation de la dérivée qui conserve les grands théorèmes du calcul différentiel.
+\end{remark}
+
+\section{Les Grands Théorèmes du Calcul Différentiel}
+
+\begin{objectif}
+    Montrer que la structure des espaces de Banach est suffisamment riche pour que les théorèmes fondamentaux du calcul différentiel (règle de la chaîne, inégalité des accroissements finis, inversion locale) se généralisent.
+\end{objectif}
+
+\begin{theorem}[Règle de la chaîne]
+    Si $f: E \to F$ est différentiable en $a$ et $g: F \to G$ est différentiable en $f(a)$, alors $g \circ f$ est différentiable en $a$ et :
+    $$ d(g \circ f)(a) = dg(f(a)) \circ df(a) $$
+    C'est la composition des applications linéaires.
+\end{theorem}
+
+\begin{theorem}[Inégalité des Accroissements Finis]
+    Si $f$ est différentiable sur un segment $[a,b] \subset E$ et que $\|df(x)\| \le M$ pour tout $x \in [a,b]$, alors :
+    $$ \|f(b)-f(a)\| \le M \|b-a\| $$
+\end{theorem}
+\begin{remark}[L'Absence d'Égalité]
+    Attention, il n'y a pas d'égalité des accroissements finis en général (sauf pour les fonctions à valeurs dans $\mathbb{R}$). On ne peut pas écrire $f(b)-f(a) = df(c)(b-a)$. C'est une différence majeure avec le cas de la dimension 1.
+\end{remark}
+
+\begin{theorem}[Théorème d'Inversion Locale]
+    Soit $f: U \subset E \to F$ une application de classe $\mathcal{C}^1$ entre deux espaces de Banach. Si en un point $a \in U$, la différentielle $df(a) \in \mathcal{L}(E,F)$ est un \textbf{isomorphisme} (inversible), alors $f$ est un \textbf{difféomorphisme local} au voisinage de $a$.
+\end{theorem}
+\begin{remark}[La Condition d'Inversibilité]
+    Ce théorème est une généralisation directe du cas de la dimension finie où la condition est que le Jacobien (le déterminant de la différentielle) soit non nul. Il est au cœur de la théorie des variétés différentielles.
+\end{remark}
+
+\begin{theorem}[Théorème des Fonctions Implicites]
+    C'est une conséquence de l'inversion locale. Il donne des conditions suffisantes pour qu'un ensemble de niveau $f(x,y)=c$ puisse être vu localement comme le graphe d'une fonction. C'est l'outil fondamental pour définir les sous-variétés.
+\end{theorem}
+
+\section{Différentielles d'Ordre Supérieur et Formule de Taylor}
+
+\begin{objectif}
+    Définir les dérivées secondes, troisièmes, etc. La différentielle seconde en un point n'est plus une application linéaire, mais une application bilinéaire symétrique.
+\end{objectif}
+
+\begin{definition}[Différentielle Seconde]
+    Si $f$ est différentiable sur $U$, on a une application $df: U \to \mathcal{L}(E,F)$. Si cette application est elle-même différentiable en $a$, sa différentielle $d(df)(a)$ est un élément de $\mathcal{L}(E, \mathcal{L}(E,F))$.
+    Par l'isomorphisme canonique, on peut identifier cet objet à une application \textbf{bilinéaire continue} $d^2f(a): E \times E \to F$.
+\end{definition}
+
+\begin{theorem}[Lemme de Schwarz]
+    Si $f$ est deux fois différentiable en $a$, alors sa différentielle seconde $d^2f(a)$ est une application bilinéaire \textbf{symétrique}. C'est la généralisation de l'égalité des dérivées partielles croisées.
+\end{theorem}
+
+\begin{theorem}[Formule de Taylor-Young]
+    Si $f$ est de classe $\mathcal{C}^2$, on a le développement limité d'ordre 2 :
+    $$ f(a+h) = f(a) + df(a)(h) + \frac{1}{2} d^2f(a)(h,h) + o(\|h\|^2) $$
+\end{theorem}
+
+\section{Application à l'Optimisation sans Contraintes}
+
+\begin{objectif}
+    Utiliser le calcul différentiel pour trouver les extrema d'une fonctionnelle $J: E \to \mathbb{R}$.
+\end{objectif}
+
+\begin{proposition}[Condition nécessaire du premier ordre]
+    Si $J$ admet un extremum local en $a$ et est différentiable en $a$, alors $dJ(a)=0$. C'est la généralisation de "la dérivée s'annule". Le point $a$ est un \textbf{point critique}.
+\end{proposition}
+
+\begin{proposition}[Condition nécessaire du second ordre]
+    Si $J$ est deux fois différentiable et admet un minimum local en $a$, alors la forme bilinéaire $d^2J(a)$ est \textbf{positive} (i.e. $d^2J(a)(h,h) \ge 0$ pour tout $h$).
+\end{proposition}
+
+\begin{proposition}[Condition suffisante du second ordre]
+    Si $a$ est un point critique de $J$ et si la forme bilinéaire $d^2J(a)$ est \textbf{définie positive} et \textbf{coercive} (i.e., il existe $\alpha>0$ tel que $d^2J(a)(h,h) \ge \alpha \|h\|^2$), alors $a$ est un minimum local strict de $J$.
+\end{proposition}
+
+\begin{application}[Calcul des Variations]
+    C'est le domaine qui cherche à optimiser des fonctionnelles définies par des intégrales, comme la longueur d'un chemin ou l'énergie d'un système.
+    Par exemple, pour trouver la géodésique entre deux points, on minimise la fonctionnelle "longueur". La condition du premier ordre $dJ(a)=0$ se traduit alors par une équation différentielle : l'\textbf{équation d'Euler-Lagrange}.
+\end{application}

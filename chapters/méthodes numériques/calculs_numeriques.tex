@@ -1,0 +1,117 @@
+\chapter{Option Calcul Scientifique : La Boîte à Outils du Modélisateur}
+
+\section{La Philosophie de l'Épreuve de Modélisation}
+
+\begin{objectif}
+    Comprendre que cet oral n'est pas un test de connaissances brutes, mais une évaluation de la \textbf{maturité scientifique}. Le jury veut voir votre capacité à :
+    \begin{enumerate}
+        \item \textbf{Analyser et Synthétiser :} Lire un texte scientifique, en extraire le modèle mathématique principal et les questions pertinentes.
+        \item \textbf{Proposer et Critiquer :} Suggérer des méthodes numériques adaptées au modèle, et surtout, être capable de discuter leurs avantages, leurs inconvénients, et leur coût.
+        \item \textbf{Implémenter et Simuler :} Écrire un code (simple) qui met en œuvre l'algorithme choisi et interpréter les résultats obtenus.
+    \end{enumerate}
+    Cette fiche est un guide pour les deux premières étapes, qui sont les plus importantes.
+\end{objectif}
+
+\begin{remark}[La Question Clé]
+    Face à un texte, la première question à se poser est toujours : \textbf{Quel est le modèle mathématique sous-jacent ?} Est-ce une EDO ? Un système linéaire ? Un problème d'optimisation ? Un problème aux valeurs propres ? L'identification correcte du modèle dicte toute la suite de l'analyse.
+\end{remark}
+
+\section{La Boîte à Outils Algorithmique par Type de Problème}
+
+\begin{objectif}
+    Organiser sa pensée non pas par méthode, mais par \textbf{type de problème}. C'est la clé pour proposer rapidement une solution pertinente le jour de l'épreuve.
+\end{objectif}
+
+\subsection{Si le modèle est une Équation Différentielle Ordinaire (EDO)}
+
+\begin{proposition}[Checklist pour EDO $y'=f(t,y)$]
+    \begin{enumerate}
+        \item \textbf{Théorie :} Le problème de Cauchy est-il bien posé ? (théorème de Cauchy-Lipschitz, $f$ est-elle lipschitzienne ?)
+        \item \textbf{Stabilité :} Le système est-il \textbf{raide (stiff)} ? Y a-t-il des échelles de temps très différentes ?
+            \begin{itemize}
+                \item \textbf{Si NON (non-raide) :} Un schéma \textbf{explicite} est généralement préférable (moins coûteux). RK4 est le cheval de bataille par défaut : simple à coder, d'ordre élevé, stable pour des pas raisonnables.
+                \item \textbf{Si OUI (raide) :} Un schéma \textbf{implicite} est \textbf{obligatoire}. Le plus simple est l'Euler implicite. Il est A-stable et robuste, mais d'ordre 1 et nécessite de résoudre une équation à chaque pas (par ex. avec la méthode de Newton).
+            \end{itemize}
+        \item \textbf{Conservation :} Le système physique a-t-il des invariants (énergie, moment...) ? Si oui, il peut être judicieux de choisir un \textbf{schéma symplectique} (comme Euler-Cromer ou Verlet pour la mécanique) qui préserve ces quantités au lieu d'un schéma qui les dissipe.
+    \end{enumerate}
+\end{proposition}
+
+\subsection{Si le modèle est un Système Linéaire $Ax=b$}
+
+\begin{proposition}[Checklist pour $Ax=b$]
+    \begin{enumerate}
+        \item \textbf{Analyse de la Matrice $A$ :} C'est l'étape la plus importante.
+            \begin{itemize}
+                \item \textbf{Taille :} Petite ($n < 1000$) ou Grande ($n > 10^4$) ?
+                \item \textbf{Structure :} Pleine, Creuse (beaucoup de zéros), Symétrique, Définie Positive ?
+                \item \textbf{Conditionnement :} $\mathrm{cond}(A) = \|A\| \|A^{-1}\|$. Est-il grand ? (si oui, le problème est sensible aux erreurs).
+            \end{itemize}
+        \item \textbf{Choix de la Méthode :}
+            \begin{itemize}
+                \item \textbf{Si $A$ est petite et pleine :} Une \textbf{méthode directe} est la meilleure solution. La décomposition LU avec pivot partiel est la méthode universelle. Si $A$ est symétrique définie positive, la décomposition de Cholesky est deux fois plus rapide.
+                \item \textbf{Si $A$ est grande et creuse :} Une \textbf{méthode itérative} est indispensable.
+                    \begin{itemize}
+                        \item Jacobi ou Gauss-Seidel sont des méthodes de base. Elles convergent si $A$ est à diagonale strictement dominante.
+                        \item Pour les problèmes plus difficiles, la méthode du \textbf{gradient conjugué} (si $A$ est SDP) est la référence absolue. Elle est optimale au sens d'un certain critère.
+                    \end{itemize}
+            \end{itemize}
+    \end{enumerate}
+\end{proposition}
+
+\subsection{Si le modèle est un Problème aux Valeurs Propres $Ax=\lambda x$}
+
+\begin{proposition}[Checklist pour $Ax=\lambda x$]
+    \begin{enumerate}
+        \item \textbf{objectif :} Cherche-t-on toutes les valeurs propres ou seulement quelques-unes ?
+            \begin{itemize}
+                \item \textbf{Pour quelques v.p. (souvent la plus grande/petite) :} Des \textbf{méthodes itératives} sont efficaces. La \textbf{méthode de la puissance} (pour la v.p. de plus grand module) et la méthode de la puissance inverse (pour la v.p. la plus proche d'un scalaire donné) sont les plus simples.
+                \item \textbf{Pour toutes les v.p. :} Des méthodes plus complexes sont nécessaires. L'algorithme \textbf{QR} est la méthode de référence. Il consiste à construire une suite de matrices orthogonalement semblables qui converge vers une forme triangulaire (ou quasi-triangulaire), révélant les valeurs propres sur la diagonale.
+            \end{itemize}
+    \end{enumerate}
+\end{proposition}
+
+\section{Thèmes Transversaux et Algorithmes Essentiels}
+
+\begin{objectif}
+    Ajouter à notre boîte à outils des méthodes plus avancées qui apparaissent fréquemment dans les textes de modélisation.
+\end{objectif}
+
+\subsection{Optimisation Numérique : Trouver le Minimum}
+
+\begin{remark}[Le Lien avec la Résolution d'Équations]
+    Trouver le minimum d'une fonction $F(x)$ revient à trouver un zéro de son gradient $\nabla F(x)=0$. Les méthodes d'optimisation sont donc des "méthodes de Newton" pour le gradient.
+\end{remark}
+
+\begin{definition}[Méthodes de Descente]
+    L'idée est de construire une suite $x_{k+1} = x_k + \alpha_k d_k$, où $d_k$ est une direction de descente et $\alpha_k$ est le pas.
+    \begin{itemize}
+        \item \textbf{Méthode du Gradient :} On choisit la direction de plus grande pente, $d_k = -\nabla F(x_k)$. Simple, mais peut être très lente (zigzags).
+        \item \textbf{Méthode de Newton :} On minimise le modèle quadratique de $F$ en $x_k$. La direction est $d_k = -[H_F(x_k)]^{-1} \nabla F(x_k)$, où $H_F$ est la matrice Hessienne. Convergence quadratique, mais très coûteuse.
+        \item \textbf{Méthode du Gradient Conjugué :} Pour les problèmes quadratiques, c'est une méthode "intermédiaire" qui converge en au plus $n$ itérations. C'est une méthode de choix pour les grands systèmes linéaires SDP.
+    \end{itemize}
+\end{definition}
+
+\subsection{Équations aux Dérivées Partielles (EDP) : Le Strict Minimum}
+
+\begin{remark}[La Philosophie de la Discrétisation]
+    L'idée est de remplacer un problème en dimension infinie (trouver une fonction) par un très grand système algébrique en dimension finie (trouver les valeurs de la fonction sur une grille).
+\end{remark}
+
+\begin{definition}[Méthode des Différences Finies]
+    On remplace les dérivées par des approximations par quotients différentiels sur une grille.
+    $$ u'(x) \approx \frac{u(x+h)-u(x)}{h}, \quad u''(x) \approx \frac{u(x+h)-2u(x)+u(x-h)}{h^2} $$
+    L'EDP devient un grand système linéaire (ou non-linéaire) dont les inconnues sont les valeurs de la fonction aux nœuds de la grille. La matrice de ce système est souvent très grande, creuse et structurée (bande, tridiagonale...).
+\end{definition}
+
+\begin{definition}[Méthode des Éléments Finis]
+    Approche plus sophistiquée. On cherche une solution approchée comme une combinaison linéaire de "fonctions de base" simples (souvent des polynômes par morceaux). La méthode consiste à projeter l'EDP sur le sous-espace engendré par ces fonctions de base, via une formulation variationnelle. C'est la méthode de choix pour les géométries complexes.
+\end{definition}
+
+\subsection{La Transformée de Fourier Rapide (FFT)}
+
+\begin{theorem}[Algorithme de Cooley-Tukey]
+    La Transformée de Fourier Discrète (TFD) d'un signal de taille $N$ peut être calculée en $\mathcal{O}(N \log N)$ opérations au lieu de $\mathcal{O}(N^2)$ pour un calcul naïf.
+\end{theorem}
+\begin{remark}[L'Algorithme le plus Important du XXe Siècle]
+    La FFT est partout : traitement du son et de l'image (JPEG, MP3), télécommunications (WiFi, 4G), résolution d'EDP (méthodes spectrales), multiplication rapide de grands polynômes... Sa basse complexité a rendu possibles des applications qui étaient inimaginables auparavant. Il faut connaître son existence et son coût.
+\end{remark}

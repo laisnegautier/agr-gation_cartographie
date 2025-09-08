@@ -1,0 +1,119 @@
+\chapter{Théorie de Galois : La Symétrie Cachée des Nombres}
+
+\section{Le Langage des Corps et des Extensions}
+
+\begin{objectif}
+    Construire le vocabulaire de base. L'idée révolutionnaire est de considérer les corps non pas comme des objets isolés, mais dans leurs relations les uns avec les autres. En voyant une extension de corps $L/K$ comme un $K$-espace vectoriel, on importe la puissance de l'algèbre linéaire (dimension, bases) pour "mesurer" la complexité des extensions.
+\end{objectif}
+
+\begin{definition}[Extension et son Degré]
+    Une \textbf{extension de corps} est un couple de corps $(K,L)$ tel que $K$ est un sous-corps de $L$. Le \textbf{degré} de l'extension, noté $[L:K]$, est la dimension de $L$ en tant que $K$-espace vectoriel.
+\end{definition}
+
+\begin{definition}[Élément Algébrique et Transcendant]
+    Un élément $\alpha \in L$ est \textbf{algébrique} sur $K$ s'il est racine d'un polynôme non nul de $K[X]$. Sinon, il est \textbf{transcendant}. Une extension est algébrique si tous ses éléments le sont.
+\end{definition}
+
+\begin{proposition}[Polynôme Minimal]
+    Si $\alpha$ est algébrique sur $K$, il existe un unique polynôme unitaire et irréductible de $K[X]$, noté $\pi_\alpha$, qui annule $\alpha$. C'est le \textbf{polynôme minimal} de $\alpha$ sur $K$. De plus, $[K(\alpha):K] = \deg(\pi_\alpha)$.
+\end{proposition}
+
+\begin{theorem}[Tour de Multiplicativité des Degrés]
+    Pour une tour d'extensions $K \subset L \subset M$, on a : $[M:K] = [M:L] \times [L:K]$.
+\end{theorem}
+
+\begin{application}[Impossibilité de constructions géométriques]
+    Cette formule simple est déjà d'une grande puissance. Un nombre est constructible à la règle et au compas s'il appartient à une extension de $\mathbb{Q}$ de degré $2^k$. Comme $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$, qui n'est pas une puissance de 2, la duplication du cube est impossible.
+\end{application}
+
+\section{Construire des Extensions : Le Monde des Racines}
+
+\begin{objectif}
+    Comprendre comment sont "fabriquées" les extensions. Le plus souvent, on part d'un corps de base et on lui "adjoint" des racines de polynômes pour créer un monde plus vaste. Il faut distinguer le fait d'ajouter une seule racine (corps de rupture) de celui de les ajouter toutes (corps de décomposition).
+\end{objectif}
+
+\begin{definition}[Corps de Rupture vs. Corps de Décomposition]
+    Soit $P$ un polynôme irréductible sur $K$.
+    Un \textbf{corps de rupture} de $P$ est une extension $L/K$ minimale contenant \textit{au moins une} racine de $P$. (e.g., $\mathbb{Q}(\sqrt[3]{2})$ pour $X^3-2$).
+    Un \textbf{corps de décomposition} de $P$ est une extension $L/K$ minimale contenant \textit{toutes} les racines de $P$. (e.g., $\mathbb{Q}(\sqrt[3]{2}, j)$ pour $X^3-2$).
+\end{definition}
+
+\begin{theorem}[Théorème de l'Élément Primitif]
+    Toute extension finie et séparable (voir section suivante) est monogène. C'est-à-dire que si $L/K$ est une telle extension, il existe un élément $\alpha \in L$ (l'élément primitif) tel que $L=K(\alpha)$.
+\end{theorem}
+
+\begin{remark}[Simplification conceptuelle]
+    Ce théorème est très important car il nous dit que même les extensions les plus compliquées (construites en ajoutant de nombreux éléments) peuvent être vues comme une extension "simple", engendrée par un seul élément. Cela simplifie de nombreuses preuves.
+\end{remark}
+
+\section{Les "Bonnes" Extensions : Le Cadre de la Théorie de Galois}
+
+\begin{objectif}
+    Isoler les propriétés "idéales" pour une extension. Pour que la correspondance de Galois fonctionne, il faut que l'extension soit "juste assez grande" pour contenir toutes les racines de ses polynômes (normalité) et que ces racines soient bien "distinctes" (séparabilité). Une extension de Galois est une extension qui possède ces deux propriétés.
+\end{objectif}
+
+\begin{definition}[Extension Normale]
+    Une extension finie $L/K$ est \textbf{normale} si elle est le corps de décomposition d'un polynôme de $K[X]$. De manière équivalente, tout polynôme irréductible de $K[X]$ qui a une racine dans $L$ est complètement scindé dans $L$.
+\end{definition}
+
+\begin{definition}[Extension Séparable]
+    Un polynôme irréductible est \textbf{séparable} si ses racines sont toutes distinctes. Une extension algébrique $L/K$ est \textbf{séparable} si le polynôme minimal de tout élément de $L$ est séparable.
+\end{definition}
+
+\begin{remark}[Une technicité cruciale en caractéristique $p$]
+    En caractéristique nulle, tout polynôme irréductible est séparable. La notion de séparabilité peut donc sembler superflue. Elle devient essentielle en caractéristique $p>0$, où des polynômes comme $X^p - a$ peuvent être irréductibles mais avoir des racines multiples.
+\end{remark}
+
+\begin{definition}[Extension de Galois et Groupe de Galois]
+    Une extension finie $L/K$ est une \textbf{extension de Galois} si elle est normale et séparable.
+    Le \textbf{groupe de Galois} de l'extension, noté $\mathrm{Gal}(L/K)$, est le groupe des $K$-automorphismes de $L$. Si l'extension est galoisienne, $|\mathrm{Gal}(L/K)| = [L:K]$.
+\end{definition}
+
+\section{Le Théorème Fondamental : Le Dictionnaire Algèbre-Groupe}
+
+\begin{objectif}
+    Dévoiler le résultat central de la théorie : une "dualité" ou "dictionnaire" qui traduit parfaitement la structure des sous-extensions d'une extension de Galois en la structure des sous-groupes de son groupe de Galois. C'est l'un des plus beaux théorèmes des mathématiques.
+\end{objectif}
+
+\begin{theorem}[Théorème Fondamental de la Théorie de Galois]
+    Soit $L/K$ une extension de Galois finie. Il existe une bijection renversant l'inclusion entre l'ensemble des sous-groupes de $\mathrm{Gal}(L/K)$ et l'ensemble des corps intermédiaires $K \subset F \subset L$.
+    Un sous-groupe $H$ correspond au corps des points fixes $L^H = \{x \in L \mid \forall \sigma \in H, \sigma(x)=x\}$.
+    Une sous-extension $F$ correspond au sous-groupe $\mathrm{Gal}(L/F)$.
+    De plus, une sous-extension $F/K$ est elle-même galoisienne si et seulement si son groupe correspondant $\mathrm{Gal}(L/F)$ est distingué dans $\mathrm{Gal}(L/K)$. Dans ce cas, $\mathrm{Gal}(F/K) \cong \mathrm{Gal}(L/K)/\mathrm{Gal}(L/F)$.
+\end{theorem}
+
+\begin{example}[La Géométrie de $X^4-2$]
+    Soit $P(X)=X^4-2$ sur $\mathbb{Q}$. Le corps de décomposition est $L = \mathbb{Q}(\sqrt[4]{2}, i)$. C'est une extension de degré 8. Le groupe de Galois $G = \mathrm{Gal}(L/\mathbb{Q})$ est isomorphe au groupe diédral $D_4$, le groupe des isométries du carré.
+    Le treillis des 10 sous-groupes de $D_4$ est en bijection inversée avec le treillis des 10 sous-corps de $L$. Par exemple :
+    \begin{itemize}
+        \item Le sous-groupe des rotations $\langle r \rangle \cong \mathbb{Z}/4\mathbb{Z}$ correspond au sous-corps $\mathbb{Q}(i)$.
+        \item Le sous-groupe engendré par une réflexion $\langle s \rangle \cong \mathbb{Z}/2\mathbb{Z}$ correspond au sous-corps $\mathbb{Q}(\sqrt[4]{2})$.
+        \item Le centre du groupe $Z(G) \cong \mathbb{Z}/2\mathbb{Z}$ correspond au sous-corps $\mathbb{Q}(\sqrt{2}, i)$.
+    \end{itemize}
+\end{example}
+
+\section{Applications : La Puissance du Dictionnaire}
+
+\begin{objectif}
+    Utiliser le dictionnaire pour résoudre des problèmes classiques. La stratégie est toujours la même : traduire un problème (algébrique, géométrique) en un problème sur le groupe de Galois, le résoudre dans le monde (plus simple) des groupes finis, puis retraduire la solution.
+\end{objectif}
+
+\begin{theorem}[Théorie de Galois des corps finis]
+    L'extension $\mathbb{F}_{p^n}/\mathbb{F}_p$ est galoisienne. Son groupe de Galois est cyclique d'ordre $n$, engendré par l'automorphisme de Frobenius $\sigma: x \mapsto x^p$.
+\end{theorem}
+
+\begin{corollary}
+    Par la correspondance de Galois, les sous-extensions de $\mathbb{F}_{p^n}$ correspondent aux sous-groupes de $\mathbb{Z}/n\mathbb{Z}$. Pour chaque diviseur $d$ de $n$, il y a un unique sous-groupe d'ordre $d$, et donc un unique sous-corps de degré $d$ sur $\mathbb{F}_p$ : le corps $\mathbb{F}_{p^d}$.
+\end{corollary}
+
+\begin{theorem}[Critère de Galois pour la résolubilité par radicaux]
+    Un polynôme est résoluble par radicaux si et seulement si son groupe de Galois est un groupe résoluble (i.e. peut être décomposé en une suite de quotients abéliens).
+\end{theorem}
+
+\begin{application}[Impossibilité de la résolution de la quintique]
+    Le groupe de Galois du polynôme "général" de degré $n$ est $\mathfrak{S}_n$. Pour $n \ge 5$, le groupe $\mathfrak{S}_n$ n'est pas résoluble car $\mathcal{A}_n$ est simple et non-abélien. Il n'existe donc pas de formule générale par radicaux pour les équations de degré 5 ou plus.
+\end{application}
+
+\begin{remark}[Le Problème Inverse de Galois]
+    Nous savons associer un groupe de Galois à une extension. Le problème inverse est-il possible ? "Tout groupe fini peut-il être réalisé comme le groupe de Galois d'une extension de $\mathbb{Q}$ ?" C'est une question ouverte et l'un des problèmes les plus profonds de l'arithmétique moderne.
+\end{remark}

@@ -1,0 +1,200 @@
+\chapter{Analyse Fonctionnelle : Une Perspective Géométrique}
+
+\section{Préambule : Fondamentaux de Topologie et des Espaces Métriques}
+
+\begin{objectif}
+    Établir le langage commun et les concepts fondamentaux sur lesquels repose toute l'analyse fonctionnelle. L'idée est de partir du cadre le plus général (la topologie) pour arriver progressivement à la structure riche et concrète des espaces vectoriels normés. Ce préambule sert de fondation et de référence pour toutes les notions ultérieures.
+\end{objectif}
+
+\subsection{Topologie Générale : Le Langage de la Proximité}
+
+\begin{definition}[Espace topologique]
+    Un espace topologique est un couple $(X, \mathcal{T})$ où $X$ est un ensemble et $\mathcal{T}$ est une collection de parties de $X$ (appelées \textbf{ouverts}) telle que :
+    \begin{enumerate}
+        \item $\emptyset \in \mathcal{T}$ et $X \in \mathcal{T}$.
+        \item Toute union (finie ou infinie) d'ouverts est un ouvert.
+        \item Toute intersection finie d'ouverts est un ouvert.
+    \end{enumerate}
+    Une partie $F \subset X$ est dite \textbf{fermée} si son complémentaire $X \setminus F$ est un ouvert.
+\end{definition}
+
+\begin{definition}[Continuité]
+    Une application $f: (X, \mathcal{T}_X) \to (Y, \mathcal{T}_Y)$ entre deux espaces topologiques est \textbf{continue} si l'image réciproque de tout ouvert de $Y$ est un ouvert de $X$.
+\end{definition}
+
+\begin{definition}[Compacité]
+    Une partie $K$ d'un espace topologique $X$ est \textbf{compacte} si de tout recouvrement de $K$ par une famille d'ouverts, on peut extraire un sous-recouvrement fini.
+\end{definition}
+
+\begin{remark}[La Propriété Fondamentale]
+    La compacité est la notion la plus importante de ce préambule. C'est l'analogue topologique de la "dimension finie". Elle garantit l'existence de limites pour les suites (ou suites généralisées) et de points extrémaux pour les fonctions continues.
+    \begin{itemize}
+        \item L'image d'un compact par une application continue est compacte.
+        \item Dans un espace séparé (Hausdorff), un compact est toujours fermé.
+        \item Un fermé dans un compact est compact.
+    \end{itemize}
+\end{remark}
+
+\begin{definition}[Connexité]
+    Un espace topologique $X$ est \textbf{connexe} s'il n'est pas la réunion de deux ouverts non vides disjoints. Intuitivement, un espace "d'un seul tenant".
+\end{definition}
+
+\subsection{Espaces Métriques : La Notion de Distance}
+
+\begin{objectif}
+    Spécialiser le cadre topologique en introduisant une fonction "distance". Cela permet de quantifier la proximité et de définir des notions plus concrètes comme les suites de Cauchy et la complétude, qui sont la clé de voûte de l'analyse.
+\end{objectif}
+
+\begin{definition}[Espace métrique]
+    Un espace métrique est un couple $(X, d)$ où $X$ est un ensemble et $d: X \times X \to \mathbb{R}_+$ est une distance, vérifiant la séparation, la symétrie et l'inégalité triangulaire.
+\end{definition}
+
+\begin{remark}[Topologie Induite]
+    Toute distance $d$ induit une topologie sur $X$ dont les ouverts sont les réunions de boules ouvertes $B(x, r) = \{y \in X \mid d(x,y) < r\}$. C'est le cadre naturel de l'analyse "classique".
+\end{remark}
+
+\begin{definition}[Suite de Cauchy]
+    Une suite $(x_n)_{n \in \mathbb{N}}$ dans un espace métrique $(X,d)$ est une \textbf{suite de Cauchy} si pour tout $\epsilon > 0$, il existe un rang $N \in \mathbb{N}$ tel que pour tous $p, q \geq N$, on a $d(x_p, x_q) < \epsilon$.
+\end{definition}
+
+\begin{remark}[L'Idée d'une "Convergence Intrinsèque"]
+    Une suite de Cauchy est une suite dont les termes se rapprochent indéfiniment les uns des autres. C'est une suite qui "veut converger", sans préjuger de l'existence d'une limite dans l'espace. La notion est intrinsèque à la suite, contrairement à la convergence qui dépend de l'espace ambiant.
+\end{remark}
+
+\begin{definition}[Espace complet]
+    Un espace métrique $(X,d)$ est \textbf{complet} si toute suite de Cauchy de $X$ converge vers un élément de $X$.
+\end{definition}
+
+\begin{remark}[La Propriété Clé de l'Analyse]
+    La complétude est la propriété qui nous autorise à passer à la limite. C'est la garantie que l'espace n'a pas de "trous". $\mathbb{Q}$ n'est pas complet, mais $\mathbb{R}$ l'est. Cette propriété est le pont conceptuel entre les espaces métriques généraux et les espaces de Banach.
+\end{remark}
+
+\begin{theorem}[Caractérisation des compacts dans un métrique]
+    Une partie d'un espace métrique est compacte si et seulement si elle est précompacte (ou totalement bornée) et complète. Dans $\mathbb{R}^n$, cela équivaut à "fermé et borné" (Théorème de Borel-Lebesgue).
+\end{theorem}
+
+\subsection{Espaces Vectoriels Normés : La Synthèse}
+
+\begin{objectif}
+    Combiner la structure algébrique d'un espace vectoriel avec la structure topologique d'un espace métrique, en s'assurant que les deux sont compatibles. C'est le point de départ effectif de l'analyse fonctionnelle.
+\end{objectif}
+
+\begin{definition}[Espace vectoriel normé]
+    Un espace vectoriel normé $(E, \|\cdot\|)$ est un espace vectoriel $E$ muni d'une norme $\|\cdot\|$, qui induit une distance $d(x,y) = \|x-y\|$. Cette distance est compatible avec la structure vectorielle (i.e., l'addition et la multiplication par un scalaire sont continues).
+\end{definition}
+
+\begin{remark}[Le Lien Final]
+    Un \textbf{espace de Banach} est un espace vectoriel normé qui est \textbf{complet} en tant qu'espace métrique.
+    Un \textbf{espace de Hilbert} est un espace de Banach dont la norme dérive d'un \textbf{produit scalaire}.
+    Ce préambule a donc posé toutes les briques logiques pour comprendre ces définitions fondamentales.
+\end{remark}
+
+
+\section{Espaces de Banach : La Scène de l'Analyse}
+
+\begin{objectif}
+    Poser le décor. L'analyse a besoin de limites pour exister. Le cadre minimal pour cela est un espace vectoriel normé qui soit \textbf{complet} : un espace de Banach. Nous verrons immédiatement que ce gain analytique (la complétude) se paie par une perte géométrique majeure : la compacité des ensembles bornés, qui est la propriété fondamentale des espaces de dimension finie. Toute la suite de ce cours peut être vue comme une quête pour retrouver cette compacité perdue.
+\end{objectif}
+
+\begin{definition}[Espace de Banach]
+    Un espace vectoriel normé $(E, \|\cdot\|)$ est un espace de Banach s'il est complet pour la métrique induite par la norme, c'est-à-dire si toute suite de Cauchy y est convergente.
+\end{definition}
+
+\begin{theorem}[Lemme de Riesz]
+    Soit $E$ un e.v.n. et $F$ un sous-espace vectoriel fermé strict de $E$. Alors pour tout $\epsilon \in ]0,1[$, il existe $x_\epsilon \in E$ tel que $\|x_\epsilon\|=1$ et $d(x_\epsilon, F) \geq 1-\epsilon$.
+\end{theorem}
+
+\begin{remark}[La Compacité, Analogue de la "Dimension Finie"]
+    Ce lemme, d'apparence technique, est le théorème des "mauvaises nouvelles". Il est l'outil qui prouve que la boule unité fermée d'un e.v.n. de dimension infinie n'est \textbf{jamais} compacte.
+    Pourquoi est-ce si grave ? Parce que la compacité est la propriété qui garantit qu'on peut extraire des sous-suites convergentes de toute suite bornée. C'est le moteur de tous les théorèmes d'existence en dimension finie. En analyse fonctionnelle, la compacité devient donc une propriété rare et précieuse. La traquer, c'est essayer de se ramener, par un moyen détourné, à une situation aussi "confortable" et "rigide" que la dimension finie.
+\end{remark}
+
+\begin{definition}[Norme subordonnée]
+    Soient $(E, \|\cdot\|_E)$ et $(F, \|\cdot\|_F)$ deux e.v.n. La norme subordonnée d'une application linéaire continue $u \in \mathcal{L}(E,F)$ est :
+    $$ \|u\|_{\mathcal{L}(E,F)} = \sup_{\|x\|_E=1} \|u(x)\|_F $$
+    Muni de cette norme, si $F$ est un espace de Banach, alors $\mathcal{L}(E,F)$ l'est aussi.
+\end{definition}
+
+\section{Les Piliers : La Puissance de la Complétude}
+
+\begin{objectif}
+    Démontrer que si l'on paie le prix de la non-compacité, l'hypothèse de complétude (via le lemme de Baire) nous offre en retour des outils d'une puissance extraordinaire. Ces théorèmes sont les "machines" de l'analyse fonctionnelle, permettant de construire des objets, de prouver des convergences et de simplifier des problèmes.
+\end{objectif}
+
+\begin{theorem}[Hahn-Banach, forme analytique et géométrique]
+    \textbf{Analytique :} Toute forme linéaire continue sur un s.e.v. peut être prolongée à l'espace entier en préservant sa norme.
+    \textbf{Géométrique :} Deux convexes disjoints, dont l'un est ouvert, peuvent être séparés par un hyperplan affine fermé.
+\end{theorem}
+
+\begin{application}[Le dual "voit" toute la géométrie]
+    La conséquence la plus importante de Hahn-Banach est que le dual $E^*$ est "riche" : il contient suffisamment de formes linéaires pour distinguer tous les points de $E$. Géométriquement, cela signifie que tout ensemble convexe fermé peut être vu comme une intersection d'demi-espaces. Le dual encode donc toute la structure convexe de l'espace.
+\end{application}
+
+\begin{theorem}[Banach-Steinhaus et le principe de la borne uniforme]
+    Une famille d'opérateurs linéaires continus entre un Banach et un e.v.n. qui est simplement bornée est uniformément bornée.
+\end{theorem}
+
+\begin{theorem}[Théorème de l'application ouverte et de l'isomorphisme de Banach]
+    Toute application linéaire continue surjective entre deux espaces de Banach est ouverte. En conséquence, toute application linéaire continue bijective entre deux Banach est un homéomorphisme.
+\end{theorem}
+
+\begin{theorem}[Théorème du graphe fermé]
+    Une application linéaire entre deux espaces de Banach est continue si et seulement si son graphe est fermé.
+\end{theorem}
+
+
+
+\section{Dualité et Topologies Faibles : La Quête de la Compacité}
+
+\begin{objectif}
+    Ici, nous abordons frontalement le problème de la non-compacité. L'idée est un compromis fondamental : si l'on ne peut pas avoir la compacité pour la topologie "forte" (celle de la norme), peut-on l'obtenir en affaiblissant la notion de convergence ? C'est le rôle des topologies faibles, qui sont le cadre naturel pour de nombreux problèmes variationnels.
+\end{objectif}
+
+\begin{definition}[Dual, Bidual et Réflexivité]
+    Le dual topologique de $E$ est $E^* = \mathcal{L}(E, \mathbb{K})$. Un espace de Banach $E$ est dit réflexif si l'injection canonique $J: E \to E^{**}$ est un isomorphisme.
+\end{definition}
+
+\begin{definition}[Topologies Faible et Faible-*]
+    La topologie faible $\sigma(E, E^*)$ sur $E$ est la topologie initiale associée à la famille des formes linéaires de $E^*$.
+    La topologie faible-* $\sigma(E^*, E)$ sur $E^*$ est la topologie initiale associée à la famille des évaluations $\{J(x) \mid x \in E\}$.
+\end{definition}
+
+\begin{theorem}[Théorème de Banach-Alaoglu]
+    La boule unité fermée du dual $E^*$ d'un e.v.n. $E$ est compacte pour la topologie faible-*.
+\end{theorem}
+
+\begin{remark}[La Compacité Retrouvée]
+    C'est le résultat central qui répond à notre quête. Il nous offre la compacité sur un plateau, mais à un prix : celui de la topologie. On sacrifie la convergence forte (en norme) pour une convergence plus subtile, mais on regagne l'outil essentiel d'extraction de sous-suites. Pour un espace réflexif (comme un Hilbert), la boule unité est elle-même faiblement compacte. C'est ce qui rend ces espaces si "confortables".
+\end{remark}
+
+
+
+\section{Espaces de Hilbert : La Géométrie Triomphante}
+
+\begin{objectif}
+    Étudier le cadre "parfait" où l'analyse et la géométrie fusionnent. La présence d'un produit scalaire induit une notion d'orthogonalité qui rigidifie l'espace et simplifie drastiquement la théorie. Les projections deviennent des outils d'approximation, le dual s'identifie à l'espace lui-même, et les opérateurs les plus importants deviennent "diagonalisables".
+\end{objectif}
+
+\begin{theorem}[Théorème de projection sur un convexe fermé]
+    Dans un Hilbert, tout convexe fermé non vide est un "ensemble de meilleure approximation" : pour tout point de l'espace, il existe un unique point du convexe qui minimise la distance.
+\end{theorem}
+
+\begin{application}[Optimisation Convexe et Machine Learning]
+    Ce théorème est le fondement de nombreux algorithmes. Par exemple, les "Support Vector Machines" (SVM) en classification consistent à trouver l'hyperplan qui sépare au mieux deux ensembles de points. Ce problème se ramène à la projection d'un point sur un convexe fermé.
+\end{application}
+
+\begin{theorem}[Théorème de représentation de Riesz]
+    Tout espace de Hilbert s'identifie canoniquement (via une isométrie antilinéaire) à son dual. C'est l'archétype d'un espace réflexif.
+\end{theorem}
+
+\begin{theorem}[Alternative de Fredholm]
+    Soit $T$ un opérateur compact sur un Hilbert $H$. Alors l'équation $(I-T)x=y$ se comporte exactement comme un système linéaire en dimension finie : elle a une solution unique pour tout $y$ si et seulement si l'équation homogène $(I-T)x=0$ n'a que la solution triviale.
+\end{theorem}
+
+\begin{theorem}[Théorème Spectral pour les opérateurs compacts auto-adjoints]
+    Soit $T$ un opérateur compact auto-adjoint sur un Hilbert $H$. Alors il existe une base hilbertienne de $H$ formée de vecteurs propres de $T$.
+\end{theorem}
+
+\begin{remark}[La "Diagonalisation" en Dimension Infinie]
+    C'est l'aboutissement de notre quête. Dans la "bonne" base, un opérateur complexe se comporte comme une simple multiplication par des scalaires. Cela permet de définir des fonctions d'opérateurs (comme $e^T$) et de résoudre des équations d'évolution (comme l'équation de la chaleur ou de Schrödinger) par décomposition sur cette base. L'opérateur différentiel (non borné) est "dompté" par un opérateur intégral inverse (compact), dont on peut appliquer le théorème spectral. C'est le triomphe de l'analyse fonctionnelle.
+\end{remark}

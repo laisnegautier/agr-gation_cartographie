@@ -1,0 +1,82 @@
+
+\chapter{Géométrie Différentielle : Le Calcul Infinitésimal sur les Espaces Courbes}
+
+\section{Étude Locale des Courbes}
+
+\begin{objectif}
+    Appliquer les outils du calcul différentiel pour comprendre la géométrie d'une courbe au voisinage d'un point. L'idée est de trouver le "meilleur" repère local possible (le repère de Frénet) pour décrire comment la courbe se tord et se courbe dans l'espace.
+\end{objectif}
+
+\begin{definition}[Arc Paramétré]
+    Un arc paramétré de classe $\mathcal{C}^k$ est une application $\gamma: I \to \mathbb{R}^n$ de classe $\mathcal{C}^k$. Un point est régulier si $\gamma'(t) \neq 0$.
+\end{definition}
+
+\begin{definition}[Abscisse Curviligne]
+    L'abscisse curviligne $s(t) = \int_{t_0}^t \|\gamma'(u)\| du$ mesure la longueur de la courbe depuis un point de départ. Un paramétrage par l'abscisse curviligne est un paramétrage "naturel" où la vitesse est toujours de norme 1.
+\end{definition}
+
+\begin{theorem}[Repère de Frénet et Courbures]
+    Pour une courbe de $\mathbb{R}^3$ birégulière et paramétrée par l'abscisse curviligne $\gamma(s)$, il existe un unique repère orthonormé direct mobile $(T,N,B)$ (Tangente, Normale, Binormale) le long de la courbe tel que :
+    $$
+    \begin{pmatrix} T' \\ N' \\ B' \end{pmatrix} =
+    \begin{pmatrix} 0 & \kappa & 0 \\ -\kappa & 0 & \tau \\ 0 & -\tau & 0 \end{pmatrix}
+    \begin{pmatrix} T \\ N \\ B \end{pmatrix}
+    $$
+    \begin{itemize}
+        \item $\kappa(s)$ est la \textbf{courbure}. Elle mesure la façon dont la courbe "tourne" dans son plan osculateur.
+        \item $\tau(s)$ est la \textbf{torsion}. Elle mesure la façon dont la courbe "sort" de son plan osculateur, son "gauchissement".
+    \end{itemize}
+\end{theorem}
+\begin{remark}[La Géométrie Locale Complètement Décrite]
+    Ce résultat est fondamental : les deux fonctions $\kappa(s)$ et $\tau(s)$ déterminent entièrement la géométrie locale de la courbe. Deux courbes ayant les mêmes fonctions courbure et torsion sont identiques à une isométrie près.
+\end{remark}
+\begin{example}
+    \begin{itemize}
+        \item Un cercle de rayon $R$ a une courbure constante $1/R$ et une torsion nulle.
+        \item Une hélice circulaire a une courbure et une torsion constantes.
+    \end{itemize}
+\end{example}
+
+\section{Étude Locale des Surfaces}
+
+\begin{objectif}
+    Généraliser l'étude locale des courbes aux surfaces. On cherche à définir des quantités (les formes fondamentales) qui encodent toute la géométrie locale d'une surface (longueurs, angles, et surtout, courbure).
+\end{objectif}
+
+\begin{definition}[Nappe Paramétrée et Plan Tangent]
+    Une nappe paramétrée est une application $\sigma: U \to \mathbb{R}^3$ (où $U \subset \mathbb{R}^2$ est un ouvert). Un point est régulier si les vecteurs $\frac{\partial\sigma}{\partial u}$ et $\frac{\partial\sigma}{\partial v}$ sont linéairement indépendants. En un point régulier, ils engendrent le \textbf{plan tangent} $T_p S$.
+\end{definition}
+
+\begin{definition}[Première Forme Fondamentale]
+    La première forme fondamentale, notée $I_p$, est la forme quadratique sur le plan tangent $T_p S$ qui mesure la "longueur au carré" des vecteurs tangents. C'est la restriction du produit scalaire de $\mathbb{R}^3$ au plan tangent. Sa matrice dans la base $(\sigma_u, \sigma_v)$ est :
+    $$ \begin{pmatrix} E & F \\ F & G \end{pmatrix} = \begin{pmatrix} \langle \sigma_u, \sigma_u \rangle & \langle \sigma_u, \sigma_v \rangle \\ \langle \sigma_u, \sigma_v \rangle & \langle \sigma_v, \sigma_v \rangle \end{pmatrix} $$
+\end{definition}
+\begin{remark}[La Métrique Intrinsèque]
+    La première forme fondamentale est \textbf{intrinsèque} : elle peut être calculée par un "habitant" de la surface sans avoir à connaître l'espace ambiant $\mathbb{R}^3$. Elle lui permet de mesurer des longueurs de courbes tracées sur la surface et des angles entre vecteurs tangents.
+\end{remark}
+
+\begin{definition}[Seconde Forme Fondamentale]
+    La seconde forme fondamentale, notée $II_p$, est une forme quadratique sur $T_p S$ qui mesure comment la surface "s'écarte" de son plan tangent. Elle dépend du choix d'un vecteur normal unitaire $n$.
+    $$ II_p(v) = - \langle dn_p(v), v \rangle $$
+    Sa matrice est $\begin{pmatrix} L & M \\ M & N \end{pmatrix}$ avec $L=\langle \sigma_{uu}, n \rangle$, etc.
+\end{definition}
+
+\begin{definition}[Application de Weingarten et Courbures]
+    L'endomorphisme auto-adjoint (symétrique) $W_p = -dn_p$ du plan tangent est l'\textbf{endomorphisme de Weingarten} (ou de forme).
+    \begin{itemize}
+        \item Ses valeurs propres $k_1, k_2$ sont les \textbf{courbures principales}.
+        \item La \textbf{courbure de Gauss} est $K = \det(W_p) = k_1 k_2$.
+        \item La \textbf{courbure moyenne} est $H = \frac{1}{2} \mathrm{Tr}(W_p) = \frac{k_1+k_2}{2}$.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[Theorema Egregium de Gauss]
+    La courbure de Gauss $K$ ne dépend \textbf{que} de la première forme fondamentale et de ses dérivées.
+\end{theorem}
+\begin{remark}[Le "Théorème Remarquable"]
+    C'est l'un des résultats les plus profonds de la géométrie. Il affirme qu'une quantité (la courbure de Gauss) qui semble dépendre de la manière dont la surface est plongée dans $\mathbb{R}^3$ (via la seconde forme fondamentale) est en fait une propriété \textbf{intrinsèque} de la surface.
+\end{remark}
+
+\begin{application}[Cartographie]
+    Un habitant d'une sphère (courbure constante positive) peut, par des mesures de triangles sur sa surface (la somme des angles sera > 180°), savoir qu'il vit sur une surface courbe. Le Theorema Egregium implique qu'il est impossible de dessiner une carte plane d'une portion de la Terre sans déformer les distances. Toute projection cartographique est une distorsion.
+\end{application}

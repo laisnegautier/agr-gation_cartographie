@@ -1,0 +1,103 @@
+\chapter{Statistiques et Méthodes : L'Art de l'Inférence face à l'Incertitude}
+
+\section{Le Cadre de la Statistique Inférentielle}
+
+\begin{objectif}
+    Poser le problème fondamental de la statistique, qui est le "problème inverse" des probabilités. En probabilités, on connaît le modèle et on déduit le comportement des données. En statistiques, on observe les données et on cherche à en \textbf{inférer} le modèle sous-jacent. C'est l'art de remonter de l'échantillon à la population.
+\end{objectif}
+
+\begin{definition}[Modèle Statistique et Échantillon]
+    Un \textbf{modèle statistique} est un triplet $(\mathcal{X}, \mathcal{A}, \{P_\theta\}_{\theta \in \Theta})$ où :
+    \begin{itemize}
+        \item $(\mathcal{X}, \mathcal{A})$ est un espace mesurable (l'espace des observations).
+        \item $\{P_\theta\}_{\theta \in \Theta}$ est une famille de lois de probabilité sur cet espace, indexée par un paramètre $\theta$ inconnu appartenant à l'espace des paramètres $\Theta$.
+    \end{itemize}
+    Un \textbf{échantillon} de taille $n$ est une suite $(X_1, \dots, X_n)$ de variables aléatoires i.i.d. (indépendantes et identiquement distribuées) selon une loi $P_\theta$.
+\end{definition}
+
+\begin{remark}[Les Deux Grandes Tâches de la Statistique]
+    Face à un échantillon, le statisticien se pose principalement deux questions :
+    \begin{enumerate}
+        \item \textbf{Estimation :} Quelle est la "meilleure" valeur possible pour le paramètre inconnu $\theta$ ? (e.g., estimer la proportion de votants pour un candidat).
+        \item \textbf{Test d'hypothèses :} Les données sont-elles compatibles avec une certaine affirmation sur $\theta$ ? (e.g., ce nouveau médicament est-il plus efficace que le placebo ?).
+    \end{enumerate}
+\end{remark}
+
+\section{Estimation Ponctuelle : Deviner le Bon Paramètre}
+
+\begin{objectif}
+    Construire des "estimateurs", c'est-à-dire des fonctions de l'échantillon qui nous donnent une valeur approchée du paramètre inconnu. On développera des critères pour juger de la "qualité" d'un estimateur.
+\end{objectif}
+
+\begin{definition}[Estimateur et ses Qualités]
+    Un \textbf{estimateur} de $\theta$ est une statistique $\hat{\theta}_n = T(X_1, \dots, X_n)$.
+    \begin{itemize}
+        \item Le \textbf{biais} est $b(\hat{\theta}_n) = E[\hat{\theta}_n] - \theta$. Un estimateur est \textbf{sans biais} si son biais est nul.
+        \item L'\textbf{erreur quadratique moyenne} est $\mathrm{MSE}(\hat{\theta}_n) = E[(\hat{\theta}_n - \theta)^2] = V(\hat{\theta}_n) + b(\hat{\theta}_n)^2$.
+        \item Un estimateur est \textbf{convergent} si $\hat{\theta}_n \to \theta$ (en probabilité ou presque sûrement).
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[Méthode du Maximum de Vraisemblance]
+    La fonction de \textbf{vraisemblance} est la densité de l'échantillon, vue comme une fonction du paramètre $\theta$: $\mathcal{L}(\theta; x_1, \dots, x_n) = \prod_{i=1}^n f_\theta(x_i)$.
+    L'estimateur du maximum de vraisemblance (EMV) est la valeur $\hat{\theta}_{MV}$ qui maximise cette fonction. C'est la valeur du paramètre qui rend les observations observées "les plus probables".
+\end{definition}
+
+\begin{theorem}[Borne de Cramér-Rao]
+    Sous des conditions de régularité, la variance de tout estimateur sans biais $\hat{\theta}_n$ est minorée par l'inverse de l'information de Fisher : $V(\hat{\theta}_n) \ge \frac{1}{I(\theta)}$. Un estimateur qui atteint cette borne est dit \textbf{efficace}.
+\end{theorem}
+
+\begin{example}[Estimation pour une loi de Bernoulli]
+    On observe $n$ lancers d'une pièce (0 ou 1) de paramètre inconnu $p$. La moyenne empirique $\bar{X}_n$ est un estimateur de $p$. Il est sans biais, convergent (par la LGN), et c'est aussi l'estimateur du maximum de vraisemblance.
+\end{example}
+
+\section{Estimation par Intervalle de Confiance}
+
+\begin{objectif}
+    Reconnaître l'incertitude. Une estimation ponctuelle est presque sûrement fausse. Un intervalle de confiance fournit une plage de valeurs plausibles pour le paramètre, associée à un niveau de confiance.
+\end{objectif}
+
+\begin{definition}[Intervalle de Confiance]
+    Un intervalle de confiance pour $\theta$ au niveau de confiance $1-\alpha$ est un intervalle aléatoire $[A_n, B_n]$ (où $A_n$ et $B_n$ sont des statistiques) tel que :
+    $$ \mathbb{P}_\theta( \theta \in [A_n, B_n] ) = 1-\alpha $$
+\end{definition}
+\begin{remark}[L'Interprétation Fréquentiste]
+    Attention à l'interprétation ! Ce n'est pas le paramètre $\theta$ qui est aléatoire, mais l'intervalle. Un niveau de confiance de 95\% signifie que si l'on répétait l'expérience un très grand nombre de fois, 95\% des intervalles ainsi construits contiendraient la vraie valeur (inconnue) du paramètre.
+\end{remark}
+
+\begin{application}[Intervalle de confiance pour une moyenne]
+    Si l'on a un échantillon d'une loi normale de moyenne $\mu$ inconnue et de variance $\sigma^2$ connue, un intervalle de confiance pour $\mu$ au niveau $1-\alpha$ est :
+    $$ \left[ \bar{X}_n - z_{\alpha/2} \frac{\sigma}{\sqrt{n}}, \bar{X}_n + z_{\alpha/2} \frac{\sigma}{\sqrt{n}} \right] $$
+    où $z_{\alpha/2}$ est le quantile de la loi normale centrée réduite. Si $\sigma^2$ est inconnue, on l'estime par la variance empirique et on utilise les quantiles de la loi de Student.
+\end{application}
+
+\section{Tests d'Hypothèses : La Prise de Décision}
+
+\begin{objectif}
+    Formaliser la démarche scientifique de prise de décision face à des données. On pose une hypothèse par défaut ($H_0$) et on ne la rejette que si les données observées sont "extrêmement improbables" sous cette hypothèse.
+\end{objectif}
+
+\begin{definition}[Formalisme de Neyman-Pearson]
+    Un test oppose une \textbf{hypothèse nulle} $H_0: \theta \in \Theta_0$ à une \textbf{hypothèse alternative} $H_1: \theta \in \Theta_1$.
+    \begin{itemize}
+        \item \textbf{Erreur de type I :} Rejeter $H_0$ alors qu'elle est vraie. Sa probabilité est notée $\alpha$ (le "risque").
+        \item \textbf{Erreur de type II :} Ne pas rejeter $H_0$ alors qu'elle est fausse. Sa probabilité est notée $\beta$.
+    \end{itemize}
+    La \textbf{puissance} du test est $1-\beta$.
+\end{definition}
+
+\begin{lemma}[Neyman-Pearson]
+    Pour tester $H_0: \theta=\theta_0$ contre $H_1: \theta=\theta_1$, le test le plus puissant (qui maximise $1-\beta$ pour un $\alpha$ donné) est le test du rapport de vraisemblance.
+\end{lemma}
+
+\begin{definition}[p-valeur]
+    La \textbf{p-valeur} est la probabilité, sous l'hypothèse $H_0$, d'observer une valeur de la statistique de test au moins aussi "extrême" que celle qui a été effectivement observée. On rejette $H_0$ si la p-valeur est inférieure au risque $\alpha$ que l'on s'est fixé.
+\end{definition}
+
+\begin{application}[Tests statistiques classiques]
+    \begin{itemize}
+        \item \textbf{Test de Student :} Teste l'égalité d'une moyenne à une valeur de référence. (Ex: "Le poids moyen des baguettes dans cette boulangerie est-il bien de 250g ?").
+        \item \textbf{Test du $\chi^2$ d'adéquation :} Teste si un échantillon suit une loi de probabilité donnée. (Ex: "Ce dé est-il équilibré ?").
+        \item \textbf{Test du $\chi^2$ d'indépendance :} Teste l'indépendance de deux variables qualitatives. (Ex: "La couleur des yeux et la couleur des cheveux sont-elles des variables indépendantes ?").
+    \end{itemize}
+\end{application}

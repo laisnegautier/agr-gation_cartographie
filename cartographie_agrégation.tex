@@ -1,0 +1,121 @@
+\pdfobjcompresslevel 0
+\documentclass[a4paper, 11pt, twocolumn, oneside, openright]{report}
+
+%====================== PACKAGES ======================
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage[top=1.5cm,bottom=2cm,left=2.5cm,right=2.5cm,includehead]{geometry}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc}
+\usepackage{circuitikz}
+\usepackage{makecell}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{mdframed}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=magenta]{hyperref}
+\usepackage[skip=10pt plus1pt, indent=20pt]{parskip}
+
+\usepackage{colortbl}
+
+\DeclareMathOperator{\IN}{\mathbb{N}}
+\DeclareMathOperator{\IZ}{\mathbb{Z}}
+\DeclareMathOperator{\IQ}{\mathbb{Q}}
+\DeclareMathOperator{\IR}{\mathbb{R}}
+\DeclareMathOperator{\IK}{\mathbb{K}}
+\DeclareMathOperator{\IC}{\mathbb{C}}
+\DeclareMathOperator{\IF}{\mathbb{F}}
+\DeclareMathOperator{\IP}{\mathbb{P}}
+
+\DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\corank}{corank}
+\DeclareMathOperator{\codomain}{codomain}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\card}{Card}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{Théorème}[section]
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}[theorem]{Lemme}
+\newtheorem*{remark}{Remarque}
+\newtheorem*{example}{Exemple}
+\newtheorem*{application}{Application}
+\newtheorem*{objectif}{Objectif}
+
+\newtheorem{definition}{Définition}[section]
+\newtheorem{notation}{Notation}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+
+\begin{document}
+
+\title{Cartographie des mathématiques pour l'agrégation}
+\author{Gautier Laisné}
+\date{}
+\maketitle
+
+\begingroup
+\hypersetup{linkcolor=black}
+\tableofcontents
+\endgroup
+
+\part{Théorie des nombres}
+\input{./chapters/arithmétique/théorie_des_nombres.tex}
+
+\part{Théorie des groupes}
+\input{./chapters/groupes/théorie_des_groupes.tex}
+\input{./chapters/groupes/extensions_de_corps.tex}
+\input{./chapters/groupes/représentations_de_groupes.tex}
+
+\part{Géométrie}
+\input{./chapters/géometrie/algèbre_bilinéaire.tex}
+\input{./chapters/géometrie/géométrie_euclidienne.tex}
+\input{./chapters/géometrie/géométrie_différentielle.tex}
+\input{./chapters/géometrie/surfaces.tex}
+
+\part{Algèbre}
+\input{./chapters/algèbre/algèbre_linéaire.tex}
+\input{./chapters/algèbre/algèbre_générale.tex}
+\input{./chapters/algèbre/anneaux.tex}
+\input{./chapters/algèbre/modules.tex}
+
+\part{Intégration}
+\input{./chapters/intégration/intégration_riemmann.tex}
+\input{./chapters/intégration/fourier_espaces_Lp.tex}
+\input{./chapters/intégration/théorie_mesure.tex}
+
+\part{Analyse}
+\input{./chapters/analyse/series.tex}
+\input{./chapters/analyse/analyse_fonctionnelle.tex} % Banach, Hilbert, convergence
+\input{./chapters/analyse/analyse_complexe.tex}
+\input{./chapters/analyse/analyse_convexe.tex}
+\input{./chapters/analyse/equations_différentielles.tex}
+\input{./chapters/analyse/calcul_différentiel_infinie.tex}
+
+\part{Topologie}
+\input{./chapters/topologie/espaces_métriques.tex}
+
+\part{Probabilités}
+\input{./chapters/probabilités/combinatoire.tex}
+\input{./chapters/probabilités/espace_probabilisé.tex}
+\input{./chapters/probabilités/statistiques_et_méthodes.tex}
+
+\part{Méthodes numériques}
+\input{./chapters/méthodes numériques/equations_différentielles_numériques.tex}
+\input{./chapters/méthodes numériques/résolution_numérique.tex}
+\input{./chapters/méthodes numériques/calculs_numeriques.tex}
+
+
+% \printbibliography[heading=bibintoc]
+
+\restoregeometry
+
+\end{document}

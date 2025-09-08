@@ -1,0 +1,160 @@
+\babel@toc {french}{}\relax 
+\contentsline {part}{I\hspace {1em}Théorie des nombres}{5}{part.1}%
+\contentsline {chapter}{\numberline {1}Arithmétique : La Structure Cachée des Nombres Entiers}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Division Euclidienne et PGCD : L'Algorithme Fondateur}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Nombres Premiers et Factorisation Unique}{6}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Arithmétique Modulaire : Les Mondes Finis de $\mathbb {Z}/n\mathbb {Z}$}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Résidus Quadratiques et la Loi de Réciprocité}{7}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Introduction aux Équations Diophantiennes}{8}{section.1.5}%
+\contentsline {part}{II\hspace {1em}Théorie des groupes}{9}{part.2}%
+\contentsline {chapter}{\numberline {2}Théorie des Groupes : À la Recherche des Atomes de Symétrie}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}L'Alphabet de la Symétrie}{10}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Structure Interne : Quotients et Morphismes}{10}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Les Actions de Groupes : La Géométrie en Mouvement}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Le Programme de Classification : Les Atomes de Symétrie}{11}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Reconstruire des Groupes : Le Produit Semi-direct}{12}{section.2.5}%
+\contentsline {chapter}{\numberline {3}Théorie de Galois : La Symétrie Cachée des Nombres}{13}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Le Langage des Corps et des Extensions}{13}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Construire des Extensions : Le Monde des Racines}{13}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Les "Bonnes" Extensions : Le Cadre de la Théorie de Galois}{14}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Le Théorème Fondamental : Le Dictionnaire Algèbre-Groupe}{14}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Applications : La Puissance du Dictionnaire}{14}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Théorie des Représentations : Rendre les Groupes Visibles}{16}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Le Langage des Représentations}{16}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Le Lemme de Schur et ses Conséquences}{16}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Les Caractères : L'ADN des Représentations}{17}{section.4.3}%
+\contentsline {section}{\numberline {4.4}La Table des Caractères : Carte d'Identité du Groupe}{17}{section.4.4}%
+\contentsline {part}{III\hspace {1em}Géométrie}{18}{part.3}%
+\contentsline {chapter}{\numberline {5}Algèbre Bilinéaire : La Géométrie Cachée des Espaces Vectoriels}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Formes Bilinéaires et Dualité}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Formes Quadratiques : L'Étude des "Longueurs au Carré"}{19}{section.5.2}%
+\contentsline {section}{\numberline {5.3}La Loi d'Inertie de Sylvester : Classifier les Géométries}{20}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Géométrie Euclidienne : La Structure de notre Intuition}{21}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Le Produit Scalaire : La Mesure des Longueurs et des Angles}{21}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Orthogonalité et Bases Orthonormées}{21}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Les Transformations Euclidiennes : Isométries et Similitudes}{22}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Endomorphismes d'un Espace Euclidien et Théorème Spectral}{22}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Géométrie Différentielle : Le Calcul Infinitésimal sur les Espaces Courbes}{23}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Étude Locale des Courbes}{23}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Étude Locale des Surfaces}{23}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Surfaces et Variétés : De la Géométrie Locale au Global}{25}{chapter.8}%
+\contentsline {section}{\numberline {8.1}La Notion de Variété : L'Abstraction d'une "Surface"}{25}{section.8.1}%
+\contentsline {section}{\numberline {8.2}L'Espace Tangent et les Géodésiques}{25}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Le Théorème de Gauss-Bonnet : Le Pont entre Géométrie et Topologie}{26}{section.8.3}%
+\contentsline {part}{IV\hspace {1em}Algèbre}{27}{part.4}%
+\contentsline {chapter}{\numberline {9}Algèbre linéaire}{28}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Espace vectoriel}{28}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Dualité d'un espace vectoriel}{28}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Théorie des endomorphismes}{29}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Matrices}{29}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Endomorphisme d'espaces vectoriels}{29}{subsection.9.3.2}%
+\contentsline {section}{\numberline {9.4}Réduction d'endomorphisme}{29}{section.9.4}%
+\contentsline {chapter}{\numberline {10}Algèbre Générale : L'Architecture des Structures}{31}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Le Zoo des Structures Algébriques}{31}{section.10.1}%
+\contentsline {section}{\numberline {10.2}Le Triptyque Universel : Sous-structures, Morphismes, Quotients}{31}{section.10.2}%
+\contentsline {section}{\numberline {10.3}L'Action : Quand les Structures Agissent sur le Monde}{32}{section.10.3}%
+\contentsline {section}{\numberline {10.4}Vers l'Algèbre Universelle et les Catégories}{32}{section.10.4}%
+\contentsline {chapter}{\numberline {11}Anneaux et Polynômes : L'Héritage de l'Arithmétique}{34}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Le Bestiaire des Anneaux : Une Hiérarchie de "Gentillesse"}{34}{section.11.1}%
+\contentsline {section}{\numberline {11.2}L'Arithmétique dans les Anneaux Factoriels}{34}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Les Anneaux de Polynômes : L'Objet Central}{35}{section.11.3}%
+\contentsline {section}{\numberline {11.4}Polynômes Symétriques, Résultant et Discriminant}{35}{section.11.4}%
+\contentsline {chapter}{\numberline {12}Fiche de Synthèse : La Philosophie des Modules (hors programme) : Le Grand Unificateur de l'Algèbre}{37}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Qu'est-ce qu'un Module, Conceptuellement ?}{37}{section.12.1}%
+\contentsline {section}{\numberline {12.2}Le Dictionnaire : Trois Exemples Fondamentaux pour l'Agrégation}{37}{section.12.2}%
+\contentsline {section}{\numberline {12.3}Le Théorème de Structure : Le "Marteau" Unificateur}{38}{section.12.3}%
+\contentsline {paragraph}{Cas 1 : L'anneau est $\mathbb {Z}$ (principal).}{38}{section*.2}%
+\contentsline {paragraph}{Cas 2 : L'anneau est $K[X]$ (principal).}{38}{section*.3}%
+\contentsline {section}{\numberline {12.4}Conclusion : Comment Utiliser cette Fiche à l'Agrégation ?}{38}{section.12.4}%
+\contentsline {part}{V\hspace {1em}Intégration}{39}{part.5}%
+\contentsline {chapter}{\numberline {13}Intégration de Riemann : La Gloire et les Limites d'une Idée Intuitive}{40}{chapter.13}%
+\contentsline {section}{\numberline {13.1}La Construction de l'Intégrale : L'Idée Géométrique}{40}{section.13.1}%
+\contentsline {section}{\numberline {13.2}Le Champ d'Application : Quelles Fonctions sont Intégrables ?}{40}{section.13.2}%
+\contentsline {section}{\numberline {13.3}Les Théorèmes Fondamentaux : Le Pont entre Intégrale et Dérivée}{41}{section.13.3}%
+\contentsline {section}{\numberline {13.4}Extensions et Limites de la Théorie}{41}{section.13.4}%
+\contentsline {chapter}{\numberline {14}Fourier et Espaces $L^p$ : Décomposer les Fonctions en Atomes}{42}{chapter.14}%
+\contentsline {section}{\numberline {14.1}Espaces de Banach $L^p$ : Mesurer la "Taille" des Fonctions}{42}{section.14.1}%
+\contentsline {section}{\numberline {14.2}L'Espace de Hilbert $L^2$ : La Géométrie de l'Analyse}{42}{section.14.2}%
+\contentsline {section}{\numberline {14.3}Séries de Fourier : La Décomposition Harmonique sur le Cercle}{43}{section.14.3}%
+\contentsline {section}{\numberline {14.4}La Transformation de Fourier : L'Analyse sur la Droite Réelle}{43}{section.14.4}%
+\contentsline {section}{\numberline {14.5}Distributions : La Théorie des Fonctions Généralisées}{44}{section.14.5}%
+\contentsline {chapter}{\numberline {15}Théorie de la Mesure : Refonder l'Intégrale sur des Bases Solides}{45}{chapter.15}%
+\contentsline {section}{\numberline {15.1}Mesurer les Ensembles : Tribus et Mesures}{45}{section.15.1}%
+\contentsline {section}{\numberline {15.2}L'Intégrale de Lebesgue : Une Révolution Conceptuelle}{45}{section.15.2}%
+\contentsline {section}{\numberline {15.3}Les Théorèmes de Convergence : La Puissance Retrouvée}{46}{section.15.3}%
+\contentsline {section}{\numberline {15.4}Le Lien avec l'Analyse Fonctionnelle et Fubini}{46}{section.15.4}%
+\contentsline {part}{VI\hspace {1em}Analyse}{48}{part.6}%
+\contentsline {chapter}{\numberline {16}Séries : L'Art de Dompter l'Infini}{49}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Séries Numériques : Le Sens d'une Somme Infinie}{49}{section.16.1}%
+\contentsline {section}{\numberline {16.2}Séries de Fonctions : Construire de Nouveaux Objets}{49}{section.16.2}%
+\contentsline {section}{\numberline {16.3}Séries Entières : Le Pont entre Algèbre et Analyse}{50}{section.16.3}%
+\contentsline {section}{\numberline {16.4}Séries de Fourier : La Décomposition Harmonique}{50}{section.16.4}%
+\contentsline {chapter}{\numberline {17}Analyse Fonctionnelle : Une Perspective Géométrique}{52}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Préambule : Fondamentaux de Topologie et des Espaces Métriques}{52}{section.17.1}%
+\contentsline {subsection}{\numberline {17.1.1}Topologie Générale : Le Langage de la Proximité}{52}{subsection.17.1.1}%
+\contentsline {subsection}{\numberline {17.1.2}Espaces Métriques : La Notion de Distance}{52}{subsection.17.1.2}%
+\contentsline {subsection}{\numberline {17.1.3}Espaces Vectoriels Normés : La Synthèse}{53}{subsection.17.1.3}%
+\contentsline {section}{\numberline {17.2}Espaces de Banach : La Scène de l'Analyse}{53}{section.17.2}%
+\contentsline {section}{\numberline {17.3}Les Piliers : La Puissance de la Complétude}{54}{section.17.3}%
+\contentsline {section}{\numberline {17.4}Dualité et Topologies Faibles : La Quête de la Compacité}{54}{section.17.4}%
+\contentsline {section}{\numberline {17.5}Espaces de Hilbert : La Géométrie Triomphante}{54}{section.17.5}%
+\contentsline {chapter}{\numberline {18}Analyse Complexe : La Rigidité Miraculeuse du Plan Complexe}{56}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Le Monde Holomorphe : Une Condition Extraordinaire}{56}{section.18.1}%
+\contentsline {section}{\numberline {18.2}L'Intégration Complexe et la Formule de Cauchy}{56}{section.18.2}%
+\contentsline {section}{\numberline {18.3}Les Conséquences de la Rigidité Holomorphe}{57}{section.18.3}%
+\contentsline {section}{\numberline {18.4}Analyse des Singularités et Théorème des Résidus}{57}{section.18.4}%
+\contentsline {chapter}{\numberline {19}Analyse Convexe : La Géométrie de l'Optimisation}{59}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Le Langage de la Convexité}{59}{section.19.1}%
+\contentsline {section}{\numberline {19.2}Théorèmes de Séparation et Points Extrémaux}{59}{section.19.2}%
+\contentsline {section}{\numberline {19.3}Autres Théorèmes Géométriques Fondamentaux}{60}{section.19.3}%
+\contentsline {chapter}{\numberline {20}Équations Différentielles : L'Art de Prédire le Futur}{61}{chapter.20}%
+\contentsline {section}{\numberline {20.1}Existence et Unicité : Le Socle Déterministe}{61}{section.20.1}%
+\contentsline {section}{\numberline {20.2}Équations Différentielles Linéaires : Un Monde Structuré}{61}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Étude Qualitative : Dessiner le Futur sans Calculer}{62}{section.20.3}%
+\contentsline {section}{\numberline {20.4}Introduction aux Équations aux Dérivées Partielles (EDP)}{62}{section.20.4}%
+\contentsline {chapter}{\numberline {21}Calcul Différentiel en Dimension Infinie : Généraliser la Dérivée dans les Espaces de Banach}{64}{chapter.21}%
+\contentsline {section}{\numberline {21.1}La Notion de Différentiabilité}{64}{section.21.1}%
+\contentsline {section}{\numberline {21.2}Les Grands Théorèmes du Calcul Différentiel}{64}{section.21.2}%
+\contentsline {section}{\numberline {21.3}Différentielles d'Ordre Supérieur et Formule de Taylor}{65}{section.21.3}%
+\contentsline {section}{\numberline {21.4}Application à l'Optimisation sans Contraintes}{65}{section.21.4}%
+\contentsline {part}{VII\hspace {1em}Topologie}{66}{part.7}%
+\contentsline {chapter}{\numberline {22}Topologie : La Dialectique du Local et du Global}{67}{chapter.22}%
+\contentsline {section}{\numberline {22.1}Espaces Métriques : La Structure Locale}{67}{section.22.1}%
+\contentsline {section}{\numberline {22.2}Complétude : La Propriété Analytique par Excellence}{67}{section.22.2}%
+\contentsline {section}{\numberline {22.3}Compacité : La Propriété Globale et Géométrique}{67}{section.22.3}%
+\contentsline {section}{\numberline {22.4}Autres Propriétés Topologiques Fondamentales}{68}{section.22.4}%
+\contentsline {part}{VIII\hspace {1em}Probabilités}{69}{part.8}%
+\contentsline {chapter}{\numberline {23}Combinatoire et Graphes : L'Art de Dénombrer et de Connecter}{70}{chapter.23}%
+\contentsline {section}{\numberline {23.1}Principes Fondamentaux du Dénombrement}{70}{section.23.1}%
+\contentsline {section}{\numberline {23.2}Le Langage des Graphes}{70}{section.23.2}%
+\contentsline {section}{\numberline {23.3}Théorèmes Fondamentaux de la Théorie des Graphes}{71}{section.23.3}%
+\contentsline {chapter}{\numberline {24}Espaces Probabilisés : La Mesure de l'Incertitude}{72}{chapter.24}%
+\contentsline {section}{\numberline {24.1}Les Axiomes de Kolmogorov : Le Cadre de la Théorie}{72}{section.24.1}%
+\contentsline {section}{\numberline {24.2}Variables Aléatoires : Les Fonctions de l'Aléatoire}{72}{section.24.2}%
+\contentsline {section}{\numberline {24.3}Espérance et Moments : L'Intégrale sur l'Univers}{73}{section.24.3}%
+\contentsline {section}{\numberline {24.4}Les Théorèmes Limites : L'Émergence de l'Ordre}{73}{section.24.4}%
+\contentsline {chapter}{\numberline {25}Statistiques et Méthodes : L'Art de l'Inférence face à l'Incertitude}{74}{chapter.25}%
+\contentsline {section}{\numberline {25.1}Le Cadre de la Statistique Inférentielle}{74}{section.25.1}%
+\contentsline {section}{\numberline {25.2}Estimation Ponctuelle : Deviner le Bon Paramètre}{74}{section.25.2}%
+\contentsline {section}{\numberline {25.3}Estimation par Intervalle de Confiance}{75}{section.25.3}%
+\contentsline {section}{\numberline {25.4}Tests d'Hypothèses : La Prise de Décision}{75}{section.25.4}%
+\contentsline {part}{IX\hspace {1em}Méthodes numériques}{76}{part.9}%
+\contentsline {chapter}{\numberline {26}Équations Différentielles Numériques : Approximer le Continu par le Discret}{77}{chapter.26}%
+\contentsline {section}{\numberline {26.1}Principes Fondamentaux de la Discrétisation}{77}{section.26.1}%
+\contentsline {section}{\numberline {26.2}Les Méthodes à un Pas : Le Futur ne dépend que du Présent}{77}{section.26.2}%
+\contentsline {section}{\numberline {26.3}Les Méthodes Multipas : La Mémoire du Passé}{78}{section.26.3}%
+\contentsline {chapter}{\numberline {27}Résolution Numérique : L'Art de l'Approximation Efficace}{79}{chapter.27}%
+\contentsline {section}{\numberline {27.1}Résolution d'Équations Non Linéaires $f(x)=0$}{79}{section.27.1}%
+\contentsline {section}{\numberline {27.2}Interpolation et Approximation Polynomiale}{79}{section.27.2}%
+\contentsline {section}{\numberline {27.3}Intégration Numérique (Quadrature)}{80}{section.27.3}%
+\contentsline {section}{\numberline {27.4}Algèbre Linéaire Numérique}{80}{section.27.4}%
+\contentsline {chapter}{\numberline {28}Option Calcul Scientifique : La Boîte à Outils du Modélisateur}{81}{chapter.28}%
+\contentsline {section}{\numberline {28.1}La Philosophie de l'Épreuve de Modélisation}{81}{section.28.1}%
+\contentsline {section}{\numberline {28.2}La Boîte à Outils Algorithmique par Type de Problème}{81}{section.28.2}%
+\contentsline {subsection}{\numberline {28.2.1}Si le modèle est une Équation Différentielle Ordinaire (EDO)}{81}{subsection.28.2.1}%
+\contentsline {subsection}{\numberline {28.2.2}Si le modèle est un Système Linéaire $Ax=b$}{82}{subsection.28.2.2}%
+\contentsline {subsection}{\numberline {28.2.3}Si le modèle est un Problème aux Valeurs Propres $Ax=\lambda x$}{82}{subsection.28.2.3}%
+\contentsline {section}{\numberline {28.3}Thèmes Transversaux et Algorithmes Essentiels}{82}{section.28.3}%
+\contentsline {subsection}{\numberline {28.3.1}Optimisation Numérique : Trouver le Minimum}{82}{subsection.28.3.1}%
+\contentsline {subsection}{\numberline {28.3.2}Équations aux Dérivées Partielles (EDP) : Le Strict Minimum}{83}{subsection.28.3.2}%
+\contentsline {subsection}{\numberline {28.3.3}La Transformée de Fourier Rapide (FFT)}{83}{subsection.28.3.3}%

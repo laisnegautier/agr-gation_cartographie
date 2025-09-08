@@ -1,0 +1,144 @@
+\chapter{Fourier et Espaces $L^p$ : Décomposer les Fonctions en Atomes}
+
+\section{Espaces de Banach $L^p$ : Mesurer la "Taille" des Fonctions}
+
+\begin{objectif}
+    Construire les espaces fonctionnels fondamentaux de l'analyse moderne. L'idée est de généraliser la notion de norme vectorielle à des espaces de fonctions, en "sommant" (via une intégrale) la taille locale de la fonction. Chaque valeur de $p$ définit une manière différente de mesurer cette taille globale, donnant naissance à une famille d'espaces aux propriétés riches et variées.
+\end{objectif}
+
+\begin{definition}[Norme et Espace $L^p$]
+    Soit $(\Omega, \mathcal{A}, \mu)$ un espace mesuré et $p \in [1, \infty[$. La \textbf{norme $L^p$} d'une fonction mesurable $f: \Omega \to \mathbb{C}$ est :
+    $$ \|f\|_p = \left( \int_\Omega |f(x)|^p d\mu(x) \right)^{1/p} $$
+    L'espace $L^p(\Omega)$ est l'ensemble des (classes d'équivalence p.p. de) fonctions mesurables pour lesquelles cette norme est finie.
+    Pour $p=\infty$, $\|f\|_\infty = \inf \{ M \ge 0 \mid |f(x)| \le M \text{ p.p.}\}$ (le "sup essentiel").
+\end{definition}
+
+\begin{theorem}[Inégalités fondamentales]
+    \begin{itemize}
+        \item \textbf{Inégalité de Hölder :} Pour $p,q \in [1,\infty]$ tels que $\frac{1}{p}+\frac{1}{q}=1$, et pour $f \in L^p, g \in L^q$, on a $fg \in L^1$ et $\|fg\|_1 \le \|f\|_p \|g\|_q$.
+        \item \textbf{Inégalité de Minkowski :} L'application $\|\cdot\|_p$ est une norme (vérifie l'inégalité triangulaire).
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Théorème de Riesz-Fischer]
+    Pour tout $p \in [1, \infty]$, l'espace $(L^p(\Omega), \|\cdot\|_p)$ est un espace de Banach.
+\end{theorem}
+\begin{remark}[La puissance de l'intégrale de Lebesgue]
+    Ce théorème est l'une des raisons d'être de l'intégrale de Lebesgue. L'espace des fonctions Riemann-intégrables n'est pas complet. La complétude des espaces $L^p$ est ce qui en fait le cadre parfait pour l'analyse fonctionnelle, garantissant la convergence des processus d'approximation.
+\end{remark}
+
+\begin{theorem}[Dualité des espaces $L^p$]
+    Pour $p \in [1, \infty[$, le dual topologique de $L^p(\Omega)$ s'identifie isométriquement à $L^q(\Omega)$ où $\frac{1}{p}+\frac{1}{q}=1$. En particulier, les espaces $L^p$ pour $p \in ]1,\infty[$ sont réflexifs. Les espaces $L^1$ et $L^\infty$ ne le sont pas en général.
+\end{theorem}
+
+\section{L'Espace de Hilbert $L^2$ : La Géométrie de l'Analyse}
+
+\begin{objectif}
+    Se concentrer sur le cas unique $p=2$, où la norme dérive d'un produit scalaire. Cela dote l'espace $L^2$ d'une structure euclidienne de dimension infinie, où l'intuition géométrique (orthogonalité, projection, Pythagore) devient un outil d'analyse extraordinairement puissant.
+\end{objectif}
+
+\begin{definition}[Structure Hilbertienne de $L^2$]
+    L'espace $L^2(\Omega)$ est un espace de Hilbert pour le produit scalaire hermitien :
+    $$ \langle f, g \rangle = \int_\Omega f(x) \overline{g(x)} d\mu(x) $$
+    Deux fonctions sont "orthogonales" si leur produit scalaire est nul.
+\end{definition}
+
+\begin{theorem}[Projection sur un Convexe Fermé]
+    C'est le théorème central de la géométrie hilbertienne, qui garantit l'existence et l'unicité de la meilleure approximation d'un élément par un point d'un convexe fermé.
+\end{theorem}
+
+\begin{application}[Moindres carrés et approximation]
+    Chercher la meilleure approximation d'une fonction $f$ dans un sous-espace $F$ (par exemple, un espace de polynômes) au sens de l'énergie (norme $L^2$) revient à calculer la projection orthogonale de $f$ sur $F$. C'est le fondement de l'approximation polynomiale, des ondelettes, etc.
+\end{application}
+
+\section{Séries de Fourier : La Décomposition Harmonique sur le Cercle}
+
+\begin{objectif}
+    Appliquer la théorie des espaces de Hilbert au cas canonique de $L^2([0, 2\pi])$. On montre que les fonctions trigonométriques $\{e^{int}\}_{n \in \mathbb{Z}}$ forment une "base" de cet espace, permettant de décomposer n'importe quelle fonction périodique en une somme de ses "harmoniques".
+\end{objectif}
+
+\begin{theorem}[Base hilbertienne trigonométrique]
+    La famille de fonctions $(e_n)_{n \in \mathbb{Z}}$ définie par $e_n(t) = \frac{1}{\sqrt{2\pi}}e^{int}$ forme une base orthonormale (base hilbertienne) de l'espace de Hilbert $L^2([0, 2\pi])$.
+\end{theorem}
+
+\begin{corollary}[Décomposition et Identité de Parseval]
+    Toute fonction $f \in L^2([0, 2\pi])$ se décompose de manière unique $f(t) = \sum_{n=-\infty}^\infty c_n(f) e^{int}$, où la convergence a lieu au sens de la norme $L^2$. De plus, on a l'identité de Parseval (Pythagore en dimension infinie) :
+    $$ \frac{1}{2\pi} \int_0^{2\pi} |f(t)|^2 dt = \sum_{n=-\infty}^\infty |c_n(f)|^2 $$
+\end{corollary}
+
+\begin{remark}[Les différents modes de convergence]
+    La convergence de la série de Fourier est une question subtile.
+    \begin{itemize}
+        \item \textbf{Convergence $L^2$ :} Toujours vraie pour une fonction de carré intégrable.
+        \item \textbf{Convergence ponctuelle :} Garantie si la fonction est $\mathcal{C}^1$ par morceaux (Théorème de Dirichlet).
+        \item \textbf{Convergence uniforme :} Garantie si la fonction est continue et $\mathcal{C}^1$ par morceaux.
+    \end{itemize}
+    Il existe des fonctions continues dont la série de Fourier diverge en certains points (un résultat profond d'analyse fonctionnelle utilisant Banach-Steinhaus).
+\end{remark}
+
+\section{La Transformation de Fourier : L'Analyse sur la Droite Réelle}
+
+\begin{objectif}
+    Étendre l'analyse harmonique aux fonctions non périodiques définies sur $\mathbb{R}$. La somme discrète (série de Fourier) devient une somme continue (intégrale de Fourier), ce qui permet d'analyser le "contenu fréquentiel" de n'importe quel signal de durée finie.
+\end{objectif}
+
+\begin{definition}[Transformée de Fourier]
+    Pour une fonction $f \in L^1(\mathbb{R})$, sa transformée de Fourier $\hat{f}$ (ou $\mathcal{F}(f)$) est la fonction définie sur $\mathbb{R}$ par :
+    $$ \hat{f}(\xi) = \int_{-\infty}^\infty f(x) e^{-2i\pi x \xi} dx $$
+\end{definition}
+
+\begin{theorem}[Propriétés fondamentales]
+    \begin{itemize}
+        \item \textbf{Lemme de Riemann-Lebesgue :} Si $f \in L^1$, alors $\hat{f}$ est une fonction continue qui tend vers 0 à l'infini.
+        \item \textbf{Théorème de convolution :} $\widehat{f*g} = \hat{f} \cdot \hat{g}$. La transformée de Fourier transforme la convolution (opération d'analyse) en un simple produit (opération algébrique).
+        \item \textbf{Formule d'inversion de Fourier :} Sous de bonnes conditions, on peut retrouver $f$ à partir de $\hat{f}$ par $f(x) = \int_{-\infty}^\infty \hat{f}(\xi) e^{2i\pi x \xi} d\xi$.
+    \end{itemize}
+\end{theorem}
+
+\begin{theorem}[Théorème de Plancherel]
+    La transformation de Fourier, initialement définie sur $L^1 \cap L^2$, se prolonge de manière unique en un isomorphisme d'espaces de Hilbert de $L^2(\mathbb{R})$ dans lui-même. En particulier, elle préserve le produit scalaire et la norme (Identité de Plancherel) :
+    $$ \int_{-\infty}^\infty |f(x)|^2 dx = \int_{-\infty}^\infty |\hat{f}(\xi)|^2 d\xi $$
+\end{theorem}
+
+\begin{application}[Principe d'incertitude de Heisenberg]
+    Ce principe fondamental de la mécanique quantique et du traitement du signal est une conséquence directe des propriétés de la transformée de Fourier. Il stipule qu'une fonction et sa transformée de Fourier ne peuvent pas être simultanément très localisées. Plus un signal est concentré dans le temps, plus son spectre de fréquences est étalé, et vice-versa.
+\end{application}
+
+\section{Distributions : La Théorie des Fonctions Généralisées}
+
+\begin{objectif}
+    Créer un cadre théorique rigoureux pour manipuler des "fonctions" pathologiques comme le "pic de Dirac" $\delta_0$, qui sont infinies en un point et nulles ailleurs, mais dont l'intégrale vaut 1. L'idée de Laurent Schwartz est de définir ces objets non pas par leurs valeurs, mais par la manière dont ils agissent sur des fonctions très régulières.
+\end{objectif}
+
+\begin{definition}[Distribution]
+    Une \textbf{distribution} sur un ouvert $\Omega \subset \mathbb{R}^n$ est une forme linéaire continue sur l'espace des fonctions test $\mathcal{D}(\Omega)$ (fonctions $\mathcal{C}^\infty$ à support compact).
+\end{definition}
+
+\begin{example}[Distributions usuelles]
+    \begin{itemize}
+        \item \textbf{Distributions régulières :} Toute fonction localement intégrable $f$ définit une distribution $T_f$ par $\langle T_f, \phi \rangle = \int f(x)\phi(x)dx$.
+        \item \textbf{Distribution de Dirac :} $\langle \delta_a, \phi \rangle = \phi(a)$. Ce n'est pas une distribution régulière.
+        \item \textbf{Distribution "valeur principale" :} Permet de donner un sens à l'intégrale de $1/x$.
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Dérivée d'une distribution]
+    On définit la dérivée $T'$ d'une distribution $T$ par la formule (inspirée de l'intégration par parties) :
+    $$ \langle T', \phi \rangle = - \langle T, \phi' \rangle $$
+\end{definition}
+\begin{remark}[La Révolution des Distributions]
+    Cette définition est extraordinaire : toute distribution est infiniment dérivable. Les problèmes de régularité disparaissent. Par exemple, la fonction de Heaviside $H$ (non dérivable en 0) a pour dérivée au sens des distributions la distribution de Dirac $\delta_0$.
+\end{remark}
+
+\begin{proposition}[Transformée de Fourier des distributions]
+    La transformée de Fourier s'étend aux distributions tempérées (duales de l'espace de Schwartz $\mathcal{S}(\mathbb{R})$).
+\end{proposition}
+
+\begin{example}
+    \begin{itemize}
+        \item $\mathcal{F}(1) = \delta_0$.
+        \item $\mathcal{F}(\delta_0) = 1$.
+        \item $\mathcal{F}(e^{2i\pi a x}) = \delta_a$.
+    \end{itemize}
+    Le peigne de Dirac $\sum_{n \in \mathbb{Z}} \delta_n$ a pour transformée de Fourier lui-même, c'est la base de la formule sommatoire de Poisson.
+\end{example}

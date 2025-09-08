@@ -1,0 +1,108 @@
+\chapter{Théorie des Représentations : Rendre les Groupes Visibles}
+
+\section{Le Langage des Représentations}
+
+\begin{objectif}
+    La théorie des groupes est très abstraite. L'idée fondamentale de la théorie des représentations est de rendre les groupes \textbf{concrets} en les faisant agir \textbf{linéairement} sur des espaces vectoriels. On remplace les permutations abstraites par des objets que l'on maîtrise parfaitement : les matrices. Cela permet d'importer toute la puissance de l'algèbre linéaire pour étudier les groupes.
+\end{objectif}
+
+\begin{definition}[Représentation]
+    Soit $G$ un groupe fini et $V$ un $\mathbb{C}$-espace vectoriel. Une \textbf{représentation} de $G$ sur $V$ est un morphisme de groupes $\rho: G \to GL(V)$. La dimension de $V$ est le \textbf{degré} (ou la dimension) de la représentation.
+\end{definition}
+
+\begin{definition}[Sous-représentation et Irréductibilité]
+    Une \textbf{sous-représentation} est un sous-espace vectoriel $W \subset V$ qui est stable par l'action de tous les $\rho(g)$.
+    Une représentation est \textbf{irréductible} (une "irrep") si ses seules sous-représentations sont $\{0\}$ et $V$.
+\end{definition}
+
+\begin{remark}[Les atomes des représentations]
+    Les représentations irréductibles sont les briques de base, les "atomes" de la théorie. Tout comme les groupes simples en théorie des groupes, ce sont les objets fondamentaux que l'on cherche à classifier.
+\end{remark}
+
+\begin{theorem}[Théorème de Maschke]
+    Soit $\rho: G \to GL(V)$ une représentation d'un groupe fini $G$ sur un $\mathbb{C}$-ev $V$. Si $W$ est une sous-représentation de $V$, alors il existe une sous-représentation supplémentaire $W'$ telle que $V = W \oplus W'$.
+\end{theorem}
+
+\begin{corollary}[Décomposabilité totale]
+    Toute représentation d'un groupe fini (sur un corps de caractéristique ne divisant pas $|G|$) est une somme directe de représentations irréductibles.
+\end{corollary}
+
+\section{Le Lemme de Schur et ses Conséquences}
+
+\begin{objectif}
+    Présenter le lemme de Schur, un résultat d'une simplicité et d'une puissance déconcertantes. Il impose des contraintes extrêmement fortes sur les applications qui "respectent" les représentations irréductibles, et il est la clé de voûte de toute la théorie des caractères.
+\end{objectif}
+
+\begin{lemma}[Lemme de Schur]
+    Soient $(\rho_1, V_1)$ et $(\rho_2, V_2)$ deux représentations irréductibles d'un groupe $G$. Soit $\phi: V_1 \to V_2$ une application linéaire qui entrelace les représentations (i.e. $\phi \circ \rho_1(g) = \rho_2(g) \circ \phi$ pour tout $g$).
+    \begin{enumerate}
+        \item Si $V_1$ et $V_2$ ne sont pas isomorphes, alors $\phi=0$.
+        \item Si $V_1 = V_2$ et que le corps de base est $\mathbb{C}$, alors $\phi$ est une homothétie (i.e. $\phi = \lambda \mathrm{Id}$ pour un $\lambda \in \mathbb{C}$).
+    \end{enumerate}
+\end{lemma}
+
+\begin{application}[Représentations irréductibles des groupes abéliens]
+    Soit $G$ un groupe abélien. Pour tout $g \in G$, l'application $\rho(g)$ commute avec toutes les autres applications $\rho(h)$. D'après le lemme de Schur, si $\rho$ est irréductible, chaque $\rho(g)$ doit être une homothétie. Une représentation dont toutes les images sont des homothéties ne peut être irréductible que si sa dimension est 1.
+    \textbf{Conclusion :} Toutes les représentations irréductibles d'un groupe abélien fini sur $\mathbb{C}$ sont de dimension 1.
+\end{application}
+
+\section{Les Caractères : L'ADN des Représentations}
+
+\begin{objectif}
+    Introduire l'outil de calcul principal de la théorie : le caractère. L'idée est de remplacer une représentation (un morphisme à valeurs dans un groupe de matrices potentiellement très grandes) par une simple fonction (de $G$ dans $\mathbb{C}$), la trace. Miraculeusement, cette information "compressée" suffit à caractériser la représentation à isomorphisme près.
+\end{objectif}
+
+\begin{definition}[Caractère]
+    Le \textbf{caractère} d'une représentation $\rho: G \to GL(V)$ est la fonction $\chi_\rho: G \to \mathbb{C}$ définie par $\chi_\rho(g) = \mathrm{Tr}(\rho(g))$.
+\end{definition}
+
+\begin{proposition}[Propriétés des caractères]
+    \begin{itemize}
+        \item $\chi_\rho(e) = \dim(V)$.
+        \item $\chi_\rho$ est une \textbf{fonction centrale} (constante sur les classes de conjugaison).
+        \item Deux représentations isomorphes ont le même caractère. (La réciproque est vraie !)
+        \item $\chi_{\rho_1 \oplus \rho_2} = \chi_{\rho_1} + \chi_{\rho_2}$ et $\chi_{\rho_1 \otimes \rho_2} = \chi_{\rho_1} \cdot \chi_{\rho_2}$.
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}[Relations d'Orthogonalité des Caractères]
+    Soit $\mathcal{C}(G)$ l'espace des fonctions centrales sur $G$, muni du produit scalaire hermitien $\langle f, h \rangle = \frac{1}{|G|} \sum_{g \in G} f(g) \overline{h(g)}$.
+    Alors la famille des caractères des représentations irréductibles de $G$ forme une \textbf{base orthonormale} de $\mathcal{C}(G)$.
+\end{theorem}
+
+\begin{remark}[L'Analogie avec les Séries de Fourier]
+    Ce théorème est la pierre angulaire de la théorie. Il nous dit que pour comprendre une représentation quelconque, il suffit de "projeter" son caractère sur la base des caractères irréductibles. Le coefficient obtenu (la multiplicité de l'irrep) est simplement le produit scalaire $\langle \chi_\rho, \chi_{\mathrm{irrep}} \rangle$. C'est une véritable "analyse de Fourier" sur le groupe.
+\end{remark}
+
+\section{La Table des Caractères : Carte d'Identité du Groupe}
+
+\begin{objectif}
+    Organiser toute l'information sur les représentations irréductibles d'un groupe dans un tableau unique, la table des caractères. Ce tableau est une "carte d'identité" très riche qui encode une grande partie de la structure du groupe.
+\end{objectif}
+
+\begin{proposition}[Propriétés structurelles]
+    \begin{enumerate}
+        \item Le nombre de représentations irréductibles est égal au nombre de classes de conjugaison du groupe.
+        \item La somme des carrés des dimensions des représentations irréductibles est égale à l'ordre du groupe : $\sum_{i=1}^k (\dim V_i)^2 = |G|$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{example}[Table des caractères de $\mathfrak{S}_3$]
+    Le groupe $\mathfrak{S}_3$ a 3 classes de conjugaison. Il a donc 3 irreps. Comme $1^2+1^2+2^2=6=|G|$, leurs dimensions sont 1, 1, 2. La table est :
+    \begin{center}
+    \begin{tabular}{c|ccc}
+      & Id & (12) & (123) \\
+      \hline
+      $\chi_1$ (triviale) & 1 & 1 & 1 \\
+      $\chi_2$ (signature) & 1 & -1 & 1 \\
+      $\chi_3$ (standard) & 2 & 0 & -1 \\
+    \end{tabular}
+    \end{center}
+    On peut vérifier l'orthogonalité des lignes sur cette table.
+\end{example}
+
+\begin{application}[Théorème $p^a q^b$ de Burnside]
+    Un des triomphes de la théorie des caractères.
+    \textbf{Théorème :} Tout groupe d'ordre $p^a q^b$, où $p$ et $q$ sont des nombres premiers, est résoluble.
+    La preuve originale, bien que complexe, repose entièrement sur des arguments d'arithmétique sur les valeurs des caractères et sur la structure de l'algèbre du groupe. Il n'existe pas de preuve connue qui n'utilise pas, d'une manière ou d'une autre, la théorie des représentations. Cela montre la puissance de la méthode : elle permet de prouver des résultats de théorie des groupes pure qui étaient inaccessibles autrement.
+\end{application}
