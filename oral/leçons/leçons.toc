@@ -1,0 +1,883 @@
+\babel@toc {french}{}\relax 
+\contentsline {chapter}{\numberline {1}Leçon 101 : Groupe opérant sur un ensemble. Exemples et applications.}{20}{}%
+\contentsline {section}{\numberline {1.1}Introduction et Vocabulaire Fondamental}{20}{}%
+\contentsline {subsection}{\numberline {1.1.1}Motivation : La Symétrie en Action}{20}{}%
+\contentsline {subsection}{\numberline {1.1.2}Cadre Formel de l'Action}{20}{}%
+\contentsline {subsection}{\numberline {1.1.3}Vocabulaire de l'Action et Partition en Orbites}{20}{}%
+\contentsline {section}{\numberline {1.2}Le Théorème Fondamental des Actions et ses Conséquences Directes}{21}{}%
+\contentsline {subsection}{\numberline {1.2.1}Relation Orbite-Stabilisateur}{21}{}%
+\contentsline {subsection}{\numberline {1.2.2}Équation aux classes : une formule de comptage globale}{21}{}%
+\contentsline {section}{\numberline {1.3}L'Action comme Outil d'Investigation de la Structure des Groupes}{21}{}%
+\contentsline {subsection}{\numberline {1.3.1}Les Théorèmes de Sylow : le Cœur de la Théorie}{21}{}%
+\contentsline {subsection}{\numberline {1.3.2}Critères de non-simplicité}{22}{}%
+\contentsline {section}{\numberline {1.4}Exemples d'Actions en Géométrie et Combinatoire}{22}{}%
+\contentsline {subsection}{\numberline {1.4.1}Géométrie des Polyèdres}{22}{}%
+\contentsline {subsection}{\numberline {1.4.2}Combinatoire Énumérative}{22}{}%
+\contentsline {chapter}{\numberline {2}Leçon 102 : Groupe des nombres complexes de module 1. Sous-groupes. Applications.}{23}{}%
+\contentsline {section}{\numberline {2.1}Le Groupe Unitaire $\mathbb {U}$ : un Objet Triple}{23}{}%
+\contentsline {subsection}{\numberline {2.1.1}Structure de Groupe Abélien}{23}{}%
+\contentsline {subsection}{\numberline {2.1.2}Structure Topologique et Géométrique}{23}{}%
+\contentsline {section}{\numberline {2.2}Étude des Sous-Groupes de $\mathbb {U}$}{23}{}%
+\contentsline {subsection}{\numberline {2.2.1}Les Sous-Groupes Finis : les Racines de l'Unité}{23}{}%
+\contentsline {subsection}{\numberline {2.2.2}Les Sous-Groupes Monogènes Infinis}{23}{}%
+\contentsline {subsection}{\numberline {2.2.3}Classification des Sous-Groupes Fermés}{24}{}%
+\contentsline {section}{\numberline {2.3}Applications}{24}{}%
+\contentsline {subsection}{\numberline {2.3.1}Analyse de Fourier}{24}{}%
+\contentsline {subsection}{\numberline {2.3.2}Théorie des Nombres et Algèbre}{24}{}%
+\contentsline {subsection}{\numberline {2.3.3}Géométrie}{24}{}%
+\contentsline {chapter}{\numberline {3}Leçon 103 : Exemples de sous-groupes distingués et de groupes quotients. Applications.}{26}{}%
+\contentsline {section}{\numberline {3.1}Le Noyau de Morphisme : La Source Canonique de Quotients}{26}{}%
+\contentsline {subsection}{\numberline {3.1.1}Le Quotient comme Image d'un Morphisme}{26}{}%
+\contentsline {subsection}{\numberline {3.1.2}Exemples Algébriques et Géométriques Fondamentaux}{26}{}%
+\contentsline {section}{\numberline {3.2}Exemples de Quotients dans les Groupes Classiques}{26}{}%
+\contentsline {subsection}{\numberline {3.2.1}Le Quotient Additif Fondamental : $\mathbb {Z}/n\mathbb {Z}$}{26}{}%
+\contentsline {subsection}{\numberline {3.2.2}Quotients dans les Groupes de Matrices}{26}{}%
+\contentsline {subsection}{\numberline {3.2.3}Les Théorèmes d'Isomorphisme en Action}{27}{}%
+\contentsline {section}{\numberline {3.3}Applications à la Classification et à la Structure des Groupes}{27}{}%
+\contentsline {subsection}{\numberline {3.3.1}Les Atomes de la Théorie : les Groupes Simples}{27}{}%
+\contentsline {subsection}{\numberline {3.3.2}La Déconstruction par Quotients : les Groupes Résolubles}{27}{}%
+\contentsline {chapter}{\numberline {4}Leçon 104 : Groupes finis. Exemples et applications.}{28}{}%
+\contentsline {section}{\numberline {4.1}Outils Fondamentaux d'Analyse}{28}{}%
+\contentsline {subsection}{\numberline {4.1.1}Contraintes sur l'Ordre}{28}{}%
+\contentsline {subsection}{\numberline {4.1.2}Outils de Décomposition}{28}{}%
+\contentsline {section}{\numberline {4.2}Vers une Classification : les Briques Élémentaires}{28}{}%
+\contentsline {subsection}{\numberline {4.2.1}Les Groupes les plus Simples : les Groupes Abéliens}{28}{}%
+\contentsline {subsection}{\numberline {4.2.2}Les "Atomes" : les Groupes Simples}{28}{}%
+\contentsline {subsection}{\numberline {4.2.3}Les Groupes d'Ordre $p^n$ : les $p$-groupes}{29}{}%
+\contentsline {section}{\numberline {4.3}Exemples et Applications Concrètes}{29}{}%
+\contentsline {subsection}{\numberline {4.3.1}Analyse de Groupes de Petit Ordre}{29}{}%
+\contentsline {subsection}{\numberline {4.3.2}Applications en Géométrie}{29}{}%
+\contentsline {subsection}{\numberline {4.3.3}Applications en Théorie des Nombres}{29}{}%
+\contentsline {chapter}{\numberline {5}Leçon 105 : Groupe des permutations d'un ensemble fini. Applications.}{30}{}%
+\contentsline {section}{\numberline {5.1}Structure du Groupe Symétrique $\mathfrak {S}_n$}{30}{}%
+\contentsline {subsection}{\numberline {5.1.1}Décomposition et Générateurs}{30}{}%
+\contentsline {subsection}{\numberline {5.1.2}Classes de Conjugaison}{30}{}%
+\contentsline {subsection}{\numberline {5.1.3}Le Morphisme Signature et le Groupe Alterné}{30}{}%
+\contentsline {section}{\numberline {5.2}Applications en Algèbre}{30}{}%
+\contentsline {subsection}{\numberline {5.2.1}Définition du Déterminant}{30}{}%
+\contentsline {subsection}{\numberline {5.2.2}Théorie de Galois}{31}{}%
+\contentsline {subsection}{\numberline {5.2.3}Théorie des Représentations}{31}{}%
+\contentsline {section}{\numberline {5.3}Applications en Géométrie}{31}{}%
+\contentsline {subsection}{\numberline {5.3.1}Isométries des Solides de Platon}{31}{}%
+\contentsline {subsection}{\numberline {5.3.2}Géométrie des Symétries}{31}{}%
+\contentsline {chapter}{\numberline {6}Leçon 106 : Groupe linéaire d'un espace vectoriel de dimension finie E, sous-groupes de GL(E).}{32}{}%
+\contentsline {section}{\numberline {6.1}Structure du Groupe Linéaire $GL(E)$}{32}{}%
+\contentsline {subsection}{\numberline {6.1.1}Définitions et Propriétés Fondamentales}{32}{}%
+\contentsline {subsection}{\numberline {6.1.2}Générateurs de $GL(E)$ et $SL(E)$}{32}{}%
+\contentsline {section}{\numberline {6.2}Sous-Groupes Classiques de $GL(E)$}{32}{}%
+\contentsline {subsection}{\numberline {6.2.1}Sous-Groupes liés à la Structure Algébrique}{32}{}%
+\contentsline {subsection}{\numberline {6.2.2}Sous-Groupes liés à une Structure Géométrique}{32}{}%
+\contentsline {section}{\numberline {6.3}Actions du Groupe Linéaire}{33}{}%
+\contentsline {subsection}{\numberline {6.3.1}Actions Naturelles}{33}{}%
+\contentsline {subsection}{\numberline {6.3.2}Action par Congruence et par Similitude}{33}{}%
+\contentsline {chapter}{\numberline {7}Leçon 107 : Représentations et caractères d'un groupe fini sur un C-espace vectoriel.}{34}{}%
+\contentsline {section}{\numberline {7.1}Représentations : Linéariser les Groupes}{34}{}%
+\contentsline {subsection}{\numberline {7.1.1}Définitions et Premiers Exemples}{34}{}%
+\contentsline {subsection}{\numberline {7.1.2}Irréductibilité et Décomposition}{34}{}%
+\contentsline {section}{\numberline {7.2}Le Lemme de Schur et ses Conséquences}{34}{}%
+\contentsline {subsection}{\numberline {7.2.1}Le Lemme Fondamental}{34}{}%
+\contentsline {subsection}{\numberline {7.2.2}Conséquences Immédiates}{34}{}%
+\contentsline {section}{\numberline {7.3}Théorie des Caractères : L'ADN des Représentations}{34}{}%
+\contentsline {subsection}{\numberline {7.3.1}Le Caractère, un Invariant Complet}{34}{}%
+\contentsline {subsection}{\numberline {7.3.2}Relations d'Orthogonalité}{35}{}%
+\contentsline {subsection}{\numberline {7.3.3}La Table des Caractères : Carte d'Identité du Groupe}{35}{}%
+\contentsline {section}{\numberline {7.4}Applications}{35}{}%
+\contentsline {subsection}{\numberline {7.4.1}Décomposition d'une Représentation Quelconque}{35}{}%
+\contentsline {subsection}{\numberline {7.4.2}Un Outil pour la Théorie des Groupes}{35}{}%
+\contentsline {chapter}{\numberline {8}Leçon 108 : Exemples de parties génératrices d'un groupe. Applications.}{36}{}%
+\contentsline {section}{\numberline {8.1}Groupes Monogènes et de Type Fini}{36}{}%
+\contentsline {subsection}{\numberline {8.1.1}Le Cas le plus Simple : les Groupes Monogènes (Cycliques)}{36}{}%
+\contentsline {subsection}{\numberline {8.1.2}Groupes de Type Fini}{36}{}%
+\contentsline {section}{\numberline {8.2}Générateurs de Groupes Finis Classiques}{36}{}%
+\contentsline {subsection}{\numberline {8.2.1}Le Groupe Symétrique $\mathfrak {S}_n$}{36}{}%
+\contentsline {subsection}{\numberline {8.2.2}Le Groupe Alterné $\mathcal {A}_n$}{36}{}%
+\contentsline {subsection}{\numberline {8.2.3}Les $p$-groupes}{36}{}%
+\contentsline {section}{\numberline {8.3}Générateurs de Groupes de Matrices}{37}{}%
+\contentsline {subsection}{\numberline {8.3.1}Le Groupe Linéaire $GL_n(K)$}{37}{}%
+\contentsline {subsection}{\numberline {8.3.2}Le Groupe Spécial Linéaire $SL_n(K)$}{37}{}%
+\contentsline {subsection}{\numberline {8.3.3}Le Groupe Orthogonal $O(n)$}{37}{}%
+\contentsline {section}{\numberline {8.4}Application à la Topologie des Groupes}{37}{}%
+\contentsline {subsection}{\numberline {8.4.1}Connexité des Groupes Topologiques}{37}{}%
+\contentsline {chapter}{\numberline {9}Leçon 120 : Anneau Z/nZ. Applications.}{38}{}%
+\contentsline {section}{\numberline {9.1}Structure de l'Anneau $\mathbb {Z}/n\mathbb {Z}$}{38}{}%
+\contentsline {subsection}{\numberline {9.1.1}Construction et Propriétés Fondamentales}{38}{}%
+\contentsline {subsection}{\numberline {9.1.2}Le Groupe des Inversibles $(\mathbb {Z}/n\mathbb {Z})^\times $}{38}{}%
+\contentsline {subsection}{\numberline {9.1.3}Le Théorème des Restes Chinois}{38}{}%
+\contentsline {section}{\numberline {9.2}Applications}{39}{}%
+\contentsline {subsection}{\numberline {9.2.1}Applications Arithmétiques}{39}{}%
+\contentsline {subsection}{\numberline {9.2.2}Applications en Cryptographie}{39}{}%
+\contentsline {chapter}{\numberline {10}Leçon 121 : Nombres premiers. Applications.}{40}{}%
+\contentsline {section}{\numberline {10.1}Propriétés Fondamentales et Infinitude}{40}{}%
+\contentsline {subsection}{\numberline {10.1.1}Définitions et Théorème Fondamental}{40}{}%
+\contentsline {subsection}{\numberline {10.1.2}Infinitude des Nombres Premiers}{40}{}%
+\contentsline {section}{\numberline {10.2}Distribution des Nombres Premiers}{40}{}%
+\contentsline {subsection}{\numberline {10.2.1}Fonctions de Comptage et Estimations}{40}{}%
+\contentsline {subsection}{\numberline {10.2.2}Nombres Premiers dans les Progressions Arithmétiques}{40}{}%
+\contentsline {subsection}{\numberline {10.2.3}Quelques Grandes Conjectures}{41}{}%
+\contentsline {section}{\numberline {10.3}Applications des Nombres Premiers}{41}{}%
+\contentsline {subsection}{\numberline {10.3.1}Briques de Base de l'Algèbre Finie}{41}{}%
+\contentsline {subsection}{\numberline {10.3.2}Tests de Primalité et Factorisation}{41}{}%
+\contentsline {subsection}{\numberline {10.3.3}Cryptographie à Clé Publique}{41}{}%
+\contentsline {chapter}{\numberline {11}Leçon 122 : Anneaux principaux. Applications.}{42}{}%
+\contentsline {section}{\numberline {11.1}La Hiérarchie des Anneaux et la Place des Anneaux Principaux}{42}{}%
+\contentsline {subsection}{\numberline {11.1.1}Une Hiérarchie de "Bonnes Propriétés"}{42}{}%
+\contentsline {section}{\numberline {11.2}Propriétés Arithmétiques des Anneaux Principaux}{42}{}%
+\contentsline {subsection}{\numberline {11.2.1}PGCD et Identité de Bézout}{42}{}%
+\contentsline {subsection}{\numberline {11.2.2}Factorialité des Anneaux Principaux}{42}{}%
+\contentsline {section}{\numberline {11.3}La Grande Application : Le Théorème de Structure des Modules}{43}{}%
+\contentsline {subsection}{\numberline {11.3.1}Le Langage des Modules}{43}{}%
+\contentsline {subsection}{\numberline {11.3.2}Le Théorème de Structure}{43}{}%
+\contentsline {subsection}{\numberline {11.3.3}Deux Applications Majeures du Théorème de Structure}{43}{}%
+\contentsline {chapter}{\numberline {12}Leçon 123 : Corps finis. Applications.}{44}{}%
+\contentsline {section}{\numberline {12.1}Existence et Unicité : La Classification Complète}{44}{}%
+\contentsline {subsection}{\numberline {12.1.1}Le Corps Premier $\mathbb {F}_p$}{44}{}%
+\contentsline {subsection}{\numberline {12.1.2}Construction et Unicité du Corps $\mathbb {F}_{p^n}$}{44}{}%
+\contentsline {section}{\numberline {12.2}Structure Algébrique des Corps Finis}{44}{}%
+\contentsline {subsection}{\numberline {12.2.1}L'Automorphisme de Frobenius}{44}{}%
+\contentsline {subsection}{\numberline {12.2.2}La Structure du Groupe Multiplicatif}{44}{}%
+\contentsline {subsection}{\numberline {12.2.3}Polynômes sur les Corps Finis}{45}{}%
+\contentsline {section}{\numberline {12.3}Applications}{45}{}%
+\contentsline {subsection}{\numberline {12.3.1}Théorie des Nombres}{45}{}%
+\contentsline {subsection}{\numberline {12.3.2}Codes Correcteurs d'Erreurs}{45}{}%
+\contentsline {subsection}{\numberline {12.3.3}Cryptographie}{45}{}%
+\contentsline {chapter}{\numberline {13}Leçon 125 : Extensions de corps. Exemples et applications.}{46}{}%
+\contentsline {section}{\numberline {13.1}Le Degré d'une Extension : Mesurer la Complexité}{46}{}%
+\contentsline {subsection}{\numberline {13.1.1}Corps comme Espace Vectoriel}{46}{}%
+\contentsline {subsection}{\numberline {13.1.2}Éléments Algébriques et Transcendants}{46}{}%
+\contentsline {section}{\numberline {13.2}Constructions Géométriques à la Règle et au Compas}{46}{}%
+\contentsline {subsection}{\numberline {13.2.1}Le Corps des Nombres Constructibles}{46}{}%
+\contentsline {subsection}{\numberline {13.2.2}La Condition de Degré}{46}{}%
+\contentsline {subsection}{\numberline {13.2.3}Résolution des Problèmes Antiques}{47}{}%
+\contentsline {section}{\numberline {13.3}Vers la Théorie de Galois}{47}{}%
+\contentsline {subsection}{\numberline {13.3.1}Corps de Rupture et Corps de Décomposition}{47}{}%
+\contentsline {subsection}{\numberline {13.3.2}Clôture Algébrique}{47}{}%
+\contentsline {subsection}{\numberline {13.3.3}Introduction à l'Idée de Galois}{47}{}%
+\contentsline {chapter}{\numberline {14}Leçon 126 : Exemples d'équations en arithmétique.}{48}{}%
+\contentsline {section}{\numberline {14.1}Méthodes Élémentaires : Congruences et Descente Infinie}{48}{}%
+\contentsline {subsection}{\numberline {14.1.1}L'Outil de la Réduction Modulaire}{48}{}%
+\contentsline {subsection}{\numberline {14.1.2}La Méthode de la Descente Infinie de Fermat}{48}{}%
+\contentsline {section}{\numberline {14.2}Méthodes Algébriques : Factorisation dans des Anneaux d'Entiers}{48}{}%
+\contentsline {subsection}{\numberline {14.2.1}Les Entiers de Gauss pour les Sommes de Deux Carrés}{48}{}%
+\contentsline {subsection}{\numberline {14.2.2}L'Équation de Pell-Fermat $x^2 - d y^2 = 1$}{48}{}%
+\contentsline {section}{\numberline {14.3}Méthodes Géométriques : Points Rationnels sur les Courbes}{49}{}%
+\contentsline {subsection}{\numberline {14.3.1}Les Coniques : Paramétrisation Rationnelle}{49}{}%
+\contentsline {subsection}{\numberline {14.3.2}Les Courbes Elliptiques}{49}{}%
+\contentsline {part}{I\hspace {1em}Leçons sur les Anneaux, Polynômes, Algèbre Linéaire et Géométrie}{50}{}%
+\contentsline {chapter}{\numberline {15}Leçon 140 : Corps des fractions rationnelles. Exemples et applications.}{51}{}%
+\contentsline {section}{\numberline {15.1}Construction et Structure Algébrique de $K(X)$}{51}{}%
+\contentsline {subsection}{\numberline {15.1.1}Le Corps des Fractions d'un Anneau Intègre}{51}{}%
+\contentsline {subsection}{\numberline {15.1.2}Structure de $K(X)$}{51}{}%
+\contentsline {section}{\numberline {15.2}Décomposition en Éléments Simples : L'Outil Central}{51}{}%
+\contentsline {subsection}{\numberline {15.2.1}Pôles et Partie Entière}{51}{}%
+\contentsline {subsection}{\numberline {15.2.2}Théorème de Décomposition}{52}{}%
+\contentsline {section}{\numberline {15.3}Applications}{52}{}%
+\contentsline {subsection}{\numberline {15.3.1}Application Principale : Calcul de Primitives}{52}{}%
+\contentsline {subsection}{\numberline {15.3.2}Applications en Analyse}{52}{}%
+\contentsline {subsection}{\numberline {15.3.3}Applications en Algèbre Linéaire}{52}{}%
+\contentsline {chapter}{\numberline {16}Leçon 141 : Polynômes irréductibles à une indéterminée. Corps de rupture. Exemples et applications.}{54}{}%
+\contentsline {section}{\numberline {16.1}Arithmétique de l'Anneau des Polynômes $K[X]$}{54}{}%
+\contentsline {subsection}{\numberline {16.1.1}Une Structure Euclidienne}{54}{}%
+\contentsline {subsection}{\numberline {16.1.2}Irréductibilité : la Notion Clé}{54}{}%
+\contentsline {section}{\numberline {16.2}Critères Pratiques d'Irréductibilité}{54}{}%
+\contentsline {subsection}{\numberline {16.2.1}Le Cas des Petits Degrés}{54}{}%
+\contentsline {subsection}{\numberline {16.2.2}Le Pont entre $A[X]$ et $K[X]$ : le Lemme de Gauss}{54}{}%
+\contentsline {subsection}{\numberline {16.2.3}Les Outils Classiques sur $\mathbb {Z}[X]$}{55}{}%
+\contentsline {section}{\numberline {16.3}Construction de Corps : le Corps de Rupture}{55}{}%
+\contentsline {subsection}{\numberline {16.3.1}Construction du Corps de Rupture}{55}{}%
+\contentsline {subsection}{\numberline {16.3.2}Applications}{55}{}%
+\contentsline {chapter}{\numberline {17}Leçon 142 : Algèbre des polynômes à plusieurs indéterminées. Applications.}{56}{}%
+\contentsline {section}{\numberline {17.1}Construction et Structure de l'Anneau $A[X_1, \dots , X_n]$}{56}{}%
+\contentsline {subsection}{\numberline {17.1.1}Construction et Propriété Universelle}{56}{}%
+\contentsline {subsection}{\numberline {17.1.2}Propriétés Arithmétiques Fondamentales}{56}{}%
+\contentsline {subsection}{\numberline {17.1.3}La Propriété Structurelle Clé : La Noethérianité}{56}{}%
+\contentsline {section}{\numberline {17.2}Applications}{57}{}%
+\contentsline {subsection}{\numberline {17.2.1}Application Fondamentale : Le Pont vers la Géométrie Algébrique}{57}{}%
+\contentsline {subsection}{\numberline {17.2.2}Polynômes Symétriques}{57}{}%
+\contentsline {subsection}{\numberline {17.2.3}Bases de Gröbner : L'Algorithme d'Euclide Généralisé}{57}{}%
+\contentsline {chapter}{\numberline {18}Leçon 144 : Racines d'un polynôme. Fonctions symétriques. Applications.}{58}{}%
+\contentsline {section}{\numberline {18.1}Relations Coefficients-Racines et Fonctions Symétriques}{58}{}%
+\contentsline {subsection}{\numberline {18.1.1}Polynômes Symétriques Élémentaires}{58}{}%
+\contentsline {subsection}{\numberline {18.1.2}Le Théorème Fondamental}{58}{}%
+\contentsline {section}{\numberline {18.2}Applications au Calcul sur les Racines}{58}{}%
+\contentsline {subsection}{\numberline {18.2.1}Les Sommes de Newton}{58}{}%
+\contentsline {subsection}{\numberline {18.2.2}Discriminant et Résultant}{58}{}%
+\contentsline {subsection}{\numberline {18.2.3}Transformation de Polynômes}{59}{}%
+\contentsline {section}{\numberline {18.3}Applications en Théorie de Galois et Théorie des Nombres}{59}{}%
+\contentsline {subsection}{\numberline {18.3.1}Entiers Algébriques}{59}{}%
+\contentsline {subsection}{\numberline {18.3.2}Théorie de Galois}{59}{}%
+\contentsline {chapter}{\numberline {19}Leçon 150 : Exemples d'actions de groupes sur les espaces de matrices.}{60}{}%
+\contentsline {section}{\numberline {19.1}Action par Similitude : Classification des Endomorphismes}{60}{}%
+\contentsline {subsection}{\numberline {19.1.1}Le Cadre de l'Action}{60}{}%
+\contentsline {subsection}{\numberline {19.1.2}Le Problème de Classification des Orbites}{60}{}%
+\contentsline {section}{\numberline {19.2}Action par Congruence : Classification des Formes Quadratiques}{60}{}%
+\contentsline {subsection}{\numberline {19.2.1}Le Cadre de l'Action}{60}{}%
+\contentsline {subsection}{\numberline {19.2.2}Le Problème de Classification des Orbites}{61}{}%
+\contentsline {section}{\numberline {19.3}Action par Équivalence : Classification par le Rang}{61}{}%
+\contentsline {subsection}{\numberline {19.3.1}Le Cadre de l'Action}{61}{}%
+\contentsline {subsection}{\numberline {19.3.2}Le Problème de Classification des Orbites}{61}{}%
+\contentsline {chapter}{\numberline {20}Leçon 151 : Dimension d'un espace vectoriel, rang. Exemples et applications.}{62}{}%
+\contentsline {section}{\numberline {20.1}Le Concept de Dimension : un Invariant Fondamental}{62}{}%
+\contentsline {subsection}{\numberline {20.1.1}Existence et Unicité}{62}{}%
+\contentsline {subsection}{\numberline {20.1.2}Propriétés en Dimension Finie}{62}{}%
+\contentsline {section}{\numberline {20.2}Le Rang : une Notion Unificatrice}{62}{}%
+\contentsline {subsection}{\numberline {20.2.1}Les Trois Visages du Rang}{62}{}%
+\contentsline {subsection}{\numberline {20.2.2}Théorèmes Fondamentaux}{62}{}%
+\contentsline {section}{\numberline {20.3}Applications Variées de la Dimension et du Rang}{63}{}%
+\contentsline {subsection}{\numberline {20.3.1}Applications en Algèbre Linéaire}{63}{}%
+\contentsline {subsection}{\numberline {20.3.2}Applications en Analyse}{63}{}%
+\contentsline {subsection}{\numberline {20.3.3}Applications en Géométrie}{63}{}%
+\contentsline {subsection}{\numberline {20.3.4}Applications aux Codes Correcteurs d'Erreurs}{63}{}%
+\contentsline {chapter}{\numberline {21}Leçon 152 : Déterminant. Exemples et applications.}{64}{}%
+\contentsline {section}{\numberline {21.1}Le Déterminant comme Forme n-linéaire Alternée}{64}{}%
+\contentsline {subsection}{\numberline {21.1.1}Espace des Formes n-linéaires Alternées}{64}{}%
+\contentsline {subsection}{\numberline {21.1.2}Définition Intrinsèque du Déterminant}{64}{}%
+\contentsline {section}{\numberline {21.2}Propriétés et Méthodes de Calcul}{64}{}%
+\contentsline {subsection}{\numberline {21.2.1}Propriétés Fondamentales}{64}{}%
+\contentsline {subsection}{\numberline {21.2.2}Expression en Coordonnées et Calculs}{64}{}%
+\contentsline {subsection}{\numberline {21.2.3}Polynôme Caractéristique}{64}{}%
+\contentsline {section}{\numberline {21.3}Applications}{65}{}%
+\contentsline {subsection}{\numberline {21.3.1}Applications Algébriques}{65}{}%
+\contentsline {subsection}{\numberline {21.3.2}Applications Géométriques}{65}{}%
+\contentsline {subsection}{\numberline {21.3.3}Applications en Analyse}{65}{}%
+\contentsline {chapter}{\numberline {22}Leçon 153 : Polynômes d'endomorphisme. Applications.}{66}{}%
+\contentsline {section}{\numberline {22.1}L'Algèbre $K[u]$ et le Polynôme Minimal}{66}{}%
+\contentsline {subsection}{\numberline {22.1.1}Le Morphisme d'Évaluation}{66}{}%
+\contentsline {subsection}{\numberline {22.1.2}Le Polynôme Minimal}{66}{}%
+\contentsline {section}{\numberline {22.2}Théorèmes Fondamentaux et Liens avec la Réduction}{66}{}%
+\contentsline {subsection}{\numberline {22.2.1}Le Théorème de Cayley-Hamilton}{66}{}%
+\contentsline {subsection}{\numberline {22.2.2}Le Lemme des Noyaux : Le Scalpel du Chirurgien}{66}{}%
+\contentsline {section}{\numberline {22.3}Applications à la Réduction}{67}{}%
+\contentsline {subsection}{\numberline {22.3.1}Critères de Diagonalisabilité et Trigonalisabilité}{67}{}%
+\contentsline {subsection}{\numberline {22.3.2}Caractérisation d'Endomorphismes Remarquables}{67}{}%
+\contentsline {subsection}{\numberline {22.3.3}Vers les Décompositions Fines}{67}{}%
+\contentsline {chapter}{\numberline {23}Leçon 154 : Sous-espaces stables par un endomorphisme ou une famille d'endomorphismes.}{68}{}%
+\contentsline {section}{\numberline {23.1}Sous-espaces Stables pour un Seul Endomorphisme}{68}{}%
+\contentsline {subsection}{\numberline {23.1.1}Définitions et Exemples Fondamentaux}{68}{}%
+\contentsline {subsection}{\numberline {23.1.2}Stabilité et Réduction}{68}{}%
+\contentsline {section}{\numberline {23.2}Sous-espaces Stables pour une Famille d'Endomorphismes}{68}{}%
+\contentsline {subsection}{\numberline {23.2.1}Le Rôle Central de la Commutation}{68}{}%
+\contentsline {subsection}{\numberline {23.2.2}Co-trigonalisation et Co-diagonalisation}{68}{}%
+\contentsline {section}{\numberline {23.3}Endomorphismes Irréductibles et Applications}{69}{}%
+\contentsline {subsection}{\numberline {23.3.1}Le Point de Vue des Représentations}{69}{}%
+\contentsline {subsection}{\numberline {23.3.2}Lemme de Schur}{69}{}%
+\contentsline {chapter}{\numberline {24}Leçon 155 : Endomorphismes diagonalisables. Exemples et applications.}{70}{}%
+\contentsline {section}{\numberline {24.1}Caractérisation des Endomorphismes Diagonalisables}{70}{}%
+\contentsline {subsection}{\numberline {24.1.1}Condition sur les Sous-Espaces Propres}{70}{}%
+\contentsline {subsection}{\numberline {24.1.2}Caractérisation par les Polynômes}{70}{}%
+\contentsline {subsection}{\numberline {24.1.3}Le Cas Euclidien : le Théorème Spectral}{70}{}%
+\contentsline {section}{\numberline {24.2}Applications de la Diagonalisation}{70}{}%
+\contentsline {subsection}{\numberline {24.2.1}Calculs en Algèbre Linéaire}{70}{}%
+\contentsline {subsection}{\numberline {24.2.2}Systèmes Dynamiques Discrets et Continus}{70}{}%
+\contentsline {subsection}{\numberline {24.2.3}Probabilités : Chaînes de Markov Finies}{71}{}%
+\contentsline {section}{\numberline {24.3}Topologie et Aspects Numériques}{71}{}%
+\contentsline {subsection}{\numberline {24.3.1}Densité des Endomorphismes Diagonalisables}{71}{}%
+\contentsline {subsection}{\numberline {24.3.2}Stabilité Numérique}{71}{}%
+\contentsline {chapter}{\numberline {25}Leçon 156 : Exponentielle de matrices. Applications.}{72}{}%
+\contentsline {section}{\numberline {25.1}Définition et Propriétés Analytiques}{72}{}%
+\contentsline {subsection}{\numberline {25.1.1}Définition par Série Entière}{72}{}%
+\contentsline {subsection}{\numberline {25.1.2}Propriétés Fondamentales}{72}{}%
+\contentsline {section}{\numberline {25.2}Méthodes de Calcul Explicite}{72}{}%
+\contentsline {subsection}{\numberline {25.2.1}Calcul par Réduction}{72}{}%
+\contentsline {subsection}{\numberline {25.2.2}Calcul par les Polynômes}{72}{}%
+\contentsline {section}{\numberline {25.3}Applications}{73}{}%
+\contentsline {subsection}{\numberline {25.3.1}Application Reine : Systèmes Différentiels Linéaires}{73}{}%
+\contentsline {subsection}{\numberline {25.3.2}Application à la Théorie des Groupes de Lie}{73}{}%
+\contentsline {subsection}{\numberline {25.3.3}Surjectivité de l'Exponentielle}{73}{}%
+\contentsline {chapter}{\numberline {26}Leçon 157 : Endomorphismes trigonalisables. Endomorphismes nilpotents.}{74}{}%
+\contentsline {section}{\numberline {26.1}Trigonalisation : une Forme Normale Générale}{74}{}%
+\contentsline {subsection}{\numberline {26.1.1}Caractérisation de la Trigonalisabilité}{74}{}%
+\contentsline {subsection}{\numberline {26.1.2}Lien avec les Sous-Espaces Stables}{74}{}%
+\contentsline {section}{\numberline {26.2}Endomorphismes Nilpotents : l'Anatomie de la Non-Diagonalisabilité}{74}{}%
+\contentsline {subsection}{\numberline {26.2.1}Propriétés des Endomorphismes Nilpotents}{74}{}%
+\contentsline {subsection}{\numberline {26.2.2}Réduction des Endomorphismes Nilpotents}{74}{}%
+\contentsline {section}{\numberline {26.3}Décompositions Fines et Applications}{75}{}%
+\contentsline {subsection}{\numberline {26.3.1}Décomposition de Dunford (Diagonalisable + Nilpotent)}{75}{}%
+\contentsline {subsection}{\numberline {26.3.2}Décomposition de Jordan (Forme Normale)}{75}{}%
+\contentsline {subsection}{\numberline {26.3.3}Applications}{75}{}%
+\contentsline {chapter}{\numberline {27}Leçon 158 : Matrices symétriques réelles. Matrices hermitiennes.}{76}{}%
+\contentsline {section}{\numberline {27.1}Le Théorème Spectral : le Résultat Central}{76}{}%
+\contentsline {subsection}{\numberline {27.1.1}Cadre Euclidien : Matrices Symétriques Réelles}{76}{}%
+\contentsline {subsection}{\numberline {27.1.2}Cadre Hermitien : Matrices Hermitiennes}{76}{}%
+\contentsline {section}{\numberline {27.2}Caractérisations et Propriétés}{76}{}%
+\contentsline {subsection}{\numberline {27.2.1}Caractérisation Variationnelle des Valeurs Propres}{76}{}%
+\contentsline {subsection}{\numberline {27.2.2}Positivité et Décomposition}{77}{}%
+\contentsline {section}{\numberline {27.3}Applications}{77}{}%
+\contentsline {subsection}{\numberline {27.3.1}Géométrie : Réduction des Formes Quadratiques}{77}{}%
+\contentsline {subsection}{\numberline {27.3.2}Analyse : Étude des Extrema Locaux}{77}{}%
+\contentsline {subsection}{\numberline {27.3.3}Analyse Numérique : Décomposition en Valeurs Singulières (SVD)}{77}{}%
+\contentsline {chapter}{\numberline {28}Leçon 159 : Formes linéaires et dualité en dimension finie. Exemples et applications.}{78}{}%
+\contentsline {section}{\numberline {28.1}Le Dual : Un Miroir de l'Espace}{78}{}%
+\contentsline {subsection}{\numberline {28.1.1}Définitions Fondamentales}{78}{}%
+\contentsline {subsection}{\numberline {28.1.2}Le Bidual et la Réflexivité}{78}{}%
+\contentsline {section}{\numberline {28.2}Orthogonalité : La Géométrie de la Dualité}{78}{}%
+\contentsline {subsection}{\numberline {28.2.1}Définition et Propriétés}{78}{}%
+\contentsline {subsection}{\numberline {28.2.2}Application : de la Représentation Paramétrique à la Représentation Cartésienne}{78}{}%
+\contentsline {section}{\numberline {28.3}Application Transposée : Le Miroir des Endomorphismes}{78}{}%
+\contentsline {subsection}{\numberline {28.3.1}Définition et Propriétés}{78}{}%
+\contentsline {subsection}{\numberline {28.3.2}Relations d'Orthogonalité}{79}{}%
+\contentsline {section}{\numberline {28.4}Applications}{79}{}%
+\contentsline {subsection}{\numberline {28.4.1}Interpolation de Lagrange}{79}{}%
+\contentsline {subsection}{\numberline {28.4.2}Formes Bilinéaires}{79}{}%
+\contentsline {chapter}{\numberline {29}Leçon 160 : Endomorphismes remarquables d'un espace vectoriel euclidien.}{80}{}%
+\contentsline {section}{\numberline {29.1}L'Adjoint : un Outil de Classification Fondamental}{80}{}%
+\contentsline {subsection}{\numberline {29.1.1}Définition et Propriétés}{80}{}%
+\contentsline {section}{\numberline {29.2}Les Isométries (Endomorphismes Orthogonaux) : les Transformations Rigides}{80}{}%
+\contentsline {subsection}{\numberline {29.2.1}Caractérisations}{80}{}%
+\contentsline {subsection}{\numberline {29.2.2}Classification en Petite Dimension}{80}{}%
+\contentsline {subsection}{\numberline {29.2.3}Réduction des Isométries}{80}{}%
+\contentsline {section}{\numberline {29.3}Les Endomorphismes Auto-Adjoints (Symétriques) : Le Cas Diagonalisable Idéal}{81}{}%
+\contentsline {subsection}{\numberline {29.3.1}Définition et Propriétés}{81}{}%
+\contentsline {subsection}{\numberline {29.3.2}Le Théorème Spectral}{81}{}%
+\contentsline {subsection}{\numberline {29.3.3}Applications}{81}{}%
+\contentsline {section}{\numberline {29.4}Décomposition Polaire : Une Vision Unifiée}{81}{}%
+\contentsline {subsection}{\numberline {29.4.1}Théorème de Décomposition}{81}{}%
+\contentsline {chapter}{\numberline {30}Leçon 161 : Distances et isométries d'un espace affine euclidien.}{82}{}%
+\contentsline {section}{\numberline {30.1}Le Cadre : Espace Affine Euclidien et Distance}{82}{}%
+\contentsline {subsection}{\numberline {30.1.1}Définitions}{82}{}%
+\contentsline {subsection}{\numberline {30.1.2}Isométries Affines}{82}{}%
+\contentsline {section}{\numberline {30.2}Classification des Isométries en Dimension 2}{82}{}%
+\contentsline {subsection}{\numberline {30.2.1}Rappel sur le Groupe Orthogonal $O(2)$}{82}{}%
+\contentsline {subsection}{\numberline {30.2.2}Classification des Isométries Planes}{82}{}%
+\contentsline {section}{\numberline {30.3}Classification des Isométries en Dimension 3}{83}{}%
+\contentsline {subsection}{\numberline {30.3.1}Rappel sur le Groupe Orthogonal $O(3)$}{83}{}%
+\contentsline {subsection}{\numberline {30.3.2}Classification des Isométries de l'Espace}{83}{}%
+\contentsline {section}{\numberline {30.4}Applications}{83}{}%
+\contentsline {subsection}{\numberline {30.4.1}Sous-Groupes Finis d'Isométries}{83}{}%
+\contentsline {subsection}{\numberline {30.4.2}Génération du Groupe des Isométries}{83}{}%
+\contentsline {chapter}{\numberline {31}Leçon 162 : Systèmes d'équations linéaires ; aspects théoriques et numériques.}{85}{}%
+\contentsline {section}{\numberline {31.1}Structure Théorique de l'Ensemble des Solutions}{85}{}%
+\contentsline {subsection}{\numberline {31.1.1}Le Point de Vue de l'Algèbre Linéaire}{85}{}%
+\contentsline {subsection}{\numberline {31.1.2}Interprétation Géométrique}{85}{}%
+\contentsline {section}{\numberline {31.2}Méthodes de Résolution Directes}{85}{}%
+\contentsline {subsection}{\numberline {31.2.1}Le Pivot de Gauss : un Algorithme Universel}{85}{}%
+\contentsline {subsection}{\numberline {31.2.2}Stabilité Numérique et Stratégie du Pivot}{86}{}%
+\contentsline {subsection}{\numberline {31.2.3}Le Cas Particulier des Matrices Symétriques Définies Positives}{86}{}%
+\contentsline {section}{\numberline {31.3}Aspects Numériques et Méthodes Itératives}{86}{}%
+\contentsline {subsection}{\numberline {31.3.1}Conditionnement d'un Système Linéaire}{86}{}%
+\contentsline {subsection}{\numberline {31.3.2}Méthodes Itératives pour les Grands Systèmes Creux}{86}{}%
+\contentsline {chapter}{\numberline {32}Leçon 170 : Formes quadratiques sur un espace vectoriel de dimension finie.}{88}{}%
+\contentsline {section}{\numberline {32.1}Définitions et Réduction Algébrique}{88}{}%
+\contentsline {subsection}{\numberline {32.1.1}Formes Bilinéaires Symétriques et Formes Quadratiques}{88}{}%
+\contentsline {subsection}{\numberline {32.1.2}Orthogonalité et Réduction de Gauss}{88}{}%
+\contentsline {section}{\numberline {32.2}Classification des Formes Quadratiques sur $\mathbb {R}$ et $\mathbb {C}$}{88}{}%
+\contentsline {subsection}{\numberline {32.2.1}Classification sur $\mathbb {C}$}{88}{}%
+\contentsline {subsection}{\numberline {32.2.2}Classification sur $\mathbb {R}$ : Loi d'Inertie de Sylvester}{89}{}%
+\contentsline {section}{\numberline {32.3}Lien avec la Réduction des Endomorphismes Symétriques}{89}{}%
+\contentsline {subsection}{\numberline {32.3.1}Le Cadre Euclidien}{89}{}%
+\contentsline {subsection}{\numberline {32.3.2}Double Réduction}{89}{}%
+\contentsline {chapter}{\numberline {33}Leçon 171 : Formes quadratiques réelles. Coniques. Exemples et applications.}{91}{}%
+\contentsline {section}{\numberline {33.1}Théorie Générale des Formes Quadratiques sur $\mathbb {R}$}{91}{}%
+\contentsline {subsection}{\numberline {33.1.1}Réduction et Invariants}{91}{}%
+\contentsline {section}{\numberline {33.2}Application à la Classification des Coniques}{91}{}%
+\contentsline {subsection}{\numberline {33.2.1}Cadre Affine}{91}{}%
+\contentsline {subsection}{\numberline {33.2.2}Cadre Euclidien}{91}{}%
+\contentsline {section}{\numberline {33.3}Application à la Classification des Quadriques}{91}{}%
+\contentsline {subsection}{\numberline {33.3.1}Principe de la Réduction}{91}{}%
+\contentsline {subsection}{\numberline {33.3.2}Exemples de Quadriques}{92}{}%
+\contentsline {section}{\numberline {33.4}Autres Applications}{92}{}%
+\contentsline {subsection}{\numberline {33.4.1}Analyse : Étude des Points Critiques}{92}{}%
+\contentsline {subsection}{\numberline {33.4.2}Géométrie Différentielle}{92}{}%
+\contentsline {chapter}{\numberline {34}Leçon 181 : Barycentres. Convexité. Applications.}{93}{}%
+\contentsline {section}{\numberline {34.1}Barycentres dans un Espace Affine}{93}{}%
+\contentsline {subsection}{\numberline {34.1.1}Définition et Propriétés Fondamentales}{93}{}%
+\contentsline {section}{\numberline {34.2}Convexité : la Géométrie des Segments}{93}{}%
+\contentsline {subsection}{\numberline {34.2.1}Ensembles Convexes}{93}{}%
+\contentsline {subsection}{\numberline {34.2.2}Points Extrémaux et Théorème de Krein-Milman}{93}{}%
+\contentsline {section}{\numberline {34.3}Théorèmes de Séparation et Applications}{93}{}%
+\contentsline {subsection}{\numberline {34.3.1}Séparation par des Hyperplans}{93}{}%
+\contentsline {subsection}{\numberline {34.3.2}Applications}{94}{}%
+\contentsline {section}{\numberline {34.4}Fonctions Convexes}{94}{}%
+\contentsline {subsection}{\numberline {34.4.1}Définition et Propriétés}{94}{}%
+\contentsline {chapter}{\numberline {35}Leçon 190 : Méthodes combinatoires, problèmes de dénombrement.}{95}{}%
+\contentsline {section}{\numberline {35.1}Principes Fondamentaux et Dénombrement Direct}{95}{}%
+\contentsline {subsection}{\numberline {35.1.1}Principes de Base}{95}{}%
+\contentsline {subsection}{\numberline {35.1.2}Arrangements, Permutations, Combinaisons}{95}{}%
+\contentsline {section}{\numberline {35.2}Dénombrement par l'Inclusion-Exclusion}{95}{}%
+\contentsline {subsection}{\numberline {35.2.1}Formule du Crible de Poincaré}{95}{}%
+\contentsline {subsection}{\numberline {35.2.2}Applications}{95}{}%
+\contentsline {section}{\numberline {35.3}Dénombrement par les Séries Génératrices}{95}{}%
+\contentsline {subsection}{\numberline {35.3.1}Le Dictionnaire Combinatoire-Analyse}{95}{}%
+\contentsline {subsection}{\numberline {35.3.2}Applications}{96}{}%
+\contentsline {section}{\numberline {35.4}Dénombrement par les Actions de Groupes}{96}{}%
+\contentsline {subsection}{\numberline {35.4.1}La Formule de Burnside}{96}{}%
+\contentsline {subsection}{\numberline {35.4.2}Applications}{96}{}%
+\contentsline {chapter}{\numberline {36}Leçon 191 : Exemples d'utilisation des techniques d'algèbre en géométrie.}{97}{}%
+\contentsline {section}{\numberline {36.1}L'Algèbre Linéaire au Service de la Géométrie Affine et Projective}{97}{}%
+\contentsline {subsection}{\numberline {36.1.1}Le Point de Vue Vectoriel}{97}{}%
+\contentsline {subsection}{\numberline {36.1.2}La Géométrie Projective}{97}{}%
+\contentsline {section}{\numberline {36.2}La Théorie des Groupes pour Classifier les Géométries}{97}{}%
+\contentsline {subsection}{\numberline {36.2.1}Le Programme d'Erlangen de Felix Klein}{97}{}%
+\contentsline {subsection}{\numberline {36.2.2}Application à la Classification des Isométries}{97}{}%
+\contentsline {section}{\numberline {36.3}La Théorie des Corps pour les Constructions à la Règle et au Compas}{98}{}%
+\contentsline {subsection}{\numberline {36.3.1}La Traduction Algébrique}{98}{}%
+\contentsline {subsection}{\numberline {36.3.2}Résolution des Problèmes Antiques}{98}{}%
+\contentsline {section}{\numberline {36.4}L'Algèbre Commutative pour la Géométrie Algébrique}{98}{}%
+\contentsline {subsection}{\numberline {36.4.1}Le Dictionnaire Idéaux-Variétés}{98}{}%
+\contentsline {part}{II\hspace {1em}Leçons sur l'Analyse et la Topologie des Fonctions}{99}{}%
+\contentsline {chapter}{\numberline {37}Leçon 201 : Espaces de fonctions. Exemples et applications.}{100}{}%
+\contentsline {section}{\numberline {37.1}Espaces de Fonctions pour la Topologie et l'Analyse}{100}{}%
+\contentsline {subsection}{\numberline {37.1.1}Le Cadre de la Convergence Uniforme}{100}{}%
+\contentsline {subsection}{\numberline {37.1.2}Le Cadre de l'Approximation}{100}{}%
+\contentsline {section}{\numberline {37.2}Espaces de Fonctions pour l'Intégration : les Espaces $L^p$}{100}{}%
+\contentsline {subsection}{\numberline {37.2.1}La Révolution de Lebesgue}{100}{}%
+\contentsline {subsection}{\numberline {37.2.2}Relations d'Inclusion et de Densité}{101}{}%
+\contentsline {section}{\numberline {37.3}Espaces de Fonctions pour la Régularité et les EDP}{101}{}%
+\contentsline {subsection}{\numberline {37.3.1}Les Espaces de Sobolev $H^k(\Omega )$}{101}{}%
+\contentsline {subsection}{\numberline {37.3.2}Les Espaces de Schwartz et les Distributions}{101}{}%
+\contentsline {chapter}{\numberline {38}Leçon 202 : Exemples de parties denses et applications.}{102}{}%
+\contentsline {section}{\numberline {38.1}Densité dans les Espaces Numériques}{102}{}%
+\contentsline {subsection}{\numberline {38.1.1}Les Ensembles de Nombres Classiques}{102}{}%
+\contentsline {subsection}{\numberline {38.1.2}Densité dans les Espaces de Matrices}{102}{}%
+\contentsline {section}{\numberline {38.2}Approximation de Fonctions : les Théorèmes de Weierstrass}{102}{}%
+\contentsline {subsection}{\numberline {38.2.1}Approximation par des Polynômes}{102}{}%
+\contentsline {subsection}{\numberline {38.2.2}Approximation par des Polynômes Trigonométriques}{102}{}%
+\contentsline {subsection}{\numberline {38.2.3}Généralisation : le Théorème de Stone-Weierstrass}{102}{}%
+\contentsline {section}{\numberline {38.3}Densité dans les Espaces de l'Intégration et de l'Analyse Fonctionnelle}{103}{}%
+\contentsline {subsection}{\numberline {38.3.1}Densité dans les Espaces $L^p$}{103}{}%
+\contentsline {subsection}{\numberline {38.3.2}Densité dans les Espaces de Hilbert}{103}{}%
+\contentsline {chapter}{\numberline {39}Leçon 203 : Utilisation de la notion de compacité.}{104}{}%
+\contentsline {chapter}{\numberline {40}Leçon 204 : Connexité. Exemples et applications.}{105}{}%
+\contentsline {section}{\numberline {40.1}Définitions et Propriétés Fondamentales}{105}{}%
+\contentsline {subsection}{\numberline {40.1.1}Connexité}{105}{}%
+\contentsline {subsection}{\numberline {40.1.2}Connexité par Arcs}{105}{}%
+\contentsline {section}{\numberline {40.2}Applications Analytiques}{105}{}%
+\contentsline {subsection}{\numberline {40.2.1}Les Connexes de $\mathbb {R}$}{105}{}%
+\contentsline {subsection}{\numberline {40.2.2}Le Théorème des Valeurs Intermédiaires}{105}{}%
+\contentsline {section}{\numberline {40.3}Applications Algébriques et Géométriques}{105}{}%
+\contentsline {subsection}{\numberline {40.3.1}Connexité dans les Groupes Topologiques}{105}{}%
+\contentsline {subsection}{\numberline {40.3.2}Connexité et Convexité}{106}{}%
+\contentsline {chapter}{\numberline {41}Leçon 205 : Espaces complets. Exemples et applications.}{107}{}%
+\contentsline {section}{\numberline {41.1}Définitions, Exemples et Contre-exemples}{107}{}%
+\contentsline {subsection}{\numberline {41.1.1}Cadre Métrique}{107}{}%
+\contentsline {subsection}{\numberline {41.1.2}Cadre des Espaces Vectoriels Normés}{107}{}%
+\contentsline {subsection}{\numberline {41.1.3}Théorème de Complétion}{107}{}%
+\contentsline {section}{\numberline {41.2}Le Théorème du Point Fixe : une Conséquence Constructive}{107}{}%
+\contentsline {subsection}{\numberline {41.2.1}Théorème de Banach-Picard}{107}{}%
+\contentsline {subsection}{\numberline {41.2.2}Applications}{107}{}%
+\contentsline {section}{\numberline {41.3}Les Grands Théorèmes : Conséquences de la Complétude et de Baire}{108}{}%
+\contentsline {subsection}{\numberline {41.3.1}Le Théorème de Baire}{108}{}%
+\contentsline {subsection}{\numberline {41.3.2}Les Piliers de l'Analyse Fonctionnelle}{108}{}%
+\contentsline {chapter}{\numberline {42}Leçon 207 : Prolongement de fonctions. Exemples et applications.}{109}{}%
+\contentsline {section}{\numberline {42.1}Prolongement par Continuité}{109}{}%
+\contentsline {subsection}{\numberline {42.1.1}Le Cadre des Espaces Métriques}{109}{}%
+\contentsline {subsection}{\numberline {42.1.2}Applications}{109}{}%
+\contentsline {section}{\numberline {42.2}Prolongement des Applications Linéaires : Hahn-Banach}{109}{}%
+\contentsline {subsection}{\numberline {42.2.1}La Puissance de la Dualité}{109}{}%
+\contentsline {subsection}{\numberline {42.2.2}Interprétation Géométrique : Théorèmes de Séparation}{109}{}%
+\contentsline {section}{\numberline {42.3}Prolongement de Fonctions Analytiques}{109}{}%
+\contentsline {subsection}{\numberline {42.3.1}La Rigidité des Fonctions Holomorphes}{109}{}%
+\contentsline {subsection}{\numberline {42.3.2}Applications}{110}{}%
+\contentsline {chapter}{\numberline {43}Leçon 208 : Espaces vectoriels normés, applications linéaires continues.}{111}{}%
+\contentsline {section}{\numberline {43.1}Structure des Espaces Vectoriels Normés}{111}{}%
+\contentsline {subsection}{\numberline {43.1.1}Normes et Topologie}{111}{}%
+\contentsline {subsection}{\numberline {43.1.2}Le Cas de la Dimension Infinie}{111}{}%
+\contentsline {section}{\numberline {43.2}Applications Linéaires Continues}{111}{}%
+\contentsline {subsection}{\numberline {43.2.1}Caractérisation de la Continuité}{111}{}%
+\contentsline {subsection}{\numberline {43.2.2}L'Espace de Banach $\mathcal {L}(E,F)$}{111}{}%
+\contentsline {section}{\numberline {43.3}Les Grands Théorèmes de l'Analyse Fonctionnelle}{112}{}%
+\contentsline {chapter}{\numberline {44}Leçon 209 : Approximation d'une fonction par des fonctions régulières. Exemples et applications.}{113}{}%
+\contentsline {section}{\numberline {44.1}Approximation Uniforme sur un Compact}{113}{}%
+\contentsline {subsection}{\numberline {44.1.1}Le Théorème de Weierstrass}{113}{}%
+\contentsline {subsection}{\numberline {44.1.2}Preuves Constructives}{113}{}%
+\contentsline {subsection}{\numberline {44.1.3}Généralisation : le Théorème de Stone-Weierstrass}{113}{}%
+\contentsline {section}{\numberline {44.2}Approximation dans les Espaces $L^p$}{113}{}%
+\contentsline {subsection}{\numberline {44.2.1}La Hiérarchie de la Densité}{113}{}%
+\contentsline {section}{\numberline {44.3}Régularisation par Convolution}{114}{}%
+\contentsline {subsection}{\numberline {44.3.1}Approximation de l'Unité}{114}{}%
+\contentsline {chapter}{\numberline {45}Leçon 213 : Espaces de Hilbert. Bases hilbertiennes.}{115}{}%
+\contentsline {section}{\numberline {45.1}La Structure Géométrique des Espaces de Hilbert}{115}{}%
+\contentsline {subsection}{\numberline {45.1.1}Produit Scalaire et Orthogonalité}{115}{}%
+\contentsline {subsection}{\numberline {45.1.2}Le Théorème de Projection}{115}{}%
+\contentsline {subsection}{\numberline {45.1.3}Le Théorème de Représentation de Riesz}{115}{}%
+\contentsline {section}{\numberline {45.2}Bases Hilbertiennes : L'Analyse de Fourier Généralisée}{115}{}%
+\contentsline {subsection}{\numberline {45.2.1}Définitions et Caractérisations}{115}{}%
+\contentsline {subsection}{\numberline {45.2.2}Existence et Isomorphismes}{116}{}%
+\contentsline {section}{\numberline {45.3}Exemples et Applications Fondamentales}{116}{}%
+\contentsline {subsection}{\numberline {45.3.1}L'Espace $\ell ^2(\mathbb {N})$}{116}{}%
+\contentsline {subsection}{\numberline {45.3.2}L'Espace $L^2([0, 2\pi ])$ et les Séries de Fourier}{116}{}%
+\contentsline {subsection}{\numberline {45.3.3}Les Polynômes Orthogonaux}{116}{}%
+\contentsline {chapter}{\numberline {46}Leçon 214 : Théorème de projection sur un convexe fermé.}{118}{}%
+\contentsline {section}{\numberline {46.1}Le Théorème de Projection et sa Démonstration}{118}{}%
+\contentsline {subsection}{\numberline {46.1.1}Cadre : Géométrie des Espaces de Hilbert}{118}{}%
+\contentsline {subsection}{\numberline {46.1.2}Le Théorème de la Meilleure Approximation Convexe}{118}{}%
+\contentsline {subsection}{\numberline {46.1.3}Caractérisation du Projeté}{118}{}%
+\contentsline {section}{\numberline {46.2}Le Cas Particulier Fondamental : la Projection sur un Sous-Espace Vectoriel}{118}{}%
+\contentsline {subsection}{\numberline {46.2.1}Caractérisation et Linéarité}{118}{}%
+\contentsline {subsection}{\numberline {46.2.2}Décomposition en Somme Directe Orthogonale}{119}{}%
+\contentsline {subsection}{\numberline {46.2.3}Lien avec le Théorème de Riesz}{119}{}%
+\contentsline {section}{\numberline {46.3}Applications}{119}{}%
+\contentsline {subsection}{\numberline {46.3.1}Statistiques : Méthode des Moindres Carrés}{119}{}%
+\contentsline {subsection}{\numberline {46.3.2}Analyse de Fourier}{119}{}%
+\contentsline {subsection}{\numberline {46.3.3}Analyse Numérique : Méthode de Galerkin pour les EDP}{119}{}%
+\contentsline {chapter}{\numberline {47}Leçon 215 : Applications différentiables définies sur un ouvert de $\mathbb {R}^n$.}{120}{}%
+\contentsline {section}{\numberline {47.1}La Différentielle : la Meilleure Approximation Linéaire Locale}{120}{}%
+\contentsline {subsection}{\numberline {47.1.1}Définitions de la Différentiabilité}{120}{}%
+\contentsline {subsection}{\numberline {47.1.2}Règles de Calcul}{120}{}%
+\contentsline {section}{\numberline {47.2}Théorèmes Fondamentaux de l'Analyse Locale}{120}{}%
+\contentsline {subsection}{\numberline {47.2.1}Inégalité des Accroissements Finis}{120}{}%
+\contentsline {subsection}{\numberline {47.2.2}Le Théorème d'Inversion Locale}{120}{}%
+\contentsline {subsection}{\numberline {47.2.3}Le Théorème des Fonctions Implicites}{120}{}%
+\contentsline {section}{\numberline {47.3}Différentielles d'Ordre Supérieur et Optimisation}{121}{}%
+\contentsline {subsection}{\numberline {47.3.1}Définitions}{121}{}%
+\contentsline {subsection}{\numberline {47.3.2}Formules de Taylor}{121}{}%
+\contentsline {subsection}{\numberline {47.3.3}Application à la Recherche d'Extrema}{121}{}%
+\contentsline {chapter}{\numberline {48}Leçon 217 : Sous-variétés de $\mathbb {R}^n$.}{122}{}%
+\contentsline {section}{\numberline {48.1}Définitions Équivalentes d'une Sous-Variété}{122}{}%
+\contentsline {subsection}{\numberline {48.1.1}Le Point de Vue "Graphe Local"}{122}{}%
+\contentsline {subsection}{\numberline {48.1.2}Le Point de Vue "Lieu d'Annulation" (Submersion)}{122}{}%
+\contentsline {subsection}{\numberline {48.1.3}Le Point de Vue "Paramétrisation Locale" (Immersion)}{122}{}%
+\contentsline {subsection}{\numberline {48.1.4}Théorème d'Équivalence}{122}{}%
+\contentsline {section}{\numberline {48.2}Espace Tangent et Géométrie Locale}{122}{}%
+\contentsline {subsection}{\numberline {48.2.1}Définition de l'Espace Tangent}{122}{}%
+\contentsline {section}{\numberline {48.3}Exemples et Applications}{123}{}%
+\contentsline {subsection}{\numberline {48.3.1}Exemples Fondamentaux}{123}{}%
+\contentsline {subsection}{\numberline {48.3.2}Application à l'Optimisation sous Contraintes : Extrema Liés}{123}{}%
+\contentsline {chapter}{\numberline {49}Leçon 219 : Extrema : existence, caractérisation, recherche.}{124}{}%
+\contentsline {section}{\numberline {49.1}Existence d'Extrema}{124}{}%
+\contentsline {subsection}{\numberline {49.1.1}Le Cadre de la Compacité}{124}{}%
+\contentsline {subsection}{\numberline {49.1.2}Le Cadre de la Dimension Infinie : Coercivité}{124}{}%
+\contentsline {section}{\numberline {49.2}Caractérisation des Extrema (Optimisation sans Contraintes)}{124}{}%
+\contentsline {subsection}{\numberline {49.2.1}Conditions du Premier Ordre}{124}{}%
+\contentsline {subsection}{\numberline {49.2.2}Conditions du Second Ordre}{124}{}%
+\contentsline {section}{\numberline {49.3}Caractérisation des Extrema (Optimisation sous Contraintes)}{125}{}%
+\contentsline {subsection}{\numberline {49.3.1}Contraintes d'Égalité : Multiplicateurs de Lagrange}{125}{}%
+\contentsline {subsection}{\numberline {49.3.2}Contraintes d'Inégalité : Conditions de Karush-Kuhn-Tucker (KKT)}{125}{}%
+\contentsline {section}{\numberline {49.4}Méthodes Numériques de Recherche d'Extrema}{125}{}%
+\contentsline {subsection}{\numberline {49.4.1}Méthodes de Descente}{125}{}%
+\contentsline {part}{III\hspace {1em}Leçons sur les Équations Différentielles, Suites et Fonctions}{126}{}%
+\contentsline {chapter}{\numberline {50}Leçon 220 : Équations différentielles $X'=f(t,X)$.}{127}{}%
+\contentsline {section}{\numberline {50.1}Le Théorème de Cauchy-Lipschitz : Existence et Unicité Locale}{127}{}%
+\contentsline {subsection}{\numberline {50.1.1}Position du Problème}{127}{}%
+\contentsline {subsection}{\numberline {50.1.2}Le Théorème Fondamental}{127}{}%
+\contentsline {subsection}{\numberline {50.1.3}Le Rôle de l'Hypothèse de Lipschitz}{127}{}%
+\contentsline {section}{\numberline {50.2}Solutions Maximales et Comportement Global}{127}{}%
+\contentsline {subsection}{\numberline {50.2.1}Prolongement des Solutions}{127}{}%
+\contentsline {subsection}{\numberline {50.2.2}Théorème de Sortie des Compacts}{128}{}%
+\contentsline {subsection}{\numberline {50.2.3}Conditions d'Existence Globale}{128}{}%
+\contentsline {section}{\numberline {50.3}Dépendance par Rapport aux Données}{128}{}%
+\contentsline {subsection}{\numberline {50.3.1}Le Lemme de Grönwall}{128}{}%
+\contentsline {subsection}{\numberline {50.3.2}Continuité par Rapport aux Conditions Initiales}{128}{}%
+\contentsline {subsection}{\numberline {50.3.3}Différentiabilité par Rapport aux Conditions Initiales}{128}{}%
+\contentsline {chapter}{\numberline {51}Leçon 221 : Équations différentielles linéaires.}{129}{}%
+\contentsline {section}{\numberline {51.1}Le Cadre Analytique : Existence Globale et Structure}{129}{}%
+\contentsline {subsection}{\numberline {51.1.1}Théorie Générale}{129}{}%
+\contentsline {subsection}{\numberline {51.1.2}Structure de l'Espace des Solutions}{129}{}%
+\contentsline {section}{\numberline {51.2}Le Cas Fondamental : Coefficients Constants $Y'=AY$}{129}{}%
+\contentsline {subsection}{\numberline {51.2.1}L'Exponentielle de Matrice : L'Outil Central}{129}{}%
+\contentsline {subsection}{\numberline {51.2.2}Calcul de l'Exponentielle par la Réduction}{129}{}%
+\contentsline {subsection}{\numberline {51.2.3}Interprétation Géométrique : Portraits de Phase}{130}{}%
+\contentsline {section}{\numberline {51.3}Stabilité et Comportement Asymptotique}{130}{}%
+\contentsline {subsection}{\numberline {51.3.1}Stabilité des Solutions d'Équilibre}{130}{}%
+\contentsline {subsection}{\numberline {51.3.2}Équations d'Ordre Supérieur}{130}{}%
+\contentsline {subsection}{\numberline {51.3.3}Solutions Périodiques et Résonance}{130}{}%
+\contentsline {chapter}{\numberline {52}Leçon 222 : Exemples d'études qualitatives d'équations différentielles.}{131}{}%
+\contentsline {section}{\numberline {52.1}Stabilité des Points d'Équilibre}{131}{}%
+\contentsline {subsection}{\numberline {52.1.1}Systèmes Autonomes et Linéarisation}{131}{}%
+\contentsline {subsection}{\numberline {52.1.2}Fonctions de Liapounov : une Approche Énergétique}{131}{}%
+\contentsline {section}{\numberline {52.2}Portraits de Phase en Dimension 2}{131}{}%
+\contentsline {subsection}{\numberline {52.2.1}Classification des Équilibres Linéaires}{131}{}%
+\contentsline {subsection}{\numberline {52.2.2}Le Théorème de Hartman-Grobman}{131}{}%
+\contentsline {subsection}{\numberline {52.2.3}Exemple : Le Pendule Simple}{132}{}%
+\contentsline {section}{\numberline {52.3}Comportement Périodique et Limite}{132}{}%
+\contentsline {subsection}{\numberline {52.3.1}Le Théorème de Poincaré-Bendixson}{132}{}%
+\contentsline {subsection}{\numberline {52.3.2}Exemples Classiques de la Modélisation}{132}{}%
+\contentsline {chapter}{\numberline {53}Leçon 223 : Suites numériques. Convergence, valeurs d'adhérence.}{133}{}%
+\contentsline {section}{\numberline {53.1}Convergence et Structure de $\mathbb {R}$}{133}{}%
+\contentsline {subsection}{\numberline {53.1.1}Définitions et Propriétés}{133}{}%
+\contentsline {subsection}{\numberline {53.1.2}Le Critère de Cauchy}{133}{}%
+\contentsline {subsection}{\numberline {53.1.3}Suites Monotones}{133}{}%
+\contentsline {section}{\numberline {53.2}Valeurs d'Adhérence et Théorème de Bolzano-Weierstrass}{133}{}%
+\contentsline {subsection}{\numberline {53.2.1}Définition et Caractérisation}{133}{}%
+\contentsline {subsection}{\numberline {53.2.2}Limite Supérieure et Inférieure}{133}{}%
+\contentsline {subsection}{\numberline {53.2.3}Le Théorème Fondamental}{134}{}%
+\contentsline {section}{\numberline {53.3}Exemples et Applications}{134}{}%
+\contentsline {subsection}{\numberline {53.3.1}Suites Arithmético-Géométriques}{134}{}%
+\contentsline {subsection}{\numberline {53.3.2}Suites Récurrentes $u_{n+1}=f(u_n)$}{134}{}%
+\contentsline {subsection}{\numberline {53.3.3}Moyenne de Césaro}{134}{}%
+\contentsline {chapter}{\numberline {54}Leçon 224 : Exemples de développements asymptotiques de suites et de fonctions.}{135}{}%
+\contentsline {section}{\numberline {54.1}Développements Asymptotiques de Suites}{135}{}%
+\contentsline {subsection}{\numberline {54.1.1}Méthodes Basées sur les Développements Limités}{135}{}%
+\contentsline {subsection}{\numberline {54.1.2}Méthodes Basées sur la Comparaison Série-Intégrale}{135}{}%
+\contentsline {subsection}{\numberline {54.1.3}Autres Méthodes}{135}{}%
+\contentsline {section}{\numberline {54.2}Développements Asymptotiques de Fonctions}{135}{}%
+\contentsline {subsection}{\numberline {54.2.1}Outils de Base : Les Formules de Taylor}{135}{}%
+\contentsline {subsection}{\numberline {54.2.2}Développements Asymptotiques aux Bornes}{135}{}%
+\contentsline {subsection}{\numberline {54.2.3}Intégrales à Paramètres}{136}{}%
+\contentsline {chapter}{\numberline {55}Leçon 226 : Suites vectorielles et matricielles.}{137}{}%
+\contentsline {section}{\numberline {55.1}Topologie et Convergence en Dimension Finie}{137}{}%
+\contentsline {subsection}{\numberline {55.1.1}Le Théorème Fondamental : Équivalence des Normes}{137}{}%
+\contentsline {subsection}{\numberline {55.1.2}Normes Matricielles}{137}{}%
+\contentsline {section}{\numberline {55.2}Suites Linéaires $U_{n+1} = A U_n + B$}{137}{}%
+\contentsline {subsection}{\numberline {55.2.1}Le Cas Homogène $U_{n+1}=AU_n$}{137}{}%
+\contentsline {subsection}{\numberline {55.2.2}Le Cas Affine}{137}{}%
+\contentsline {section}{\numberline {55.3}Applications aux Méthodes Itératives}{138}{}%
+\contentsline {subsection}{\numberline {55.3.1}Résolution de Systèmes Linéaires $Ax=b$}{138}{}%
+\contentsline {subsection}{\numberline {55.3.2}Résolution de Systèmes Non-Linéaires : Méthode de Newton}{138}{}%
+\contentsline {subsection}{\numberline {55.3.3}Calcul de Valeurs Propres : Méthode de la Puissance}{138}{}%
+\contentsline {chapter}{\numberline {56}Leçon 228 : Continuité et dérivabilité des fonctions réelles d'une variable réelle.}{139}{}%
+\contentsline {section}{\numberline {56.1}Continuité : Propriétés Locales et Globales}{139}{}%
+\contentsline {subsection}{\numberline {56.1.1}Définitions et Premières Propriétés}{139}{}%
+\contentsline {subsection}{\numberline {56.1.2}Les Grands Théorèmes Globaux}{139}{}%
+\contentsline {section}{\numberline {56.2}Dérivabilité : L'Approximation Linéaire Locale}{139}{}%
+\contentsline {subsection}{\numberline {56.2.1}Définition et Propriétés}{139}{}%
+\contentsline {subsection}{\numberline {56.2.2}Les Grands Théorèmes de la Dérivation}{139}{}%
+\contentsline {section}{\numberline {56.3}Régularité Supérieure et Formules de Taylor}{140}{}%
+\contentsline {subsection}{\numberline {56.3.1}Fonctions de Classe $\mathcal {C}^k$}{140}{}%
+\contentsline {subsection}{\numberline {56.3.2}Formules de Taylor}{140}{}%
+\contentsline {subsection}{\numberline {56.3.3}Contre-exemples et Pathologies}{140}{}%
+\contentsline {chapter}{\numberline {57}Leçon 229 : Fonctions monotones. Fonctions convexes.}{141}{}%
+\contentsline {section}{\numberline {57.1}Fonctions Monotones}{141}{}%
+\contentsline {subsection}{\numberline {57.1.1}Propriétés de Continuité}{141}{}%
+\contentsline {subsection}{\numberline {57.1.2}Propriétés de Dérivabilité}{141}{}%
+\contentsline {section}{\numberline {57.2}Fonctions Convexes}{141}{}%
+\contentsline {subsection}{\numberline {57.2.1}Définitions et Propriétés Géométriques}{141}{}%
+\contentsline {subsection}{\numberline {57.2.2}Propriétés de Régularité}{141}{}%
+\contentsline {subsection}{\numberline {57.2.3}Caractérisations Différentielles}{141}{}%
+\contentsline {section}{\numberline {57.3}Inégalités de Convexité et Applications}{142}{}%
+\contentsline {subsection}{\numberline {57.3.1}L'Inégalité de Jensen}{142}{}%
+\contentsline {subsection}{\numberline {57.3.2}Applications}{142}{}%
+\contentsline {chapter}{\numberline {58}Leçon 230 : Séries de nombres réels ou complexes.}{143}{}%
+\contentsline {section}{\numberline {58.1}Nature d'une Série : Le Sens d'une Somme Infinie}{143}{}%
+\contentsline {subsection}{\numberline {58.1.1}Définitions et Critère Fondamental}{143}{}%
+\contentsline {subsection}{\numberline {58.1.2}La Dichotomie : Convergence Absolue vs. Semi-Convergence}{143}{}%
+\contentsline {section}{\numberline {58.2}Critères de Convergence}{143}{}%
+\contentsline {subsection}{\numberline {58.2.1}Séries à Termes Positifs}{143}{}%
+\contentsline {subsection}{\numberline {58.2.2}Séries à Termes Quelconques}{144}{}%
+\contentsline {section}{\numberline {58.3}Opérations sur les Séries et Familles Sommables}{144}{}%
+\contentsline {subsection}{\numberline {58.3.1}Produit de Cauchy}{144}{}%
+\contentsline {subsection}{\numberline {58.3.2}Familles Sommables}{144}{}%
+\contentsline {chapter}{\numberline {59}Leçon 234 : Espaces $L^p$.}{145}{}%
+\contentsline {section}{\numberline {59.1}Construction et Propriétés Fondamentales}{145}{}%
+\contentsline {subsection}{\numberline {59.1.1}Motivation : Les Limites de l'Intégrale de Riemann}{145}{}%
+\contentsline {subsection}{\numberline {59.1.2}Définition des Espaces $L^p$}{145}{}%
+\contentsline {subsection}{\numberline {59.1.3}Les Théorèmes Fondamentaux}{145}{}%
+\contentsline {section}{\numberline {59.2}Structure Topologique et Géométrique}{145}{}%
+\contentsline {subsection}{\numberline {59.2.1}Relations d'Inclusion}{145}{}%
+\contentsline {subsection}{\numberline {59.2.2}Dualité}{145}{}%
+\contentsline {subsection}{\numberline {59.2.3}Séparabilité}{146}{}%
+\contentsline {section}{\numberline {59.3}Théorèmes de Densité et Applications}{146}{}%
+\contentsline {subsection}{\numberline {59.3.1}Hiérarchie de l'Approximation}{146}{}%
+\contentsline {subsection}{\numberline {59.3.2}Régularisation par Convolution}{146}{}%
+\contentsline {chapter}{\numberline {60}Leçon 235 : Problèmes d'interversion de limites et d'intégrales.}{147}{}%
+\contentsline {section}{\numberline {60.1}Le Danger de l'Interversion : Contre-exemples Fondamentaux}{147}{}%
+\contentsline {subsection}{\numberline {60.1.1}Le Cas des Suites de Fonctions}{147}{}%
+\contentsline {subsection}{\numberline {60.1.2}Le Cas des Séries de Fonctions}{147}{}%
+\contentsline {section}{\numberline {60.2}Conditions Suffisantes dans le Cadre de Riemann : la Convergence Uniforme}{147}{}%
+\contentsline {subsection}{\numberline {60.2.1}Le Rôle de la Convergence Uniforme}{147}{}%
+\contentsline {section}{\numberline {60.3}La Solution de Lebesgue : la Domination}{148}{}%
+\contentsline {subsection}{\numberline {60.3.1}Les Grands Théorèmes de l'Intégration}{148}{}%
+\contentsline {subsection}{\numberline {60.3.2}Application à la Dérivation sous le Signe Intégrale}{148}{}%
+\contentsline {chapter}{\numberline {61}Leçon 236 : Illustrer par des exemples la théorie des séries de Fourier.}{149}{}%
+\contentsline {section}{\numberline {61.1}Convergence et Comportement aux Discontinuités}{149}{}%
+\contentsline {subsection}{\numberline {61.1.1}Exemple 1 : Le Signal Carré (Créneau)}{149}{}%
+\contentsline {subsection}{\numberline {61.1.2}Exemple 2 : Le Signal "Chapeau" (Triangulaire)}{149}{}%
+\contentsline {section}{\numberline {61.2}Utilisation pour le Calcul Explicite de Sommes}{149}{}%
+\contentsline {subsection}{\numberline {61.2.1}Exemple 1 : Le Problème de Bâle ($\DOTSB \sum@ \slimits@ 1/n^2 = \pi ^2/6$)}{149}{}%
+\contentsline {subsection}{\numberline {61.2.2}Exemple 2 : Calcul de $\DOTSB \sum@ \slimits@ 1/n^4 = \pi ^4/90$}{149}{}%
+\contentsline {section}{\numberline {61.3}Applications à la Résolution d'Équations aux Dérivées Partielles}{150}{}%
+\contentsline {subsection}{\numberline {61.3.1}Exemple 1 : L'Équation de la Chaleur sur un Segment}{150}{}%
+\contentsline {subsection}{\numberline {61.3.2}Exemple 2 : L'Équation des Ondes (Corde Vibrante)}{150}{}%
+\contentsline {chapter}{\numberline {62}Leçon 237 : Méthodes de calcul d'intégrales.}{151}{}%
+\contentsline {section}{\numberline {62.1}Méthodes Basées sur le Théorème Fondamental de l'Analyse}{151}{}%
+\contentsline {subsection}{\numberline {62.1.1}Recherche de Primitives}{151}{}%
+\contentsline {section}{\numberline {62.2}Méthodes Analytiques Avancées}{151}{}%
+\contentsline {subsection}{\numberline {62.2.1}Intégrales à Paramètres}{151}{}%
+\contentsline {subsection}{\numberline {62.2.2}Fonctions Spéciales}{151}{}%
+\contentsline {section}{\numberline {62.3}La Puissance de l'Analyse Complexe}{151}{}%
+\contentsline {subsection}{\numberline {62.3.1}Le Théorème des Résidus}{151}{}%
+\contentsline {subsection}{\numberline {62.3.2}Galerie de Calculs}{152}{}%
+\contentsline {chapter}{\numberline {63}Leçon 239 : Fonctions définies par une intégrale dépendant d'un paramètre.}{153}{}%
+\contentsline {section}{\numberline {63.1}Continuité des Intégrales à Paramètres}{153}{}%
+\contentsline {subsection}{\numberline {63.1.1}Le Théorème Fondamental de Continuité}{153}{}%
+\contentsline {subsection}{\numberline {63.1.2}Applications}{153}{}%
+\contentsline {section}{\numberline {63.2}Dérivabilité des Intégrales à Paramètres}{153}{}%
+\contentsline {subsection}{\numberline {63.2.1}Le Théorème de Dérivation de Leibniz}{153}{}%
+\contentsline {subsection}{\numberline {63.2.2}Le Cas des Bornes Variables}{153}{}%
+\contentsline {subsection}{\numberline {63.2.3}Applications}{154}{}%
+\contentsline {section}{\numberline {63.3}Intégrabilité et Interversion : Fubini}{154}{}%
+\contentsline {subsection}{\numberline {63.3.1}Le Problème de l'Interversion}{154}{}%
+\contentsline {subsection}{\numberline {63.3.2}Les Théorèmes de Fubini}{154}{}%
+\contentsline {subsection}{\numberline {63.3.3}Applications}{154}{}%
+\contentsline {chapter}{\numberline {64}Leçon 241 : Suites et séries de fonctions.}{155}{}%
+\contentsline {section}{\numberline {64.1}La Hiérarchie des Convergences}{155}{}%
+\contentsline {subsection}{\numberline {64.1.1}Convergence Simple : une Notion Faible}{155}{}%
+\contentsline {subsection}{\numberline {64.1.2}Convergence Uniforme : la "Bonne" Notion Topologique}{155}{}%
+\contentsline {subsection}{\numberline {64.1.3}Convergence Normale : un Critère Pratique pour les Séries}{155}{}%
+\contentsline {section}{\numberline {64.2}Théorèmes de Transfert de Propriétés}{155}{}%
+\contentsline {subsection}{\numberline {64.2.1}Continuité}{155}{}%
+\contentsline {subsection}{\numberline {64.2.2}Intégration}{155}{}%
+\contentsline {subsection}{\numberline {64.2.3}Dérivation}{156}{}%
+\contentsline {section}{\numberline {64.3}Applications et Exemples}{156}{}%
+\contentsline {subsection}{\numberline {64.3.1}Construction de Fonctions}{156}{}%
+\contentsline {subsection}{\numberline {64.3.2}Théorèmes d'Approximation}{156}{}%
+\contentsline {subsection}{\numberline {64.3.3}Construction de "Monstres" : Fonctions Pathologiques}{156}{}%
+\contentsline {chapter}{\numberline {65}Leçon 243 : Séries entières, propriétés de la somme.}{157}{}%
+\contentsline {section}{\numberline {65.1}Convergence : une Structure Rigide}{157}{}%
+\contentsline {subsection}{\numberline {65.1.1}Lemme d'Abel et Rayon de Convergence}{157}{}%
+\contentsline {subsection}{\numberline {65.1.2}Comportement au Bord du Disque de Convergence}{157}{}%
+\contentsline {section}{\numberline {65.2}Propriétés Analytiques de la Somme}{157}{}%
+\contentsline {subsection}{\numberline {65.2.1}Régularité de la Somme}{157}{}%
+\contentsline {subsection}{\numberline {65.2.2}Propriétés d'Unicité et d'Identité}{158}{}%
+\contentsline {section}{\numberline {65.3}Applications}{158}{}%
+\contentsline {subsection}{\numberline {65.3.1}Définition et Étude de Fonctions Spéciales}{158}{}%
+\contentsline {subsection}{\numberline {65.3.2}Résolution d'Équations Différentielles}{158}{}%
+\contentsline {subsection}{\numberline {65.3.3}Combinatoire : les Séries Génératrices}{158}{}%
+\contentsline {chapter}{\numberline {66}Leçon 245 : Fonctions d'une variable complexe. Exemples et applications.}{160}{}%
+\contentsline {section}{\numberline {66.1}Holomorphie : une Condition de Rigidité Géométrique}{160}{}%
+\contentsline {subsection}{\numberline {66.1.1}Dérivabilité Complexe vs. Différentiabilité Réelle}{160}{}%
+\contentsline {section}{\numberline {66.2}Le Théorème de Cauchy et ses Conséquences Directes}{160}{}%
+\contentsline {subsection}{\numberline {66.2.1}Intégration Complexe}{160}{}%
+\contentsline {subsection}{\numberline {66.2.2}La Formule Intégrale de Cauchy : le Cœur de la Théorie}{160}{}%
+\contentsline {subsection}{\numberline {66.2.3}Une Cascade de Conséquences Spectaculaires}{160}{}%
+\contentsline {section}{\numberline {66.3}Principes Fondamentaux et Singularités}{161}{}%
+\contentsline {subsection}{\numberline {66.3.1}Principes issus de la Rigidité}{161}{}%
+\contentsline {subsection}{\numberline {66.3.2}Analyse des Singularités}{161}{}%
+\contentsline {section}{\numberline {66.4}Applications}{161}{}%
+\contentsline {subsection}{\numberline {66.4.1}Calcul d'Intégrales Réelles}{161}{}%
+\contentsline {subsection}{\numberline {66.4.2}Principe de l'Argument et Théorème de Rouché}{161}{}%
+\contentsline {chapter}{\numberline {67}Leçon 246 : Séries de Fourier. Exemples et applications.}{162}{}%
+\contentsline {section}{\numberline {67.1}Convergence et Comportement aux Discontinuités}{162}{}%
+\contentsline {subsection}{\numberline {67.1.1}Exemple 1 : Le Signal Carré (Créneau)}{162}{}%
+\contentsline {subsection}{\numberline {67.1.2}Exemple 2 : Le Signal "Chapeau" (Triangulaire)}{162}{}%
+\contentsline {section}{\numberline {67.2}Le Point de Vue Hilbertien : Convergence $L^2$ et Parseval}{162}{}%
+\contentsline {subsection}{\numberline {67.2.1}L'Espace $L^2([0,2\pi ])$}{162}{}%
+\contentsline {subsection}{\numberline {67.2.2}Exemple 3 : Calcul de $\DOTSB \sum@ \slimits@ 1/n^2 = \pi ^2/6$ (Problème de Bâle)}{162}{}%
+\contentsline {subsection}{\numberline {67.2.3}Exemple 4 : Calcul de $\DOTSB \sum@ \slimits@ 1/n^4 = \pi ^4/90$}{163}{}%
+\contentsline {section}{\numberline {67.3}Applications à la Résolution d'Équations aux Dérivées Partielles}{163}{}%
+\contentsline {subsection}{\numberline {67.3.1}Exemple 5 : L'Équation de la Chaleur sur un Segment}{163}{}%
+\contentsline {subsection}{\numberline {67.3.2}Exemple 6 : L'Équation des Ondes (Corde Vibrante)}{163}{}%
+\contentsline {chapter}{\numberline {68}Leçon 250 : Transformation de Fourier. Applications.}{164}{}%
+\contentsline {section}{\numberline {68.1}La Transformée de Fourier sur $L^1(\mathbb {R})$}{164}{}%
+\contentsline {subsection}{\numberline {68.1.1}Définition et Propriétés Fondamentales}{164}{}%
+\contentsline {subsection}{\numberline {68.1.2}Le Théorème de Convolution}{164}{}%
+\contentsline {subsection}{\numberline {68.1.3}Régularité et Décroissance}{164}{}%
+\contentsline {section}{\numberline {68.2}Extension à $L^2(\mathbb {R})$ : le Théorème de Plancherel}{164}{}%
+\contentsline {subsection}{\numberline {68.2.1}Le Problème de l'Extension}{164}{}%
+\contentsline {subsection}{\numberline {68.2.2}Le Théorème de Plancherel}{164}{}%
+\contentsline {section}{\numberline {68.3}Le Cadre Ultime : les Distributions Tempérées}{165}{}%
+\contentsline {subsection}{\numberline {68.3.1}L'Espace de Schwartz et son Dual}{165}{}%
+\contentsline {subsection}{\numberline {68.3.2}Transformée de Fourier d'une Distribution}{165}{}%
+\contentsline {section}{\numberline {68.4}Applications}{165}{}%
+\contentsline {subsection}{\numberline {68.4.1}Résolution d'EDP}{165}{}%
+\contentsline {subsection}{\numberline {68.4.2}Traitement du Signal et Physique}{165}{}%
+\contentsline {chapter}{\numberline {69}Leçon 253 : Utilisation de la notion de convexité en analyse.}{166}{}%
+\contentsline {section}{\numberline {69.1}Convexité et Topologie : Théorèmes de Séparation}{166}{}%
+\contentsline {subsection}{\numberline {69.1.1}Le Cadre Géométrique}{166}{}%
+\contentsline {subsection}{\numberline {69.1.2}Le Théorème de Hahn-Banach Géométrique}{166}{}%
+\contentsline {subsection}{\numberline {69.1.3}Application à l'Optimisation}{166}{}%
+\contentsline {section}{\numberline {69.2}Convexité et Optimisation : l'Art de Trouver le Minimum}{166}{}%
+\contentsline {subsection}{\numberline {69.2.1}Fonctions Convexes}{166}{}%
+\contentsline {subsection}{\numberline {69.2.2}Le Théorème Fondamental de l'Optimisation Convexe}{166}{}%
+\contentsline {subsection}{\numberline {69.2.3}Existence de Minima}{166}{}%
+\contentsline {section}{\numberline {69.3}Convexité et Inégalités Fondamentales}{167}{}%
+\contentsline {subsection}{\numberline {69.3.1}L'Inégalité de Jensen}{167}{}%
+\contentsline {subsection}{\numberline {69.3.2}Une Cascade d'Inégalités Classiques}{167}{}%
+\contentsline {section}{\numberline {69.4}Propriétés de Régularité des Fonctions Convexes}{167}{}%
+\contentsline {subsection}{\numberline {69.4.1}Continuité}{167}{}%
+\contentsline {subsection}{\numberline {69.4.2}Dérivabilité}{167}{}%
+\contentsline {part}{IV\hspace {1em}Probabilités et Statistiques}{168}{}%
+\contentsline {chapter}{\numberline {70}Leçon 260 : Espérance, variance et moments d'une variable aléatoire.}{169}{}%
+\contentsline {section}{\numberline {70.1}Espérance : la Valeur Moyenne}{169}{}%
+\contentsline {subsection}{\numberline {70.1.1}Définition via l'Intégrale de Lebesgue}{169}{}%
+\contentsline {subsection}{\numberline {70.1.2}Propriétés de l'Espérance}{169}{}%
+\contentsline {section}{\numberline {70.2}Variance et Moments d'Ordre Supérieur}{169}{}%
+\contentsline {subsection}{\numberline {70.2.1}Variance et Écart-Type : Mesurer la Dispersion}{169}{}%
+\contentsline {subsection}{\numberline {70.2.2}Covariance et Corrélation : Mesurer le Lien}{169}{}%
+\contentsline {subsection}{\numberline {70.2.3}Moments et Fonctions Génératrices}{170}{}%
+\contentsline {section}{\numberline {70.3}Inégalités de Concentration et Applications}{170}{}%
+\contentsline {subsection}{\numberline {70.3.1}Inégalités Fondamentales}{170}{}%
+\contentsline {subsection}{\numberline {70.3.2}Inégalité de Jensen}{170}{}%
+\contentsline {chapter}{\numberline {71}Leçon 261 : Loi d'une variable aléatoire.}{171}{}%
+\contentsline {section}{\numberline {71.1}Caractérisation d'une Loi de Probabilité}{171}{}%
+\contentsline {subsection}{\numberline {71.1.1}Définition via la Mesure Image}{171}{}%
+\contentsline {subsection}{\numberline {71.1.2}La Fonction de Répartition (CDF)}{171}{}%
+\contentsline {subsection}{\numberline {71.1.3}La Fonction Caractéristique}{171}{}%
+\contentsline {section}{\numberline {71.2}Opérations sur les Lois}{171}{}%
+\contentsline {subsection}{\numberline {71.2.1}Transformation d'une Variable Aléatoire}{171}{}%
+\contentsline {subsection}{\numberline {71.2.2}Somme de Variables Aléatoires Indépendantes}{171}{}%
+\contentsline {section}{\numberline {71.3}Convergence de Lois}{172}{}%
+\contentsline {subsection}{\numberline {71.3.1}Définition de la Convergence en Loi}{172}{}%
+\contentsline {subsection}{\numberline {71.3.2}Théorème de Continuité de Lévy}{172}{}%
+\contentsline {chapter}{\numberline {72}Leçon 262 : Exemples de lois de variables aléatoires.}{173}{}%
+\contentsline {section}{\numberline {72.1}Lois Discrètes Fondamentales}{173}{}%
+\contentsline {subsection}{\numberline {72.1.1}Les Briques de Base : Bernoulli et Uniforme}{173}{}%
+\contentsline {subsection}{\numberline {72.1.2}Schémas de Tirages et Temps d'Attente}{173}{}%
+\contentsline {subsection}{\numberline {72.1.3}La Loi des Événements Rares : la Loi de Poisson}{173}{}%
+\contentsline {section}{\numberline {72.2}Lois à Densité Usuelles}{173}{}%
+\contentsline {subsection}{\numberline {72.2.1}Les Lois les plus Simples}{173}{}%
+\contentsline {subsection}{\numberline {72.2.2}L'Universalité de la Loi Normale}{173}{}%
+\contentsline {subsection}{\numberline {72.2.3}Lois Dérivées de la Loi Normale (les Lois du $\chi ^2$, de Student, de Fisher)}{174}{}%
+\contentsline {section}{\numberline {72.3}Liens entre les Lois et Stabilité}{174}{}%
+\contentsline {subsection}{\numberline {72.3.1}Théorèmes de Convergence}{174}{}%
+\contentsline {subsection}{\numberline {72.3.2}Stabilité par Addition}{174}{}%
+\contentsline {chapter}{\numberline {73}Leçon 263 : Variables aléatoires à densité.}{175}{}%
+\contentsline {section}{\numberline {73.1}Caractérisation et Propriétés Fondamentales}{175}{}%
+\contentsline {subsection}{\numberline {73.1.1}Définition et Lien avec la Fonction de Répartition}{175}{}%
+\contentsline {subsection}{\numberline {73.1.2}Calcul d'Espérance et de Moments}{175}{}%
+\contentsline {section}{\numberline {73.2}Opérations sur les Variables à Densité}{175}{}%
+\contentsline {subsection}{\numberline {73.2.1}Transformation d'une Variable à Densité}{175}{}%
+\contentsline {subsection}{\numberline {73.2.2}Somme de Variables Indépendantes : le Produit de Convolution}{176}{}%
+\contentsline {section}{\numberline {73.3}Vecteurs Aléatoires à Densité}{176}{}%
+\contentsline {subsection}{\numberline {73.3.1}Densité Conjointe et Marginales}{176}{}%
+\contentsline {subsection}{\numberline {73.3.2}Indépendance}{176}{}%
+\contentsline {subsection}{\numberline {73.3.3}Exemple Fondamental : le Vecteur Gaussien}{176}{}%
+\contentsline {chapter}{\numberline {74}Leçon 264 : Variables aléatoires discrètes.}{177}{}%
+\contentsline {section}{\numberline {74.1}Caractérisation et Indicateurs}{177}{}%
+\contentsline {subsection}{\numberline {74.1.1}Loi d'une Variable Aléatoire Discrète}{177}{}%
+\contentsline {subsection}{\numberline {74.1.2}Espérance, Variance et Moments}{177}{}%
+\contentsline {section}{\numberline {74.2}Lois Discrètes Usuelles et Modélisation}{177}{}%
+\contentsline {subsection}{\numberline {74.2.1}Les Briques de Base}{177}{}%
+\contentsline {subsection}{\numberline {74.2.2}Schémas de Tirages et Temps d'Attente}{177}{}%
+\contentsline {subsection}{\numberline {74.2.3}La Loi des Événements Rares}{177}{}%
+\contentsline {section}{\numberline {74.3}L'Outil des Fonctions Génératrices}{178}{}%
+\contentsline {subsection}{\numberline {74.3.1}Définition et Propriétés}{178}{}%
+\contentsline {subsection}{\numberline {74.3.2}Somme de Variables Indépendantes}{178}{}%
+\contentsline {subsection}{\numberline {74.3.3}Applications}{178}{}%
+\contentsline {chapter}{\numberline {75}Leçon 265 : Exemples d'études et de modélisations de phénomènes aléatoires.}{179}{}%
+\contentsline {section}{\numberline {75.1}Modélisation de l'Évolution : les Chaînes de Markov}{179}{}%
+\contentsline {subsection}{\numberline {75.1.1}Le Modèle}{179}{}%
+\contentsline {subsection}{\numberline {75.1.2}Exemple 1 : Le Modèle d'Ehrenfest (Diffusion de particules)}{179}{}%
+\contentsline {subsection}{\numberline {75.1.3}Exemple 2 : L'Algorithme PageRank de Google}{179}{}%
+\contentsline {section}{\numberline {75.2}Modélisation de l'Attente : les Files d'Attente}{179}{}%
+\contentsline {subsection}{\numberline {75.2.1}Le Modèle M/M/1}{179}{}%
+\contentsline {section}{\numberline {75.3}Modélisation par la Géométrie : Probabilités Géométriques}{180}{}%
+\contentsline {subsection}{\numberline {75.3.1}Le Problème de l'Aiguille de Buffon}{180}{}%
+\contentsline {subsection}{\numberline {75.3.2}Application : Méthode de Monte-Carlo pour estimer $\pi $}{180}{}%
+\contentsline {section}{\numberline {75.4}Modélisation par Simulation Numérique}{180}{}%
+\contentsline {subsection}{\numberline {75.4.1}Principe de la Méthode de Monte-Carlo}{180}{}%
+\contentsline {subsection}{\numberline {75.4.2}Exemple : Calcul d'intégrales en grande dimension}{180}{}%
+\contentsline {chapter}{\numberline {76}Leçon 266 : Utilisation de la loi des grands nombres.}{181}{}%
+\contentsline {section}{\numberline {76.1}Les Deux Lois des Grands Nombres : le Résultat Théorique}{181}{}%
+\contentsline {subsection}{\numberline {76.1.1}Énoncés}{181}{}%
+\contentsline {subsection}{\numberline {76.1.2}Comparaison des Convergences}{181}{}%
+\contentsline {section}{\numberline {76.2}Application Fondamentale en Statistique}{181}{}%
+\contentsline {subsection}{\numberline {76.2.1}La LGN comme Justification de l'Estimation}{181}{}%
+\contentsline {subsection}{\numberline {76.2.2}Exemple : les Sondages}{181}{}%
+\contentsline {section}{\numberline {76.3}Application en Analyse : le Théorème de Weierstrass}{182}{}%
+\contentsline {subsection}{\numberline {76.3.1}Le Pont entre Analyse et Probabilités}{182}{}%
+\contentsline {subsection}{\numberline {76.3.2}Preuve de Weierstrass par la LGN}{182}{}%
+\contentsline {section}{\numberline {76.4}Application en Analyse Numérique : Méthodes de Monte-Carlo}{182}{}%
+\contentsline {subsection}{\numberline {76.4.1}Calcul d'Intégrales}{182}{}%
+\contentsline {subsection}{\numberline {76.4.2}Avantages de la Méthode}{182}{}%
+\contentsline {chapter}{\numberline {77}Leçon 267 : Utilisation du théorème central limite.}{184}{}%
+\contentsline {section}{\numberline {77.1}Le Théorème et son Interprétation}{184}{}%
+\contentsline {subsection}{\numberline {77.1.1}Énoncé (Lindeberg-Lévy)}{184}{}%
+\contentsline {subsection}{\numberline {77.1.2}L'Universalité de la Loi Normale}{184}{}%
+\contentsline {section}{\numberline {77.2}Le TCL comme Outil d'Approximation}{184}{}%
+\contentsline {subsection}{\numberline {77.2.1}Approximation de la Loi Binomiale (Théorème de Moivre-Laplace)}{184}{}%
+\contentsline {subsection}{\numberline {77.2.2}Approximation d'autres lois}{184}{}%
+\contentsline {section}{\numberline {77.3}Application Fondamentale à la Statistique Inférentielle}{184}{}%
+\contentsline {subsection}{\numberline {77.3.1}Construction d'Intervalles de Confiance Asymptotiques}{184}{}%
+\contentsline {subsection}{\numberline {77.3.2}Construction de Tests d'Hypothèses Asymptotiques}{185}{}%
+\contentsline {chapter}{\numberline {78}Leçon 290 : Probabilités conditionnelles et applications.}{186}{}%
+\contentsline {section}{\numberline {78.1}Probabilité Conditionnelle Élémentaire}{186}{}%
+\contentsline {subsection}{\numberline {78.1.1}Conditionnement par un Événement}{186}{}%
+\contentsline {subsection}{\numberline {78.1.2}Les Formules Fondamentales de l'Inférence}{186}{}%
+\contentsline {subsection}{\numberline {78.1.3}Indépendance et Indépendance Conditionnelle}{186}{}%
+\contentsline {section}{\numberline {78.2}Espérance Conditionnelle : Conditionner par une Information}{186}{}%
+\contentsline {subsection}{\numberline {78.2.1}Le Cas Discret}{186}{}%
+\contentsline {subsection}{\numberline {78.2.2}Le Cas Général : la Projection Hilbertienne}{187}{}%
+\contentsline {subsection}{\numberline {78.2.3}Propriétés Fondamentales}{187}{}%
+\contentsline {section}{\numberline {78.3}Applications aux Processus Stochastiques}{187}{}%
+\contentsline {subsection}{\numberline {78.3.1}Les Chaînes de Markov}{187}{}%
+\contentsline {subsection}{\numberline {78.3.2}Les Martingales}{187}{}%

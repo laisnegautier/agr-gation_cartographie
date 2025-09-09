@@ -1,0 +1,100 @@
+\chapter{Algèbre linéaire : Décompositions Fines - L'Anatomie d'un Endomorphisme}
+
+\section{Le Lemme des Noyaux : Le Scalpel du Chirurgien}
+
+\begin{objectif}
+    Introduire l'outil algébrique le plus puissant pour "découper" un espace vectoriel en sous-espaces stables. Le lemme des noyaux nous permet de traduire une factorisation du polynôme minimal en une décomposition de l'espace en somme directe, réduisant ainsi l'étude globale d'un endomorphisme à l'étude de ses "morceaux" plus simples sur des sous-espaces plus petits.
+\end{objectif}
+
+\begin{theorem}[Lemme des Noyaux]
+    Soit $u \in \mathcal{L}(E)$. Soit $P$ un polynôme annulateur de $u$. Si $P = P_1 P_2 \cdots P_k$ est une factorisation de $P$ en polynômes deux à deux premiers entre eux, alors l'espace $E$ se décompose en une somme directe de sous-espaces stables :
+    $$ E = \bigoplus_{i=1}^k \ker(P_i(u)) $$
+\end{theorem}
+\begin{remark}[La Puissance de l'Arithmétique des Polynômes]
+    Ce théorème est un pont direct entre l'arithmétique de l'anneau $K[X]$ (la factorisation en facteurs premiers) et la géométrie de l'espace vectoriel (la décomposition en somme directe). C'est le principe du "diviser pour régner" appliqué à l'algèbre linéaire.
+\end{remark}
+
+\begin{definition}[Sous-espaces Caractéristiques]
+    En appliquant le lemme des noyaux à la factorisation du polynôme caractéristique (ou minimal) en facteurs irréductibles, $P_{car,u}(X) = \prod P_i(X)^{m_i}$, on obtient la décomposition de l'espace en somme directe de ses \textbf{sous-espaces caractéristiques} $N_i = \ker(P_i(u)^{m_i})$.
+\end{definition}
+
+\section{La Décomposition de Dunford : Séparer le Simple du Compliqué}
+
+\begin{objectif}
+    Montrer que tout endomorphisme (dont le polynôme minimal est scindé) peut être "séparé" de manière unique en deux parties aux comportements très différents et qui commutent : une partie "simple" (diagonalisable) et une partie "complexe mais contrôlée" (nilpotente). C'est la décomposition la plus conceptuelle et la plus élégante.
+\end{objectif}
+
+\begin{definition}[Endomorphisme Nilpotent]
+    Un endomorphisme $n$ est \textbf{nilpotent} s'il existe un entier $k$ tel que $n^k=0$.
+\end{definition}
+
+\begin{theorem}[Décomposition de Dunford (ou de Chevalley-Jordan)]
+    Soit $u \in \mathcal{L}(E)$ tel que son polynôme minimal (ou caractéristique) soit scindé sur $K$. Alors il existe un unique couple $(d,n)$ d'endomorphismes de $E$ tel que :
+    \begin{enumerate}
+        \item $u = d + n$.
+        \item $d$ est diagonalisable.
+        \item $n$ est nilpotent.
+        \item $d$ et $n$ commutent : $dn = nd$.
+    \end{enumerate}
+    De plus, $d$ et $n$ sont des polynômes en $u$.
+\end{theorem}
+
+\begin{remark}[La Commutativité est la Clé]
+    La condition de commutation est absolument cruciale. Elle implique que $d$ et $n$ laissent stables les sous-espaces propres l'un de l'autre. Le fait que $d$ et $n$ soient des polynômes en $u$ garantit leur unicité et montre à quel point cette décomposition est "intrinsèque" à $u$.
+\end{remark}
+
+\begin{application}[Calcul de l'Exponentielle de Matrice]
+    C'est l'application la plus importante. Pour résoudre $Y'=AY$, on a besoin de $e^{tA}$. Si $A=D+N$ est la décomposition de Dunford de $A$, alors comme $D$ et $N$ commutent :
+    $$ e^{tA} = e^{t(D+N)} = e^{tD} e^{tN} $$
+    Le calcul de $e^{tD}$ est facile (c'est la diagonale des exponentielles des valeurs propres).
+    Le calcul de $e^{tN}$ est aussi facile, car c'est une somme \textbf{finie} (la série de l'exponentielle s'arrête car $N$ est nilpotente).
+\end{application}
+
+\section{La Décomposition de Jordan : La Forme Canonique Ultime}
+
+\begin{objectif}
+    Aller au-delà de la simple trigonalisation pour trouver LA forme matricielle la plus simple possible pour un endomorphisme trigonalisable. La réduction de Jordan est une "anatomie" complète de l'endomorphisme, révélant sa structure nilpotente sur chaque sous-espace caractéristique.
+\end{objectif}
+
+\begin{definition}[Bloc de Jordan]
+    Un bloc de Jordan de taille $k$ associé à la valeur propre $\lambda$ est une matrice de la forme :
+    $$ J_k(\lambda) = \begin{pmatrix} \lambda & 1 & & 0 \\ & \lambda & \ddots & \\ & & \ddots & 1 \\ 0 & & & \lambda \end{pmatrix} $$
+\end{definition}
+
+\begin{theorem}[Théorème de Réduction de Jordan]
+    Soit $u$ un endomorphisme d'un $\mathbb{C}$-espace vectoriel de dimension finie. Alors il existe une base de $E$, appelée base de Jordan, dans laquelle la matrice de $u$ est une matrice diagonale par blocs, où chaque bloc est un bloc de Jordan.
+    Cette décomposition est unique à l'ordre des blocs près.
+\end{theorem}
+
+\begin{remark}[L'Anatomie de la Partie Nilpotente]
+    La décomposition de Jordan est le résultat de l'analyse fine de la partie nilpotente de la décomposition de Dunford sur chaque sous-espace caractéristique. Le nombre et la taille des blocs de Jordan associés à une valeur propre $\lambda$ sont déterminés par les dimensions des noyaux des puissances successives de $(u-\lambda \mathrm{Id})$.
+\end{remark}
+
+\section{Autres Décompositions Fondamentales}
+
+\begin{objectif}
+    Mentionner d'autres décompositions qui sont essentielles en analyse numérique et en géométrie, et qui reposent sur des idées différentes (orthogonalité, positivité).
+\end{objectif}
+
+\begin{theorem}[Décomposition Polaire]
+    Toute matrice inversible $M \in GL_n(\mathbb{R})$ s'écrit de manière unique $M=OS$, où $O$ est une matrice orthogonale et $S$ est une matrice symétrique définie positive.
+\end{theorem}
+\begin{remark}[L'Analogie avec les Nombres Complexes]
+    C'est l'analogue direct de la décomposition polaire d'un nombre complexe $z=e^{i\theta}\rho$. La matrice orthogonale joue le rôle de la rotation ($e^{i\theta}$) et la matrice symétrique définie positive joue le rôle du facteur d'échelle positif ($\rho$).
+\end{remark}
+
+\begin{theorem}[Décomposition en Valeurs Singulières (SVD)]
+    Pour toute matrice $M \in \mathcal{M}_{n,p}(\mathbb{R})$, il existe deux matrices orthogonales $U \in O(n)$ et $V \in O(p)$ et une matrice "diagonale" $\Sigma$ (de même taille que $M$) à coefficients positifs ou nuls, telle que :
+    $$ M = U \Sigma V^T $$
+    Les coefficients diagonaux de $\Sigma$ sont les \textbf{valeurs singulières} de $M$.
+\end{theorem}
+
+\begin{application}[L'Outil à Tout Faire de l'Algèbre Linéaire Numérique]
+    La SVD est l'une des décompositions les plus importantes en pratique. Elle est stable numériquement et a des applications innombrables :
+    \begin{itemize}
+        \item Calcul du rang et d'une base du noyau/image d'une matrice.
+        \item Approximation de matrices par des matrices de rang inférieur (compression d'images).
+        \item Résolution de systèmes linéaires par les moindres carrés (pseudo-inverse).
+        \item Analyse en Composantes Principales (ACP) en statistiques.
+    \end{itemize}
+\end{application}

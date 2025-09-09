@@ -1,0 +1,100 @@
+\chapter{Algèbre linéaire : Espaces Vectoriels - Le Langage Universel de la Linéarité}
+
+\section{Axiomes et Concepts Fondamentaux}
+
+\begin{objectif}
+    Introduire la structure d'espace vectoriel non pas comme une simple liste d'axiomes, mais comme le cadre minimaliste et universel pour parler de \textbf{linéarité}. C'est l'art de remplacer des problèmes complexes (géométriques, analytiques) par leur "meilleure approximation linéaire", un monde où tout est régi par des additions et des multiplications par des scalaires.
+\end{objectif}
+
+\begin{definition}[Espace Vectoriel]
+    Un $K$-espace vectoriel est un groupe abélien $(E, +)$ muni d'une loi externe $K \times E \to E$ (où $K$ est un corps) vérifiant des axiomes de compatibilité. Ses éléments sont des \textbf{vecteurs}, ceux de $K$ des \textbf{scalaires}.
+\end{definition}
+
+\begin{example}[L'Ubiquité de la Structure]
+    \begin{itemize}
+        \item \textbf{Géométrique :} $\mathbb{R}^2, \mathbb{R}^3$ sont les prototypes.
+        \item \textbf{Algébrique :} Les polynômes $K[X]$, les matrices $\mathcal{M}_{n,p}(K)$.
+        \item \textbf{Analytique :} L'espace des fonctions continues $\mathcal{C}([a,b])$, l'espace des suites réelles $\mathbb{R}^\mathbb{N}$, l'ensemble des solutions d'une EDO linéaire homogène.
+    \end{itemize}
+\end{example}
+
+\begin{definition}[Sous-espace vectoriel]
+    Une partie non vide $F \subset E$ est un sous-espace vectoriel (s.e.v.) si elle est stable par combinaison linéaire. C'est un espace vectoriel à part entière.
+\end{definition}
+
+\section{Le Concept Central : la Dimension}
+
+\begin{objectif}
+    Isoler l'invariant le plus fondamental d'un espace vectoriel : sa \textbf{dimension}. C'est un "miracle" de l'algèbre linéaire que cette quantité soit bien définie. La dimension est le nombre de "degrés de liberté" de l'espace, et elle le caractérise entièrement à isomorphisme près.
+\end{objectif}
+
+\begin{definition}[Combinaison Linéaire, Familles Libres et Génératrices]
+    \begin{itemize}
+        \item Une famille $(v_i)_{i \in I}$ est \textbf{génératrice} si tout vecteur de $E$ est une combinaison linéaire des $v_i$.
+        \item Une famille $(v_i)_{i \in I}$ est \textbf{libre} si la seule combinaison linéaire nulle est la combinaison triviale.
+        \item Une \textbf{base} est une famille à la fois libre et génératrice.
+    \end{itemize}
+\end{definition}
+
+\begin{theorem}[Théorème de la base incomplète]
+    Toute famille libre peut être complétée en une base par des vecteurs d'une famille génératrice.
+\end{theorem}
+
+\begin{corollary}[Existence d'une base]
+    Tout espace vectoriel admet une base.
+\end{corollary}
+\begin{remark}[Le Rôle de l'Axiome du Choix]
+    En dimension infinie, ce résultat est non-trivial et repose sur l'Axiome du Choix (via le lemme de Zorn). Pour les espaces que l'on rencontre à l'agrégation, on peut souvent construire des bases explicitement.
+\end{remark}
+
+\begin{theorem}[Le Théorème de la Dimension]
+    Toutes les bases d'un même espace vectoriel ont le même cardinal. Ce cardinal est appelé la \textbf{dimension} de l'espace.
+\end{theorem}
+
+\begin{proposition}[Caractérisation des isomorphismes]
+    Deux espaces vectoriels de dimension finie sont isomorphes si et seulement s'ils ont la même dimension. Un isomorphisme est simplement un "changement de nom" des vecteurs de base.
+\end{proposition}
+
+\section{Les Applications Linéaires : Morphismes et Invariants}
+
+\begin{objectif}
+    Étudier les applications qui préservent la structure d'espace vectoriel. Le théorème du rang est le résultat central, une sorte de "loi de conservation de la dimension" qui relie la dimension de ce qui est "écrasé" (le noyau) à la dimension de ce qui est "atteint" (l'image).
+\end{objectif}
+
+\begin{definition}[Application linéaire, Noyau, Image, Rang]
+    Soit $f \in \mathcal{L}(E,F)$.
+    Le \textbf{noyau} $\ker(f) = \{x \in E \mid f(x)=0_F\}$ est un s.e.v. de $E$.
+    L'\textbf{image} $\mathrm{Im}(f) = \{f(x) \mid x \in E\}$ est un s.e.v. de $F$.
+    Le \textbf{rang} de $f$ est $\mathrm{rg}(f) = \dim(\mathrm{Im}(f))$.
+\end{definition}
+
+\begin{theorem}[Théorème du Rang]
+    Soit $f \in \mathcal{L}(E,F)$ avec $E$ de dimension finie. Alors :
+    $$ \dim(E) = \dim(\ker(f)) + \mathrm{rg}(f) $$
+\end{theorem}
+
+\begin{application}[Systèmes linéaires]
+    Pour un système linéaire $Ax=b$ (avec $A \in \mathcal{M}_{n,p}(K)$), le théorème du rang appliqué à l'application linéaire $X \mapsto AX$ nous dit que l'ensemble des solutions de l'équation homogène $Ax=0$ est un s.e.v. de dimension $p - \mathrm{rg}(A)$. L'ensemble des seconds membres $b$ pour lesquels il existe une solution est un s.e.v. de dimension $\mathrm{rg}(A)$.
+\end{application}
+
+\section{Construire et Déconstruire les Espaces}
+
+\begin{objectif}
+    Introduire les deux opérations fondamentales pour manipuler les espaces : la somme directe (pour "coller" des espaces) et le passage au quotient (pour "simplifier" un espace).
+\end{objectif}
+
+\begin{definition}[Somme Directe]
+    Deux s.e.v. $F, G$ sont en somme directe si $F \cap G = \{0\}$. Leur somme $F+G$ est alors notée $F \oplus G$. Tout vecteur de $F \oplus G$ se décompose de manière unique en une somme d'un vecteur de $F$ et d'un vecteur de $G$.
+\end{definition}
+
+\begin{definition}[Espace Vectoriel Quotient]
+    Soit $F$ un s.e.v. de $E$. L'espace quotient $E/F$ est l'ensemble des classes d'équivalence pour la relation $x \sim y \iff x-y \in F$. C'est un espace vectoriel dont les "vecteurs" sont des sous-espaces affines de $E$, parallèles à $F$.
+\end{definition}
+
+\begin{proposition}[Dimension du quotient]
+    Si $E$ est de dimension finie, $\dim(E/F) = \dim(E) - \dim(F) = \mathrm{codim}(F)$.
+\end{proposition}
+
+\begin{remark}[La Philosophie du Quotient]
+    Passer au quotient, c'est décider de "ne plus voir" les éléments de $F$. On regarde $E$ "à travers des lunettes qui rendent $F$ invisible". C'est un outil d'une puissance immense pour simplifier des problèmes en éliminant les degrés de liberté non pertinents. Les théorèmes d'isomorphisme nous disent comment les morphismes se comportent à travers ce processus de simplification.
+\end{remark}

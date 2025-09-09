@@ -1,0 +1,110 @@
+\chapter{Algèbre linéaire : Diagonalisation et Trigonalisation - La Quête de la Simplicité}
+
+\section{Éléments Propres : Les Directions Privilégiées}
+
+\begin{objectif}
+    Comprendre un endomorphisme $u$ revient à comprendre son action géométrique. L'idée de la réduction est de trouver une base dans laquelle cette action est la plus simple possible. La première étape est de chercher les "directions privilégiées" de l'espace, celles où l'action de $u$ se résume à une simple dilatation : les vecteurs propres.
+\end{objectif}
+
+\begin{definition}[Vecteur Propre, Valeur Propre, Spectre]
+    Soit $u \in \mathcal{L}(E)$. Un vecteur non nul $x \in E$ est un \textbf{vecteur propre} de $u$ s'il existe un scalaire $\lambda \in K$ tel que $u(x) = \lambda x$.
+    $\lambda$ est la \textbf{valeur propre} associée. L'ensemble des valeurs propres est le \textbf{spectre} de $u$, noté $\mathrm{Sp}(u)$.
+    Le \textbf{sous-espace propre} associé à $\lambda$ est $E_\lambda = \ker(u - \lambda \mathrm{Id}_E)$.
+\end{definition}
+
+\begin{proposition}
+    Les sous-espaces propres sont en somme directe.
+\end{proposition}
+
+\begin{definition}[Polynôme Caractéristique]
+    Si $E$ est de dimension finie, les valeurs propres de $u$ sont exactement les racines de son \textbf{polynôme caractéristique} $P_{car,u}(X) = \det(X \mathrm{Id}_E - u)$.
+\end{definition}
+\begin{remark}[La Nécessité d'un Corps Algébriquement Clos]
+    L'existence de valeurs propres dépend de la capacité du polynôme caractéristique à être scindé. Sur $\mathbb{R}$, une rotation plane n'a pas de valeurs propres réelles. Sur $\mathbb{C}$, elle en a toujours deux. Travailler sur $\mathbb{C}$ garantit l'existence de vecteurs propres, ce qui est une simplification considérable.
+\end{remark}
+
+\section{La Diagonalisation : Le Cas Idéal}
+
+\begin{objectif}
+    Étudier le cas "parfait" où les directions propres sont assez nombreuses pour engendrer tout l'espace. Dans ce cas, l'endomorphisme est dit diagonalisable, et son action est d'une simplicité cristalline.
+\end{objectif}
+
+\begin{definition}[Endomorphisme Diagonalisable]
+    Un endomorphisme $u$ est \textbf{diagonalisable} s'il existe une base de $E$ formée de vecteurs propres de $u$. Dans une telle base, la matrice de $u$ est diagonale.
+\end{definition}
+
+\begin{theorem}[Critères de Diagonalisabilité]
+    Soit $u \in \mathcal{L}(E)$ avec $E$ de dimension finie. Les assertions suivantes sont équivalentes :
+    \begin{enumerate}
+        \item $u$ est diagonalisable.
+        \item $E = \bigoplus_{\lambda \in \mathrm{Sp}(u)} E_\lambda$.
+        \item $\sum_{\lambda \in \mathrm{Sp}(u)} \dim(E_\lambda) = \dim(E)$.
+        \item Le polynôme caractéristique est scindé et la multiplicité de chaque valeur propre est égale à la dimension du sous-espace propre associé.
+        \item Le polynôme minimal de $u$ est scindé à racines simples.
+    \end{enumerate}
+\end{theorem}
+\begin{remark}[Le Rôle du Polynôme Minimal]
+    Le critère par le polynôme minimal est le plus puissant et le plus élégant. Il capture l'essence de la diagonalisabilité, qui est une propriété purement algébrique. Il ne dépend que de l'algèbre $K[u]$ et non d'un calcul de dimensions de sous-espaces.
+\end{remark}
+
+\begin{application}[Puissances d'une Matrice et Systèmes Dynamiques]
+    Si $A=PDP^{-1}$ est diagonalisable, alors $A^k = PD^k P^{-1}$. Le calcul de $D^k$ est trivial. Ceci permet de :
+    \begin{itemize}
+        \item Résoudre des suites récurrentes linéaires $U_{n+1} = AU_n$.
+        \item Résoudre des systèmes différentiels linéaires $Y' = AY$, dont la solution est $Y(t) = e^{tA}Y_0$, où $e^{tA} = P e^{tD} P^{-1}$ est facile à calculer.
+    \end{itemize}
+\end{application}
+
+\section{La Trigonalisation : Un Compromis Nécessaire}
+
+\begin{objectif}
+    Que faire si un endomorphisme n'est pas diagonalisable ? On cherche un compromis : une base dans laquelle la matrice n'est pas diagonale, mais au moins triangulaire supérieure. Cela signifie renoncer aux directions propres pour chercher des "sous-espaces stables".
+\end{objectif}
+
+\begin{definition}[Sous-espace Stable]
+    Un sous-espace $F$ est stable par $u$ si $u(F) \subset F$.
+\end{definition}
+
+\begin{proposition}
+    Un endomorphisme $u$ est \textbf{trigonalisable} (ou triangularisable) s'il existe une base dans laquelle sa matrice est triangulaire supérieure. Cela équivaut à l'existence d'un drapeau de sous-espaces stables $\{0\} = F_0 \subset F_1 \subset \dots \subset F_n = E$ avec $\dim(F_i)=i$.
+\end{proposition}
+
+\begin{theorem}[Critère de Trigonalisabilité]
+    Soit $u \in \mathcal{L}(E)$ avec $E$ de dimension finie. Les assertions suivantes sont équivalentes :
+    \begin{enumerate}
+        \item $u$ est trigonalisable.
+        \item Le polynôme caractéristique de $u$ est scindé sur $K$.
+        \item Le polynôme minimal de $u$ est scindé sur $K$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+    Sur un corps algébriquement clos comme $\mathbb{C}$, tout endomorphisme est trigonalisable.
+\end{corollary}
+
+\begin{application}[Calcul du Polynôme Caractéristique]
+    Si $A$ est une matrice triangulaire, ses valeurs propres sont ses coefficients diagonaux. La trigonalisation est donc un pas majeur vers la compréhension du spectre d'un endomorphisme.
+\end{application}
+
+\section{Polynômes d'Endomorphismes : L'Outil Algébrique}
+
+\begin{objectif}
+    Développer l'outil algébrique qui permet de comprendre la structure fine d'un endomorphisme, au-delà de son polynôme caractéristique : le polynôme minimal.
+\end{objectif}
+
+\begin{definition}[Polynôme Minimal]
+    L'ensemble $\{P \in K[X] \mid P(u)=0\}$ est un idéal de $K[X]$. Comme $K[X]$ est principal, cet idéal est engendré par un unique polynôme unitaire, le \textbf{polynôme minimal} de $u$, noté $\pi_u$.
+\end{definition}
+
+\begin{theorem}[Théorème de Cayley-Hamilton]
+    Tout endomorphisme annule son propre polynôme caractéristique : $P_{car,u}(u) = 0$.
+\end{theorem}
+
+\begin{corollary}
+    Le polynôme minimal divise le polynôme caractéristique. De plus, ils ont les mêmes racines.
+\end{corollary}
+
+\begin{remark}[L'Information Contenue dans le Polynôme Minimal]
+    Le polynôme minimal est beaucoup plus informatif que le polynôme caractéristique.
+    Par exemple, si $P_{car,u}(X) = (X-\lambda)^n$, on ne sait pas si $u$ est diagonalisable. Mais si $\pi_u(X) = X-\lambda$, alors $u$ est une homothétie. Si $\pi_u(X) = (X-\lambda)^k$ avec $k>1$, $u$ n'est pas diagonalisable. C'est la multiplicité des racines dans le polynôme minimal qui décide de la diagonalisabilité.
+\end{remark}

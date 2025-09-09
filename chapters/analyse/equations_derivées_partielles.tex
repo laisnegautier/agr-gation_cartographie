@@ -1,0 +1,138 @@
+\chapter{Équations aux Dérivées Partielles - Modéliser les Phénomènes Continus}
+
+\section{Le Langage des EDP : Classification et Problèmes Bien Posés}
+
+\begin{objectif}
+    Introduire le vocabulaire des EDP et, surtout, la grande "trichotomie" qui gouverne toute la théorie : la classification en types \textbf{elliptique, parabolique et hyperbolique}. Cette classification n'est pas une simple convention technique ; elle reflète des comportements physiques et des structures mathématiques fondamentalement différents.
+\end{objectif}
+
+\begin{definition}[EDP Linéaire d'Ordre 2]
+    Une EDP linéaire d'ordre 2 pour une fonction $u(x_1, \dots, x_n)$ est de la forme :
+    $$ \sum_{i,j=1}^n a_{ij}(x) \frac{\partial^2 u}{\partial x_i \partial x_j} + \text{(termes d'ordre inférieur)} = f(x) $$
+\end{definition}
+
+\begin{proposition}[Classification]
+    On s'intéresse à la forme quadratique associée à la partie d'ordre 2, $Q(v) = \sum a_{ij} v_i v_j$. En un point $x$, l'opérateur est dit :
+    \begin{itemize}
+        \item \textbf{Elliptique} si la forme quadratique $Q$ est définie (positive ou négative). C'est le cas du \textbf{Laplacien} $\Delta u = \sum \frac{\partial^2 u}{\partial x_i^2}$.
+        \item \textbf{Parabolique} si $Q$ est dégénérée et non nulle. C'est le cas de l'opérateur de la chaleur $\frac{\partial}{\partial t} - \Delta$.
+        \item \textbf{Hyperbolique} si $Q$ est non-dégénérée mais non-définie (signature de type $(n-1,1)$). C'est le cas du \textbf{D'Alembertien} $\frac{\partial^2}{\partial t^2} - \Delta$.
+    \end{itemize}
+\end{proposition}
+
+\begin{remark}[La Physique derrière la Classification]
+    Cette classification correspond à trois classes de phénomènes physiques :
+    \begin{itemize}
+        \item \textbf{Elliptique :} Phénomènes d'équilibre, états stationnaires (membranes élastiques, potentiels électrostatiques).
+        \item \textbf{Parabolique :} Phénomènes de diffusion, irréversibles (diffusion de la chaleur, des gaz).
+        \item \textbf{Hyperbolique :} Phénomènes de propagation, réversibles (ondes sonores, lumineuses, cordes vibrantes).
+    \end{itemize}
+\end{remark}
+
+\begin{definition}[Problème bien posé (au sens de Hadamard)]
+    Un problème d'EDP est bien posé s'il satisfait trois conditions :
+    \begin{enumerate}
+        \item \textbf{Existence :} Il admet au moins une solution.
+        \item \textbf{Unicité :} Il admet au plus une solution.
+        \item \textbf{Stabilité :} La solution dépend continûment des données (conditions initiales, au bord, second membre).
+    \end{enumerate}
+\end{definition}
+
+\section{Type Elliptique : L'Équation de Laplace $\Delta u = 0$}
+
+\begin{objectif}
+    Étudier l'équation prototypique des états d'équilibre. Les solutions, appelées fonctions harmoniques, sont d'une régularité exceptionnelle et obéissent à un principe de "moyennage" qui interdit les extrema locaux.
+\end{objectif}
+
+\begin{theorem}[Propriété de la Moyenne]
+    Une fonction $u$ est harmonique sur un ouvert $\Omega$ si et seulement si, pour toute boule $B(x,r) \subset \Omega$, la valeur $u(x)$ est la moyenne de $u$ sur la sphère $\partial B(x,r)$ (ou sur la boule $B(x,r)$).
+\end{theorem}
+
+\begin{theorem}[Principe du Maximum]
+    Soit $u$ une fonction harmonique sur un domaine borné et connexe $\Omega$, continue sur $\bar{\Omega}$. Alors le maximum et le minimum de $u$ sont atteints sur la frontière $\partial \Omega$.
+\end{theorem}
+
+\begin{corollary}[Unicité et Stabilité]
+    Le principe du maximum implique l'unicité et la stabilité pour le problème de Dirichlet ($\Delta u=f$ dans $\Omega$, $u=g$ sur $\partial \Omega$).
+\end{corollary}
+
+\begin{theorem}[Régularité des Solutions]
+    Les solutions de l'équation de Laplace sont infiniment différentiables (et même analytiques) à l'intérieur de leur domaine de définition, quelle que soit la régularité des données au bord. C'est un effet \textbf{régularisant}.
+\end{theorem}
+
+\section{Type Parabolique : L'Équation de la Chaleur $u_t - \Delta u = 0$}
+
+\begin{objectif}
+    Étudier l'équation de la diffusion. On verra que son comportement est radicalement différent de celui des ondes : elle lisse instantanément les données initiales et propage l'information à une vitesse infinie.
+\end{objectif}
+
+\begin{proposition}[Solution par Séries de Fourier (sur un domaine borné)]
+    Sur le segment $[0,L]$ avec conditions de Dirichlet nulles, la solution de l'équation de la chaleur avec donnée initiale $u(0,x)=f(x)$ s'écrit :
+    $$ u(t,x) = \sum_{n=1}^\infty c_n e^{-(n\pi/L)^2 t} \sin\left(\frac{n\pi x}{L}\right) $$
+    où les $c_n$ sont les coefficients de Fourier de $f$.
+\end{proposition}
+
+\begin{remark}[L'Effet Régularisant Infini]
+    La présence du terme $e^{-n^2 t}$ dans la solution est cruciale.
+    \begin{itemize}
+        \item Il montre que les hautes fréquences (grands $n$) sont amorties de manière exponentielle et quasi-instantanée.
+        \item Cela implique que même si la donnée initiale $f$ est très peu régulière (par exemple, discontinue), la solution $u(t, \cdot)$ devient de classe $\mathcal{C}^\infty$ pour tout $t>0$. C'est un effet de \textbf{lissage instantané}.
+        \item L'information se propage à \textbf{vitesse infinie} : une perturbation locale en $x_0$ à l'instant $t=0$ a un effet (infime mais non nul) en tout point $x$ du domaine pour tout $t>0$.
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}[Noyau de la Chaleur sur $\mathbb{R}^n$]
+    La solution du problème de Cauchy sur $\mathbb{R}^n$ avec donnée initiale $f$ est donnée par la convolution avec le noyau de la chaleur (ou solution fondamentale) :
+    $$ u(t,x) = (f * G_t)(x) = \frac{1}{(4\pi t)^{n/2}} \int_{\mathbb{R}^n} e^{-\|x-y\|^2/4t} f(y) dy $$
+\end{theorem}
+
+\section{Type Hyperbolique : L'Équation des Ondes $u_{tt} - \Delta u = 0$}
+
+\begin{objectif}
+    Étudier l'équation de la propagation. On montrera que son comportement est à l'opposé de celui de la chaleur : l'information se propage à vitesse finie et les singularités sont conservées, non lissées.
+\end{objectif}
+
+\begin{theorem}[Formule de d'Alembert en dimension 1]
+    La solution du problème de Cauchy sur $\mathbb{R}$ avec $u(0,x)=f(x)$ et $u_t(0,x)=g(x)$ est donnée par :
+    $$ u(t,x) = \frac{f(x+ct) + f(x-ct)}{2} + \frac{1}{2c}\int_{x-ct}^{x+ct} g(s)ds $$
+\end{theorem}
+
+\begin{remark}[Propagation à Vitesse Finie]
+    La formule de d'Alembert est extraordinairement parlante.
+    \begin{itemize}
+        \item Elle montre que la solution est une superposition de deux ondes se propageant en sens opposés à la vitesse $c$.
+        \item La valeur de la solution en $(t,x)$ ne dépend des données initiales que sur l'intervalle $[x-ct, x+ct]$. C'est le \textbf{domaine de dépendance}. Une perturbation en un point $y_0$ à l'instant $t=0$ n'affecte le point $x$ qu'au temps $t = |x-y_0|/c$.
+        \item Les singularités (par exemple, un coin dans la donnée initiale $f$) ne sont pas lissées : elles se propagent le long des droites caractéristiques $x \pm ct = \text{constante}$.
+    \end{itemize}
+\end{remark}
+
+\begin{proposition}[Conservation de l'Énergie]
+    Pour l'équation des ondes, l'énergie totale (cinétique + potentielle) est une quantité conservée au cours du temps :
+    $$ E(t) = \frac{1}{2} \int_\Omega (u_t^2 + \|\nabla u\|^2) dx = \text{constante} $$
+    Ceci traduit le caractère réversible du phénomène.
+\end{proposition}
+
+\section{Approches Hilbertsiennes : La Formulation Variationnelle}
+
+\begin{objectif}
+    Connecter l'étude des EDP à l'analyse fonctionnelle. L'idée est de reformuler un problème d'EDP (trouver une fonction qui satisfait une équation en tout point) en un problème dans un espace de Hilbert (trouver un "vecteur" qui satisfait une relation intégrale). Cette approche est plus faible, mais immensément puissante et est à la base des méthodes numériques modernes.
+\end{objectif}
+
+\begin{definition}[Espaces de Sobolev]
+    L'espace de Sobolev $H^1(\Omega)$ est l'ensemble des fonctions de $L^2(\Omega)$ dont les dérivées (au sens des distributions) sont aussi dans $L^2(\Omega)$.
+    L'espace $H_0^1(\Omega)$ est le sous-espace de $H^1(\Omega)$ des fonctions qui s'annulent (au sens des traces) sur le bord $\partial \Omega$. Ce sont des espaces de Hilbert.
+\end{definition}
+
+\begin{proposition}[Formulation Faible (ou Variationnelle)]
+    Considérons le problème de Dirichlet $-\Delta u = f$ dans $\Omega$ et $u=0$ sur $\partial \Omega$. En multipliant par une fonction test "régulière" $v$ et en intégrant par parties (formule de Green), on arrive à la formulation faible :
+    Trouver $u \in H_0^1(\Omega)$ tel que pour tout $v \in H_0^1(\Omega)$ :
+    $$ \int_\Omega \nabla u \cdot \nabla v \, dx = \int_\Omega f v \, dx $$
+\end{proposition}
+
+\begin{theorem}[Théorème de Lax-Milgram]
+    Soit $H$ un espace de Hilbert, $a(\cdot, \cdot)$ une forme bilinéaire continue et coercive sur $H$, et $L$ une forme linéaire continue sur $H$. Alors le problème variationnel "trouver $u \in H$ tel que $a(u,v)=L(v)$ pour tout $v \in H$" admet une solution unique.
+\end{theorem}
+
+\begin{application}[Existence de Solutions Faibles]
+    La formulation faible du problème de Dirichlet correspond exactement au cadre du théorème de Lax-Milgram, en posant $H=H_0^1(\Omega)$, $a(u,v)=\int \nabla u \cdot \nabla v$ et $L(v)=\int fv$. Ce théorème garantit donc l'existence et l'unicité d'une "solution faible". Montrer que cette solution faible est en fait une solution "forte" (régulière) est un problème plus difficile (la "régularité elliptique"). Cette méthode est la base théorique de la \textbf{méthode des éléments finis}.
+\end{application}

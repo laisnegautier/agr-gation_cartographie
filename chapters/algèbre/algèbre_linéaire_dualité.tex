@@ -1,0 +1,100 @@
+\chapter{Algèbre linéaire : La Dualité - L'Espace Vu par son Miroir}
+
+\section{Le Dual : Un Changement de Perspective}
+
+\begin{objectif}
+    Introduire le concept de dualité, qui est un des changements de perspective les plus féconds en mathématiques. Au lieu d'étudier les "points" d'un espace (les vecteurs), on étudie les "fonctions" qui agissent sur cet espace (les formes linéaires). Cet espace de fonctions, le dual, se révèle être un "miroir" parfait de l'espace original, encodant toute sa structure.
+\end{objectif}
+
+\begin{definition}[Forme Linéaire et Espace Dual]
+    Une \textbf{forme linéaire} sur un $K$-espace vectoriel $E$ est une application linéaire $\varphi: E \to K$.
+    L'ensemble des formes linéaires sur $E$, noté $\mathcal{L}(E,K)$, est un $K$-espace vectoriel appelé l'\textbf{espace dual} de $E$, et noté $E^*$.
+\end{definition}
+
+\begin{definition}[Base Duale]
+    Soit $E$ un espace de dimension finie $n$ muni d'une base $\mathcal{B}=(e_1, \dots, e_n)$. La \textbf{base duale} de $\mathcal{B}$ est l'unique base $\mathcal{B}^*=(e_1^*, \dots, e_n^*)$ de $E^*$ vérifiant $e_i^*(e_j) = \delta_{ij}$ (symbole de Kronecker).
+\end{definition}
+
+\begin{corollary}
+    Si $E$ est de dimension finie, alors $\dim(E^*) = \dim(E)$. Les deux espaces sont donc isomorphes.
+\end{corollary}
+\begin{remark}[Un Isomorphisme non-canonique]
+    Cet isomorphisme entre $E$ et $E^*$ est \textbf{non-canonique} : il dépend crucialement du choix d'une base de départ. Il n'y a pas de manière "naturelle" d'associer un vecteur à une forme linéaire. Cette distinction est fondamentale et sera résolue par l'introduction du bidual.
+\end{remark}
+
+\section{Le Bidual et la Réflexivité}
+
+\begin{objectif}
+    Découvrir la relation "naturelle" qui existe entre un espace et son dual, non pas directement, mais via le dual du dual (le bidual). En dimension finie, cette relation est un isomorphisme canonique, ce qui nous permet d'identifier $E$ et $E^{**}$ et de considérer le dual comme un véritable miroir.
+\end{objectif}
+
+\begin{definition}[Bidual et Injection Canonique]
+    Le \textbf{bidual} de $E$ est $E^{**} = (E^*)^*$.
+    L'\textbf{injection canonique} est l'application $J: E \to E^{**}$ définie par $J(x)(\varphi) = \varphi(x)$ pour $x \in E, \varphi \in E^*$.
+\end{definition}
+
+\begin{theorem}[Isomorphisme Canonique en Dimension Finie]
+    Si $E$ est de dimension finie, l'injection canonique $J: E \to E^{**}$ est un isomorphisme.
+\end{theorem}
+\begin{remark}[Le Triomphe de la Canonicité]
+    Ce théorème est très puissant. Il nous dit qu'il existe une manière "donnée par Dieu" d'identifier les vecteurs de $E$ avec les formes linéaires sur $E^*$, sans faire aucun choix arbitraire de base. C'est pourquoi on écrit souvent, par abus de langage, $E=E^{**}$ en dimension finie. Un espace qui s'identifie à son bidual est dit \textbf{réflexif}.
+\end{remark}
+
+\section{Orthogonalité et Structure des Sous-Espaces}
+
+\begin{objectif}
+    Utiliser la dualité pour décrire les sous-espaces vectoriels. L'orthogonalité (au sens de la dualité) fournit une description "extrinsèque" d'un sous-espace (par les équations qui l'annulent), qui est le miroir parfait de sa description "intrinsèque" (par ses vecteurs générateurs).
+\end{objectif}
+
+\begin{definition}[Orthogonal d'une partie]
+    Soit $A \subset E$. L'orthogonal de $A$ (ou l'annulateur de $A$) est le sous-espace de $E^*$ défini par :
+    $$ A^\circ = \{ \varphi \in E^* \mid \forall x \in A, \varphi(x)=0 \} $$
+    De même, pour $B \subset E^*$, on définit $B^\perp \subset E$.
+\end{definition}
+
+\begin{theorem}[Propriétés de l'Orthogonalité en Dimension Finie]
+    Soit $F$ un sous-espace vectoriel de $E$.
+    \begin{enumerate}
+        \item $\dim(F) + \dim(F^\circ) = \dim(E)$.
+        \item Via l'isomorphisme canonique, on a $(F^\circ)^\perp = F$.
+        \item $(F+G)^\circ = F^\circ \cap G^\circ$ et $(F \cap G)^\circ = F^\circ + G^\circ$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{application}[De la Représentation Paramétrique à la Représentation Cartésienne]
+    La dualité formalise le passage entre ces deux descriptions.
+    \begin{itemize}
+        \item Un sous-espace $F$ est donné par une base $(f_1, \dots, f_k)$ (\textbf{paramétrique}).
+        \item Son orthogonal $F^\circ$ est l'espace des formes linéaires qui s'annulent sur les $f_i$. Une base $(\varphi_1, \dots, \varphi_{n-k})$ de $F^\circ$ fournit un système d'\textbf{équations cartésiennes} de $F$, car $x \in F \iff \varphi_j(x)=0$ pour tout $j$.
+    \end{itemize}
+\end{application}
+
+\section{L'Application Transposée}
+
+\begin{objectif}
+    Montrer que toute l'information sur une application linéaire $u$ est encodée dans une application "miroir" qui agit sur les espaces duaux : la transposée.
+\end{objectif}
+
+\begin{definition}[Application Transposée]
+    Soit $u \in \mathcal{L}(E,F)$. Sa \textbf{transposée} est l'application $u^t \in \mathcal{L}(F^*, E^*)$ définie par :
+    $$ u^t(\psi) = \psi \circ u \quad \text{pour } \psi \in F^* $$
+\end{definition}
+
+\begin{proposition}[Propriétés Fondamentales]
+    \begin{itemize}
+        \item Dans des bases duales, la matrice de $u^t$ est la transposée de la matrice de $u$.
+        \item $\mathrm{rg}(u^t) = \mathrm{rg}(u)$.
+    \end{itemize}
+\end{proposition}
+
+\begin{theorem}[Relations d'Orthogonalité]
+    L'application transposée se comporte parfaitement vis-à-vis de l'orthogonalité :
+    \begin{itemize}
+        \item $\ker(u^t) = (\mathrm{Im}(u))^\circ$
+        \item $\mathrm{Im}(u^t) = (\ker(u))^\circ$
+    \end{itemize}
+\end{theorem}
+
+\begin{remark}[Une Symétrie Parfaite]
+    Ces relations sont d'une grande beauté. Le noyau de la transposée (ce qui est "tué" par $u^t$) est exactement l'ensemble des équations de l'image de $u$. Réciproquement, l'image de la transposée est l'ensemble des équations du noyau de $u$. C'est le point culminant de la théorie de la dualité, montrant comment chaque propriété d'un objet se reflète dans son "miroir" dual.
+\end{remark}
