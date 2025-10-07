@@ -43,13 +43,15 @@
 \newtheorem{proposition}[definition]{Proposition}
 \newtheorem{properties}[definition]{Propriétés}
 \newtheorem{property}[definition]{Propriété}
-\newtheorem{lemme}[definition]{Lemme}
+\newtheorem{lemma}[definition]{Lemme}
 \newtheorem{corollary}[definition]{Corollaire}
 \newtheorem{example}[definition]{Exemple}
+\newtheorem{cexample}[definition]{Contre-exemple}
 \newtheorem{remark}[definition]{Remarque}
 \newtheorem{application}[definition]{Application}
 \newtheorem{reference}[definition]{Référence}
 \newtheorem{algorithm}[definition]{Algorithme}
+\newtheorem{conjecture}[definition]{Conjecture}
 \newtheorem{notation}[definition]{Notation}
 \newtheorem*{notation*}{Notation}
 
@@ -61,6 +63,7 @@
 \newcommand{\IZpZ}{\mathbb{Z}/p\mathbb{Z}}
 \newcommand{\IQ}{\mathbb{Q}}
 \newcommand{\IC}{\mathbb{C}}
+\newcommand{\IF}{\mathbb{F}}
 \newcommand{\IR}{\mathbb{R}}
 \newcommand{\IRn}{\mathbb{R}^n}
 \newcommand{\IRd}{\mathbb{R}^d}
@@ -87,12 +90,22 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\Ker}{Ker}
 \DeclareMathOperator{\Syl}{Syl}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\car}{car}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Div}{Div}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\LARGE}
 \titlespacing*{\chapter}{0pt}{0pt}{\baselineskip}
 
-
+\newcommand{\vertiii}[1]{{\left\vert\kern-0.25ex\left\vert\kern-0.25ex\left\vert #1 
+    \right\vert\kern-0.25ex\right\vert\kern-0.25ex\right\vert}}
 
 \title{Leçons d'oral de l'Agrégation}
 \author{Gautier Laisné}
@@ -282,13 +295,13 @@ Dans ce paragraphe, on se donne $p$ premier, et on note $\card G = p^{\alpha}m$,
 \begin{definition}[\textnormal{[U] 85}]
 	Un $p$-Sylow de $G$ est un sous-groupe de $G$ de cardinal $p^{\alpha}$.
 
-	$\text{Syl}_p(G)$ désigne l'ensemble des $p$-Sylow de $G$, et $n_p := \card(\text{Syl}_p(G))$.
+	$\Syl_p(G)$ désigne l'ensemble des $p$-Sylow de $G$, et $n_p := \card(\Syl_p(G))$.
 \end{definition}
 
 \begin{theorem}[de Sylow - \textnormal{[U] 87}]Soit $G$ un groupe d'ordre $p^{\alpha}m$, $m\wedge p = 1$. Alors,
 	\begin{enumerate}
-		\item $\text{Syl}_p(G)\neq \empty$
-		\item $G$ agit transitivement sur $\text{Syl}_p(G)$ par conjugaison
+		\item $\Syl_p(G)\neq \empty$
+		\item $G$ agit transitivement sur $\Syl_p(G)$ par conjugaison
 		\item $n_p\equiv 1\, [p]$
 	\end{enumerate}
 \end{theorem}
@@ -332,350 +345,6 @@ Dans ce paragraphe, on se donne $p$ premier, et on note $\card G = p^{\alpha}m$,
 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/101.pdf}
 \end{figure}
 
-
-
-
-\chapter*{102 : Groupe des nombres complexes de module 1. Racines de l'unité. Applications.}
-\setcounter{definition}{0}
-\section*{I. Les nombres complexes de module 1}
-\begin{definition}
-	L'ensemble des nombres complexes de module 1, aussi appelé \emph{cercle unité}, est noté $S^1:=\left\{z\in\IC\mid \vert z\vert = 1\right\}$.
-\end{definition}
-
-\subsection*{A. Autour de l'exponentielle}
-\begin{definition}[\textnormal{[T] 43/44/45}]
-	Pour $z\in\IC$, on définit :
-	\begin{itemize}
-		\item $\exp(z)=e^z = \sum_{n=0}^{+\infty} \frac{z^n}{n!}$ (l'\emph{exponentielle} de $z$)
-		\item $\sin(z) = \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n+1)!}$ (le \emph{sinus} de $z$)
-		\item $\cos(z) = \sum_{n=0}^{+\infty} \frac{(-1)^n}{(2n)!}$ (le \emph{cosinus} de $z$)
-	\end{itemize}
-\end{definition}
-
-\begin{proposition}[\textnormal{[T] 43/35/44}]
-	\begin{itemize}
-		\item $\exp$, $\cos$ et $\sin$ sont des séries entières de rayon de convergence infini. En particulier, elles 
-	sont entières. De plus, $\exp' = \exp$.
-		\item $\forall\, z\in\IC,\, e^{iz}=\cos(z) + i\sin (z)$
-		\item $\forall\, \theta\in\IR,\, \vert e^{i\theta}\vert=1$
-	\end{itemize}
-\end{proposition}
-
-\begin{proposition}[\textnormal{[T] 44/44}]
-	\begin{itemize}
-		\item $\theta\mapsto e^{i\theta}$ est périodique. On note $\tau$ sa période. C'est un morphisme de groupes surjectif de $(\IR, +)$ dans $(S^1,\times)$.
-		\item $\exp$ est un morphisme de groupes surjectif de $(\IC,+)$ dans $(\IC^*,\times)$. Son noyau est $i\tau\IZ$.
-	\end{itemize}
-\end{proposition}
-
-\begin{definition}[\textnormal{[T] 44}]
-	$\pi := \tau/2$. On admet que $\pi$ est transcendant sur $\IQ$.
-\end{definition}
-
-\begin{proposition}[\textnormal{[T] 45}]
-	\begin{itemize}
-		\item Formules d'Euler : $\forall\,z\in\IC,$ $\cos(z)=\frac{e^z +e^{-z}}{2}\in\IR$, $\sin(z)=\frac{e^z -e^{-z}}{2i}\in\IR$
-		\item Formule de Moivre : $\forall \theta \in\IR,\,\forall n\in\IN,\, \left(e^{i\theta}\right)^n = e^{in\theta}$
-	\end{itemize}
-\end{proposition}
-
-\begin{remark}[c.f. Figure 1]
-	\begin{itemize}
-		\item[$\vartriangleright$] La formule de Moivre est fausse pour $n$ non entier : 
-	$1 = \left(e^{2i\pi}\right)^{1/2} \neq e^{i\pi} = -1$
-		\item[$\vartriangleright$] $\cos^2 + \sin^2 = 1$
-		\item[$\vartriangleright$] $\forall \theta\in\IR,\,\cos(\theta) = \Re(e^{i\theta})$ et $\sin(\theta) = \Im(e^{i\theta})$
-	\end{itemize}
-\end{remark}
-
-\begin{application}
-	Avec les formules de Moivre et d'Euler, pour tous $\theta\in\IR$ et $n\in\IN$, $\cos(n\theta)\in \IR[\cos(\theta)]$ et $\sin(n\theta)\in\IR[\sin(\theta)]$.
-
-	(Appli : problème de trisection de l'angle - voir II. B)
-\end{application}
-
-\begin{application}[Polynômes de Techebychev]
-	Ce sont les polynômes tels que $\forall n\in\IN,\, \forall\theta\in\IR,\, \cos(n\theta) = T_n(\theta)$
-	et on a : $T_0 = 1$, $T_1 = X$, et $\forall n\in\IN,\, T_{n+2}=2XT_{n+1} - Tn$.
-\end{application}
-
-\begin{application}[Noyaux de Dirichlet et de Fejér]
-	$\forall \theta \in\IR/2\pi\IZ,\, \forall n\in\IN^*,$
-	$$D_N(\theta) := \sum_{n=-N}^{N} e^{in\theta}$$
-	$$K_n(\theta) := \frac{1}{N}\sum_{n=0}^{N-1} D_N(\theta) = \left(\frac{\sin(N\theta/2)}{\sin(\theta/2)}\right)^2$$
-\end{application}
-
-\begin{theorem}[\textnormal{[R] 101}]\label{th:11}
-	$\forall z\in S^1,\, \exists !\theta\in ]-\pi,\pi]\,\colon z = e^{i\theta}$
-\end{theorem}
-
-\begin{definition}[\textnormal{[R] 102}]
-	Soit $z\in\IC^*$. D'après théorème \ref{th:11}, il existe un unique $\theta\in ]-\pi,\pi]$,
-	appelé \emph{argument principal} de $z$, noté $\arg(z)$, tel que $z = \vert z \vert e^{i\theta}$.
-
-	On appelle \emph{(un) argument} de $z$ tout réel $\theta$ tel que $z = \vert z \vert e^{i\theta}$. Les arguments de $z$ sont
-	congrus à $\arg(z)$ modulo $2\pi$.
-\end{definition}
-
-\begin{definition}[\textnormal{[T] 63}]
-	On appelle \emph{détermination principale du logarithme complexe} l'application :
-	\begin{align*}
-	\log : \IC\setminus \IR^- &\longrightarrow B_{\pi} := \left\{z\in\IC \mid |\Im(z)|<\pi\right\} \\
-		z &\longmapsto \ln(|z|)+i\arg(z)
-	\end{align*}
-\end{definition}
-
-\begin{proposition}
-	$\exp$ induit une bijection de $B_{\pi}$ sur $\IC\setminus \IR^-$, de réciproque $\log$.
-\end{proposition}
-
-\begin{theorem}[de relèvement - ADMIS]
-	Soit $I\subseteq \IR$ un intervalle et $k\in\IN$.
-	Pour tout $f\in C^k(I,S^1)$, il existe $\varphi\in C^k(I,\IR)$ telle que $f = e^{i\varphi}$.
-\end{theorem}
-
-\subsection*{B. Les racines de l'unité}
-\begin{definition}[\textnormal{[P] 80}]
-	Soient $n\in\IN^*$ et $z\in\IC$.
-	On dit que $z$ est une \emph{racine $n$-ième de l'unité} sir $z^n=1$. 
-	On note $\IU_n$ l'ensemble des racines $n$-ièmes de l'unité.
-	On dit que $z$ est une racine de l'unité sur $z\in \IU := \cup_{n\in\IN^*} \IU_n$.
-\end{definition}
-
-\begin{proposition}
-	$\IU_n = \left\{e^{i\frac{2k\pi}{n}}\mid k\in \IN\right\} = \left\{e^{i\frac{2k\pi}{n}}\mid 0\leq k \leq n-1\right\} = \langle \omega_n \rangle$, 
-	où $\omega_n := e^{i\frac{2\pi}{n}}$. En particulier, $\IU_n\cong \IZnZ$.
-\end{proposition}
-
-\begin{proposition}
-	$\forall n\geq 2$, $\sum_{\omega\in\IU} \omega = 0$, $\omega^n = 1$, $\overline{\omega_n} = \omega_n^{n-1}$.
-\end{proposition}
-
-\begin{definition}[\textnormal{[P] 80}]
-	Soit $n\in\IN^*$. On dit que $\zeta_n\in\IC$ est une \emph{racine primitive} $n$-ième de 
-	l'unité si $\IU_n = \langle\zeta_n\rangle$. On note $\mu_n^*$ l'ensemble des racine primitives $n$-ièmes de l'unité, \emph{i.e.} des générateurs de $\IU_n$.
-\end{definition}
-
-\begin{proposition}[\textnormal{[P] 80}, cf FIGURE 2]
-	$$\mu_n^* = \left\{\omega_n^k \mid k\wedge n = 1\right\}$$
-\end{proposition}
-
-\begin{example}
-	$\IU_2 = \left\{\pm 1\right\}$, $\IU_3 = \left\{1,e^{2i\pi / 3},e^{-2i\pi/3}\right\} = \left\{1, \frac{1}{2} \pm i\frac{\sqrt{3}}{2}\right\}$, $\IU_4 = \left\{\pm 1, \pm i\right\}$.
-\end{example}
-
-\begin{proposition}[\textnormal{[P] 80, [Rb] 18}]
-	Soit $(n,d)\in\left(\IN^*\right)^2$.
-	\begin{itemize}
-		\item[$\vartriangleright$] $\IU_d \subseteq \IU_n \iff d\mid n$
-		\item[$\vartriangleright$] $\card \mu_n^* = \varphi(n)$ (indicatrice d'Euler)
-		\item[$\vartriangleright$] $\IU_n = \sqcup_{d\mid n} \mu_d^*$
-		\item[$\vartriangleright$] $n = \sum_{d\mid n} \varphi(d)$
-	\end{itemize}
-\end{proposition}
-
-\begin{remark}
-	Soient $a\in\IC^*$ et $n\in\IN^*$. Une racine $n$-ième de $a$ est un 
-	nombre complexe $z$ vérifiant $z^n = a$. Posons $z_0 := |a|^{\frac{1}{n}}\exp(i\frac{\arg a}{n})$, de sorte que $z_0^n = a$.
-	Si $z^n = a$, alors $\left(\frac{z}{z_0}\right)^n = 1$, \emph{i.e.} $\frac{z}{z_0}\in\IU_n$, donc 
-	il existe $k\in\llbracket 0, n-1\rrbracket$ tel que $z = z_0e^{i\frac{2k\pi}{n}}$.
-\end{remark}
-
-\begin{theorem}[\textnormal{[Rb] 114/132}]
-	Soit $H$ un sous-groupe de $S^1$. Si $H$ est fini d'ordre $n$, alors $H = \IU_n$. Sinon, $H$ est dense dans $S^1$.
-\end{theorem}
-
-\begin{application}[\textnormal{[Rb] 132}]
-	$\overline{\left\{\cos (n) \mid n\in \IN\right\}} = \overline{\left\{\sin (n) \mid n\in \IN\right\}} = \left[0,1\right]$
-\end{application}
-
-\begin{theorem}[de Niven]
-	Soit $r\in\IQ$. Si $\cos (r\pi)\in\IQ$, alors $r\in\left\{0, \frac{1}{3}, \frac{1}{2}\right\}$.
-	Si $\sin(r\pi)\in\IQ$, alors $r\in\left\{0,\frac{1}{6}, \frac{1}{2}\right\}$.
-\end{theorem}
-
-\begin{corollary}
-	$\IU\cap\IQ[i] = \left\{\pm 1, \pm i\right\}$
-\end{corollary}
-
-\subsection*{C. Polynômes cyclotomiques}
-Soit $n\in \IN^*$.
-
-\begin{definition}[\textnormal{[P] 80}]
-	On appelle \emph{$n$-ième polynôme cyclotomique} le polynôme 
-	$\Phi_n := \prod_{\zeta\in\mu_n^*} (X-\zeta)$.
-\end{definition}
-
-\begin{example}[\textnormal{[P] e81}]
-	$\Phi_1 = X-1$, $\Phi_2 = X + 1$, $\Phi_3 = X^2 + X + 1$, $\Phi_4 = X^2 + 1$, ...
-\end{example}
-
-\begin{proposition}[\textnormal{[P] 80-83}]
-	\begin{itemize}
-		\item[$\vartriangleright$] $\deg(\Phi_n) = \varphi(n)$
-		\item[$\vartriangleright$] $X^n - 1 = \prod_{d\mid n} \Phi_d$
-		\item[$\vartriangleright$] $\Phi_n\in\IZ[X]$
-		\item[$\vartriangleright$] $\Phi_n$ est irréductible sur $\IQ$
-		\item[$\vartriangleright$] $\Phi_n$ est le polynôme minimal de $\zeta\in\mu_n^*$ sur $\IQ$
-	\end{itemize}
-\end{proposition}
-
-\begin{proposition}
-	Pour tout $p$ premier, 
-	$$\Phi_p = \frac{X^p - 1}{X-1} = X^{p-1} + X^{p-2} + \dots + X + 1$$
-\end{proposition}
-
-\subsection*{D. Applications}
-
-\begin{theorem}[de Wedderburn - \textnormal{[P] 82}]
-	Tout corps fini est commutatif.
-\end{theorem}
-
-\begin{tcolorbox}[
-    breakable, % Allows the theorem to split across pages
-    colback=developpement, % The background color
-    colframe=gray!0!black, % The frame color
-    boxrule=0pt, % The frame thickness
-    arc=1mm, % Sharp corners
-	boxsep=0pt,
-	left=0pt, right=0pt, top=0pt, bottom=0pt
-]
-\begin{theorem}[de Kronecker - \textnormal{[FGN] 213}]
-	\label{dev11}
-	Soit $P\in\IZ[X]$ unitaire dont toutes les racines sont de module $\leq 1$, et tel que 
-	$P(0)\neq 0$. Alors toutes les racines de $P$ sont des racines primitives de l'unité.
-\end{theorem}
-
-\begin{corollary}[théorème de Kronecker - \textnormal{[Go] 95}]
-	\label{dev12}
-	Soit $P\in\IZ[X]$ irréductible sur $\IQ$. Si toutes les racines de $P$ sont 
-	de module $\leq 1$, alors $P=X$ ou $P$ est cyclotomique.
-\end{corollary}
-\end{tcolorbox}
-
-\section*{II. Liens avec la géométrie}
-\subsection*{A. Notion d'angle orienté}
-On note $S^1(0,1)$ le cercle unité de $\IR^2$ pour la norme euclidienne, qui s'identifie à 
-$S^1$. Pour $z\in\IC$, on note $M_z$ le point de $\IR^2$ d'affixe $z$.
-
-On note $\mathcal{B}$ une base orthonormée de $\IR^2$, que l'on décrète directe.
-
-\begin{proposition}
-	$\forall (\overrightarrow{u}, \overrightarrow{v}) \in S^1(0,1)^2,\, \exists ! r\in SO(\IR^2)\, : \overrightarrow{v} = r(\overrightarrow{u})$
-\end{proposition}
-
-\begin{theorem}[\textnormal{[P] 146}]
-	On dispose des isomorphismes de groupes suivant :
-	\begin{align*}
-		\IR/2\pi\IZ &\longrightarrow S^1 &\longrightarrow &SO_2(\IR) &\longleftarrow &SO(\IR^2) \\
-		\theta &\longmapsto e^{i\theta} &\longmapsto &R(\theta) &\longleftarrow &r_{\theta}
-	\end{align*}
-
-	NB : $R(\theta)$ est la matrice de rotation 2D d'angle $\theta$ (cos, -sin // sin, cos).
-\end{theorem}
-
-\begin{corollary}
-	La relation $\left(\overrightarrow{u},\overrightarrow{v}\right)\mathcal{R}\left(\overrightarrow{u'},\overrightarrow{v'}\right) \iff \exists r\in SO(\IR^2)\,\colon \overrightarrow{u'} = r(\overrightarrow{u})$ et $\overrightarrow{v'}=r(\overrightarrow{v})$
-	est une relation d'équivalence sur $\left(S^1\right)^2$.
-\end{corollary}
-
-\begin{definition}[\textnormal{[P] 146} - FIGURE 3]
-	Soit $\left(\overrightarrow{u},\overrightarrow{v}\right)\in\left(S^2\right)^2$.
-	\begin{itemize}
-		\item[$\vartriangleright$] On appelle \emph{angle orienté de $\overrightarrow{u}$ à $\overrightarrow{v}$} la classe d'équivalence de $\left(\overrightarrow{u},\overrightarrow{v}\right)$ dans $\left(S^1\right)^2/\mathcal{R}$, que l'on note $\widehat{(\overrightarrow{u}, \overrightarrow{v})}$.
-		\item[$\vartriangleright$] Une \emph{mesure} de $\widehat{(\overrightarrow{u}, \overrightarrow{v})}$ est un réel $\theta$ tel que $\overrightarrow{v} = r_{\theta}(\overrightarrow{u})$.
-		\item[$\vartriangleright$] La \emph{mesure principale} de $\widehat{(\overrightarrow{u}, \overrightarrow{v})}$ est la mesure de $\widehat{(\overrightarrow{u}, \overrightarrow{v})}$ entre $-\pi$ et $\pi$.
-	\end{itemize}
-\end{definition}
-
-\begin{definition}
-	On étend la définition aux couples de vecteurs non nuls $\left(\overrightarrow{u},\overrightarrow{v}\right)$ en posant :
-	$$\widehat{\left(\overrightarrow{u},\overrightarrow{v}\right)} := \widehat{\left(\frac{\overrightarrow{u}}{\|\overrightarrow{u}\|},\frac{\overrightarrow{v}}{\|\overrightarrow{v}\|}\right)}$$
-\end{definition}
-
-\begin{remark}
-	Si $z_{\overrightarrow{u}}$ est l'affixe de $\overrightarrow{u}\in\IR^2$, alors l'affixe de $r_{\theta}(\overrightarrow{u})$ est $e^{i\theta}z_{\overrightarrow{u}}$.
-\end{remark}
-
-\begin{remark}
-	En notant $\langle\cdot \mid \cdot \rangle$ le produit scalaire euclidien de $\IR^2$, on appelle \emph{écart angulaire} entre 
-	deux vecteurs non nuls $\overrightarrow{u}$ et $\overrightarrow{v}$ le réel $\alpha= \arccos\left(\frac{\langle\overrightarrow{u}\mid\overrightarrow{v}\rangle}{\|\overrightarrow{u}\|\cdot\|\overrightarrow{v}\|}\right)$.
-	Si $\theta$ est la mesure principale de $\widehat{(\overrightarrow{u}, \overrightarrow{v})}$, alors $\alpha = |\theta |$.
-
-	Plus précisement, si $\overrightarrow{u}$ et $\overrightarrow{v}$ sont colinéaires et de même sens (resp. de sens opposé), alors $\alpha = \theta = 0$ 
-	(resp. $\alpha = \theta = \pi$) et sinon, si $\widehat{(\overrightarrow{u}, \overrightarrow{v})}$ est directe, alors $\alpha = \theta$ et sinon $\alpha = -\theta$.
-\end{remark}
-
-\begin{proposition}[\textnormal{[Bu] 497}]
-	Une mesure de $\widehat{(\overrightarrow{u},\overrightarrow{v})}$ est un réel $\theta$ vérifiant 
-	$$e^{i\theta} = \frac{\langle\overrightarrow{u}\mid \overrightarrow{v}\rangle + i\det_{\mathcal{B}}(\overrightarrow{u},\overrightarrow{v})}{\|\overrightarrow{u}\|\cdot\|\overrightarrow{v}\|}$$
-\end{proposition}
-
-\begin{definition}
-	Soient $\overrightarrow{u}$ et $\overrightarrow{v}$ deux vecteurs non nuls d'écart angulaire $\alpha$.
-	On dit que $\widehat{(\overrightarrow{u},\overrightarrow{v})}$ est \emph{nul} si $\alpha = 0$, \emph{plat} si $\alpha = \pi$, \emph{droit} si $\alpha = \pi/2$, \emph{aigu} si $\alpha < \pi/2$ et \emph{obtus} si $\alpha > \pi/2$.
-\end{definition}
-
-\subsection*{B. Autour des polygônes réguliers - groupes diédraux, constructibilité}
-Soit $n \geq 3$.
-\begin{definition}
-	Le \emph{polygône régulier à $n$ côtés} est le polygône convexe $P_n$ du plan dont les sommets sont, dans l'ordre, les points d'affixes $1, \omega_n,\omega_n^2,\dots,\omega_n^{n-1}$.
-\end{definition}
-\begin{proposition}
-	L'ensemble des isométries du plan conservant $P_n$ est un groupe, appelé \emph{groupe diédral d'ordre $2n$} et noté $D_{2n}$.
-	Il est engendré par la rotation d'angle $\frac{2\pi}{n}$ centrée à l'origine (correspondant à $z\mapsto \omega_nz$ en termes d'affixes) et la symétrie d'axe $(Ox)$ (correspondant à la conjugaison en termes d'affixes).
-\end{proposition}
-
-\begin{definition}[\textnormal{[P] 68}]
-	On dit que $z\in\IC$ est \emph{constructible} si on peut tracer l'image de $z$ dans le plan uniquement avec un compas et une règle non graduée.
-	On dit que $P_n$ est constructible si $\omega_n$ l'est.
-\end{definition}
-
-\begin{theorem}[de Gauss-Wantzel - FIGURES 2,4]
-	$P_n$ est constructible si, et seulement si, $n$ est de la forme $n=2^m p_1\dots p_r$, avec $m\in \IN$ et $p_1, \dots, p_r$ des nombres premiers de Fermat (\emph{i.e.} $3,5,17,257, 65537$).
-\end{theorem}
-
-\subsection*{C. Application : une caractérisation de $7$}
-
-\begin{tcolorbox}[
-    breakable, % Allows the theorem to split across pages
-    colback=developpement, % The background color
-    colframe=gray!0!black, % The frame color
-    boxrule=0pt, % The frame thickness
-    arc=1mm, % Sharp corners
-	boxsep=0pt,
-	left=0pt, right=0pt, top=0pt, bottom=0pt
-]
-\begin{theorem}[de Gauss-Lucas - \textnormal{[FGN] 225}]
-	\label{102dev21}
-	Soit $P\in\IC[X]$ non constant.
-	$$Z-{\IC}(P')\subset \text{Conv}(Z_{\IC}(P))$$
-	où, si $Z_{\IC}(P) = \left\{\alpha_1,\dots,\alpha_r\right\}$, alors :
-	$$\text{Conv}(Z_{\IC}(P)) = \left\{\sum_{k=1}^{r}\lambda_k\alpha_k \mid (\lambda_1,\dots,\lambda_r)\in \left[0,1\right]^r,\, \sum_{k=1}^{r}\lambda_k = 1\right\}$$
-\end{theorem}
-
-\begin{application}
-	\label{102dev22}
-	$7$ est le plus grand entier $n\geq 2$ tel que :
-	$$Z_{\IC}((X+1)^n - X^n - 1)\subseteq \left\{z\in \IC \mid |z| = 1\right\}$$
-\end{application}
-\end{tcolorbox}
-
-\section*{Développements}
-\begin{itemize}
-	\item Développement 1 : Théorème \ref{dev11} et Corrolaire \ref{dev12}
-	\item Développement 2 : Théorème \ref{102dev21} et Application \ref{102dev22}
-\end{itemize}
-
-\section*{Références}
-\begin{itemize}
-	\item[Rb] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
-	\item[Rb] \emph{Eléments d'analyse réelle}, Rombaldi
-	\item[P] Perrin
-	\item[FGN] \emph{Oraux X-ENS, Algèbre 1}, 2è édition (Francinou)
-	\item[T] \emph{Analyse complexe}, Tauvel
-	\item[Bu] Burg
-\end{itemize}
 
 \chapter*{105 : Groupe des permutations d'un ensemble fini. Applications.}
 \setcounter{definition}{0}
@@ -1028,6 +697,849 @@ Dans ce paragraphe, on se donne $p$ premier, et on note $\#G = p^{\alpha}m$, $m\
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/101.pdf}
+	\caption{Isométries du cube}
 \end{figure}
 
+\chapter*{106 : Groupe linéaire d'un espace vectoriel de dimension finie E, sous-groupes de $GL(E)$. Applications}
+\setcounter{definition}{0}
+
+Dans cette leçon, $K$ est un corps commutatif, et $E$ est un $K$-espace vectoriel de dimension finie $n\geq 1$.
+\section*{I. Endomorphismes inversibles d'un espace vectoriel}
+\subsection*{A. Introduction au groupe linéaire}
+\begin{theorem}[\textnormal{[Rb] 139}]
+	\begin{itemize}
+		\item L'ensemble $\mathcal{L}(E)$ des endomorphismes de $E$ est un anneau pour $+$ et $\circ$, dont le groupe des inversibles est noté $GL(E)$, et est appelé \emph{groupe linéaire} de $E$.
+		\item Similairement, l'ensemble $\mathcal{M}_n(K)$ des matrices carrées de taille $n\times n$ est un anneau pour $+$ et $\times$, dont le groupe des inversibles est noté $GL_n(K)$, appelé \emph{groupe linéaire d'ordre $n$ sur $K$}.
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}[\textnormal{[Rb] 140}]
+	Étant donnée une base $\mathcal{B}$, l'application $u\mapsto \Mat_{\mathcal{B}}(u)$ induit un isomorphisme entre $GL(E)$ et $GL_n(K)$.
+\end{remark}
+
+\begin{definition}[\textnormal{[Rb] 141}]
+	On note $SL(E)$ (resp. $SL_n(K)$) le noyau du morphisme $\det$ de $GL(E)$ (resp. $GL_n(K)$) dans $K^{\times}$.
+	On l'appelle \emph{groupe spécial linéaire de $E$} (resp. \emph{groupe spécial linéaire d'ordre $n$ sur $K$}).
+\end{definition}
+
+\begin{theorem}[\textnormal{[Rb] 140}]
+	Soit $u\in\mathcal{L}(E)$. Comme $\dim E < +\infty$, sont équivalentes :
+	\begin{enumerate}
+		\item $u\in GL(E)$
+		\item {\begin{enumerate}
+			\item $u$ est injectif
+			\item $\Ker u = \left\{0\right\}$
+			\item $\exists v\in \mathcal{L}(E)\,\colon v\circ u = \id_E$
+		\end{enumerate}}
+		\item {\begin{enumerate}
+			\item $u$ est surjectif
+			\item $\im u = E$
+			\item $\exists v\in \mathcal{L}(E)\,\colon u\circ v = \id_E$
+		\end{enumerate}}
+		\item L'image par $u$ d'une base de $E$ est une base de $E$
+		\item $\det(u) \neq 0$
+	\end{enumerate}
+\end{theorem}
+
+\begin{remark}
+	Un matrice $A$ est inversible si, et seulement si, ses colonnes forment une base de $K^n$, et si, et seulement si, ses lignes forment une base de $K^n$.
+\end{remark}
+
+\begin{definition}
+	On dit que $u\in\mathcal{L}(E)$ est une \emph{homothétie de rapport $\lambda\in K^{\times}$} si $\forall x\in E$, $u(x) = \lambda x$.
+\end{definition}
+
+\begin{proposition}
+	Une homothétie de rapport $\lambda\in K^{\times}$ est inversible, d'inverse l'homothétie de rapport $1/\lambda$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Rb] e168}]
+	Les homothéties sont les seuls endomorphismes à stabiliser toute droite.
+\end{proposition}
+
+\subsection*{B. Opérations élémentaires}
+Soit $A\in\mathcal{M}_n(K)$. On note $L_1, \dots, L_p$ les lignes de $A$, et $C_1,\dots,C_n$ ses colonnes.
+\begin{definition}[\textnormal{[Bu] 315-317}]
+	Soient $\alpha \in K^{\times}$, $(i,j)\in\llbracket 1,n\rrbracket^2$ tel que $i\neq j$ et $\sigma\in\mathfrak{S}_n$. On définit les matrices suivantes :
+	\begin{itemize}
+		\item Matrice de \emph{dilatation} $D_i(\alpha) = \diag(1,\dots, 1, \alpha,1,\dots, 1)\in GL_n(K)$ ($\alpha$ est à la $i$-ième position)
+		\item Matrice de \emph{transvection} $T_{i,j}(\alpha) = I_n + \alpha E_{i,j}\in GL_n(K)$
+		\item Matrice de \emph{permutation} $P_{\sigma} = \left(\delta_{i,\sigma(j)}\right)_{1\leq i,j\leq n}\in GL_n(K)$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	On définit les \emph{opérations élémentaires} sur les colonnes :
+	\begin{itemize}
+		\item $C_i \longleftarrow \alpha C_i$ : on remplace $C_i$ par $\alpha C_i$
+		\item $C_i \longleftarrow C_i + \alpha C_j$ : on remplace $C_i$ par $\alpha C_i+\alpha C_j$
+		\item $C_i \longleftrightarrow C_j$ : on échange $C_i$ et $C_j$
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}[\textnormal{[Bu] 315-318}]
+	On a les correspondances suivantes entre opérations élémentaires et multiplication matricielle :
+	\begin{itemize}
+		\item $D_i(\alpha)A\iff L_i \longleftarrow \alpha L_i$
+		\item $T_{i,j}(\alpha)A\iff L_i \longleftarrow L_i \alpha L_j$
+		\item $P_{(i,j)}A\iff L_i \longleftrightarrow L_j$
+	\end{itemize}
+	et 
+	\begin{itemize}
+		\item $A D_i(\alpha)\iff C_i \longleftarrow \alpha C_i$
+		\item $AT_{i,j}(\alpha)\iff C_i \longleftarrow C_i \alpha C_j$
+		\item $AP_{(i,j)}\iff C_i \longleftrightarrow C_j$
+	\end{itemize}
+\end{theorem}
+
+\begin{proposition}
+	$\sigma\mapsto P_{\sigma}$ est un morphisme de groupes injectif de $\mathfrak{S}_n$ dans $GL_n(K)$.
+\end{proposition}
+
+\section*{II. Structure de $GL(E)$, sous-groupe orthogonal}
+\subsection*{A. Structure de groupe}
+
+\begin{theorem}[Pivot de Gauss - \textnormal{[Rb] 191}]
+	Pour toute matrice de rang $r$, il existe une suite d'opérations élémentaires qui transforme cette matrice en la matrice $J_{n,r} = \diag(I_r, O_{n-r})$.
+	Plus précisément, si $\rg A = n$, alors il existe $\sigma\in\mathfrak{S}_n$ et des matrices de transvection $T_1, \dots, T_p$ telles que $A = P_{\sigma}T_1\dots T_p D_{\alpha}$ où $D_{\alpha}$ est la matrice de dilatation $D_{\alpha}$ de rapport $\alpha = \det A$.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[Rb] 154, 153}]
+	\begin{itemize}
+		\item Les matrices de transvection et de dilatation engendrent $GL_n(K)$ ;
+		\item Les matrices de transvection engendrent $SL_n(K)$.
+	\end{itemize}
+\end{corollary}
+
+\begin{corollary}[\textnormal{[Rb] 141}]
+	$GL(E) / SL(E) \cong K^{\times}$
+\end{corollary}
+
+\begin{corollary}[\textnormal{[Rb] 141}]
+	\begin{itemize}
+		\item $Z(GL(E)) = K^{\times}\id_E$ (c'est l'ensemble des homothéties) ;
+		\item $Z(SL(E)) = \mathbb{U}_n(K)\id_E$, où $\mathbb{U}_n(K)  \left\{\lambda\in K^{\times} \mid \lambda^n = 1\right\}$.
+	\end{itemize}
+\end{corollary}
+
+\subsection*{B. Le groupe spécial orthogonal}
+Soit $q$ une forme quadratique sur $E$, de forme polaire $\varphi$. Supposons $\car K \neq 2$.
+
+\begin{definition}[\textnormal{[P] 123-124}]
+	\begin{itemize}
+		\item Le \emph{groupe orthogonal} de $(E,q)$ est $O(q) = \left\{u\in\mathcal{L}(E)\mid q\circ u = q\right\}$
+		\item Le \emph{groupe spécial orthogonal} de $(E,q)$ est $SO(q) = \left\{u\in O(q)\mid \det u = 1\right\}$
+		\item Lorsque $\varphi$ est le produit scalaire canonique relativement à une base donnée, on note $O(E)=O(q)=\left\{u\in\mathcal{L}(E)\mid {}^tu\circ u = \id_E\right\}$ et $SO(E)=SO(q)=\left\{u\in O(E)\mid \det u = 1\right\}$.
+		\item On note également $O_n(K) = \left\{M\in\mathcal{M}_n(K)\mid {}^tMM=I_n\right\}$ et $SO_n(K)  \left\{M\in O_n(K)\mid \det M = 1\right\}$.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[Rb] 722}]
+	Si $\mathcal{B}$ est une base orthonormale de $E$, alors $u\in O(E)\iff \Mat_{\mathcal{B}}(u)\in O_n(K)$.
+\end{proposition}
+
+\begin{theorem}[de réduction des isométries - \textnormal{[Rb] 727}]
+	Soit $u\in O(\IRn)$. Il existe une base orthonormale $\mathcal{B}$ de $\IRn$ telle que $\Mat_{\mathcal{B}}(u)=\diag(R(\theta_1),\dots,R(\theta_r),\varepsilon_1,\dots,\varepsilon_p)$
+	où $R(\theta_i) = \begin{pmatrix}
+		\cos \theta_i & -\sin \theta_i \\
+		\sin \theta_i & \cos \theta_i
+	\end{pmatrix}$ et $\varepsilon_i = \pm 1$.
+\end{theorem}
+
+\begin{remark}[\textnormal{[P] 146}]
+	$SO_2(\IR) = \left\{R(\theta)\mid \theta\in\IR\right\}\cong \IR/2\pi\IZ$.
+\end{remark}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[C] 50}]
+	\label{106dev1}
+	Soient $p$ premier, $r\geq 1$ et $q = p^r$.
+	\begin{align*}
+		SO_2(\IF_q) \cong \begin{cases}
+			\IZ/(q-1)\IZ\quad\text{si $-1$ est un carré mod $q$} \\
+			\IZ/(q+1)\IZ\quad \text{sinon}
+		\end{cases}
+	\end{align*}
+\end{theorem}
+\end{tcolorbox}
+
+\begin{definition}[\textnormal{[P] 125}]
+	Soit $u\in O(q)$ telle que $u^2 = \id_E$.
+	
+	On dit que $u$ est une \emph{réflexion} si $\dim(\Ker(u+\id_E)) = 1$, \emph{i.e.} si $u$ est une symétrie par rapport à un hyperplan.
+	
+	On dit que $u$ est une \emph{renversement} si $\dim(\Ker(u+\id_E)) = 2$, \emph{i.e.} si $u$ est une symétrie par rapport à un plan.
+\end{definition}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+On suppose désormais que $E$ est un $\IR$-espace vectoriel de dimension finie $n\geq 1$, et que $q$ est définie positive.
+\begin{theorem}[\textnormal{[P] 143}]
+	\label{106dev21}
+	Tout élément de $O(q)$ est produit d'au plus $n$ réflexions.
+\end{theorem}
+\begin{lemma}
+	\label{106dev22}
+	Si $n\geq 3$, alors pour toutes réflexions $\tau_1$ et $\tau_2$, il existe deux renversements $\sigma_1$ et $\sigma_2$ tels que $\tau_1\tau_2 = \sigma_1\sigma_2$.
+\end{lemma}
+\begin{theorem}
+	\label{106dev23}
+	Pour $n\geq 3$, tout élément de $SO(q)$ est produit d'au plus $n$ renversements.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{remark}
+	Ces théorèmes restent vrais si $E$ est un espace vectoriel de dimension finie sur un corps $K$ de caractéristique $\neq 2$, et si $q$ est non dégénérée (Cartan, Dieudonné).
+\end{remark}
+
+\section*{III. Topologie dans $GL(E)$}
+Dans ce paragraphe, $K$ désigne $\IR$ ou $\IC$.
+
+\begin{proposition}[\textnormal{[Rb] 160-161}]
+	$GL(E)$ est ouvert dans $(\mathcal{L}(E), \vertiii\cdot)$ et $u\mapsto u^{-1}$ est continue.
+\end{proposition}
+
+\begin{proposition}
+	\begin{itemize}
+		\item $GL_n(\IC)$ et $SL_n(K)$ sont connexes ;
+		\item $GL_n(\IR)$ a deux composantes connexes.
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}
+	$O_n(\IR)$ et $SO_n(\IR)$ sont compacts.
+\end{proposition}
+
+\begin{theorem}[Décomposition polaire - \textnormal{[Rb] 740}]
+		\begin{align*}
+			O_n(\IR)\times S_n^{++}(\IR) &\to GL_n(\IR) \\
+			(H,S) &\mapsto HS
+		\end{align*}
+		est un homéomorphisme.
+\end{theorem}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{106dev1}
+	\item Développement 2 : Théorème \ref{106dev21}, Lemme \ref{106dev22} et Théorème \ref{106dev23}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Rb] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[B] \emph{Algèbre et géométrie: CAPES et Agrégation}, Pierre Burg
+	\item[C] \emph{Nouvelles histoires hédonistes de groupes et géométries}, P. Caldero, J. Germoni
+\end{itemize}
+
+
+\chapter*{120 : Anneaux $\IZnZ$. Applications.}
+Dans toute la leçon, $n\in\IN\setminus\left\{0,1\right\}$ et $p$ est un nombre premier.
+\setcounter{definition}{0}
+\section*{I. L'anneau $\IZnZ$}
+\subsection*{A. Rappels d'arithmétique des entiers}
+\begin{theorem}[division euclidienne - \textnormal{[R] 279}]
+	$\forall (a,b)\in\IZ^2,\,\exists ! (q,r)\in\IZ^2 \,\colon$
+	\begin{align*}
+		\begin{cases}
+			a=bq+r \\
+			0\leq r< |b|
+		\end{cases}
+	\end{align*}
+\end{theorem}
+
+\begin{definition}[\textnormal{[R] 279}]
+	Soit $(a,b)\in\IZ^2$. On dit que $a$ est \emph{congru à} $b$ modulo $n$,
+	et on note $a\equiv b \, [n]$ si $n$ divise $b-a$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 280}]
+	Soit $(a,b,c,d)\in\IZ^4$ tel que $a\equiv b\,[n]$ et $c\equiv d\,[n]$.
+	Alors $a+c\equiv b+d\,[n]$ et $ac\equiv bd \,[n]$.
+\end{proposition}
+
+\subsection*{B. Construction}
+\begin{lemma}
+	Tout idéal de $\IZ$ est principal, et admet un unique générateur positif.
+\end{lemma}
+
+\begin{definition}[\textnormal{[R] 280}]
+	Le quotient de l'anneau $(\IZ, +,\times)$ par son idéal $n\IZ$ est l'anneau noté $\IZnZ$. On note $\overline{a}$ l'image de $a\in\IZ$ dans $\IZnZ$.
+\end{definition}
+
+\begin{remark}
+	$\overline{a} = \overline{b} \iff a\equiv b\,[n]$
+\end{remark}
+
+\begin{proposition}[\textnormal{[R] 280}]
+	$\IZnZ = \left\{\overline{0},\overline{1},\dots,\overline{n-1}\right\}$, et les lois sont données par Prop 3 et Rq 6.
+\end{proposition}
+
+\begin{example}
+	$\IZ/3\IZ = \left\{\overline{0},\overline{1},\overline{2}\right\} =\left\{\overline{9},\overline{64},\overline{-7}\right\}$,
+	et on a $\overline{1}+\overline{2}=\overline{1+2}=\overline{3}=\overline{0}$, mais aussi $\overline{1}\times\overline{2} = \overline{1\times 2}=\overline{2}$.
+\end{example}
+
+\subsection*{C. Structure d'anneau}
+\begin{proposition}[\textnormal{[R] 283}]
+	L'ensemble des inversibles $\IZnZ$ est :
+	$$\left(\IZnZ\right)^{\times} = \left\{\overline{k}\in\IZnZ\mid k\wedge n = 1\right\}$$
+
+	L'ensemble des diviseurs de $O$ de $\IZnZ$ est :
+	$$D_0\left(\IZnZ\right) = \IZnZ \setminus \left[\left(\IZnZ\right)^{\times}\cup \left\{0\right\}\right]$$
+\end{proposition}
+
+\begin{example}
+	$\left(\IZ/8\IZ\right)^{\times} = \left\{\overline{1},\overline{3},\overline{5},\overline{7}\right\}$, et 
+	$D_0\left(\IZ/8\IZ\right) = \left\{\overline{2},\overline{4},\overline{6}\right\}$.
+\end{example}
+
+\begin{proposition}[\textnormal{[R] 241 et 281}]
+	Les idéaux propres de $\IZnZ$ sont les $d\IZnZ$ avec $d\mid n$, $d\notin \left\{1,n\right\}$.
+	De plus, $\left(d\IZnZ, +\right)\cong \left(\IZ/\frac{n}{d}\IZ, +\right)$.
+\end{proposition}
+
+\begin{corollary}
+	$\IZnZ$ est principal.
+\end{corollary}
+
+\begin{corollary}
+	L'ensemble des générateurs de $\IZnZ$ est $\left(\IZnZ\right)^{\times}$.
+\end{corollary}
+
+\begin{example}
+	Les idéaux propres de $\IZ/6\IZ$ sont $2\IZ/6\IZ$ et $3\IZ/6\IZ$, respectivement isomorphes à $\IZ/3\IZ$ et $\IZ/2\IZ$.
+\end{example}
+
+\begin{proposition}[\textnormal{[R] 295-282}]
+	$\forall n,m\geq 2$, 
+	$$\Hom_{gr}(\IZnZ, \IZ/m\IZ)\cong \IZ/(n\wedge m)\IZ,$$
+	$$\Aut(\IZnZ)\cong \left(\IZnZ\right)^{\times},$$
+	$$\Hom_{Ann}(\IZnZ, \IZ/m\IZ)\cong  \begin{cases}
+		\left\{k\text{ mod } n \mapsto k \text{ mod } m\right\} \quad\text{si } m\mid n \\
+		\emptyset\quad\text{sinon}
+	\end{cases}$$
+\end{proposition}
+
+\subsection*{D. Le corps $\IZ/p\IZ$}
+\begin{theorem}
+	Les assertions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item $\IZnZ$ est un corps ;
+		\item $\IZnZ$ est intègre ;
+		\item $n$ est premier.
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[\textnormal{[R] 292}]
+	$\left(\IZ/p\IZ\right)^{\times} \cong \IZ/(p-1)\IZ$.
+\end{corollary}
+
+\begin{cexample}
+	C'est très faux pour $n$ non premier !
+	$\left(\IZ/8\IZ\right)^{\times} = \left\{\overline{1},\overline{3},\overline{5},\overline{7}\right\}$ n'a même pas $7$ éléments !
+\end{cexample}
+
+\section*{II. Structure de $\left(\IZnZ\right)^{\times}$}
+\subsection*{A. Préambule : le théorème des restes chinois}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[des restes chinois - \textnormal{[R] 285}]
+	\label{120dev1}
+	Soit $(a_1,\dots, a_d)\in \left(\IN\setminus \left\{0,1\right\}\right)^d$.
+	Les entiers, $a_1,\dots, a_d$ sont deux à deux premiers si, et seulement si, les anneaux 
+	$\IZ/a_1\dots a_d\IZ$ et $\IZ/a_1\IZ \times \dots \times \IZ/a_d\IZ$ sont isomorphes.
+
+	Le cas échéant, il existe $(u_1,\dots,u_d)\in\IZ^d$ tel que $\sum_{i=1}^{d} a_ib_i =1$, où 
+	$b_i = \frac{a_1\dots a_d}{a_i}$. L'application :
+
+	\begin{align*}
+		\overline{\varphi} \,\colon \IZ/a_1\dots a_d\IZ &\to \IZ/a_1\IZ \times \dots \times \IZ/a_d\IZ \\
+		x\,mod\,a_1\dots a_d &\mapsto (x\,mod\,a_1,\dots, x\, mod\, a_d)
+	\end{align*}
+	est un isomorphisme d'anneaux, de réciproque :
+	\begin{align*}
+		\overline{\varphi}^{-1}\,\colon (x_1\,mod\,a_1,\dots, x_d\, mod\, a_d) \mapsto \sum_{i=1}^{d} x_i a_i b_i\, mod\, a_1\dots a_d
+	\end{align*}
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{B. Fonction indicatrice d'Euler}
+\begin{definition}[\textnormal{[R] 283}]
+	\emph{L'indicatrice d'Euler} est :
+	$\varphi\,\colon n \mapsto \#\left(\IZnZ\right)^{\times} = \#\left\{k\in\llbracket 1,n\rrbracket \mid k\wedge n = 1\right\}$.
+\end{definition}
+
+\begin{example}
+	$\varphi(8) = 4$ d'après Exemple 10.
+\end{example}
+
+\begin{proposition}[\textnormal{[R] 288}]
+	Si $a\wedge b=1$, alors $\varphi(ab)=\varphi(a)\varphi(b)$.
+	Pour tout $\alpha \in \IN^*$, $\varphi(p^{\alpha}) = p^{\alpha - 1}(p-1)$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 288}]
+	Si $n=p_1^{\alpha_1}\dots p_r^{\alpha_r}$ est la décomposition de $n$ en produit de facteurs premiers,
+	alors :
+	$$\varphi(n) = \prod_{i=1}^{r} p^{\alpha_i - 1}(p-1) = n\prod_{i=1}^{r}\left(1 - \frac{1}{p_i}\right)$$
+\end{corollary}
+
+\begin{example}
+	$\varphi(90) = \varphi(3^2)\varphi(2)\varphi(5) = 3(3-1)(2-1)(5-1) = 24$
+\end{example}
+
+\begin{theorem}[d'Euler - \textnormal{[R] 283}]
+	Si $a\wedge n = 1$, alors $a^{\varphi(n)} \equiv 1\,[n]$.
+\end{theorem}
+
+\begin{theorem}[de Fermat - \textnormal{[R] 284}]
+	Si $a\wedge p = 1$, alors $a^{p-1} = 1\, [p]$.
+	De manière générale, $a^p\equiv a\,[p]$.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[R] 284}]
+	$$n = \sum_{d\mid n} \varphi(d)$$
+\end{proposition}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[R] 292}]
+	\label{120dev2}
+	Si $p\geq 3$, alors $\forall \alpha \geq 1$, $\left(\IZ/p^{\alpha}\IZ\right)^{\times}$ est cyclique.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{theorem}[ADMIS - \textnormal{[R] 294}]
+	$\left(\IZnZ\right)^{\times}$ est cyclique si, et seulement si, $n\in \left\{2,4,p^{\alpha}, 2p^{\alpha}\right\}$ avec $p\geq 3$ (premier) et $\alpha\geq 1$.
+\end{theorem}
+
+\section*{III. Applications}
+\subsection*{A. Résolution de systèmes de congruence}
+\begin{theorem}[\textnormal{[R] 290}]
+	L'équation $ax\equiv b\,[n]$ d'inconnue $x\in\IZ$ admet des solutions si, et seulement si, $a\wedge n \mid b$.
+
+	Le cas échéant, $S(ax\equiv b\,[n]) = \frac{b}{a\wedge n}x_0 + \frac{n}{a\wedge n}\IZ$, où $x_0$ est une solution particulière de l'équation.
+\end{theorem}
+
+\begin{remark}
+	Le théorème des restes chinois permet de résoudre des systèmes de congruences.
+\end{remark}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{example}[\textnormal{[R] 291}]
+	\label{120dev12}
+	$S\left(\begin{cases}
+		x\equiv 2\,[4] \\
+		x\equiv 3\,[5] \\
+		x\equiv 1\,[9]
+	\end{cases}\right) = 118 + 180\IZ$
+\end{example}
+\end{tcolorbox}
+
+\begin{remark}[\textnormal{[R] 291}]
+	$S\left(\begin{cases}
+		x\equiv x_1\,[a_1] \\
+		x\equiv x_2\,[a_2]
+	\end{cases}\right) =\begin{cases}
+		\emptyset\quad\text{si } a_1\wedge a_2 \nmid x_1-x_2 \\
+		x_0 + (a_1\vee a_2)\IZ\quad\text{sinon}
+	\end{cases}$
+\end{remark}
+
+\subsection*{B. Carrés de $\IZ/p\IZ$}
+Soit $c\,\colon \overline{x}\in\IZ/p\IZ \mapsto \overline{x}^2$.
+On s'intéresse à $\im c$.
+
+\begin{proposition}
+	Tous les éléments de $\IZ/2\IZ$ sont des carrés.
+\end{proposition}
+On supposera désormais $p\geq 3$.
+
+\begin{proposition}[\textnormal{[R] 426}]
+	Soit $l\,\colon \overline{x}\in\IZ/p\IZ \mapsto \overline{x}^{\frac{p-1}{2}}$.
+	\begin{itemize}
+		\item $\forall \overline{x}\in\IZ/p\IZ$, $c\circ l(\overline{x}) = l\circ c(\overline{x}) = \overline{1}$
+		\item $\Ker c = \im l =\left\{\pm 1\right\}$ et $\im c = \Ker l$.
+	\end{itemize}
+\end{proposition}
+
+\begin{corollary}
+	Il y a $\frac{p+1}{2}$ carrés dans $\IZ/p\IZ$.
+\end{corollary}
+
+\begin{theorem}[de Wilson - \textnormal{[R] 325}]
+	$n$ est premier $\iff (n-1)! \equiv -1\, [n]$
+\end{theorem}
+
+\begin{proposition}[\textnormal{[P] 75}]
+	$-1$ est un carré modulo $p$ si, et seulement si, $p\equiv 1\,[4]$. Le cas échéant $-1\equiv (2\times 3\times\dots\times \frac{p-1}{2})^2\,[p]$.
+\end{proposition}
+
+\begin{theorem}[des deux carrés de Fermat - \textnormal{[P] 56}]
+	$p$ s'écrit comme somme de deux carrés d'entiers si, et seulement si, $p=2$ ou $p \equiv 1\,[4]$.
+\end{theorem}
+
+\subsection*{C. Algorithme de chiffrement RSA}
+
+\begin{algorithm}[\textnormal{[G] 37}]
+	Alice veut envoyer à Bob un message représenté par un nombre 
+entier $m$, en tout sécurité.
+\begin{itemize}
+	\item Bob choisit en secret deux nombres premiers distincts $p$ et $q$ et calcule leur produit $n=pq$.
+	\item Il choisit ensuite un entier $c<\varphi(n)=(p-1)(q-1)$ premier à $\varphi(n)$.
+	\item Il trouve ensuite un entier $d$ tel que $cd \equiv 1\,[\varphi(n)]$.
+	\item La clé publique de Bob est $(n,c)$, qu'il donne à Alice, et sa clé privée est $(n,d)$, qu'il garde secrète.
+	\item Alice envoie à Bob le message $m^c$ mod $n$.
+	\item Pour décoder le message, Bob calcule $\left(m^c\right)^d\equiv m\,[n]$.
+\end{itemize}
+\end{algorithm}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{120dev1} (restes chinois) et exemple \ref{120dev12}
+	\item Développement 2 : Théorème \ref{120dev2} (cyclicité des inversibles de $\IZ/p^{\alpha}\IZ$)
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Rb] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[G] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
+\end{itemize}
+
+\chapter*{121 : Nombres premiers. Applications.}
+\setcounter{definition}{0}
+Pour un entier $n$, $\Div(n)$ désigne l'ensemble des diviseurs positifs de $n$.	
+
+\section*{I. Résultats fondamentaux sur les nombres premiers}
+\subsection*{A. Notion de nombre premier, propriétés élémentaires}
+
+\begin{definition}[\textnormal{[R] 303}]
+	On dit que $p\in\IN$ est \emph{premier} si $\Div(p)=\left\{1,p\right\}$.
+	On dit que $n$ est \emph{composé} si $n\neq 0$ et si $\exists a\in\IN\setminus\left\{1,n\right\}\,\colon a\mid n$.
+\end{definition}
+
+Dans la suite, $\mathcal{P}$ désignera l'ensemble des nombres premiers.
+
+\begin{lemma}[d'Euclide]
+	$\forall(a,b)\in\IN^2$, $\forall p\in\mathcal{P}$, $p\mid ab \implies (p\mid a)$ ou $(p\mid b)$.
+\end{lemma}
+
+\begin{lemma}[\textnormal{[R] 303}]
+	$\forall n\geq 2,\, \exists p\in\mathcal{P}\,\colon p\mid n$
+\end{lemma}
+
+\begin{proposition}[\textnormal{[R] 304}]
+	Tout entier composé $n$ admet un facteur premier entre $2$ et $\sqrt{n}$.
+\end{proposition}
+
+\begin{theorem}[fondamental de l'Arithmétique - \textnormal{[R] 306}]
+	$\forall n\in\IN^*,\,\exists ! \left(v_p(n)\right)_{p\in\mathcal{P}}\in\IN^{\mathcal{P}} \,\colon$ 
+	$$n = \prod_{p\in\mathcal{P}} p^{v_p(n)}$$
+	Cette écriture est appelée \emph{"(la) décomposition en produit de facteurs premieres de $n$"}.
+\end{theorem}
+
+\begin{definition}[\textnormal{[R] 306}]
+	Dans la décomposition en produit de facteurs premiers de $n$, l'entier $v_p(n)$ ($p\in\mathcal{P}$) est appelé \emph{valuation $p$-adique de $n$}.
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 307}]
+	$\forall(a,b)\in\left(\IN^*\right)^2,\, a\mid b\iff \forall p\in\mathcal{P},\, v_p(a)\leq v_p(b)$
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 319}]
+	$\forall(a,b)\in\left(\IN^*\right)^2,\, v_p(ab) = v_p(a)+v_p(b)$
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 307}]
+	$\forall(a,b)\in\left(\IN^*\right)^2,\,\forall p\in\mathcal{P},$
+	\begin{align*}
+		v_p(a\vee b) &= \max (v_p(a),v_p(b)) \\
+		v_p(a\wedge b) &= \min (v_p(a),v_p(b))
+	\end{align*}
+\end{proposition}
+
+\subsection*{B. Répartition des nombres premiers}
+\begin{theorem}[Euclide - \textnormal{[R] 305}]
+	Il existe une infinité de nombres premiers.
+\end{theorem}
+
+\begin{theorem}[de la progression arithmétique, Dirichlet, ADMIS]
+	Pour tout $(a,b)\in\left(\IN^*\right)^2$ tel que $a\wedge b = 1$, il existe une infinité de nombres premiers congrus à $a$ modulo $b$.
+\end{theorem}
+
+\begin{conjecture}[des nombres premiers jumaux]
+	Il existe une infinité de nombres premiers $p$ tels que $p+2$ est premier.
+\end{conjecture}
+
+\begin{proposition}
+	Il existe des intervalles de longueur arbitrairement grande ne contenant aucun nombre premier.
+\end{proposition}
+
+\begin{theorem}[Bertrand - ADMIS - \textnormal{[R] 325}]
+	Il existe toujours un nombre premier compris entre n'importe quel entier naturel non nul et son double.
+\end{theorem}
+
+\begin{theorem}[des nombres premiers - ADMIS - \textnormal{[R] 308}]
+	$$\#\mathcal{P}\cap \llbracket 1,n\rrbracket \sim_{x\to +\infty} \frac{n}{\ln n}$$
+\end{theorem}
+
+\section*{II. Tests de primalité}
+
+\begin{proposition}[Crible d'Ératosthène - ANNEXE]
+	Le procédé suivant permet de trouver la liste croissante des nombres premiers : on part de la liste des entiers plus grands que $2$. À chaque itération,
+	on garde le plus petit nombre, et on supprime tous ses multiples.
+\end{proposition}
+
+\begin{proposition}
+	$n$ est premier si, et seulement si, $\forall d\leq \lfloor\sqrt{n}\rfloor$, $d\nmid n$.
+	La complexité au pire de ce test est donc en $O(\sqrt{n})$.
+\end{proposition}
+
+\begin{theorem}[de Fermat]
+	Si $p$ est premier, alors $\forall a\in \IN$, $a\wedge p=1\implies a^{p-1} \equiv 1\,[p]$.
+\end{theorem}
+
+\begin{remark}
+	On en déduit donc un test de non primalité.
+\end{remark}
+
+\begin{definition}[\textnormal{[R] 329}]
+	Un nombre $n$ composé satisfaisant le test du théorème de Fermat est appelé \emph{nombre de Carmichaël}.
+\end{definition}
+
+\begin{example}[\textnormal{[R] 329}]
+	$561$ est un nombre de Carmichaël.
+\end{example}
+
+\begin{theorem}[de Korselt - \textnormal{[R] 330}]
+	$n$ est un nombre de Carmichaël si, et seulement si, pour tout diviseur premier $p$ de $n$, $(p-1)\mid(n-1)$ et $p^2\nmid n$.
+\end{theorem}
+
+\begin{theorem}[de Wilson - \textnormal{[R] 326}]
+	$n$ est premier si, et seulement si, $(n-1)!\equiv -1\,[n]$.
+	C'est un test de primalité qui requiert $n-1$ multiplications dans $\IZnZ$.
+\end{theorem}
+
+\section*{III. Applications des nombres premiers}
+\subsection*{A. Fonctions spéciales}
+
+\begin{definition}[\textnormal{[R] 283}]
+	\emph{L'indicatrice d'Euler} est :
+	$\varphi\,\colon n \mapsto \#\left(\IZnZ\right)^{\times} = \#\left\{k\in\llbracket 1,n\rrbracket \mid k\wedge n = 1\right\}$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 288}]
+	$\forall(a,b)\in\left(\IN^*\right)^2$, $a\wedge b=1$, alors $\varphi(ab)=\varphi(a)\varphi(b)$.
+	Pour tout $\alpha \in \IN^*$, $\varphi(p^{\alpha}) = p^{\alpha - 1}(p-1)$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 288}]
+	$\forall n\in\IN^*$,
+	$$\varphi(n) = \prod_{\substack{p\in\mathcal{P}\\v_p(n)\geq 1}} p^{v_p(n)-1}(p-1) = n\prod_{\substack{p\in\mathcal{P}\\v_p(n)\geq 1}} \left(1 - \frac{1}{p}\right)$$	
+\end{corollary}
+
+\begin{definition}
+	La \emph{fonction $\zeta$ de Riemann} est définie par :
+	\begin{align*}
+		\zeta\,\colon \left\{z\in\IC\mid \Re(z)> 1\right\} &\to \IC \\
+		s &\mapsto \sum_{n=0}^{+\infty} \frac{1}{n^s}
+	\end{align*}
+\end{definition}
+
+\begin{proposition}[\textnormal{[KG] 461}]
+	On a :
+	$$\zeta(s) = \prod_{p\in\mathcal{P}}\frac{1}{1 - \frac{1}{p^s}}$$
+	Cette écriture est appelé \emph{"produit eulérien"}.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[KG] 461, [R] 343}]
+	$\sum_{p\in\mathcal{P}}\frac{1}{p} = +\infty$
+\end{theorem}
+
+\begin{definition}[\textnormal{[R] 331}]
+	La \emph{fonction de Moëbius} est définie par :
+	\begin{align*}
+		\mu\,\colon n\in\IN^* \mapsto \begin{cases}
+			1\quad \text{si } n =1 \\
+			(-1)^r\quad \text{si } n=p_1\dots p_r,\text{ avec $p_1,\dots,p_r$ distincts} \\
+			0\quad\text{sinon}
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+\begin{theorem}[Cesàro - ADMIS \textnormal{[R] 334}]
+	La probabilité de choisir au hasard $r\geq 2$ entiers entre $1$ et $n$ qui sont premiers entre eux vaut $\frac{1}{\zeta(r)}$.
+\end{theorem}
+
+\subsection*{B. Algorithme de chiffrement RSA}
+
+\begin{theorem}[d'Euler - \textnormal{[R] 283}]
+	$\forall (a,b)\in\left(\IN^*\right)^2$, si $a\wedge n = 1$, alors $a^{\varphi(n)} \equiv 1\,[n]$.
+\end{theorem}
+
+De la complexité des tests de primalité découle la grande difficulté de la recherche de la décomposition en produit de facteurs premiers d'un entier donné.
+Ce principe est à la base de la sécurité de l'algorithme de chiffrement RSA, détaillé ci-dessous :
+
+\begin{algorithm}[\textnormal{[G] 37}]
+	Alice veut envoyer à Bob un message représenté par un nombre 
+entier $m$, en tout sécurité.
+\begin{itemize}
+	\item Bob choisit en secret deux nombres premiers distincts $p$ et $q$ et calcule leur produit $n=pq$.
+	\item Il choisit ensuite un entier $c<\varphi(n)=(p-1)(q-1)$ premier à $\varphi(n)$.
+	\item Il trouve ensuite un entier $d$ tel que $cd \equiv 1\,[\varphi(n)]$.
+	\item La clé publique de Bob est $(n,c)$, qu'il donne à Alice, et sa clé privée est $(n,d)$, qu'il garde secrète.
+	\item Alice envoie à Bob le message $m^c$ mod $n$.
+	\item Pour décoder le message, Bob calcule $\left(m^c\right)^d\equiv m\,[n]$.
+\end{itemize}
+\end{algorithm}
+
+\subsection*{C. Corps finis}
+\begin{definition}[\textnormal{[R] 415}]
+	La \emph{caractéristique} d'un anneau $A$ est l'unique générateur positif du noyau du morphisme $\varphi\,\colon\IZ\to A$, $n\mapsto n1_A$.
+\end{definition}
+
+\begin{lemma}[\textnormal{[R] 415}]
+	La caractéristique d'un corps est nulle ou première.
+\end{lemma}
+
+\begin{example}
+	$\IZpZ$ est un corps de caractéristique $p$.
+\end{example}
+
+\begin{theorem}[\textnormal{[R] 421}]
+	Il existe un corps fini de cardinal $q$ si, et seulement si, $q$ est une puissance d'un nombre premier. 
+	Le cas échéant, un tel corps est unique à isomorphisme près, et on note $\IF_q$ le corps fini à $q$ éléments.
+	Par ailleurs, $p = \car \IF_q$ est un nombre premier, et $q$ est une puissance de $p$.
+\end{theorem}
+
+\subsection*{D. Le théorème des deux carrés de Fermat}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{lemma}[\textnormal{[P] 75}]
+	\label{121dev11}
+	$-1$ est un carré dans $\IF_p$ si, et seulement si, $p\equiv 1\,[4]$.
+\end{lemma}
+
+\begin{theorem}[des deux carrés de Fermat - \textnormal{[P] 56}]
+	\label{121dev12}
+	Soit $E = \left\{n\in\IN^* \mid \exists (a,b)\in\IN^2\,\colon n = a^2 + b^2 \right\}$
+	Alors, $n\in E \iff \forall p\in\mathcal{P},\, p\equiv 3\,[4] \implies v_p(n)$ est pair.
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{E. En théorie des groupes}
+\begin{definition}[\textnormal{[R] 22}]
+	Un $p$-groupe est un groupe de cardinal une puissance de $p$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 22}]
+	Si un $p$-groupe $G$ agit sur un ensemble fini $X$, alors $\# X \equiv \#X^G\,[p]$
+	où $X^G$ est l'ensemble des éléments de $X$ fixes par l'action de $G$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 23}]
+	Le centre d'un $p$-groupe n'est pas trivial.
+\end{corollary}
+
+\begin{definition}[\textnormal{[U] 85}]
+	Soit $G$ un groupe fini de cardinal $p^{\alpha}m$, $m\wedge p=1$. Un $p$-Sylow de $G$
+	est un sous-$p$-groupe de $G$ de cardinal $p^{\alpha}$.
+\end{definition}
+
+\begin{theorem}[de Sylow - ADMIS \textnormal{[U] 87}]Soit $G$ un groupe d'ordre $p^{\alpha}m$, $m\wedge p = 1$. Alors,
+	\begin{enumerate}
+		\item $\Syl_p(G)\neq \empty$
+		\item $G$ agit transitivement sur $\Syl_p(G)$ par conjugaison
+		\item $n_p\equiv 1\, [p]$
+	\end{enumerate}
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[R] 292}]
+	\label{121dev2}
+	Si $p\geq 3$, alors $\forall \alpha \geq 1$, $\left(\IZ/p^{\alpha}\IZ\right)^{\times}$ est cyclique.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{proposition}[\textnormal{[R] 23}]
+	Tout groupe d'ordre $p^2$ est abélien.
+\end{proposition}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Lemme \ref{121dev11}, et théorème \ref{121dev12}
+	\item Développement 2 : Théorème \ref{121dev2} (cyclicité des inversibles de $\IZ/p^{\alpha}\IZ$)
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Rb] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[U] \emph{Théorie des groupes}, Félix Ulmer
+	\item[G] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
+	\item[KG] \emph{De l'intégration aux probabilités}, Olivier Garet, Aline Kurtzmann, 2e édition augmentée
+\end{itemize}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/eratosthene.pdf}
+	\caption{Crible d'Eratosthène}
+\end{figure}
 \end{document}

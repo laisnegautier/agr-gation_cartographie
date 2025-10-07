@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.8.9)  7 OCT 2025 10:26
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.8.9)  7 OCT 2025 17:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -470,28 +470,28 @@ LaTeX Warning: Unused global option(s):
 (/Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 102.
-LaTeX Font Info:    ... okay on input line 102.
-LaTeX Info: Redefining \degres on input line 102.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 115.
+LaTeX Font Info:    ... okay on input line 115.
+LaTeX Info: Redefining \degres on input line 115.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 102.
+(french.ldf)             reported on input line 115.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 102.
-LaTeX Info: Redefining \up on input line 102.
+(french.ldf)             reported on input line 115.
+LaTeX Info: Redefining \up on input line 115.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -547,48 +547,48 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Chapitre 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 107.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 107.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 107.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 120.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+euf on input line 122.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 135.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Underfull \hbox (badness 4726) in paragraph at lines 136--137
+Underfull \hbox (badness 4726) in paragraph at lines 149--150
 []\T1/cmr/m/it/10 Le \T1/cmr/m/n/10 sta-bi-li-sa-teur \T1/cmr/m/it/10 de $\OML/cmm/m/it/10 x$ \T1/cmr/m/it/10 est l'en-semble $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
  []
 
 
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 185--186
+Underfull \hbox (badness 3815) in paragraph at lines 198--199
 []\T1/cmr/bx/n/10 Proposition 13 \T1/cmr/m/n/10 ([R] ?, [U] ?)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X[];  y \OMS/cmsy/m/n/10 2
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 194--195
+Underfull \hbox (badness 1990) in paragraph at lines 207--208
 []\T1/cmr/bx/n/10 Théorème 15 \T1/cmr/m/n/10 (Équa-tion aux classes - [R] 21)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--200
+Underfull \hbox (badness 10000) in paragraph at lines 212--213
 []\T1/cmr/bx/n/10 Exemple 16 \T1/cmr/m/n/10 ([R] 22)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Si $[] \OML/cmm/m/it/10 G$ \T1/cmr/m/it/10 est une puis-
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 199--200
+Underfull \hbox (badness 1194) in paragraph at lines 212--213
 \T1/cmr/m/it/10 sance d'un nombre pre-mier, alors son centre $\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) :=
  []
 
 
-Underfull \hbox (badness 3884) in paragraph at lines 257--258
+Underfull \hbox (badness 3884) in paragraph at lines 270--271
 []\T1/cmr/m/it/10 Translation à gauche : $\OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^B M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
@@ -598,39 +598,39 @@ Underfull \hbox (badness 3884) in paragraph at lines 257--258
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 260--261
+Underfull \hbox (badness 10000) in paragraph at lines 273--274
 []\T1/cmr/m/it/10 Équivalence (ou \T1/cmr/m/n/10 ac-tion de Stei-niz\T1/cmr/m/it/10 ) :
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 260--261
+Underfull \hbox (badness 5893) in paragraph at lines 273--274
 [] \OMS/cmsy/m/n/10 ^^B M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 ,
  []
 
 <img/101.pdf, id=24, 2075.755pt x 1467.4825pt>
 File: img/101.pdf Graphic file (type pdf)
 <use img/101.pdf>
-Package pdftex.def Info: img/101.pdf  used on input line 332.
+Package pdftex.def Info: img/101.pdf  used on input line 345.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
 
 
 [2 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/101.pdf>]
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 446--448
-[]\T1/cmr/bx/n/10 Proposition 17. []$\U/msb/m/n/10 U[] \OT1/cmr/m/n/10 = [] =
+Underfull \hbox (badness 10000) in paragraph at lines 423--424
+[]\T1/cmr/bx/n/10 Proposition 11 \T1/cmr/m/n/10 ([U] 43)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 2012) in paragraph at lines 446--448
-[] \OT1/cmr/m/n/10 = \OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 ![]\OMS/cmsy/m/n/10 i$\T1/cmr/m/it/10 , où $\OML/cmm/m/it/10 ![] \OT1/cmr/m/n/10 := \OML/cmm/m/it/10 e[]$\T1/cmr/m/it/10 . En
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 447--448
+\T1/cmr/m/it/10 On a alors $\OML/cmm/m/it/10 ^^[ \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; ^^[\OT1/cmr/m/n/10 (1)\OML/cmm/m/it/10 ; [] ; ^^[[]\OT1/cmr/m/n/10 (1)) \OMS/cmsy/m/n/10 ^^N
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 489--490
-[]\T1/cmr/bx/n/10 Application 25 \T1/cmr/m/n/10 ([Rb] 132)\T1/cmr/bx/n/10 . []$[] \OT1/cmr/m/n/10 =
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
+[]\T1/cmr/bx/n/10 Proposition 17 \T1/cmr/m/n/10 ([R] 44)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
  []
 
 
@@ -638,57 +638,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 489--490
 [3
 
 ]
-
-
-Overfull \hbox (9.29646pt too wide) detected at line 654
-[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Z[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P\OT1/cmr/m/n/10 )) = []
- []
-
-
-
-[4]
-
-Package tcolorbox Warning: Using nobreak failed. Try to enlarge `lines before break' or set page breaks manually on input line 662.
-
-
-
-
-
-[5
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 754--755
-[]\T1/cmr/bx/n/10 Proposition 11 \T1/cmr/m/n/10 ([U] 43)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
- []
-
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 778--779
-\T1/cmr/m/it/10 On a alors $\OML/cmm/m/it/10 ^^[ \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; ^^[\OT1/cmr/m/n/10 (1)\OML/cmm/m/it/10 ; [] ; ^^[[]\OT1/cmr/m/n/10 (1)) \OMS/cmsy/m/n/10 ^^N
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 789--790
-[]\T1/cmr/bx/n/10 Proposition 17 \T1/cmr/m/n/10 ([R] 44)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
- []
-
-
-
-[6
-
-]
-Underfull \hbox (badness 1496) in paragraph at lines 901--903
+Underfull \hbox (badness 1496) in paragraph at lines 570--572
 []\T1/cmr/bx/n/10 Définition 39 \T1/cmr/m/n/10 ([R] 55)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Un \T1/cmr/m/n/10 po-ly-nôme sy-mé-trique \T1/cmr/m/it/10 est
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 901--903
+Underfull \hbox (badness 1527) in paragraph at lines 570--572
 \T1/cmr/m/it/10 un po-ly-nôme $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 K\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10 ]$ \T1/cmr/m/it/10 tel que $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 ^^[ \OMS/cmsy/m/n/10 2 \U/euf/m/n/10 S[]$\T1/cmr/m/it/10 ,
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 941--943
+Underfull \hbox (badness 3623) in paragraph at lines 610--612
 \T1/cmr/m/it/10 de $[][] \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 , où pour $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 , $\OML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 ^ [] ^
  []
 
@@ -697,48 +657,134 @@ Underfull \hbox (badness 3623) in paragraph at lines 941--943
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 946.
+(amsmath)                 on input line 615.
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 950--952
+Underfull \hbox (badness 1728) in paragraph at lines 619--621
 \T1/cmr/m/it/10 l'unique forme $\OML/cmm/m/it/10 n$\T1/cmr/m/it/10 -linéaire al-ter-née $[][]$ sur $\OML/cmm/m/it/10 E$ \T1/cmr/m/it/10 vé-ri-fiant
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 955--956
+Underfull \hbox (badness 10000) in paragraph at lines 624--625
 []\T1/cmr/bx/n/10 Proposition 48 \T1/cmr/m/n/10 ([R] 547)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 ,
  []
 
 File: img/101.pdf Graphic file (type pdf)
 <use img/101.pdf>
-Package pdftex.def Info: img/101.pdf  used on input line 1030.
+Package pdftex.def Info: img/101.pdf  used on input line 699.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
+[4]
+
+
+
+[5
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 765--766
+[]\T1/cmr/m/it/10 Matrice de \T1/cmr/m/n/10 di-la-ta-tion $\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 1137) in paragraph at lines 765--766
+[]\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 ($\OML/cmm/m/it/10 $ \T1/cmr/m/it/10 est à la $\OML/cmm/m/it/10 i$\T1/cmr/m/it/10 -
+ []
+
+
+
+
+Underfull \hbox (badness 3417) in paragraph at lines 832--833
+[]$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 SO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 SO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 ) =
+ []
+
+
+
+[6
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 833--834
+[]\T1/cmr/m/it/10 On note éga-le-ment $\OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 833--834
+[]$ \T1/cmr/m/it/10 et
+ []
+
+
+
+
+
 [7]
+Overfull \hbox (15.60179pt too wide) detected at line 1037
+[][]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OML/cmm/m/it/10 =n\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 =m\U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) [] []
+ []
+
+
+
+
+Underfull \hbox (badness 4429) in paragraph at lines 1073--1076
+[]\T1/cmr/bx/n/10 Théorème 19 \T1/cmr/m/n/10 (des restes chi-nois - [R] 285)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit
+ []
 
 
 
 [8
 
-] (/Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.aux)
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1189
+[]\T1/cmr/bx/n/10 Remarque 33 \T1/cmr/m/n/10 ([R] 291)\T1/cmr/bx/n/10 . []$\OML/cmm/m/it/10 S [] \OT1/cmr/m/n/10 =
+ []
+
+
+
+
+
+[9]
+
+
+Overfull \hbox (25.8171pt too wide) detected at line 1410
+[]
+ []
+
+
+
+[10
+
+]
+
+<img/eratosthene.pdf, id=71, 2075.755pt x 2934.965pt>
+File: img/eratosthene.pdf Graphic file (type pdf)
+<use img/eratosthene.pdf>
+Package pdftex.def Info: img/eratosthene.pdf  used on input line 1542.
+(pdftex.def)             Requested size: 265.3012pt x 375.10997pt.
+
+
+[11]
+
+
+
+[12
+
+ </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/eratosthene.pdf>] (/Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19894 strings out of 473190
- 399193 string characters out of 5715801
- 828079 words of memory out of 5000000
- 42816 multiletter control sequences out of 15000+600000
- 575271 words of font info for 84 fonts, out of 8000000 for 9000
+ 19963 strings out of 473190
+ 400202 string characters out of 5715801
+ 800482 words of memory out of 5000000
+ 42883 multiletter control sequences out of 15000+600000
+ 577930 words of font info for 93 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,101p,532b,674s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on /Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.pdf (8 pages, 515166 bytes).
+ 98i,20n,101p,532b,656s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
+Output written on /Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.pdf (12 pages, 1028196 bytes).
 PDF statistics:
- 162 PDF objects out of 1000 (max. 8388607)
+ 191 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 30 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
