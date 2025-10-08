@@ -14,6 +14,8 @@
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{aliascnt}
+\usepackage{quiver}
+\usepackage{algpseudocode}
 \usepackage{tcolorbox} % The main package for creating the colored box
 \tcbuselibrary{breakable}
 
@@ -21,6 +23,7 @@
 \definecolor{mygreen}{rgb}{0.2, 0.7, 0.2}
 \definecolor{myblue}{rgb}{0.0, 0.2, 0.7}
 \definecolor{myred}{rgb}{0.7, 0.2, 0.2}
+\definecolor{paragraphtext}{rgb}{0.4, 0.3, 0.9}
 \definecolor{developpement}{RGB}{255, 255, 224}
 
 % Apply the color to the subsection title
@@ -39,12 +42,15 @@
   
 \newtheorem{definition}{Définition}
 \newtheorem{theorem}[definition]{Théorème}
-\newtheorem{theorem_def}[definition]{Théorème et définition}
+\newtheorem{theorem_def}[definition]{Théorème/Définition}
 \newtheorem{proposition}[definition]{Proposition}
+\newtheorem{proposition_def}[definition]{Proposition/Définition}
 \newtheorem{properties}[definition]{Propriétés}
 \newtheorem{property}[definition]{Propriété}
 \newtheorem{lemma}[definition]{Lemme}
+\newtheorem{lemma_def}[definition]{Lemme/Définition}
 \newtheorem{corollary}[definition]{Corollaire}
+\newtheorem{corollary_def}[definition]{Corollaire/Définition}
 \newtheorem{example}[definition]{Exemple}
 \newtheorem{cexample}[definition]{Contre-exemple}
 \newtheorem{remark}[definition]{Remarque}
@@ -81,6 +87,8 @@
 % \DeclareMathOperator{\Im}{Im}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\rang}{rang}
 \DeclareMathOperator{\card}{Card}
 \DeclareMathOperator{\Is}{Is}
 \DeclareMathOperator{\Orb}{Orb}
@@ -93,12 +101,13 @@
 \DeclareMathOperator{\Mat}{Mat}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\diag}{diag}
-\DeclareMathOperator{\rg}{rg}
 \DeclareMathOperator{\car}{car}
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Div}{Div}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Vect}{Vect}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\LARGE}
@@ -1541,5 +1550,1444 @@ entier $m$, en tout sécurité.
 	\centering
 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/eratosthene.pdf}
 	\caption{Crible d'Eratosthène}
+\end{figure}
+
+
+
+\chapter*{123 : Corps finis. Applications.}
+\setcounter{definition}{0}
+\section*{I. Des corps finis}
+\subsection*{A. Prérequis sur les extensions de corps}
+
+\textcolor{paragraphtext}{Soit $L/M/K$ une tour d'extensions de corps (commutatifs).}
+
+\begin{proposition_def}[\textnormal{[P] 65}]
+	$L$ est un $K$-espace vectoriel, sa dimension est appelée \emph{degré de $L/K$}, et est notée $\left[L:K\right]$.
+\end{proposition_def}
+
+\begin{theorem}[de la base téléscopique - \textnormal{[P] 65}]
+	Soient $\left(e_i\right)_{i\in I}$ une base $K$-base de $M$ et $\left(f_j\right)_{j\in K}$ une $M$-base de $L$,
+	alors $\left(e_if_j\right)_{(i,j)\in I\times J}$ est une $K$-base de $L$.
+	En particulier, $[L:K] = [L:M]\times [M:K]$ (dans $\IN\cup \left\{+\infty\right\})$.
+\end{theorem}
+
+\begin{definition}[\textnormal{[P] 70}]
+	Soit $P\in K[X]$ non constant.
+	Supposons $P$ irréductible sur $K$. On dit que $L$ est un \emph{corps de rupture} (CDR) de $P$ sur $K$ s'il existe $\alpha\in L$ tel que $P(\alpha) = 0$ et $L=K(\alpha)$.
+	
+	On dit que $L$ est un \emph{corps de décomposition} (CDD) de $P$ sur $K$ s'il existe $(\alpha_1,\dots,\alpha_n)\in L^n$ tel que $L = K(\alpha_1,\dots,\alpha_n)$ et $P$ est scindé sur $L$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[P] 70-71}]
+	$P$ admet un unique corps de rupture à $K$-isomorphisme près.
+	Plus précisément, $K[X]/\langle P \rangle$ est un corps de rupture de $P$ sur $K$.
+
+	$P$ admet un unique corps de décomposition $D$ à $K$-isomorphisme près. Celui-ci vérifie $[D:K]\leq \deg(P)!$.
+\end{theorem}
+
+\subsection*{B. Construction des corps finis : existence et unicité}
+
+\textcolor{paragraphtext}{Dans ce paragraphe $K$ désigne un corps fini commutatif.}
+
+\begin{example}
+	Soit $p$ un nombre premier. L'anneau $(\IZpZ, +,\times )$ est un corps fini commutatif. On le note $\IF_p$.
+\end{example}
+
+\begin{theorem_def}[\textnormal{[P] 72}]
+	Il existe un nombre premier $p$ rendant le diagramme suivant commutatif :
+		$$\begin{tikzcd}
+			{\mathbb{Z}} && K \\
+			& {\mathbb{Z}/p\mathbb{Z}}
+			\arrow["{n\mapsto n\cdot 1_K}", from=1-1, to=1-3]
+			\arrow[two heads, from=1-1, to=2-2]
+			\arrow[hook, from=2-2, to=1-3]
+		\end{tikzcd}$$
+	L'entier $p$ est appelé \emph{caractéristique} de $K$ notée $\car K$ et $\IF_p$ est appelé \emph{sous-corps premier de $K$}.
+	C'est le plus petit sous-corps de $K$.
+\end{theorem_def}
+
+\textcolor{paragraphtext}{On notera $p$ la caractéristique de $K$.}
+
+\begin{corollary}[\textnormal{[P] 72}]
+	$\#K = p^{\left[K\,\colon \IF_p\right]}$
+\end{corollary}
+\begin{remark}
+	Il n'existe pas de corps fini commutatif à $6$ éléments !
+\end{remark}
+
+\begin{lemma_def}[\textnormal{[P] 73}]
+	$\textnormal{Fr}\,\colon K\to K$, $x\mapsto x^p$ est un morphisme de corps, appelé \emph{morphisme de Fröbenius}.
+\end{lemma_def}
+
+\begin{theorem}[\textnormal{[P] 73}]
+	Soient $r\in \IN^*$, $p$ premier et $q=p^r$. Il existe un corps fini commutatif à $q$ éléments.
+	Un tel corps est un CDD de $X^q - X$. En particulier, les classes d'isomorphisme de corps finis commutatifs sont caractérisées par le cardinal de ces derniers.
+	On note $\IF_q$ un représentant de la classe d'isomorphisme des corps finis commutatifs à $q$ éléments.
+\end{theorem}
+
+\begin{theorem}[de Wedderburn - \textnormal{[P] 82}]
+	Tout corps fini est commutatif.
+\end{theorem}
+
+\begin{example}
+	$\IF_4 = \IF_2[X] / \langle X^2+X+1\rangle = \left\{0, 1, \overline{X}, 1 + \overline{X}\right\}$.
+
+	$\IF_9 = \IF_3[X] / \langle X^3 + X^2 + X +1\rangle$.
+\end{example}
+
+\subsection*{C. Proprriétés des corps finis}
+
+\textcolor{paragraphtext}{Soient $p$ un nombre premier, $r\in \IN^*$ et $q=p^r$.}
+
+\begin{proposition}[\textcolor{myred}{FIG. 1}]
+	$\forall (m,n)\in\left(\IN^*\right)^2$, $\IF_{p^n}\subseteq \IF^{p^m} \iff n\mid m$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[P] e73}]
+	\begin{itemize}
+		\item $\overline{\IF_p} = \bigcup_{n\in\IN^*}\IF_{p^n}$ est une clôture algébrique de $\IF_p$.
+		\item Si $K$ est une extension de $\IF_q$, alors $\IF_q=\left\{x\in K \mid x^q = x\right\}$. En particulier, $\IF_q$ est l'unique sous-corps de $\overline{\IF_p}$ de cardinal $q$.
+	\end{itemize}
+\end{proposition}
+
+\begin{theorem}[\textnormal{[P] 74}]
+	$\IF_q^{\times}$ est cyclique.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[P] 73}]
+	$\textnormal{Fr}$ est un automorphisme de $\IF_q$.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[R] 425}]
+	Le groupe des automorphismes de $\IF_q$ est cyclique d'ordre $r$, engendré par $\textnormal{Fr}$.
+\end{theorem}
+
+\begin{remark}
+	Pour tout $\theta\in\IF_q$, il existe $d\in\IN^*$ tel que $\textnormal{Fr}^d(\theta) = \theta^{dp} = \theta$.
+	Le polynôme minimal de $\theta$ sur $\IF_p$ est $\prod_{k=1}^{d}\left(X-\textnormal{Fr}^k(\theta)\right)$.
+\end{remark}
+
+\begin{example}
+	Soit $\beta = \overline{X}^2 + \overline{X} \in \IF_2[X]/\langle X^4 + X + 1\rangle$. On a $P_{\beta, \IF_2} = X^2 + X + 1$.
+\end{example}
+
+\section*{II. Carrés dans un corps fini}
+
+\textcolor{paragraphtext}{
+	Soient $p$ un nombre premier \emph{impair}, 
+	$r\in\IN^*$ et $q = p^r$. 
+	On pose $c\,\colon\IF_q\to\IF_q$, $x\mapsto x^2$ 
+	et $l\,\colon \IF_q\to\IF_q$, $x\mapsto x^{\frac{q-1}{2}}$.}
+
+\begin{proposition}
+	$\im l = \Ker c = \left\{\pm 1\right\}$ et $\Ker l = \im c = \left\{x^2\mid x\in \IF_q^{\times}\right\}$.
+\end{proposition}
+
+\begin{corollary}[Critère d'Euler - \textnormal{[P] 75}]
+	$x\in\IF_q^{\times}$ est un carré si, et seulement si $x^{\frac{q+1}{2}}=1$.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[P] 74}]
+	Il y a $\frac{q-1}{2}$ carrés inversibles dans $\IF_q$ (et $\frac{q+1}{2}$ carrés).
+\end{corollary}
+
+\begin{proposition}[\textnormal{[P] 74}]
+	Tous les éléments de $\IF_{2^r}$ sont des carrés.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[P] 75}]
+	$-1$ est un carré dans $\IF_p$ si, et seulement si, $p\equiv 1\,[4]$.
+\end{proposition}
+
+\begin{application}[\textnormal{[P] 56}]
+$p$ est la somme de deux carrés si, et seulement si, $p=2$ ou $p\equiv 1\,[4]$.
+\end{application}
+
+\begin{definition}[\textnormal{[R] 428}]
+	Le \emph{symbole de Legendre de $a\in\IZ$ modulo $p$} est défini par :
+	\begin{align*}
+		\left(\frac{a}{b}\right) = \begin{cases}
+			0\quad \text{si } a\in p\IZ \\
+			1\quad \text{si $a$ est un carré inversible modulo $p$} \\
+			-1\quad \text{sinon}
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 428}]
+	$\forall a\in\IZ$, $\left(\frac{a}{p}\right)\equiv a^{\frac{p-1}{2}}$.
+	En particulier, $\left(\frac{\cdot}{p}\right)$ est un morphisme du groupe $\IF_p^{\times}$.
+\end{proposition}
+
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{proposition}[\textnormal{[R] 431-434}]
+	\label{123dev11}
+	Soit $a\in\IF_p^{\times}$. L'équation de $ax^2 = 1$ a $1+\left(\frac{a}{p}\right)$ solutions dans $\IF^p$.
+\end{proposition}
+\begin{theorem}[Loi de réciprocité quadratique - \textnormal{[R] 431-434}]
+	\label{123dev12}
+	Soient $p$ et $q$ deux nombres premiers impairs distincts.
+
+	\begin{align*}
+		\left(\frac{p}{q}\right)\left(\frac{q}{p}\right) = \left(-1\right)^{\frac{p-1}{2}\frac{q-1}{2}}
+	\end{align*}
+\end{theorem}
+\end{tcolorbox}
+
+\begin{application}
+	$\left(\frac{11}{23}\right) = \left(\frac{23}{11}\right)\left(-1\right)^{11\cdot 5} = -\left(\frac{1}{11}\right) = -1$ donc $11$ n'est pas un carré modulo $23$.
+\end{application}
+
+\begin{proposition}[\textnormal{[R] e438, [C] 307}]
+	$\left(\frac{2}{p}\right) = \left(-1\right)^{\frac{p^2 - 1}{8}}$
+\end{proposition}
+
+\begin{proposition}
+	Soit $(a,b,c)\in\IF_q^3$ avec $a \neq 0$. L'équation $ax^2 + bx + C = 0$ dans $\IF_q$ 
+	possède des solutions si, et seulement si, $b^2-4ac$ est un carré dans $\IF_q$. Le cas échéant, si $\delta\in/IF_p$ vérifie $\delta^2 = b^2-4ac$, alors 
+	les solutions de cette équation sont $\frac{-b\pm \delta}{2a}$.
+\end{proposition}
+
+\begin{remark}
+	Dans $\IF_{2r}$, l'équation $ax^2+bx+c=0$ est bien plus difficile à résoudre, en dehors des cas triviaux !
+\end{remark}
+
+\section*{III. Algèbre (bi)linéaire sur les corps finis}
+
+\textcolor{paragraphtext}{Soient $p$ un nombre premier impair, $r\in\IN^*$, $q = p^r$ et $n\in\IN$.}
+
+\begin{proposition}[\textnormal{[R] 155}]
+	\begin{itemize}
+		\item $\# GL_n(\IF_q) = (q^n-1)(q_n - q)\dots (q^n-q^{n-1}) = q^{\frac{n(n-1)}{2}}\prod_{k=1}^{n}(q^k-1)$
+		\item $\# SL_n(\IF_q) = \#GL_n(\IF_q)/(q-1)$
+	\end{itemize}
+\end{proposition}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[C] 50}]
+	\label{123dev2}
+	\begin{align*}
+		SO_2(\IF_q)\cong \begin{cases}
+			\IZ/(q-1)\IZ\quad\text{si $-1$ est un carré mod $q$} \\
+			\IZ/(q+1)\IZ\quad\text{sinon}
+		\end{cases}
+	\end{align*}
+\end{theorem}
+\end{tcolorbox}
+
+\begin{remark}
+	$SO_2(\IF_{2^r}) = \begin{pmatrix}
+		0 & 1 \\
+		1 & 0
+	\end{pmatrix} + \IF_{2^r}\begin{pmatrix}
+		1 & 1 \\ 1 & 1
+	\end{pmatrix}$, puis $SO_2(\IF_{2^r})\cong \left(\IZ/2\IZ\right)^r$.
+\end{remark}
+
+\textcolor{paragraphtext}{Soit $E$ un $\IF_q$-espace vectoriel de dimension finie.}
+
+\begin{definition}[\textnormal{[R] 463}]
+	Le \emph{discriminant} d'une forme quadratique $f$ sur $E$ est l'image de son déterminant dans une base quelconque modulo les carrés de $\IF_q^{\times}$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[R] e482}]
+	Il y a deux classes d'équivalence de formes quadratiques non-dégénérées sur $E$.
+	Plus précisément, soient $\alpha\in\IF_q^{\times}$ qui n'est pas un carré, et $f$ une forme 
+	quadratique sur, de matrice $M$ dans la base canonique.
+
+	\begin{itemize}
+		\item Si $\det M$ est un carré dans $\IF_p^{\times}$, alors $M$ est congruente à la matrice $\diag(1,1,\dots, 1,1)$.
+		\item Sinon, $M$ est congruente à $\diag(1,1,\dots, 1, \alpha)$.
+	\end{itemize}
+\end{theorem}
+
+\begin{application}
+	Loi de réciprocité quadratique (Thm \ref{123dev12}).
+\end{application}
+
+\section*{IV. Polynômes et corps finis}
+
+\begin{theorem}[Critère d'Eisenstein - \textnormal{[P] 76}]
+	Soit $P = \sum_{k=0}^{n} a_kX^k\in\IZ[X]$.
+	Soit $p$ un nombre premier. Si $p\nmid a_n$, si $\forall k\in \llbracket 0, n-1\rrbracket$, $p\mid a_k$ et $p^2\nmid a_0$, alors $P$ est irréductible dans $\IQ[X]$.
+\end{theorem}
+
+\begin{example}
+	Pour tout $p$ premier, $\Phi_p = X^{p+1} + \dots + X + 1$ est irréductible sur $\IQ$.
+\end{example}
+
+\begin{theorem}[\textnormal{[P] 77}]
+	Soit $P = \sum_{k=0}^{n} a_kX^k\in\IZ[X]$, $n\geq 1$, $a_n\neq 0$.
+	Soit $p\in\IZ$ premier. Si $p\nmid a_n$ et si l'image $\overline{P}$ de $P$ 
+	dans $\IF_p[X]$ est irréductible, alors $P$ est irréductible sur $\IZ$.
+\end{theorem}
+
+\begin{remark}
+	La réciproque est fausse : considérer $X^4 + 1$.
+\end{remark}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Proposition \ref{123dev11}, et théorème \ref{123dev12} : loi de réciprocité quadratique (par les formes quadratiques)
+	\item Développement 2 : Théorème \ref{123dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[C] \emph{Nouvelles histoires hédonistes de groupes et géométries}, P. Caldero, J. Germoni
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/diagramme_extensions_corps_finis.pdf}
+	\caption{Diagramme des extensions de corps finis}
+\end{figure}
+
+
+\chapter*{141 : Polynômes irréductibles à une indéterminée. Corps de rupture. Exemples et applications.}
+\setcounter{definition}{0}
+\textcolor{paragraphtext}{Soient $A$ un anneau unitaire intègre commutatif, et $L/K$ une extension de corps commutatif. Soit $P\in A[X]$.}
+
+\section*{I. Polynômes irréductibles}
+\subsection*{A. Notion d'irréductibilité pour les polynômes}
+
+\begin{definition}[\textnormal{[R] 370}]
+		On dit que $P$ est \emph{irréductible sur $A$} si $P\notin A[X]^{\times} = A^{\times}$, si $P\neq 0$ et si :
+		$\forall(P_1,P_2)\in A[X]^2$, $P = P_1P_2 \implies P_1\in A^{\times}$ ou $P_2\in A^{\times}$.
+\end{definition}
+
+\begin{example}[\textnormal{[R] 370}]
+	Tout polynôme de degré $1$ est irréductible ; et les polynômes réels de degré $2$ de discriminant $< 0$ sont irréductibles.
+\end{example}
+
+\begin{proposition}[\textnormal{[R] 371}]
+	\begin{itemize}
+		\item Si $P\in K[X]$ est irréductible et si $\deg P > 1$ , alors $P$ n'a pas de racine dans $K$.
+		\item Si $P\in K[X]$ n'a pas de racine dans $K$ et si $\deg P \leq 3$, alors $P$ est irréductible sur $K$.
+	\end{itemize}
+\end{proposition}
+
+\begin{example}
+	\begin{itemize}
+		\item $(x^2+1)^2$ est réductible sur $\IR$ et sans racine dans $\IR$.
+		\item Les polynômes irréductibles de petit degré de $\IF_2[X]$ sont $X$, $X+1$, $X^2+X+1$.
+	\end{itemize}
+\end{example}
+
+\subsection*{B. Proprétés de $A[X]$}
+\begin{proposition}[\textnormal{[R] 374}]
+	$A[X]$ euclidien $\iff A[X]$ principal $\iff A$ est un corps.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] e375}]
+	Si $P\in K[X]$ est irréductible, alors $K[X]/\langle P\rangle$ est un corps.
+\end{proposition}
+
+\textcolor{paragraphtext}{On suppose $A$ factoriel.}
+
+\begin{definition}[\textnormal{[S] 547-548; [P] 51}]
+	Le \emph{contenu de $P\in A[X]\setminus \left\{0\right\}$}, noté $c(P)$, est un PGCD des coefficients de $P$.
+	On dit que $P$ est \emph{primitif} si $c(P)\in A^{\times}$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[P] 51; [S] 548}]
+	Soit $P\in A[X]$ primitif non constant. $P$ est irréductible dans $A[X] \iff A$ est irréductible dans $K[X]$.
+\end{theorem}
+
+\begin{example}
+	Soient $a_1,\dots,a_n$ des entiers distincts. Le polynôme $(X-a_1)\dots (X-a_n) - 1$ est irréductible sur $\IQ$.
+\end{example}
+
+\begin{lemma}
+	Un produit de polynômes primitifs est primitif.
+\end{lemma}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{lemma}[de Gauss - \textnormal{[S] 548; [P] 51}]
+\label{141dev1a}
+	$c(PQ) = c(P)c(Q)$
+\end{lemma}
+\end{tcolorbox}
+
+\begin{theorem}[\textnormal{[R] 358; [S] 548; [P] 51}]
+	$A[X]$ est factoriel $\iff A$ est factoriel.
+\end{theorem}
+
+\subsection*{C. Critères d'irréductibilité}
+
+\begin{theorem}[Critère d'Eisenstein - \textnormal{[S] 549; [P] 76}]
+	Ecrivons $P=\sum_{k=0}^{n} a_kX^k$, $a_n \neq 0$.
+	S'il existe $p\in A$ premier non nul tel que $\forall k\in \llbracket 1,n-1\rrbracket$, $p\mid a_k$, $p^2 \nmid a_0$ et $p\nmid a_n$, alors $P$ est irrductible dans $\Frac(A)[X]$.
+\end{theorem}
+
+\begin{example}
+	$\forall n\geq 2$, $\forall d\in\IN^*$ sans facteur carré, $X^n - d$ est irréductible dans $\IZ[X]$.
+\end{example}
+
+\begin{theorem}[\textnormal{[P] 77}]
+	Soit $I$ un idéal de $A$. Ecrivons $P = \sum_{k=0}^{n} a_kX_k$, $a_n\neq 0$.
+	Si $a_n \not\equiv 0$ mod $I$ et si $P$ mod $I$ est irréductible dans $\left(A/I\right)[X]$ alors
+	$P$ est irréductible dans $A[X]$.
+\end{theorem}
+
+\begin{example}[\textnormal{[P] 77}]
+	Pour tout $p$ premier, $X^p-X-1$ est irréductible sur $\IQ$.
+\end{example}
+
+\section*{II. Polynômes et extensions de corps}
+\textcolor{paragraphtext}{Soient $L$ et $K$ deux corps commutatifs. Soit $P\in K[X]$.}
+
+\subsection*{A. Extensions de corps, éléments algébriques}
+\begin{definition}[\textnormal{[P] 65}]
+	On dit que $L$ est \emph{une extension de $K$}, et on note $L/K$, si $K\subseteq L$.
+\end{definition}
+
+\begin{proposition_def}[\textnormal{[P] 65}]
+	$L$ est un $K$-espace vectoriel dont on note $[L:K]$ la dimension, que l'on appelle \emph{degré de l'extension $L/K$}.
+	On dit que $L/K$ est finie si $[L:K]$ est fini.
+\end{proposition_def}
+
+\begin{theorem}[de la base téléscopique - \textnormal{[P] 65}]
+	Soient $\left(e_i\right)_{i\in I}$ une base $K$-base de $M$ et $\left(f_j\right)_{j\in K}$ une $M$-base de $L$,
+	alors $\left(e_if_j\right)_{(i,j)\in I\times J}$ est une $K$-base de $L$.
+\end{theorem}
+
+\begin{corollary}[Multiplicativité des degrés - \textnormal{[P] 65}]
+	$[L:K] = [L:M]\times [M:K]$
+\end{corollary}
+
+\begin{definition}[\textnormal{[P] 66}]
+	On dit que $\alpha\in L$ est \emph{algébrique sur $K$} s'il existe $P\in K[X]$ tel que $P(\alpha)=0$.
+	Sinon, on dit que $\alpha$ est \emph{transcendant}.
+\end{definition}
+
+\begin{theorem_def}[\textnormal{[P] 66}]
+	Si $\alpha\in L$ est algébrique sur $K$, alors $\left\{P\in K[X]\mid P(\alpha) = 0\right\}$
+	est un idéal non nul, qui donc admet un unique générateur unitaire $P_{\alpha, K}$ appelé \emph{polynôme minimal de $\alpha$ sur $K$}.
+\end{theorem_def}
+
+\begin{notation*}
+	$K[\alpha] = \left\{P(\alpha)\mid P\in K[X]\right\}$
+\end{notation*}
+
+\begin{theorem}[\textnormal{[P] 66}]
+	Soit $\alpha\in L$. Sont équivalentes :
+	\begin{enumerate}
+		\item $\alpha$ est algébrique sur $K$
+		\item $K[\alpha] = K(\alpha)$
+		\item $K[\alpha]$ est un $K$-espace vectoriel de dimension finie.
+	\end{enumerate}
+
+	Le cas échéant, $\deg P_{\alpha, L} = [K(\alpha) : K]$.
+\end{theorem}
+
+\subsection*{B. Corps de rupture et de décomposition}
+
+\begin{definition}[\textnormal{[P] 70}]
+	Supposons $P$ irréductible. On dit que $L$ est un \emph{corps de rupture de $P$ sur $K$} s'il existe $\alpha\in L$ tel que $P(\alpha) = 0$ et $L=K(\alpha)$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[P] 70}]
+	Supposons $P$ irréductible. Le corps $K[X]/\langle P\rangle$ est un corps de rupture de $P$ sur $K$, et c'est le seul à isomorphisme près.
+\end{theorem}
+
+\begin{example}
+	$\IC$ peut être défini comme $\IR[X]/\langle X^2 + 1 \rangle$.
+\end{example}
+
+\begin{application}
+	Si $P$ est irréductible et si $\deg P \wedge [L:K]$, alors $P$ est irréductible sur $L$.
+\end{application}
+
+\begin{definition}[\textnormal{[P] 71}]
+	On dit que $L$ est un \emph{corps de décomposition de $P$ sur $K$} si $P$ est sciendé sur $L$ et si $L = K(\alpha_1,\dots,\alpha_n)$ avec $\alpha_1,\dots,\alpha_n$ les racines de $P$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[P] 71}]
+	Il existe un corps de décomposition de $P$ sur $K$, unique à isomorphisme près.
+\end{theorem}
+
+\begin{example}[\textnormal{[P] 72}]
+	$\IQ(j,\sqrt[3]{}2)$ est un corps de décomposition de $X^3 - 2$ sur $\IQ$.
+\end{example}
+
+\begin{theorem}[de l'élément primitif - \textnormal{[P] 87}]
+	Toute extension finie d'un corps de caractéristique nulle est monogène.
+\end{theorem}
+
+\subsection*{C. Clôture algébrique}
+\begin{definition}[\textnormal{[P] 67}]
+	On dit que $K$ est \emph{algébriquement clos} si tout polynôme non nul de $K[X]$ est scindé, et si $K$ n'admet pas d'extension algébrique non triviale.
+\end{definition}
+
+\begin{definition}[\textnormal{[P] 72}]
+	On dit que $L$ est une \emph{clôture algébrique} de $K$ si c'est une extension de $K$ algébrique et algébriquement close.
+\end{definition}
+
+\begin{example}[\textnormal{[P] 68-72}]
+	\begin{itemize}
+		\item $\IC$ est algébriquement clos (théorème de d'Alembert-Gauss) ;
+		\item $\IC$ est une clôture algébrique de $\IR$.
+	\end{itemize}
+\end{example}
+
+\begin{example}[\textnormal{[G] 94}]
+	Si $L$ est algébriquement clos, alors l'ensemble des éléments de $L$ algébriques sur $K$ est un corps algébriquement clos.
+\end{example}
+
+\begin{theorem}
+	$K$ admet une unique clôture algébrique à isomorphisme près.
+\end{theorem}
+
+\section*{III. Polynôme cyclotomiques}
+\textcolor{paragraphtext}{On note $\IU := \left\{z\in \IC\mid z^n = 1\right\}$ le groupe des racines complexes $n$-ièmes de l'unité,
+et $\mu_n^*$ l'ensemble de ses générateurs (que l'on appelle \emph{racines primitives $n$-ièmes de l'unité}).}
+
+\begin{definition}[\textnormal{[P] 80; [R] 385}]
+	Pour $n\in\IN^*$, on définit le \emph{$n$-ième polynôme cyclotomique} :
+	$$\Phi_n = \prod_{\zeta\in \mu_n^*} X-\zeta$$
+\end{definition}
+
+\begin{proposition}[\textnormal{[P] 80-83; [R] 386}]
+	On a les propriétés suivantes :
+	\begin{itemize}
+		\item Pour $\zeta_n\in\mu_n^*$, $$\Phi_n = \prod_{\substack{k=1 \\ k\wedge n = 1}}^{n} X - \zeta_n^k$$
+		\item $X^n - 1 = \prod_{d\mid n} \Phi_d$
+		\item $\Phi_n\in\IZ[X]$
+	\end{itemize}
+\end{proposition}
+
+\begin{example}[\textnormal{[P] 81}]
+		\begin{itemize}
+			\item Pour $p$ premier, $\Phi_p = X^{p-1}+\dots X + 1$
+			\item $\Phi_1 = X - 1$, $\Phi_4 = X^2 + 1$, $\Phi_6 =X^2 - X + 1$, $\Phi_8 = X^4 + 1$
+		\end{itemize}
+\end{example}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[P] 82-83; [R] 392}]
+	\label{141dev1b1}
+	Soit $\zeta_n\in\mu_n^*$. Le polynôme minimal de $\zeta_n$ sur $\IQ$ est $\Phi_n$.
+\end{theorem}
+
+\begin{corollary}
+	\label{141dev1b2}
+	$\Phi_n$ est irréductible sur $\IQ$ et $[\IQ(\zeta) : \IQ] = \varphi(n)$.
+\end{corollary}
+\end{tcolorbox}
+
+\section*{IV. Polynômes irréductibles des corps finis}
+
+\begin{definition}[\textnormal{[R] 331}]
+	La \emph{fonction de Moëbius} est définie par :
+	\begin{align*}
+		\mu\,\colon n\in\IN^* \mapsto \begin{cases}
+			1\quad \text{si } n =1 \\
+			(-1)^r\quad \text{si n est le produit de $r$ facteurs premiers distincts} \\
+			0\quad\text{sinon}
+		\end{cases}
+	\end{align*}
+\end{definition}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[Formule d'inversion de Moëbius = \textnormal{[R] 333}]
+	\label{141dev21}
+	Soient $\left(u_n\right)_{n\in\IN^*}\in\IR^{\IN^*}$ et $\left(v_n\right)_{n\in\IN^*}\in\IR^{\IN^*}$.
+	Si $\forall n\in\IN^*$, $u_n = \sum_{d\mid n} v_d$, alors $\forall n\in\IN^*$, $v_n = \sum_{d\mid n}\mu(\frac{n}{d})u_d$.
+\end{theorem}
+\begin{theorem}[\textnormal{[R] 423}]
+	\label{141dev22}
+	$P_n := X^{p^n}-X =\prod_{d\mid n}\prod_{\mathcal{U}_d(p)} P$ où $\mathcal{U}_d(p)$ est l'ensemble des 
+	polynômes irréductibles unitaires de degré $d$ de $\IF_p[X]$.
+\end{theorem}
+\begin{corollary}[\textnormal{[R] 424}]
+	\label{141dev23}
+	$\#\mathcal{U}_n(p) = \frac{1}{n}\sum_{d\mid n}\mu(\frac{n}{d})p^d$
+\end{corollary}
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Lemme de Gauss \ref{141dev1a}
+	\item Développement 2 : Théorème \ref{141dev1b1} et Corollaire \ref{141dev1b2}
+	\item Développement 2 : Théorème \ref{141dev21}, Théorème \ref{141dev22} et Corollaire \ref{141dev23}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[G] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
+	\item[S] \emph{Algèbre pour la licence 3}, Szpirglas
+\end{itemize}
+
+\chapter*{142 : PGCD et PPCM, algorithmes de calcul. Applications.}
+\setcounter{definition}{0}
+\section*{I. Notion de PGCD et de PPCM dans différents types d'anneaux}
+\textcolor{paragraphtext}{Dans cette section, $A$ est un anneau intègre (commutatif) et $(a,b,a_1,\dots,a_r)\in A^{r+2}$.}
+
+\subsection*{A. Première définition, existence, cas des anneaux factoriels}
+
+\begin{definition}
+	Si $a_1,\dots,a_r \neq 0$, alors sous réserve d'existence, on appelle \emph{PGCD} (resp. \emph{PPCM})
+	de $a_1,\dots, a_r$, noté $a_1\wedge \dots\wedge a_R$ ou $\pgcd(a_1,\dots,a_r)$ (resp. $a_1\vee\dots\vee a_r$ ou $\ppcm(a_1,\dots,a_r)$)
+	un plus grand minorant (resp. un plus grand majorant) de $\left\{a_1,\dots, a_r\right\}$ pour la relation (binaire) de divisibilité.
+	On pose par ailleurs $0\wedge 0 = 0\vee a = 0$.
+
+	En particulier, le PGCD et le PPCM sont associatifs et commutatifs: $a\wedge b = b\wedge a$ et $a_1\wedge a_2 \wedge a_3\wedge a_4\wedge a_5 = (a_1\wedge a_2)\wedge(a_3\wedge a_4)\wedge a_6$.
+\end{definition}
+
+\begin{remark}
+	Les PGCD (resp. PPCM) de $a_1,\dots, a_r$ sont tous associés. L'écriture $d = a_1\wedge\dots\wedge a_r$ est un abus signifiant que $d$ est \underline{un} PGCD de $a_1,\dots,a_r$.
+\end{remark}
+
+\begin{proposition}[\textnormal{[R] 246}]
+	Si $a$ et $b$ ont un PPCM alors ils ont un PGCD $a\wedge b = ab(a\vee b)^{-1}$.
+\end{proposition}
+
+\begin{example}
+	$3$ et $2+i\sqrt{5}$ ont un PGCD mais pas de PPCM dans $\IZ[i\sqrt{5}]$.
+	$4$ et $2+2i\sqrt{3}$ n'ont pas de PGCD dans $\IZ[i\sqrt{3}]$.
+\end{example}
+
+\begin{definition}
+	On dit que $a_1,\dots, a_r$ sont \emph{premiers entre eux} (dans leur ensemble)
+	si $a_1\wedge \dots\wedge a_r = 1$. On dit que $a_1, \dots, a_r$ sont \emph{deux à deux premiers entre eux} 
+	si $\forall(i,j)\in \llbracket 1,n\rrbracket^2$, $i\neq j\implies a_i\wedge a_j = 1$.
+\end{definition}
+
+\begin{theorem}[de Gauss - \textnormal{[R] 247}]
+	$\forall (a,b,c)\in A^3$, $a\mid bc$ et $a\wedge b=1 \implies a\mid c$. 
+\end{theorem}
+
+\begin{proposition}[\textnormal{[R] 246}]
+	Si toute paire d'éléments de $A$ admet un PGCD (on dit alors que $A$ est un anneau à PGCD),
+	alors toute paire d'éléments de $A$ admet un PPCM, et la réciproque est vraie.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[P] 49}]
+	Supposons $A$ factoriel, notons $\mathcal{P}$ un système
+	complet de représentants des irréductibles de $A$. Alors :
+	\begin{align*}
+		\prod_{p\in\mathcal{P}} p^{\min(v_p(a), v_p(b))}\text{ est un PGCD de $a$ et $b$.}
+	\end{align*}
+	\begin{align*}
+		\prod_{p\in\mathcal{P}} p^{\max(v_p(a), v_p(b))}\text{ est un PPCM de $a$ et $b$.}
+	\end{align*}
+\end{proposition}
+
+\begin{definition}
+	Si $A = \IZ$ (resp. $A=K[X]$, $K$ un corps), alors
+	le PGCD de $a$ et $b$ est l'unique $PGCD$ de $a$ et $b$ qui est positif (resp. unitaire).
+\end{definition}
+
+\subsection*{B. Situation dans les anneaux principaux}
+\textcolor{paragraphtext}{On suppose $A$ principal.}
+
+\begin{proposition}
+	$m\in A$ est un PPCM de $a$ et $b$ si, et seulement si, $aA\cap bA = mA$.
+
+	$d\in A$ est un PGCD de $a$ et $b$ si, et seulement si, $aA + bA = dA$.
+\end{proposition}
+
+\begin{theorem}[de Bézout]
+	$\left(\exists(u,v)\in A^2\, au+bv = 1\right)\iff a\wedge b = 1$
+\end{theorem}
+
+\begin{remark}
+	$\forall(a,b)\in A^2,\, \exists(u,v)\in A^2\, \colon au+bv = 1$. Le théorème de Bézout
+	indique que la réciproque est vraie si $a\wedge b = 1$ (contre-exemple : $3\times (2) + 2 \times (-2) = 2$, mais $3\wedge 2 \neq 2$).
+\end{remark}
+
+\begin{definition}[\textnormal{[R] 247}]
+	Un couple $(u,v)\in A^2$ tel que $a\wedge b = au+bv$ est appelé \emph{couple de Bézout de $(a,b)$}, et l'égalité est appelée \emph{relation de Bézout}.
+\end{definition}
+
+\begin{application}
+	Résolution de $ax + by=c$ avec $a\wedge b = 1$.
+\end{application}
+
+\begin{application}
+	Lemme des noyaux : soit $(P,Q)\in K[X]^2$ tel que $P\wedge Q = 1$.
+	Soient $V$ un $K$-espace vectoriel de dimension finie. Pour tout endomorphisme $f$ de $V$;
+	$\Ker\left(\left(PQ\right)\left(f\right)\right) = \Ker\left(P(f)\right)\bigoplus\Ker\left(Q(f)\right)$.
+\end{application}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[des restes chinois - \textnormal{[R] 250}]
+	\label{142dev11}
+	Si $a_1,\dots, a_d$ sont non nuls, non inversibles et deux à deux premiers entre eux, alors :
+	\begin{align*}
+		\overline{\varphi}\,\colon x\,mod\,a_1\dots a_d &\mapsto (x\,mod\,a_1,\dots, x\, mod\, a_d)
+	\end{align*}
+	est un isomorphisme d'anneaux de $A/\langle a_1\dots a_r\rangle$ dans $A/\langle a_1\rangle \times \dots A/\langle a_r\rangle$.
+	
+	Posons $a = a_1\dots a_r$ et pour $j\in \llbracket 1,r\rrbracket$, $b_j = \frac{a}{a_j}$.
+	Il existe $(u_1,\dots, u_r)\in A^r$ tel que $\sum_{i=1}^{r} u_ib_i = 1$.
+	La réciproque de $\overline{\varphi}$ s'exprime alors :
+	\begin{align*}
+		\overline{\varphi}^{-1}\,\colon (x_1\,mod\,a_1,\dots, x_d\, mod\, a_d) \mapsto \sum_{i=1}^{d} x_i a_i b_i\, mod\, a_1\dots a_d
+	\end{align*}
+\end{theorem}
+\end{tcolorbox}
+
+\begin{application}[\textnormal{[R] 291}]
+	Résolution d'un système de congruence.
+\end{application}
+
+\begin{example}[Interpolation de Lagrange]
+	Soient $x_1,\dots, x_n\in K$ deux à deux distincts et $y_1,\dots,y_n\in K^n$.
+	Un polynôme interpolateur des $x_i$ en $y_i$ est une solution du système : 
+	$$\{ \forall i\in\llbracket 1, n\rrbracket,\, P\equiv y_i\,[X-x_i]$$
+\end{example}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{example}
+	\label{142dev12}
+	Recherche de $P\in \left(\IZ/5\IZ\right)[X]$ tel que 
+	$P(\overline{0}) = \overline{2}$, $P(\overline{1}) = \overline{0}$, $P(\overline{2}) = \overline{1}$
+	de degré minimal.
+\end{example}
+\end{tcolorbox}
+
+\begin{proposition}[\textnormal{[R] 298}]
+	$\forall (n,m)\in \IN^2_{\geq 2}$, $\IZnZ \times \IZ/m\IZ \cong \IZ/n\wedge m\IZ \times \IZ/ n\vee \IZ$
+\end{proposition}
+
+\section*{II. Algorithmes de calcul dans un anneau eculidien}
+\textcolor{paragraphtext}{Dans cette section, $A$ est supposé euclidien.
+Soit $(a,b)\in A\times A\setminus\left\{0\right\}$}.
+
+\subsection*{A. Algorithmes d'Euclide}
+
+\begin{lemma}[d'Euclide - \textnormal{[R] 264}]
+	Si $a=bq+r$ avec $(q,r)\in A^2$, alors $a\wedge b = b\wedge r$.
+\end{lemma}
+
+\begin{algorithm}[d'Euclide - \textnormal{[R] 264}]
+	Posons $r_{-1} = a$ et $r_0 = b$, et pour $n\geq 1$, $r_n$ est un 
+	reste d'une division euclidienne de $r_{n-2}$ par $r_{n-1}$ si $r_{n-1} \neq 0$, et $r_n = 0$ sinon.
+
+	Il existe $N\in \IN$ tel que $\forall n\geq N+1$, $r_n = 0$ ; de plus, $a\wedge b = r_n$.
+\end{algorithm}
+
+\begin{example}
+	$M_n\wedge M_m = M_{n\wedge m}$, où $(n,m)\in \IN^2$ et $M_n = 2^n -1$.
+
+	$(X^n-1)\wedge (X^m - 1) = X^{n\wedge m} - 1$.
+\end{example}
+
+\begin{algorithm}[d'Euclide étendu - \textnormal{[R] 265}]
+	Soit $\left(q_n\right)_{n\geq 1}$ une quite de quotients dans l'algorithme d'Euclide,
+	soit $N$ le rang du dernier reste non nul. On peut
+	trouver un couple de Bézout en "remontant" l'algorithm d'Euclide, \emph{i.e.} en 
+	écrivant $a\wedge b = r_N = r_{N-2} - q_Nr_{N-1}$, puis en y substituant $r_{N-1} = r_{N-3} - q_{N-1}r_{N-2}$,
+	puis en y substituant $r_{N-2} = r_{N-4} - q_{N-2}r_{N-3}$, etc. jusqu'à exprimer $a\wedge b$ sous 
+	la forme $a\wedge b = a f(q_1,\dots, q_N) + b g(q_1,\dots, q_n)$.
+\end{algorithm}
+
+\begin{application}
+	Calcul d'un inverse dans un corps de rupture : soit $K = \IQ[X] / \langle X^2 -X-1\rangle \cong \IQ(\varphi)$.
+	Dans $K,\, (2\varphi + 1)^{-1} = 2\varphi - 3$.
+\end{application}
+
+\begin{proposition}
+	$Gl_2(\IZ)$ agit sur $\IZ^2$ par $\begin{pmatrix}
+		\alpha & \beta \\ \gamma & \delta
+	\end{pmatrix}\cdot \begin{pmatrix}
+		a \\ b
+	\end{pmatrix} = \begin{pmatrix}
+		\alpha & \beta \\ \gamma & \delta
+	\end{pmatrix}\begin{pmatrix}
+		a \\ b
+	\end{pmatrix} = \begin{pmatrix}
+		\alpha a + \beta b \\ \gamma a + \delta b
+	\end{pmatrix}$
+
+	Les orbites de cette action sont les $E_d = \left\{\begin{pmatrix}
+	a \\ b
+	\end{pmatrix}\in \IZ^2 \mid a\wedge b = d\right\}$, $d\in \IN$.
+\end{proposition}
+
+\begin{corollary}
+	D'après l'algorithme d'Euclide, $\forall (a,b)\in\IZ^2,\, \exists P\in GL_2(\IZ)\,\colon P\begin{pmatrix}
+		a \\ b
+	\end{pmatrix} = \begin{pmatrix}
+		a\wedge b\\ 0
+	\end{pmatrix}$
+\end{corollary}
+
+\begin{application}
+	Soit $a = (a_1,\dots, a_n)$ un vecteur de $\IZ^n$. 
+	On peut compléter $(a)$ en une $\IZ$-base de $\IZ^n$ si, et seulement si, 
+	$a_1\wedge \dots \wedge a_n = 1$.
+\end{application}
+
+\subsection*{B. Du côté de $\IZ$ et $K[X]$, un point sur la complexité}
+
+\textcolor{paragraphtext}{Dans le cas de la division euclidienne dans $\IZ$, on impose aux 
+restes d'être positifs, ce qui rend les reste et quotient uniques.}
+
+\begin{theorem}[de \textsc{Lamé} - \textnormal{[D] 38}]
+	Supposons que $a>b\geq 1$.
+	Soient $\left(F_k\right)_k$ la suite de \textsc{Fibonacci} débutant à 0, et $k\in \IN$ tel 
+	que $b< F_{k+1}$. L'algorithme d'\textsc{Euclide} pour $a$ et $b$ termine en moins de $k$ étapes.
+\end{theorem}
+
+\begin{remark}
+	Cette majoration est optimale : considérer $a = F_{k+1}$, $b = F_k$.
+\end{remark}
+
+\begin{algorithm}[PGCD binaire - \textnormal{[D] 36}]
+	\label{142algPGCDbinaire}
+	Supposons $a \geq b\geq 0$. La fonction suivante : 
+	
+	\emph{PGCD\_binaire(a,b):} \\
+	\indent\indent\emph{Si $a=0$: renvoyer b} \\
+	\indent\indent\emph{Si $2\mid a$ et $2\mid b$: renvoyer $2\times $PGCD\_binaire($a/2, b/2$)} \\
+	\indent\indent\emph{Si $2\mid a$ et non$(2\mid b)$: renvoyer PGCD\_binaire($a/2, b$)} \\
+	\indent\indent\emph{Si non$(2\mid a)$ et $2\mid b$: renvoyer PGCD\_binaire($a, b/2$)} \\
+	\indent\indent\emph{Sinon : renvoyer PGCD\_binaire($(a-b)/2, b$)}
+	
+	appliquée à $(a,b)$ renvoie $a\wedge b$.
+\end{algorithm}
+
+\begin{remark}
+	Algorithme \ref{142algPGCDbinaire} se termine en au plus $\lceil \textnormal{log}_2(a)\rceil$ récursions.
+\end{remark}
+
+\begin{proposition}
+	Soit $(P,Q)\in K[X]^2$ tel que $n:= \deg P\geq \deg Q \geq 1$.
+	L'algorithme d'\textsc{Euclide} appliqué à $P$ et $Q$ termine en au plus $n$ étapes.
+\end{proposition}
+
+\section*{III. Applications en arithmétique et en théorie des groupes}
+\subsection*{A. (Systèmes d') équations diophantiennes linéaires}
+
+\begin{definition}[\textnormal{[G] 163}]
+	Soit $M\in \mathcal{M}_{n,m}(IZ)$. On dit que $M$ est sous \emph{forme normale d'\textsc{Hermite}}
+	si elle est sous la forme :
+
+	$$\left(\begin{smallmatrix}
+			0 & \cdots & 0 & p_1 & * & \cdots & * & + & * & \cdots & * & + & & & & & & \\
+			& & & & & & & p_2 & * & \cdots & * & + & & & & & & \\
+			& & & & & & & & & & & p_3 & \cdots & & & & & \\
+			& & & & & & & & & \vdots & & & & & & & & \\
+			& & & & & & & & & & & & & \cdots & + & * & \cdots & * \\
+			& & & & & & & & & & & & & & p_r & * & \cdots & * \\
+			& & & & & & & & & & & & & & & & & 0 \\
+			& & & & & & & & & & & & & & & & & \vdots \\
+			& & & & & & & & & & & & & & & & & 0
+		\end{smallmatrix}\right)$$
+	où les pivots $p_i$ (\emph{i.e.} les premiers coefficients non-nuls sur chaque ligne) sont strictement positifs, et les coefficients au dessus de 
+	chaque pivot sont positifs et inférieurs au pivot.
+\end{definition}
+
+\begin{algorithm}[d'\textsc{Hermite} - \textnormal{[G] 164}]
+	Soit $M\in \mathcal{M}_{n,m}(\IZ)\setminus \left\{0\right\}$.
+	On définit $\delta_{i_0,j}(M) = \min \left\{\vert M_{i,j}\vert \,\colon i \geq i_0,\, M_{i,j}\neq 0\right\}$.
+	L'algorithme d'\textsc{Hermite} : \\
+
+	\emph{Soit $i_0=1$. Tant que $i_0 < n$ : soit $j_0 = \min \left\{1\leq j\leq m \mid \delta_{i_0, j}(M)\neq 0\right\}$} \\
+	\indent\indent\emph{Si $\forall i > i_0,\, M_{i,j_0} = 0$, alors $L_{i_0} \longleftarrow sg(M_{i_0, j_0})L_{i_0}$, et pour $i$ allant
+	de $1$ à $i_0 - 1$, $L_i \longleftarrow L_i - q_iL_{i_0}$ où $q_i$ est le quotient de la division euclidienne de $M_{i,j_0}$ par $M_{i_0,j_0}$. 
+	On remplace $i_0$ par $i_0 + 1$} \\
+	\indent\indent\emph{Sinon, soit $k\in \llbracket i_0, n\rrbracket$ tel que $\vert M_{k,j_0}\vert$ soit non nul et minimal.
+	On effectue $L_i \longleftrightarrow L_{i_0}$ puis, pour $i$ allant de $i_0+1$ à $n$, $L_i\longleftarrow L_i - q_iL_{i_0}$}
+	\\
+
+	transforme $M$ sous une forme normale d'\textsc{Hermite} $M_H$.
+	En particulier, il existe $P\in GL_n(\IZ)$ telle que $M_H = PM$.
+\end{algorithm}
+
+\begin{application}
+	Résolution d'un système d'équations diophantiennes linéaires.
+\end{application}
+
+\begin{example}
+	Cas d'une seule équation linéaire $(E)\,\colon \begin{pmatrix}
+		a_1 \\ \vdots \\ a_n
+	\end{pmatrix}^T\begin{pmatrix}
+		x_1 \\ \vdots \\ x_n
+	\end{pmatrix} = b$
+	avec $a_1\wedge \cdots \wedge a_n = 1$.
+	D'après Cor 24, il existe $P\in GL_4(\IZ)$ telle 
+	que 
+	$\begin{pmatrix}
+		a_1 \\ \vdots \\ a_n
+	\end{pmatrix}^TP = \begin{pmatrix}
+		a_1\wedge \cdots \wedge a_n \\ 0 \\ \vdots \\ 0
+	\end{pmatrix}^T = \begin{pmatrix}
+		1 \\ 0 \\ \vdots \\ 0
+	\end{pmatrix}^T$
+
+	De là, $(E)\iff \begin{pmatrix}
+		1 \\ \vdots \\ 0
+	\end{pmatrix}^T\begin{pmatrix}
+		\tilde{x_1} \\ \vdots \\ \tilde{x_n}
+	\end{pmatrix} = b \iff \tilde{x_1} = b$ où 
+	$\left(\begin{smallmatrix}
+		\widetilde{x_1} \\ \vdots \\ \widetilde{x_n}
+	\end{smallmatrix}\right) = P^{-1}\left(\begin{smallmatrix}
+		x_1 \\ \vdots \\ x_n
+	\end{smallmatrix}\right)$
+
+	Donc $S(E) = \left\{P\left(\begin{smallmatrix}
+		1 \\ x_1 \\ \vdots \\ x_n
+	\end{smallmatrix}\right) \mid (x_2,\cdots,x_n)\in \IZ^{n-1}\right\}$
+\end{example}
+
+
+\subsection*{B. Un théorème de \textsc{Liouville}}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de \textsc{Liouville} - \textnormal{[FGN] 179, [R] 404}]
+	\label{142dev2}
+	L'équation $P^n+Q^n + R^n = 0$ n'admet 
+	pas de solution non triviale (\emph{i.e.} $P,Q,R$ non associées) dans 
+	$\IC[X]$ dès lors que $n\geq 3$.
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{C. Quelques résultats en théorie des groupes}
+
+\textcolor{paragraphtext}{Soit $G$ un groupe fini. On note $\ord(g)$ l'ordre de $g\in G$.}
+
+\begin{proposition}[\textnormal{[R] 9}]
+	L'exposant de $G$ ($\max_{g\in G} \ord(g)$) vaut $\ppcm\left(\left\{\ord(g)\right\}_{g\in G}\right)$.
+\end{proposition}
+
+\begin{lemma}[\textnormal{[R] 29}]
+	Soit $n\in \IN\setminus\left\{0,1\right\}$, soit $\overline{d}\in\IZnZ$.
+	On a $\ord(\overline{d}) = \frac{n^d}{n\wedge d}$.
+\end{lemma}
+
+\begin{theorem}[de structure des groupes abéliens finis - \textnormal{[R] 28}]
+	Supposons $G$ abélien, de cardinal au moins $2$. Il existe 
+	$(d_1, \dots, d_s)\in \left(\IN\setminus \left\{0,1\right\}\right)^s$ tels que :
+	$$G \cong \IZ/d_1\IZ \times \cdots \times \IZ/d_s\IZ,\quad d_1 \mid d_2 \mid \cdots \mid d_s$$
+
+	Les entiers $d_1,\dots,d_s$ sont appelés \emph{facteurs invariants de $G$}. Ils sont uniques 
+	et déterminent la classe d'isomorphisme de $G$.
+\end{theorem}
+
+\begin{example}
+	Soit $p$ un nombre premier. Un groupe abélien d'ordre $p^2$
+	est isomorphe à $\IZ/p^2\IZ$ ou $\left(\IZ/p\IZ\right)^2$.
+\end{example}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème des restes chinois \ref{142dev11} et Exemple de calcul \ref{142dev12}.
+	\item Développement 2 : Théorème de Liouville \ref{142dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[D] \emph{Cours d'algèbre}, Michel Demazure
+	\item[FGN] \emph{Oraux X-ENS Algèbre 1}, Serge Francinou, Hervé Gianella, Serge Nicolas  
+	\item[G] \emph{Algèbre I - Groupes, corps et théorie de Galois}, Daniel Guin, Thomas Hausberger 
+\end{itemize}
+
+
+\chapter*{148 : Dimension d'un espace vectoriel (on se limitera au cas de la dimension finie). Rang. Exemples et applications.}
+\setcounter{definition}{0}
+\textcolor{paragraphtext}{Dans toute cette leçon, $E$ désigne espace vectoriel sur un corps $K$.
+On ne rappellera pas les éléments de la théorie des espaces vectoriels.}
+
+\section*{I. Théorie de la dimension finie}
+\subsection*{A. Familles libres, familles génératrices, bases}
+\textcolor{paragraphtext}{Soit $\mathcal{F}\subseteq E$.}
+
+\begin{definition}[\textnormal{[Gr] 11-11-10-13}]
+	On dit que $\mathcal{F}$ est \emph{libre} si :
+	$\forall (\overrightarrow{v_1}, \dots, \overrightarrow{v_n})\in\mathcal{F}^n,\, \forall (\lambda_1, \dots, \lambda_n) \in K^n$,
+	$$\sum_{k=1}^{n}\lambda_k \overrightarrow{v_k} = \overrightarrow{0}\implies \lambda_1 = \dots = \lambda_n = 0$$
+
+	On dit que $\mathcal{F}$ est \emph{liée} si $\mathcal{F}$ n'est pas libre.
+
+	On dit que $\mathcal{F}$ est \emph{génératrice} (de $E$) si tout vecteur de $E$ peut s'écrire 
+	comme combinaison linéaire finie de vecteurs de $\mathcal{F}$.
+
+	On dit que $\mathcal{F}$ est une base de $E$ si $\mathcal{F}$ est à la fois libre et génératrice.
+\end{definition}
+
+\begin{example}
+	\begin{itemize}
+		\item Dans $\IR^2$ : \begin{itemize}
+			\item $\{(1,1), (1,-1)\}$ est génératrice et libre ;
+			\item $\{(0,1), (1,0), (2,5)\}$ est génératrice et liée ;
+			\item $\{(-4, 3)\}$ est non génératrice et libre ;
+			\item $\{(1,1), (2,2)\}$ est non génératrice et liée ;
+		\end{itemize}
+		\item [\textnormal{[Gr] 14}] La famille $\left\{(0,\dots, 1, \dots, 0)\right\}_{i\in \llbracket 1,n\rrbracket}$ est une base de $K^n$, appelée \emph{base canonique}.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}[\textnormal{[Gr] 13}]
+	$\mathcal{F} = \left\{\right\}\subseteq E$ est une base de $E$ si, et seulement si,
+	$\forall x\in E,\, \exists ! (\lambda_1,\dots,\lambda_n)\in K^n\,\colon x = \lambda_1\overrightarrow{v_1} + \cdots + \lambda_k\overrightarrow{v_n}$
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Gr] 14}]
+	\begin{itemize}
+		\item $\left\{x\right\}$ est libre $\iff x\neq 0$
+		\item Toute sur-famille d'une famille génératrice (resp. liée) est génératrice (resp. liée)
+		\item Toute sous-famille d'une famille libre est libre 
+		\item Une famille contenant le vecteur nul est liée
+	\end{itemize}
+\end{proposition}
+
+\subsection*{B. Dimension d'un espace vectoriel}
+\begin{definition}[\textnormal{[Gr] 11}]
+	On dit que $E$ est de \emph{dimension finie} si $E$ admet une famille génératrice finice.
+\end{definition}
+
+\begin{example}
+	\begin{itemize}
+		\item $K^n$ est un $K$-espace vectoriel de dimension finie, contrairement à $K[X]$.
+		\item $\IR$ est un $\IQ$-espace vectoriel de dimension infinie.
+	\end{itemize}
+\end{example}
+
+\begin{lemma}[de \textsc{Steiniz} - \textnormal{[Gr] 17}]
+	Si $\mathcal{G}\subset E$ est finie et génératrice, alors toute
+	famille de $E$ contenant plus de $\#\mathcal{G}$ éléments est liée.
+\end{lemma}
+
+\begin{theorem_def}[\textnormal{[Gr] 17}]
+	Si $E$ est de dimension finie, alors toutes les bases de $E$ ont le même cardinal (fini),
+	que l'on appelle \emph{dimension de $E$}, et que l'on note 
+	$\dim_K(E)$ ou $\dim(E)$ s'il n'y a pas d'ambiguité sur $K$.
+\end{theorem_def}
+
+\textcolor{paragraphtext}{À partir de maintenant, on suppose $E$ de dimension finie.}
+
+\begin{theorem}[\textnormal{[Gr] 18}]
+	$\mathcal{B}\subseteq E$ est une base de $E \iff$ $\mathcal{B}$ est 
+	libre et $\#\mathcal{B}= \dim(E)\iff \mathcal{B}$ est génératrice et $\#\mathcal{B} = \dim(E)$.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[Gr] 19}]
+	Si $F$ est un sous-espace vectoriel de $E$, alors $F$ est de dimension finie, et 
+	$\dim(F)\leq \dim(E)$ avec égalité si, et seulement si, $E= F$.
+\end{theorem}
+
+\begin{theorem}[des bases extraites et incomplètes - \textnormal{[Gr] 19}]
+	Soient $\mathcal{L}\subseteq E$ libre et $\mathcal{G}\subseteq E$ génératrice 
+	telles que $\mathcal{L}\subseteq \mathcal(G)$. Alors il existe une base $\mathcal{B}$ de 
+	$E$ telle que $\mathcal{L}\subseteq \mathcal{B} \subseteq \mathcal{G}$.
+\end{theorem}
+
+\begin{corollary}
+	Tout espace vectoriel de dimension finie admet une base.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[Gr] 63}]
+	Soit $F$ un espace vectoriel de dimension finie. Les espaces
+	vectoriels $E$ et $F$ sont isomorphes si, et seulement si, $\dim(E) = \dim(F)$.
+\end{proposition}
+
+\begin{example}
+	Soit $(a_0,\dots, a_{p-1})\in \IC^p$.
+	L'application $y \mapsto (y(0), y'(0), \dots, y^{(p-1)}(0))$
+	est un isomorphisme entre $S_{\IR}(E) = \left\{y\in C^p(\IR,\IC) \mid y^{(p)} = a_{p-1}y^{(p-1)} + \dots + a_0y\right\}$
+	et $\IC^p$. Par conséquent, $\dim(S_{\IR}(E)) = p$.
+\end{example}
+
+\begin{proposition}[\textnormal{[Gr] 22}]
+	Soient $E_1,\dots,E_p$ supplémentaires dans $E$.
+	Si $\mathcal{B}_1,\dots, \mathcal{B}_p$ sont des bases de $E_1,\dots, E_p$, alors $\mathcal{B} = \mathcal{B}_1 \sqcup \cdots \sqcap \mathcal{B}_p$
+	est une base de $E$, dite \emph{adaptée à la décomposition $E = E_1\bigoplus \cdots \bigoplus E_p$}.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[Gr] 22}]
+	$\dim(E\bigoplus F) = \dim(E) + \dim(F)$
+\end{corollary}
+
+\begin{proposition}[\textnormal{[Gr] 23}]
+	\begin{align*}
+		E = E_1 \bigoplus E_2 &\iff \begin{cases}
+			E = E_1 + E_2 \\ \dim(E) = \dim(E_1) + \dim(E_2)
+		\end{cases}\\
+		&\iff \begin{cases}
+			E_1 \cap E_2 = \left\{\overrightarrow{0}\right\} \\ \dim(E) = \dim(E_1) + \dim(E_2)
+		\end{cases}
+	\end{align*}
+\end{proposition}
+
+\subsection*{C. Calculs de dimensions}
+
+\textcolor{paragraphtext}{Dans ce paragraphe, $F$ est un espace vectoriel de dimension finie.}
+
+\begin{theorem}[Formule de \textsc{Grassmann} - \textnormal{[Gr] 24}]
+	$\dim(E+F) = \dim(E) + \dim(F) - \dim(E\cap F) < +\infty$
+\end{theorem}
+
+\begin{proposition}[\textnormal{[Gr] 18}]
+	$\dim(E\times F) = \dim(E) + \dim(F) < +\infty$
+\end{proposition}
+
+\begin{proposition}
+	$\dim(\mathcal{L}(E,F)) = \dim(E)\times \dim(F) < +\infty$
+\end{proposition}
+
+\subsection*{D. Extensions de corps}
+
+\textcolor{paragraphtext}{Dans ce paragraphe, $F/L/K$ est une tour d'enxtensions de corps.}
+
+\begin{definition}[\textnormal{[P] 65}]
+	On appelle \emph{degré de $L/K$} l'entier $[L:K] = \dim_K(L)$.
+\end{definition}
+
+\begin{theorem}[de la base téléscopique - \textnormal{[P] 65}]
+	Supposons $F/L$ et $L/K$ de degrés finis :
+	elles admettent alors des bases $\left\{f_1,\dots,f_n\right\}$
+	et $\left\{e_1,\dots, e_p\right\}$ respectivement.
+
+	La famille $\left\{e_if_j\right\}_{\substack{1\leq i\leq p \\ 1\leq j \leq n}}$
+	est une base de $F/K$, et donc $[F:K] = [F:L]\cdot [L:K]$.
+\end{theorem}
+
+\begin{definition}[\textnormal{[P] 66}]
+	On dit que $\alpha \in L$ est \emph{algébrique} sur $K$ s'il existe $P\in K[X]\setminus \left\{0\right\}$ tel 
+	que $P(\alpha) = 0$.
+
+	Le cas échéant, on définit le \emph{polynôme minimal de $\alpha$ sur $K$} comme étant l'unique générateur unitaire
+	de l'idéal $\left\{P\in K[X] \mid P(\alpha) = 0\right\}$, appelé \emph{idéal annumateur de $\alpha$}.
+\end{definition}
+
+\begin{notation}[\textnormal{[P] 66}]
+	Soit $\alpha \in L$. On pose $K[\alpha] = \left\{P(\alpha)\mid P\in K[X]\right\}$
+	et $K(\alpha = \Frac(K[\alpha]))$.
+\end{notation}
+
+\begin{theorem}[\textnormal{[P] 66}]
+	Soit $\alpha\in L$. Sont équivalentes :
+	\begin{enumerate}
+		\item $\alpha$ est algébrique sur $K$
+		\item $K[\alpha] = K(\alpha)$
+		\item $[K[\alpha] : K] < +\infty$
+	\end{enumerate}
+
+	Le cas échéant, $[K[\alpha] : K]$ est le degré du polynôme minimal de $\alpha$ sur $K$.
+\end{theorem}
+
+\section*{II. Rang d'une application linéaire, d'une matrice, d'une famille}
+\subsection*{A. Définitions - formule du rang et conséquences}
+
+\textcolor{paragraphtext}{Dans ce paragraphe, on se donne $F$ de dimension finie, $u\in\mathcal{L}(E,F)$, une
+base $\mathcal{B}=(e_1,\dots, e_n)$ de $E$, et $(x_1,\dots, x_r)\in E^r$.}
+
+\begin{definition}[\textnormal{[Gr] 61,82}]
+		\begin{enumerate}
+			\item Le \emph{rang de $u$} est l'entier $\rg(u)=\dim(\im(u))$ ;
+			\item Le \emph{rang de $\left\{x_1,\dots,x_r\right\}$} est l'entier $\rg(x_1,\dots, x_r) = \dim(\Vect(x_1,\dots, x_r))$.
+		\end{enumerate}
+\end{definition}
+
+\begin{proposition}[\textnormal{[Gr] e82}]
+	$\rg(u) = \rg(u(e_1),\dots, u(e_n))$
+\end{proposition}
+
+\begin{theorem}[du rang - \textnormal{[Gr] 64}]
+	$\dim(E) = \dim(\Ker(u)) + \rg(u)$
+\end{theorem}
+
+\begin{theorem}[\textnormal{[Gr] 65}]
+	Si $\dim(F) = \dim(E)$, alors $u$ bijective $\iff$ $u$ injective 
+	$\iff$ $u$ surjective $\iff$ $\exists v\mathcal{L}(F,E)\,\colon u\circ v = \id_E \iff \exists v\in \mathcal{L}(E,F)\,\colon v\circ u = \id_F$.
+\end{theorem}
+
+\begin{example}[\textnormal{[Gr] 65}]
+	Ce n'est pas vrai en dimension infinie : dans $K[X]$, $P\mapsto P'$ est 
+	surjective mais pas injective.
+\end{example}
+
+\begin{proposition}
+	\begin{itemize}
+		\item $\forall v\in GL(E)$, $\rg(u\circ v) = \rg(u)$
+		\item $\forall w \in GL(F)$, $\rg(w\circ u) = \rg(u)$
+	\end{itemize}
+\end{proposition}
+
+\begin{corollary}
+	Le rang est invariant par équivalence.
+\end{corollary}
+
+\subsection*{B. Le cas particulier des matrices}
+\textcolor{paragraphtext}{Soit $A\in\mathcal{M}_{n,p}(K)$. Notons $C_1,\dots, C_p$ ses colonnes et $L_1,\dots, L_n$ ses lignes.}
+
+\begin{definition}[\textnormal{[Gr] 33}]
+	Le \emph{rang de $A$} est l'entier $\rg(A) = \dim\left(\left\{AX\mid X\in\mathcal{M}_{n,1}(X)\right\}\right) = \rg(C_1,\dots,C_p)$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Gr] 82}]
+	Le rang d'une application linéaire est le rang de sa matrice dans n'importe quel couple de bases.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[Go] 128}]
+	$\rg(A) = r\implies A$ est équivalente à $J_{n,p,r} := \begin{pmatrix}
+		I_r & 0_{p-r} \\ 0_{n-r} & 0_*
+	\end{pmatrix}$.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[Go] 128}]
+	Deux matrices sont équivalentes si, et seulement si, elles ont le même rang.
+\end{corollary}
+
+\begin{remark}[\textnormal{[Go] 128}]
+	Pour déterminer le rang de $A$ en pratique, on utilise l'algorithme du pivot de \textsc{Gauss}
+	pour transformer $A$ en $J_{n,p,r}$.
+\end{remark}
+
+\begin{theorem}[\textnormal{[Gr] 83}]
+	$\rg(A) = \rg(^tA)$
+\end{theorem}
+
+\begin{theorem}[\textnormal{[Go] 128}]
+	Le rang de $A$ est la taille de sa plus grande sous-matrice inversible, donc l'ordre de son plus grand mineur non nul.
+\end{theorem}
+
+\begin{corollary}
+	Si $L/K$ est une extension de $K$, alors $\rg_K(A) = \rg_L(A)$.
+\end{corollary}
+
+\section*{III. Applications}
+\subsection*{A. Formes quadratiques réelles}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[Loi d'inertie de \textsc{Sylvester} - \textnormal{[R] 476}]
+	\label{148dev11}
+	Soient $E$ est un $\IR$-espace vectoriel de dimension finie $n>0$, et $q$ est une 
+	forme quadratique sur $E$.
+	Soit $\mathcal{B} = \left\{e_1,\dots, e_n\right\}$ une base de $E$ orthogonale pour $q$.
+	Quitte à renuméroter $\mathcal{B}$, supposons que $q(e_1) > 0,\dots, q(e_s) > 0, q(e_{s+1}) < 0,\dots, q(e_{s+t}) < 0, q(e_{s+t+1}) = \cdots = q(e_n) = 0$.
+	Le couple $(s,t)$ ne dépend alors pas du choix de la base orthogonale : on l'appelle \emph{signature de $q$}.
+\end{theorem}
+
+\begin{theorem}
+	\label{148dev12}
+	La classe de congruence d'une forme quadratique réelle ne dépend que du rang et de la signature.
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{B. Réduction des endomorphismes}
+\textcolor{paragraphtext}{Dans ce paragraphe, on fixe $u\in \mathcal{L}(E)$.}
+
+\begin{proposition_def}[\textnormal{[R] 604}]
+	$\left\{P\in K[X]\mid P(u)=0_{\mathcal{L}(E)}\right\}$ est un idéal non nul : son unique
+	générateur unitaire est appelé \emph{polynôme minimal de $u$}. On le note $\mu_u$.
+\end{proposition_def}
+
+\begin{theorem}[\textnormal{[R] 683}]
+	$u$ est diagonalisable $\iff \mu_u$ est sciendé à racines simples.
+\end{theorem}
+
+\textcolor{paragraphtext}{Dans le groupe suivant, $E$ est un espace euclidien et $u\in\mathcal{L}(E)$.}
+\begin{definition}[\textnormal{[R] 743}]
+	On dit que $u$ est \emph{normal} si $uu^* = u^*u$ où $u^*$ est l'adjoint de $u$.
+\end{definition}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{lemma}[\textnormal{[R] 745}]
+	\label{148dev21}
+	Si $u$ est normal, $\exists P_1,\dots, P_r$ sont de dimension $1$ ou $2$, 
+	deux à deux orthogonaux et stables par $u$ tels que $E=P_1\bigoplus\cdots\bigoplus P_r$.
+\end{lemma}
+\begin{theorem}
+	\label{148dev22}
+	Si $u$ est normal, alors il existe une base orthonormée $\mathcal{B}$ de $E$ telle que
+	$\Mat_{\mathcal{B}}(u) = \left(\begin{smallmatrix}
+		D & & & \\
+		& R_1 & & \\
+		& & \ddots & \\
+		& & & R_p \\
+	\end{smallmatrix}\right)$ par blocs, avec $D$ diagonale et les $R_k$ de la forme $\begin{pmatrix}
+		a_k & -b_k \\ b_k & a_k
+	\end{pmatrix}$, $b_k\neq 0$.
+\end{theorem}
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Loi inertie Sylvester \ref{148dev11} et Th \ref{148dev12}.
+	\item Développement 2 : Lemme \ref{148dev21} et Théorème \ref{148dev22}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[Go] \emph{Les maths en tête - Algèbre et Probabilités}, Xavier Gourdon, 3e édition  
+\end{itemize}
+
+
+\chapter*{149 : Déterminant. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $K$ désigne un corps, $\IK$ désigne $\IR$ ou $\IC$, et $E$ est un $\IK$-espace vectoriel de dimension finie $n\geq 1$.
+On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
+
+\section*{I. Les notions de déterminants}
+\subsection*{A. Des formes multilinéaires au déterminant d'une famille de vecteurs}
+
+\begin{definition}[\textnormal{[Go] 140}]
+	Une \emph{forme $k$-linéaire sur $E$} est une application $\varphi\,\colon E^k\to \IK$ 
+	telle que pour tout $i\in\llbracket 1,k\rrbracket$, pour tout $(x_1,\dots, x_k)\in E^k$, $\varphi(x_1,\dots, x_{i-1}, \cdot, x_{i+1},\dots, x_k)$
+	est linéaire. On note $\bigotimes^k E^*$ l'ensemble des formes $k$-linéaires sur $E$.
+\end{definition}
+
+\begin{proposition}
+	$\left(e_{i_1}^*\otimes \dots\otimes e_{i_k}^*\right)_{1\leq i_1\leq\cdots\leq i_k\leq n}$ est une base de $\bigotimes^k E^*$, où pour $(x_1,\dots, x_k)\in E^k$,
+	$e_{i_1}^*\otimes\dots\otimes e_{i_k}^*(x_1,\dots, x_k) = e_{i_1}^*(x_1)\cdots e_{i_k}^*(x_k)$.
+\end{proposition}
+\begin{definition}[\textnormal{[Go] 140-141}]
+	Une forme $k$-linéaire \emph{alternée} est une forme $k$-linéaire $\varphi\in\bigotimes^kE^*$
+	telle que $\forall\sigma\in\mathfrak{S}_k$, $\forall(x_1,\dots, x_k)\in E^k$, $\varphi(x_{\sigma(1)},\dots, x_{\sigma(k)}) = \varepsilon(\sigma)\varphi(x_1,\dots, x_k)$.
+
+	On note $\bigwedge^k E^*$ l'espace des formes $k$-linéaires alternées sur $E$.
+\end{definition}
+
+\begin{proposition}
+	$\left(e_{i_1}^*\wedge \dots \wedge e_{i_k}^*\right)_{1\leq i_1 < \dots < i_k\leq n}$ est une base de $\bigwedge^kE^*$, où pour $(x_1,\dots,x_k)\in E^k$,
+	$e_{i_1}^*\wedge \dots \wedge e_{i_k}^*(x_1,\dots,x_k) = \sum_{\sigma\in\mathfrak{S}_k} \varepsilon(\sigma) e_{i_1}^*(x_{\sigma(1)}) \dots e_{i_k}^*(x_{\sigma(k)})$.
+\end{proposition}
+
+\begin{corollary}
+	On a $\dim\left(\bigwedge^kE^*\right) = {n \choose k}$.
+\end{corollary}
+
+\begin{definition}[\]
+	On appelle \emph{déterminant dans la base $\mathcal{B}$} l'unique forme $n$-linéaire alternée $\det_{\mathcal{B}}$ sur $E$ vérifiant
+	$\det_{\mathcal{B}}(\mathcal{B}) = 1$. (La fammille $\left(\det_{\mathcal{B}}\right)$ est une base de $\bigwedge^n E^*$.)
+\end{definition}
+
+\subsection*{B. Déterminant d'une matrice carrée, d'un endomorphisme}
+\subsection*{C. Propriétés analytiques}
+
+\section*{II. Calcul pratique d'un déterminant}
+\subsection*{A. Cas simples, pivot de \textsc{Gauss}}
+\subsection*{B. Mineurs, cofacteurs et développements}
+\subsection*{C. Déterminants remarquables}
+
+\section*{III. Applications des déterminants...}
+\subsection*{A. ...en algèbre linéaire}
+\subsection*{B. ...en calcul intégral}
+\subsection*{C. ...en géométrie}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Loi inertie Sylvester \ref{148dev11} et Th \ref{148dev12}.
+	\item Développement 2 : Lemme \ref{148dev21} et Théorème \ref{148dev22}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Ro] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[IP] \emph{L'oral à l'agrégation de mathématiques}, Lucas Issenmann, Timothée Pecatte
+	\item[M2] \emph{Algèbre linéaire. Réduction des endomorphismes}, Roger Mansuy, Rached Mneimné, 3e édition
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[Go] \emph{Les maths en tête - Algèbre et Probabilités}, Xavier Gourdon, 3e édition  
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[BP] \emph{Théorie de l'intégration}, Marc Briane, Gilles Pagès, 7e édition
+	\item[C] \emph{Carnet de voyage en Algébrie}, Philippe Caldero, Marie Peronnier
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/149.pdf}
+	\caption{s}
 \end{figure}
 \end{document}
