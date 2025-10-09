@@ -108,6 +108,9 @@
 \DeclareMathOperator{\Div}{Div}
 \DeclareMathOperator{\Frac}{Frac}
 \DeclareMathOperator{\Vect}{Vect}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Com}{Com}
+\DeclareMathOperator{\Sp}{Sp}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\LARGE}
@@ -2949,33 +2952,303 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 	On a $\dim\left(\bigwedge^kE^*\right) = {n \choose k}$.
 \end{corollary}
 
-\begin{definition}[\]
+\begin{definition}[\textnormal{[Go] 141}]
 	On appelle \emph{déterminant dans la base $\mathcal{B}$} l'unique forme $n$-linéaire alternée $\det_{\mathcal{B}}$ sur $E$ vérifiant
 	$\det_{\mathcal{B}}(\mathcal{B}) = 1$. (La fammille $\left(\det_{\mathcal{B}}\right)$ est une base de $\bigwedge^n E^*$.)
 \end{definition}
 
+\begin{proposition}[\textnormal{[Go] 141}]
+	$\forall(x_1,\dots, x_n)\in E^n$, $\det_{\mathcal{B}}(x_1,\dots, x_n) = \sum_{\sigma\in \mathfrak{S}_n} \varepsilon(\sigma)e^*_1(x_{\sigma(1)})\dots e^*_{n}(x_{\sigma(n)})$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[Go] 141}]
+	Soient $\varphi\in \bigwedge_n E^*$ et $\mathcal{B}'$ une autre base de $E$. On a $\varphi = \varphi(\mathcal{B})\det_{\mathcal{B}}$,
+	en particulier on a donc $\det_{\mathcal{B}'} = \det_{\mathcal{B}'}(\mathcal{B})\det_{\mathcal{B}'}$.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[Go] 141-142}]
+	Soit $(x_1,\dots, x_n)\in E^n$. Sont équivalentes :
+	\begin{enumerate}
+		\item $(x_1,\dots, x_n)$ est liée ;
+		\item Pour toute base $\mathcal{B}$ de $E$, $\det_{\mathcal{B}}(x_1,\dots,x_n) = 0$ ;
+		\item Il existe une base $\mathcal{B}$ de $E$ telle que $\det_{\mathcal{B}}(x_1,\dots, x_n) = 0$.
+	\end{enumerate}
+\end{proposition}
+
 \subsection*{B. Déterminant d'une matrice carrée, d'un endomorphisme}
+\textcolor{paragraphtext}{Soient $u\in\mathcal{L}(E)$ et $A = \left(a_{i,j}\right)_{1\leq i,j\leq n} \in \mathcal{M}_n(\IR)$.}
+
+\begin{definition}[\textnormal{[Go] 142}]
+	Si $C_1,\dots, C_n$ sont les colonnes de $A$, alors :
+	$$\det(A) := \det{}_{\mathcal{E}}(C_1,\dots,C_n) = \frac{1}{n!}\sum_{\sigma\in\mathfrak{S}_n} \varepsilon(\sigma)a_{1,\sigma(1)}\cdots a_{n,\sigma(n)}$$
+	où $\mathcal{E}$ déisgne la base canonique de $K^n$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Go] 142}]
+	Soient $\lambda\in K$ et $B\in\mathcal{M}_n(K)$.
+	\begin{enumerate}
+		\item $\det(A)$ ne change pas si on ajoute à une colonne une combinaison linéaire des autres colonnes ;
+		\item $\det(A^T)=\det(A)$
+		\item $\det(\lambda A) = \lambda^n \det(A)$
+		\item $\det(AB) = \det(A)\det(B)$
+		\item $A\in GL_n(K)\iff \det(A)\neq 0$ (auquel cas, $\det(A^{-1}) = {\det(A)}^{-1}$)
+	\end{enumerate}
+\end{proposition}
+
+\begin{definition}[\textnormal{[Go] 142}]
+	Le déterminant de $u$, défini par :
+	$\det(u) = \det_{\mathcal{B}}(u(e_1),\dots, u(e_n)) = \det(\Mat_{\mathcal{B}}(u))$
+	ne dépend pas du choix de $\mathcal{B}$.
+\end{definition}
+
 \subsection*{C. Propriétés analytiques}
+\begin{proposition}[\textnormal{[Rv] 83}]
+	$A\mapsto \det A$ est polynomiale en les coefficients de $A$ (relativement à la base canonique de $\mathcal{M}_n(K)$), donc lisse.
+\end{proposition}
+
+\begin{corollary}
+	$GL_n(\IK)$ est ouvert dans $\mathcal{M}_n(\IK)$, et $SL_n(\IR)$ est fermé.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[Rv] 83}]
+	$\forall x\in \mathcal{M}_n(\IR)$, $\forall H\in \mathcal{M}_n(\IR)$, $d(\det)(X)(H) = \tr (\Com(X)^T H)$,
+	où $\Com(X)$ est rappelée dans le paragraphe $II. B$.
+\end{proposition}
 
 \section*{II. Calcul pratique d'un déterminant}
 \subsection*{A. Cas simples, pivot de \textsc{Gauss}}
+
+\begin{notation}[\textnormal{[Go] 142}]
+	On note $\mid A\mid$ le determinant d'une matrice carrée $A$.
+\end{notation}
+
+\begin{proposition}[\textnormal{[Go] 106}]
+	\begin{itemize}
+		\item $\begin{vmatrix}
+			a & b \\ c & d
+		\end{vmatrix} = ad - bc$
+		\item $\begin{vmatrix}
+			a & b & c \\ d & e & f \\ i & j & k
+		\end{vmatrix} = aek+bfi+djc -cei-fja-bdk$ (règle de \textsc{Sarrus})
+	\end{itemize}	
+\end{proposition}
+
+\begin{lemma}[\textnormal{[Go] 142}]
+	Si $A = \left(a_{i,j}\right)_{1\leq i,j\leq 1}$ est triangulaire, 
+	alors $\det(A) = a_{1,1}a_{2,2}\dots a_{n,n}$.
+\end{lemma}
+
+\begin{algorithm}[pivot de \textsc{Gauss}]
+	Pour calculer le déterminant d'une matrice, 
+	on peut la transformer en une matrice triangulaire par des opérations élémentaires sur les lignes et 
+	les colonnes :
+	\begin{itemize}
+		\item la transvection $(C_i \longrightarrow C_i+\lambda C_j)$ ne change pas le déterminant ;
+		\item la permutation $(C_i \longleftrightarrow C_j)$ change le signe du déterminant ;
+		\item la dilatation $(C_i \Longrightarrow \alpha C_i)$ change le déterminant d'un facteur $\alpha$.
+	\end{itemize}
+\end{algorithm}
+
+\begin{example}
+	\begin{align*}
+		\begin{vmatrix}
+			1&1&1\\
+			0&1&1\\
+			-1&-1&0
+		\end{vmatrix}=
+		\begin{vmatrix}
+			1&1&1\\
+			0&1&1\\
+			0&0&1
+		\end{vmatrix} = 1
+	\end{align*}
+\end{example}
+
+\begin{theorem}[\textnormal{[Go] 142}]
+	Le déterminant d'une =atrice triangulaire par blocs est égal au produit des déterminants des blocs diagonaux.
+\end{theorem}
+
+
 \subsection*{B. Mineurs, cofacteurs et développements}
+
+\textcolor{paragraphtext}{Soient $A=\left(a_{i,j}\right)_{1\leq i,j\leq n}\in\mathcal{M}_n(K)$.}
+\begin{definition}[\textnormal{[Go] 142}]
+	Soit $(i,j)\in \llbracket 1,n \rrbracket ^2$.
+	On appelle \emph{mineur d'indice $(i,j)$ de $A$} le déterminant de la matrice extraite de $A$
+	en supprimant sa $i$-ième ligne et sa $j$-ième colonne.
+	On note $\Delta_{i,j}$ ce mineur.
+	
+	On appelle \emph{cofacteur d'indice $(i,j)$ de $A$} la quantité $A_{i,j} = \left(-1\right)^{i+j}\Delta_{i,j}$.
+
+	On appelle \emph{comatrice de $A$} la matrice $\Com(A) = \left(A_{i,j}\right)_{1\leq i,j\leq n}$.
+\end{definition}
+
+\begin{theorem}[Formules de développement d'un déterminant - \textnormal{[Go] 143}]
+	\begin{itemize}
+		\item Par rapport à la $i$-ième ligne :$\det A = \sum_{j=1}^{n}a_{i,j}A_{i,j}$ 
+		\item Par rapport à la $j$-ième colonne : $\det A = \sum_{i=1}^{n}a_{i,j}A_{i,j}$
+	\end{itemize}
+\end{theorem}
+
+\begin{example}
+	$\begin{vmatrix}
+		1&1&1\\0&1&1\\-1&-1&0
+	\end{vmatrix} = 1\cdot \begin{vmatrix}
+		1&1\\-1&0
+	\end{vmatrix} - 0\cdot \begin{vmatrix}
+		1&1\\-1&0
+	\end{vmatrix}+ (-1)\cdot \begin{vmatrix}
+		1&1\\1&1
+	\end{vmatrix}= 1-0+0 = 1$
+\end{example}
+
+\begin{theorem}[Formule de la comatrice - \textnormal{[Go] 143}]
+	$A\Com(A)^T = \Com(A)^T A = \det(A)I_n$
+\end{theorem}
+
 \subsection*{C. Déterminants remarquables}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{example}[déterminant circulant - \textnormal{[Go] 143; [IP] 388}]
+	\label{149dev11}
+	Pour tout $(a_1,\dots, a_n)\in \IC^n$,
+	$$\begin{vmatrix}
+		a_1&a_2&a_3&\cdots &a_n \\
+		a_n&a_1&a_2&\cdots &a_{n-1} \\
+		a_{n-1}&a_n&a_1&\cdots &a_{n-2} \\
+		\vdots&\vdots&\vdots& &\vdots \\
+		a_{2}&a_3&a_4&\cdots &a_{1}
+	\end{vmatrix} = \prod_{k=1}^{n}P(\omega^k)$$
+	où $\omega = e^{\frac{2i\pi}{n}}$ et $P=\sum_{i=0}^{n-1} a_{i+1}X^i$.
+\end{example}
+
+\begin{application}[FIG 1 - \textnormal{[IP] 388}]
+	\label{149dev12}
+	Soient $z_1,\dots, z_n$ des complexes qui sont les affixes des points $M_1,\dots,M_n$.
+	On définit une suite de polygônes du plan comme suivant :
+	\begin{itemize}
+		\item $P_0=M_1\dots M_n$
+		\item Pour $n\geq 1$, $P_n$ est le polygône dont les sommets sont les milieux des arêtes de $P_{n-1}$.
+		Alors $(P_n)_n$ converge vers l'isobarycentre de $P_0$.
+	\end{itemize}
+\end{application}
+\end{tcolorbox}
+
+\begin{example}[déterminant de \textsc{Vandermonde} - \textnormal{[Go] 143}]
+	Pour tout $(a_1,\dots, a_n)\in K^n$,
+	$$\begin{vmatrix}
+		1&a_1&a_1^2&\cdots & a_1^{n-1} \\
+		1&a_2&a_2^2&\cdots & a_2^{n-1} \\
+		\vdots&\vdots&\vdots& & \vdots \\
+		1&a_n&a_n^2&\cdots & a_n^{n-1}
+	\end{vmatrix} = \prod_{1\leq i,j\leq n} a_i-a_j$$
+\end{example}
 
 \section*{III. Applications des déterminants...}
 \subsection*{A. ...en algèbre linéaire}
+
+\begin{remark}[\textnormal{[BMP] 181}]
+	On étend la formule explicite du déterminant au cas des matrices à coefficients dans un anneau intègre $A$.
+	Si $M\in \mathcal{M}_n(A)$, alors $\det(M)\in A$, et par plongement de $A$ dans $\Frac(A)$, les propriétés dékà vues restent vraies.
+\end{remark}
+
+\begin{definition}[\textnormal{[Go] 172}]
+	Le \emph{polynôme caractéristique de $A\in\mathcal{M}_n(K)$} est $\chi_A = \det(XI_n - A)$.
+
+	Le \emph{polynôme caractéristique d'un endomorphisme} est celui de sa matrice dans n'importe quelle base.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Go] 159; [C] 47}]
+	\begin{itemize}
+		\item $\forall A\in\mathcal{M}_n(K)$, $\Sp(A) = \chi^{-1}_A(\left\{0\right\})$
+		\item $\forall (A,B)\in\mathcal{M}_n(\IC)$, $\chi_{AB} = \chi_{BA}$
+	\end{itemize}
+\end{proposition}
+
+\begin{theorem}[de \textsc{Cayley-Hamilton} - \textnormal{[M2] 81}]
+	$\forall A\in\mathcal{M}_n(\IK)$, $\chi_A(A)=0$.
+\end{theorem}
+
+\begin{theorem}[Systèmes de \textsc{Cramer} - \textnormal{[Gr] 145}]
+	Soient $A\in GL_n(K)$ et $B\in K^n$. On note $A_1,\dots, A_n$
+	les colonnes de $A$. La solution de $AX=B$ est donnée par $X=(x_1,\dots, x_n)$ où
+	$$\forall i\in \llbracket 1,n\rrbracket,\quad x_i = \frac{\det(A_1,\dots,A_{i-1},B,A_{i+1},\dots, A_n)}{\det(A)}$$
+\end{theorem}
+
 \subsection*{B. ...en calcul intégral}
+\begin{theorem}[de changement de variable - ADMIS - \textnormal{[BP] 255-256}]
+	Soient $U$ et $V$ deux ouverts de $\IR^n$, et 
+	$\varphi\,\colon U\to V$ un $C^1$-difféomorphisme. Pour tout fonction $f\,\colon V\to \IR^+$ borélienne,
+	$$\int_{U} f\circ \varphi(u)\cdot \vert \det(d\varphi(u))\vert du = \int_{V}f(v)dv$$
+\end{theorem}
+
+\begin{application}
+	$\forall \alpha > 0$, $\int_{\IR} e^{-\alpha x^2}dx = \sqrt{\frac{\pi}{\alpha}}$
+\end{application}
+
+\begin{theorem}[\textnormal{[BMP] 184}]
+	Notons $\lambda$ la mesure de \textsc{Lebesgue} sur $\IR^n$. Pour tous $X\subseteq\IR^n$ mesurable ett $u\in\mathcal{L}(\IR^n)$,
+	$\lambda(u(X))=\vert \det(u)\vert\cdot \lambda(X)$
+\end{theorem}
+
+\begin{corollary}[FIG. 3 - \textnormal{[BMP] 184}]
+	Soit $(v_1,\dots, v_n)\in \IR^n$, notons $\mathcal{P}(v_1,\dots,v_n) = \left\{\sum_{i=1}^{n} \lambda_i v_i \mid 0\leq \lambda_i \leq 1\right\}$
+	le parallélotope engendré par $v_1,\dots,v_n$. On a $\lambda(\mathcal{P}(v_1,\dots,v_n))=\vert \det(v_1,\dots, v_n)\vert$.
+\end{corollary}
+
 \subsection*{C. ...en géométrie}
+\textcolor{paragraphtext}{Dans ce paragraphe, $(E,\langle \cdot \mid \cdot \rangle)$ est un $\IK$-espace préhilbertien.}
+
+\begin{definition}[\textnormal{[Go] 274}]
+	Soit $(x_1,\dots,x_n)\in E^n$. On appelle \emph{matrice de \textsc{Gram} de} $x_1,\dots, x_n$ la matrice 
+	$M_G(x_1,\dots,x_n)=\left(\langle x_i\mid x_j\rangle\right)_{1\leq i,j\leq n}$,
+	et \emph{déterminant de \textsc{Gram} de} $x_1,\dots, x_n$ sont déterminant $G(x_1,\dots,x_n)$.
+\end{definition}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[Go] 275}]
+	\label{149dev21}
+	Soient $F$ un sous-espace vectoriel de $E$, et $\mathcal{B}=(e_1,\dots, e_n)$ une base de $F$. Alors, 
+	$\forall x\in E$, $d(x,F)^2=\frac{G(e_1,\dots,e_n, x)}{G(e_1,\dots,e_n)}$.
+\end{theorem}
+\begin{theorem}[inégalités de \textsc{Hadamard} - \textnormal{[Go] 275}]
+	\label{149dev22}
+	On a :
+	\begin{enumerate}
+		\item $\forall(x_1,\dots, x_n)\in E^n$, $G(x_1,\dots, x_n)\leq \|x_1\|^2\dots \|x_n\|^2$
+		\item $\forall (x_1,\dots,x_n)\in \left(\IC^n\right)^n$, $\vert \det(x_1,\dots, x_n)\vert\leq \|x_1\|_2\dots \|x_n\|_2$
+	\end{enumerate}
+	
+	De plus, dans les deux points, il y a égalité si, et seulement si, $(x_1,\dots, x_n)$ est orthogonale.
+\end{theorem}
+\end{tcolorbox}
 
 \section*{Développements}
 \begin{itemize}
-	\item Développement 1 : Loi inertie Sylvester \ref{148dev11} et Th \ref{148dev12}.
-	\item Développement 2 : Lemme \ref{148dev21} et Théorème \ref{148dev22}
+	\item Développement 1 : Exemple \ref{149dev11} et Application \ref{149dev12}.
+	\item Développement 2 : Théorèmes \ref{149dev21} et \ref{149dev22}
 \end{itemize}
 
 \section*{Références}
 \begin{itemize}
-	\item[Ro] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
 	\item[IP] \emph{L'oral à l'agrégation de mathématiques}, Lucas Issenmann, Timothée Pecatte
 	\item[M2] \emph{Algèbre linéaire. Réduction des endomorphismes}, Roger Mansuy, Rached Mneimné, 3e édition
 	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
@@ -2990,4 +3263,552 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/149.pdf}
 	\caption{s}
 \end{figure}
+
+\chapter*{151 : Sous-espaces stables par un endomorphisme ou une famille d'endomorphismes d'un espace vectoriel de dimension finie. Applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Soient $K$ un corps commutatif, $E$ un $K$-espace vectoriel de dimension $n\geq 1$ et $u\in\mathcal{L}(E)$. 
+Soit $F$ un sous-espace vectoriel de $E$.}
+
+\section*{I. Stabilité d'un sous-espace par un endomorphisme}
+\subsection*{A. Introduction}
+
+\begin{definition}[\textnormal{[M2] 17}]
+	On dit que $F$ est \emph{stable par $u$} (ou \emph{$u$-stable}) si $u(F)\subseteq F$.
+\end{definition}
+
+\begin{example}[\textnormal{[M2] 17}]
+	On a :
+	\begin{itemize}
+		\item $\left\{0\right\}$, $\Ker(u)$, $\im(u)$ et $E$ sont stables par $u$.
+		\item $\forall P\in K[X]$, $\Ker(P(u))$ et $\im(P(u))$ sont stables par $u$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}[\textnormal{[M2] 17}]
+	Soit $v\in\mathcal{L}(E)$. Si $v$ commute avec $u$, alors pour tout $P\in K[X]$,
+	$\Ker(P(u))$ et $\im(P(u))$ sont stables par $u$.
+\end{proposition}
+
+\begin{remark}
+	En particulier, $\forall \lambda\in K$, $E_{\lambda}(u) := \Ker(u-\lambda \id_E)$ est 
+	stable par $u$, et par tout endomorphisme qui commute avec $u$.
+\end{remark}
+
+\begin{proposition}[\textnormal{[M2] e17}]
+	Soit $E = F\bigoplus G$ une décomposition de $E$, soit $\mathcal{B}$ une base de $E$ 
+	adaptée à cette décomposition, notion $\Mat_{\mathcal{B}}(u) = \begin{pmatrix}
+		A & B \\ C & D
+	\end{pmatrix}$ par blocs. Alors $F$ (resp. $G$) est stable par $u$ si, et seulement si, $C=0$ (resp. $B = 0$).
+\end{proposition}
+
+\begin{corollary}[\textnormal{[M2] e120}]
+	$F$ est stable par $u$ si, et seulement si, $F^{\perp}$ est stable par ${}^tu$.
+	(NB : $\Mat_{\mathcal{B}^*}({}^t u) = {}^t\Mat_{\mathcal{B}}(u)$).
+\end{corollary}
+
+\subsection*{B. Notion d'endomorphisme induit}
+\begin{definition}[\textnormal{[M2] 17}]
+	Si $F$ est stabe par $u$, alors on dispose de \emph{l'endomorphisme induit par $u$ sur $F$} :
+	$u_F\,\colon F\to F$, $x\mapsto u(x)$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[M2] 55, 18}]
+	Si $F$ est stable par $u$, alors $\chi_{u_F} \mid \chi_u$ et $\pi_{u_F}\mid \pi_u$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[M2] 93}]
+	Si $F$ est stable par $u$ et si $u$ est diagonalisable (resp. trigonalisable, resp. nilpotent), alors $u_F$ aussi.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[M2] 55, 18}]
+	Si $E=F_1\bigoplus \cdots \bigoplus F_p$ est une décomposition de $E$ en somme de sous-espaces stables, alors :
+	$\chi_u = \chi_{u_{F_1}}\cdots \chi_{u_{F_p}}$ et $\pi_u = \pi_{u_{F_1}}\vee \cdots \vee \pi_{u_{F_p}}$.
+\end{proposition}
+
+\section*{II. Application à la réduction des endomorphismes}
+
+\begin{lemma}[des noyaux - \textnormal{[M2] 43}]
+	$\forall (P,Q)\in K[X]^2$, $P\wedge Q = 1 \implies \Ker((PQ)(u)) = \Ker(P(u))\bigoplus \Ker(Q(u))$
+\end{lemma}
+
+\subsection*{A. Diagonalisation, trigonalisation}
+\begin{theorem}[de \textsc{Cayley-Hamilton} - \textnormal{[M2] 82}]
+	$\chi_u(u) = 0_{\mathcal{L}(E)}$
+\end{theorem}
+
+\begin{corollary}
+	$E = \bigoplus_{\lambda\in \Sp(u)} \Ker\left(\left(u-\lambda \id_E\right)^{\mu_{\lambda_u}(\lambda)}\right)$
+	est une décomposition de $E$ en somme de sous-espaces stables.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[M2] 84}]
+	Écrivons $\chi_u = \prod_{\lambda\in\Sp(u)} \left(X_\lambda\right)^{m(\lambda)}$
+	et posons $E_{\lambda}(u)=\Ker(\lambda\id_E - u)$.
+	Pour tout $\lambda\in \Sp(u)$, $1\leq \dim(E_{\lambda}(u))\leq m(\lambda)$.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[R] 683; [M2] 90-93}]
+	On a :
+	\begin{itemize}
+		\item $u$ est diagonalisable $\iff \pi_u$ est sciendé à racines simples $\iff$ il existe $P$ annulateur de $u$ sciendé à racines simples $\iff \chi_u$ est sciendé et $\forall\lambda\in\Sp(u)$, $\dim(E_{\lambda}(u)) = \mu_{\chi_u}(\lambda)$.
+		\item $u$ est trigonalisable $\iff \chi_u$ est scindé $\iff$ il existe un polynôme scindé qui annule $u$.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}[de réduction simultanée - \textnormal{[M2] 94,107}]
+	Soit $\left(u_i\right)_{i\in I}\in\mathcal{L}(E)^I$ une famille d'endomorphismes qui commutent deux à deux.
+	Si tous les $u_i$, $i\in I$ sont diagonalisables (resp. trigonalisables), alors il existe une base de $E$ qui 
+	diagonalise (resp. trigonalise) simultanément tous les $u_i$, $i\in I$.
+\end{theorem}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{lemma}[\textnormal{[R] 743}]
+	\label{151dev11}
+	Il existe un sous-espace de $E$ de dimension $1$ ou $2$ stable par $u$.
+\end{lemma}
+\end{tcolorbox}
+
+\subsection*{B. Cas des endomorphismes normaux}
+\textcolor{paragraphtext}{Dans l'encadré suivant, on suppose $u$ normal}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{lemma}[\textnormal{[R] 743}]
+	\label{151dev12}
+	Si $F$ est un sous-espace de $E$ stable par $u$, alors $F^{\perp}$ est stable par $u$.
+\end{lemma}
+\begin{lemma}[\textnormal{[R] 744}]
+	\label{151dev13}
+	Il existe des sous-espaces $P_1,\dots, P_r$ de $E$ stables par $u$, de dimension $1$ ou $2$, deux à deux orthogonaux, tels que 
+	$$E = P_1\bigoplus^{\perp}\cdots\bigoplus^{\perp} P_r$$
+\end{lemma}
+\end{tcolorbox}
+
+\begin{lemma}[PAS DEV - \textnormal{[R] 745}]
+	Si $n = \dim E = 2$, alors :
+	\begin{itemize}
+		\item Si $u$ admet une valeur propre réelle, alors $u$ est diagonalisable dans une base orthonormée,
+		\item Sinon, pour toute base orthonormée $\mathcal{B}$ de $E$, il existe $(a,b)\in\IR^2$ tel que $b\neq 0$ et $\Mat_{\mathcal{B}}(u)=\begin{pmatrix}
+			a & -b \\ b & a
+		\end{pmatrix}$.
+	\end{itemize}
+\end{lemma}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de réduction des endomorphismes normaux - \textnormal{[R] 745}]
+	Il existe une base orthonormée $\mathcal{B}$ de $E$ telle que, par blocs, $\Mat_{\mathcal{B}}(u) = \diag(D_p, R_1,\dots, R_r)$, où 
+	$D_p\in\mathcal{M}_n(\IR)$ est diagonale, $\forall i\in \llbracket 1,n\rrbracket$, $\exists (a_i, b_i)\in\IR^2\,\colon b_i \neq 0$ et $R_i = \begin{pmatrix}
+		a_i & -b_i \\ b_i & a_i
+	\end{pmatrix}$ et $p+2r = n$.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{corollary}[théorème spectral - \textnormal{[R] 746 (734)}]
+	Tout endomorphisme auto-adjoint se diagonalise dans une base orthonormée.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[R] 727}]
+	Si $u$ est orthogonal, alors il existe une base de $E$ dans laquelle la matrice de $u$ est de la forme, par blocs :
+	$\begin{pmatrix}
+		I_p & & & & \\
+		& -I_q & & & \\
+		& & R_1 & & \\
+		& & & \ddots & \\
+		& & & & R_r
+	\end{pmatrix}$, où $R_k = \begin{pmatrix}
+		\cos(\theta_k) & -\sin(\theta_k) \\ \sin(\theta_k) & \cos(\theta_k)
+	\end{pmatrix}$
+\end{corollary}
+
+\begin{proposition}
+	Si $u$ est une rotation et que $\dim (E)$ est impaire, alors $\Ker(u-\id_E)\neq \left\{0\right\}$.
+\end{proposition}
+
+\section*{II. Application à la décomposition des endomorphismes}
+\subsection*{A. Décomposition de \textsc{Jordan} des endomorphismes nilpotents}
+
+\begin{definition}[\textnormal{[M2] 143}]
+	On appelle \emph{bloc de \textsc{Jordan}} de taille $d$ la matrice :
+	$$J_d := \begin{pmatrix}
+		0 & 1 & \cdots & 0 \\
+		\vdots & \ddots & \ddots & \vdots \\
+		\vdots & & \ddots & 1 \\
+		0 & \cdots & \cdots & 0
+	\end{pmatrix}$$
+
+	Pour $\lambda = (\lambda_1, \dots, \lambda_r)\in\IN^r$, on pose $J_{\lambda} = \diag(J_{\lambda_1},\dots, J_{\lambda_r})$.
+\end{definition}
+
+\begin{theorem}[décomposition de \textsc{Jordan} des endomorphismes nilpotents - \textnormal{[M2] 144}]
+	Supposons $u$ nilpotent d'indice $\lambda_1$.
+	Il existe $\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_r$
+	telle que $\lambda_1 + \cdots + \lambda_r = n$, et $\mathcal{B}$ une base de $E$ telle que $\Mat_{\mathcal{B}}(u) = J_{\lambda_1,\dots,\lambda_r}$.
+	Cette décomposition est unique.
+\end{theorem}
+
+\subsection*{B. Décomposition de \textsc{Dunford}}
+
+\begin{theorem}[décomposition de \textsc{Dunford} - \textnormal{[M2] 141; [R] 613}]
+	Si $u$ est trigonalisable, alors il existe un unique couple $(d,n)\in\mathcal{L}(E)^2$ tel que $u = d+n$, $d\circ n = n\circ d$, $d$ est diagonalisable et $n$ est nilpotent.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[R] 634}]
+	Sur $K =\IR$ ou $K=\IC$, $e^u$ est diagonalisable si, et seulement si, $u$ l'est.
+\end{corollary}
+
+\subsection*{C. Une application : le critère de diagonalisabilité de \textsc{Klarès}}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[critère de \textsc{Klarès} - \textnormal{[M2] 154}]
+	\label{151dev2}
+	Posons $ad_u\,\colon v\in\mathcal{L}(E) \mapsto u\circ v - v\circ u$.
+	Si $u$ est trigonalisable, alors :
+	$$u \text{ diagonalisable} \iff \Ker(ad_u) = \Ker(ad_u^2)$$
+\end{theorem}
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Lemmes \ref{151dev11}, \ref{151dev12}, \ref{151dev13} et Théorème \ref{151dev14}.
+	\item Développement 2 : Théorème \ref{151dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[M2] \emph{Algèbre linéaire. Réduction des endomorphismes}, Roger Mansuy, Rached Mneimné, 3e édition
+\end{itemize}
+
+
+
+
+\chapter*{155 : Exponentielle de matrices. Applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $\IK$ désigne $\IR$ ou $\IC$, $n\in \IN^*$
+et $(A,B)\in\mathcal{M}_n(\IK)^2$. On fixe une norme d'algèbre $\|\cdot\|$ sur $\mathcal{M}_n(\IK)$.
+On suppose connu et maîtrisé le calcul matriciel élémentaire.}
+
+\begin{theorem_def}[\textnormal{[R] 761}]
+	La série $\sum_{k\in\IN} \frac{A^k}{k!}$ converge normalement sur 
+	tout compact. Sa somme est appelée \emph{exponentielle de $A$}, et est notée $\exp(A)$ ou $e^A$.
+\end{theorem_def}
+
+\begin{example}[\textnormal{[R] 761}]
+	$\forall (\lambda_1,\dots,\lambda_n)\in\IK^n$, $\exp(\diag(\lambda_1,\dots,\lambda_n)) = \diag(e^{\lambda_1},\dots,e^{\lambda_n})$.
+	En particulier, $\exp(0_n) = I_n$ et $\exp(I_n) = e\cdot I_n$.
+\end{example}
+
+\begin{example}
+	$\forall \theta\in\IR$, $R(\theta) := \begin{pmatrix}
+		\cos(\theta) & -\sin(\theta) \\ \sin(\theta) & \cos(\theta)
+	\end{pmatrix} = \exp\left(\begin{pmatrix}
+		0 & -\theta \\ \theta & 0
+	\end{pmatrix}\right)$
+\end{example}
+
+\section*{I. Propriétés algébriques de l'exponentielle matricielle}
+\begin{proposition}
+	Si $A$ et $B$ commutent, alors $\exp(A+B) = \exp(A)\exp(B)$.
+	(NB : la réciproque est vraie !) et $\exp(A)$ et $\exp(B)$ commutent.
+\end{proposition}
+
+\begin{cexample}
+	$A = \begin{pmatrix}
+		1 & 0 \\ 0 & -1
+	\end{pmatrix}$ et $B = \begin{pmatrix}
+		0&1\\0&0
+	\end{pmatrix}$ ne commutent pas, et $e^A e^B = \begin{pmatrix}
+		e&e\\0& 1/e
+	\end{pmatrix} \neq \begin{pmatrix}
+		e & 1/e \\ 0 & 1/e
+	\end{pmatrix} = e^B e^A$.
+\end{cexample}
+
+\begin{corollary}
+	$\exp(\mathcal{M}_n(\IK)) \subseteq GL_n(\IK)$, et $\exp(A)^{-1} = \exp(-A)$.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[R] 761-762}]
+	On a les propriétés suivantes :
+	\begin{itemize}
+		\item $\forall P\in GL_n(\IK)$, $P\exp(A)P^{-1}=\exp(PAP^{-1})$
+		\item ${}^t\exp(A) = \exp({}^tA)$
+		\item $\det(\exp(A)) = e^{\tr(A)}$
+		\item $\overline{\exp(A)} = \exp(\overline{A})$
+	\end{itemize}
+\end{proposition}
+
+\begin{corollary}
+	$\exp(\mathcal{A}_n(\IK)) \subseteq O_n(\IK)$, avec $\mathcal{A}_n(\IK) = \left\{M\in\mathcal{M}_n(\IK)\mid {}^tM = -M\right\}$.
+\end{corollary}
+
+\begin{remark}
+	On peut montrer que $\exp(\mathcal{A}_n(\IR)) = SO_n(\IR)$.
+\end{remark}
+
+\begin{proposition}
+	Si $A$ est diagonalisable, alors $\Sp(\exp(A)) = \exp(\Sp(A))$.
+\end{proposition}
+
+\begin{theorem}
+	On a :
+	\begin{itemize}
+		\item $\exp(A)\in \IK_{n-1}[A]$ et commute avec $A$.
+		\item Si $A$ est diagonalisable et $\IK = \IR$, alors $A\in \IR_{n-1}[\exp(A)]$.
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}
+	Pour $A = \begin{pmatrix}
+		0&0\\0& 2i\pi
+	\end{pmatrix}\in\mathcal{M}_2(\IC)$, on a $\exp(A) = I_2$ donc pour tout $P\in \IC[X]$, $P(\exp(A)) = P(1)I_2 \neq A$.
+\end{remark}
+
+\section*{II. L'exponentielle d'une matrice en pratique}
+\subsection*{A. Quelques méthodes de calcul}
+
+\begin{proposition}
+	Supposons $A$ diagonalisable. Il existe $(\lambda_1,\dots, \lambda_n)\in\IK^n$ et $P\in O_n(\IK)$ tels que 
+	$A = P\begin{pmatrix}
+		\lambda_1 & & \\
+		& \ddots & \\
+		& & \lambda_n
+	\end{pmatrix}P^{-1}$; alors $\exp(A) = P\begin{pmatrix}
+		e^{\lambda_1} & & \\ & \ddots & \\ & & e^{\lambda_n}
+	\end{pmatrix}P^{-1}$.
+\end{proposition}
+
+\begin{theorem}[décomposition de \textsc{Dunford} - \textnormal{[R] 613}]
+	Si $A$ est trigonalisable, alors il existe un unique $(D,B)\in \mathcal{M}_n(\IK)^2$ tel que $D$ est diagonalisable, $N$ est nilpotente, $D$ et $N$ commutents, et $A = D+N$.
+	De plus, $(D,N)\in K[A]^2$.
+\end{theorem}
+
+\begin{proposition}
+	Si $A$ est nilpotente d'indice $r$, alors $\exp(A) = \sum_{k=0}^{r-1} \frac{A^k}{k!}$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 765}]
+	Si $A$ est trigonalisable, et si $A=D+N$ est la décomposition de \textsc{Dunford} de $A$,
+	alors $e^A = e^D + e^D(e^N-I_n)$.
+
+	En particulier, $e^D$ est diagonalisable et $e^D(e^N -I_n)$ est nilpotente, et ce sont les éléments de la décomposition de \textsc{Dunford} de $e^A$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 778}]
+	$\left(I_n + \frac{A}{k}\right)^k \to_{k\to +\infty} \exp(A)$
+\end{proposition}
+
+\begin{remark}
+	Cela fournit une méthode pour approcher numériquement l'exponentielle d'une matrice, toutefois bien moins efficace qu'un calcul direct.
+\end{remark}
+
+\subsection*{B. Application : résolution d'EDO linéaires à coéfficients constants}
+\begin{proposition}[\textnormal{[Gr] 378}]
+	$t\mapsto e^{tA}$ est lisse sur $\IR$, de dérivée $t\mapsto Ae^{tA} = e^{tA}A$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Gr] e378}]
+	L'unique solution du problème de \textsc{Cauchy}
+	$$\begin{cases}
+		Y' = AY \\ Y(t_0) = Y_0
+	\end{cases}$$
+	pour $t_0\in \IR$, $Y\in\mathcal{M}_{n,1}(\IR)$, est $t\mapsto e^{(t-t_0)A}Y_0$.
+\end{proposition}
+
+\begin{example}
+	Le problème de \textsc{Cauchy}
+	$\begin{cases}
+		Y' = \begin{pmatrix}
+			1&1\\0&1
+		\end{pmatrix}Y,\quad Y(0) = \begin{pmatrix}
+			0\\1
+		\end{pmatrix}
+	\end{cases}$
+	admet pour (unique) solution $t\mapsto \exp\left(t\begin{pmatrix}
+		1&1\\0&1
+	\end{pmatrix}\right)\begin{pmatrix}
+		0\\1
+	\end{pmatrix} = e^t\begin{pmatrix}
+		1&t\\0&1
+	\end{pmatrix}\begin{pmatrix}
+		0\\1
+	\end{pmatrix} = e^t\begin{pmatrix}
+		t\\1
+	\end{pmatrix}$.
+\end{example}
+
+\begin{proposition}[formule de \textsc{Duhamel}]
+	Soient $B\,\colon \IR\to \mathcal{M}_{n,1}{\IR}$ continue, $t_0\in\IR$ et $Y_0\in\mathcal{M}_{n,1}(\IR)$.
+	L'unique solution du problème de \textsc{Cauchy}
+	$\begin{cases}
+		Y' = AY + B ;\quad Y(t_0) = Y_0
+	\end{cases}$ est 
+	$$t\mapsto e^{(t-t_0)A}Y_0 + \int_{t_0}^t e^{(t-s)A}B(s)ds$$
+\end{proposition}
+
+
+\section*{III. Propriétés analytiques de l'exponentielle matricielle}
+\subsection*{A. Injectivité, surjectivité}
+
+\begin{theorem}[\textnormal{[R] 769}]
+	L'application $\exp\,\colon \mathcal{M}_n(\IC)\to GL_n(\IC)$ est surjective, non injective.
+\end{theorem}
+
+\begin{cexample}
+	$\forall k\in\IZ$, $\exp(2i\pi kI_n)= I_n$
+\end{cexample}
+
+\begin{theorem}
+	L'application $\exp\,\colon \mathcal{M}_n(\IR)\to GL_n(\IR)$ n'est ni surjective, ni injective.
+	Plus précisément,
+	\begin{itemize}
+		\item $\exp(\mathcal{M}_n(\IR)) = \left\{M^2 \mid M\in GL_n(\IR)\right\} \neq GL_n(\IR)$
+		\item Exemple 3 justifie la non-injectivité
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}
+	Comme $\det(\exp(A)) = e^{\tr (A)} > 0$, on a $\det^{-1}(\IR^-)\cap \exp(\mathcal{M}_n(\IR)) = \emptyset$.
+\end{remark}
+
+\begin{proposition}[\textnormal{[R] e768-777}]
+	Notons $\mathcal{N}_n(\IR)$ l'ensemble des matrices nilpotentes de $\mathcal{M}_n(\IR)$.
+	L'application $\exp\,\colon \mathcal{N}_n(\IR) \to GL_n(\IR)$ est injective.
+
+	Notons $\Delta_n(\IR)$ l'ensemble des matrices diagonalisables de $\mathcal{M}_n(\IR)$.
+	L'application $\exp\,\colon \Delta_n(\IR)\to  GL_n(\IR)$ est injective.
+\end{proposition}
+
+\begin{application}[\textnormal{[R] 777}]
+	$\exp(A)$ est diagonalisable si, et seulement si, $A$ l'est.
+\end{application}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[C] 357}]
+	\label{155dev1}
+	L'application $\exp\,\colon S_n(\IR)\to S_n^{++}(\IR)$ est un homéomorphisme.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{theorem_def}[\textnormal{[R] 766-768}]
+	Si $A\in \mathcal{B}(I_n, 1)$, alors $\sum_{n\geq 1}\left(-1\right)^{n-1}\frac{A^n}{n}$
+	converge normalement sur tout compact. Sa somme est notée $\ln(I_n+A)$, et est appelée \emph{logarithme de $A$}.
+\end{theorem_def}
+
+\begin{remark}
+	On a $\ln(I_n) = 0_n$.
+\end{remark}
+
+\begin{theorem}[ADMIS]
+	L'application $\exp\,\colon \mathcal{N}_n(\IC)\to I_n + \mathcal{N}_n(\IC)$ est une 
+	bijection de réciproque $\ln$.
+\end{theorem}
+
+\subsection*{B. Régularité}
+\begin{theorem}[ADMIS - \textnormal{[Rv] 306}]
+	$\exp$ est lisse sur $\mathcal{M}_n(\IR)$.
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{proposition}
+	\label{155dev2}
+	La différentielle de $\exp$ en $X\in\mathcal{M}_n(\IR)$ est :
+	$$d(\exp)(X)\,\colon H\mapsto \left(\sum_{n=0}^{+\infty}\frac{[\cdot, X]^n}{(n+1)!}\right)(H)$$
+	où $[\cdot, X]\,\colon H \mapsto [H, X] = HX - XH$.
+\end{proposition}
+\end{tcolorbox}
+
+\begin{corollary}
+	$\exp$ induit un $C^1$-difféomorphisme local d'un voisinage de $0_n$ sur un voisinage de $I_n$.
+\end{corollary}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{155dev1}
+	\item Développement 2 : Proposition \ref{155dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[C] \emph{Nouvelles histoires hédonistes de groupes et géométries I}, P. Caldero, J. Germoni
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+\end{itemize}
+
+
+\chapter*{156 : Endomorphismes trigonalisables. Endomorphismes nilpotents.}
+\setcounter{definition}{0}
+
+\section*{Développements}
+% \begin{itemize}
+% 	\item Développement 1 : Théorème \ref{155dev1}
+% 	\item Développement 2 : Proposition \ref{155dev2}
+% \end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[M2] \emph{Algèbre linéaire. Réduction des endomorphismes}, Roger Mansuy, Rached Mneimné, 3e édition
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[Go] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
+	\item[C] \emph{Carnet de voyage en Algébrie}, Philippe Caldero, Marie Peronnier
+\end{itemize}
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/149.pdf}
+% 	\caption{s}
+% \end{figure}
 \end{document}
