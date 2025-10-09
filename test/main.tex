@@ -60,6 +60,7 @@
 \newtheorem{conjecture}[definition]{Conjecture}
 \newtheorem{notation}[definition]{Notation}
 \newtheorem*{notation*}{Notation}
+\newtheorem*{example*}{Exemple}
 
 \newcommand{\IN}{\mathbb{N}}
 \newcommand{\IZ}{\mathbb{Z}}
@@ -3791,12 +3792,299 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 
 \chapter*{156 : Endomorphismes trigonalisables. Endomorphismes nilpotents.}
 \setcounter{definition}{0}
+\textcolor{paragraphtext}{Dans cette leçon, $K$ désigne un corps, $E$ est un $K$-espace vectoriel de dimension finie $n$, et $u\in\mathcal{L}(E)$.}
+
+\section*{I. Rappels sur l'étude des endomorphismes}
+
+\begin{theorem}[de structure - \textnormal{[M2] 2}]
+	L'application $\varphi_u\,\colon K[X]\to \mathcal{L}(E)$ qui à 
+	$P = \sum a_kX^k$ associe $P(u) := \sum a_k u^k$, est un morphisme de $K$-algèbres.
+\end{theorem}
+
+\begin{proposition_def}[\textnormal{[M2] 3,4}]
+	L'ensemble $I_u = \Ker(\varphi_u)$ des polynômes dits \emph{annulateurs de $u$}, est un idéal de $K[X]$,
+	appelé \emph{idéal annulateur de $u$}. Il n'est pas réduit à $\left\{0\right\}$, et 
+	donc admet un unique générateur unitaire, noté $\mu_u$, appelé \emph{polynôme minimal de $u$}.
+\end{proposition_def}
+
+\begin{remark}
+	Par correspondance entre $\mathcal{L}(E)$ et $\mathcal{M}_n(K)$, ces résultats restent valables pour les matrices.
+\end{remark}
+
+\begin{definition}[\textnormal{[M2] 54}]
+	Le \emph{polynôme caractéristique de $u$} est définie par $\chi_u = \det(X\id_E - u)$.
+\end{definition}
+
+\begin{theorem}[de \textsc{Cayley-Hamilton} - \textnormal{[M2] 81}]
+	$\chi_u(u) = 0_{\mathcal{L}(E)}$
+\end{theorem}
+
+\begin{proposition}[\textnormal{[R] 605}]
+	$\Sp(u) = \chi^{-1}(\left\{0\right\}) = \pi^{-1}(\left\{0\right\})$
+\end{proposition}
+
+\begin{proposition}[\textnormal{[M2] 55 ?}]
+	Soit $F$ un sous-espace vectoriel de $E$ stable par $u$.
+	Notons $u_F\in\mathcal{L}(E)$ l'nedomorphisme induit par $u$ sur $F$. Alors $\pi_{u_F} \mid \pi_u$ et $\chi_{u_F} \mid \chi_u$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[M2] 18-55}]
+	Si $E = F_1\bigoplus \cdots\bigoplus F_r$ est une décomposition de $E$ en sous-espaces stables par $u$,
+	alors $\chi_u = \chi_{u_{F_1}} \cdots \chi_{u_{F_r}}$ et $\pi_u = \pi_{u_{F_1}} \vee \cdots \vee \pi_{u_{F_r}}$.
+\end{proposition}
+
+\begin{lemma}[des noyaux - \textnormal{[M2] 43}]
+	Soit $(P,Q)\in K[X]^2$. Si $P\wedge Q = 1$, alors
+	$\Ker\left(\left(PQ\right)(u)\right) = \Ker(P(u))\bigoplus\Ker(Q(u))$.
+\end{lemma}
+
+\section*{II. Trigonalisation}
+
+\begin{definition}[\textnormal{[R] 675}]
+	On dit que $u$ est \emph{trigonalisable} s'il existe une base $\mathcal{B}$ de $E$ telle que $\Mat_{\mathcal{B}}(u)$ est triangulaire.
+\end{definition}
+
+\begin{corollary}[\textnormal{[R] 676}]
+	Si $u$ est trigonalisable, alors $\tr(u) = \sum_{\lambda\in\Sp(u)} m(\lambda)\lambda$ et $\det(u) = \prod_{\lambda\in\Sp(u)} \lambda^{m(\lambda)}$.
+\end{corollary}
+
+\begin{theorem}[\textnormal{[R] 676}]
+	$u$ est trigonalisable $\iff$ $\pi_u$ est scindé $\iff$ il existe $P\in I_u$ scindé.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[R] 676}]
+	Sur un corps algébriquement clos, tout endomorphisme est trigonalisable.
+\end{corollary}
+
+\begin{example}
+	$\begin{pmatrix}
+		0&1\\-1&0
+	\end{pmatrix}$ est trigonalisable sur $\IC$ mais pas sur $\IR$.
+\end{example}
+
+\begin{application}[\textnormal{[R] 762}]
+	$\forall A\in \mathcal{M}_n(\IC)$, $\det(e^A) = e^{\tr(A)}$.
+\end{application}
+
+\begin{proposition}
+	Si $F$ est un sous-espace vectoriel stable par $u$ et si $u$ est trigonalisable, alors $u_f\,\colon F\to F$ est trigonalisable.
+\end{proposition}
+
+\begin{proposition}
+	Si $A\in\mathcal{M}_n(K)$ s'écrit par blocs $\diag(A_1,\dots,A_r)$,
+	alors $\chi_A = \chi_{A_1}\cdots \chi_{A_r}$ et $\pi_A = \pi_{A_1}\vee \cdots \vee \pi_{A_r}$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Go] 175}]
+	Soit $v\in \mathcal{L}(E)$. Si $u$ et $v$ commutent, alors popur tout $\lambda\in\Sp(u)$, $E_{\lambda}(u)$ est stable par $v$.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[R] 678}]
+	Soit $\left(u_i\right)_{i\in I}\in\mathcal{L}(E)^I$ une famille d'endomorphismes qui commutent deux à deux. Si les $u_i$, $i\in I$, sont tous trigonalisables, alors ils le sont dans une même base (on dit qu'ils sont \emph{cotrigonalisables}).
+\end{theorem}
+
+\begin{proposition}[\textnormal{[Go] e192}]
+	Soit $v\in\mathcal{L}(E)$. Si $u$ et $v$ sont cotrigonalisables, alors $u+v$ et $u\circ v$ sont trigonalisables.
+\end{proposition}
+
+\begin{example}
+	On a :
+	\begin{itemize}
+		\item $\left(\begin{smallmatrix}
+			0& -1\\ 0 & 0
+		\end{smallmatrix}\right)$ et $\left(\begin{smallmatrix}
+			0& 1\\ 0 & 0
+		\end{smallmatrix}\right)$ sont trigonalisables, mais pas leur somme.
+		\item $\left(\begin{smallmatrix}
+			0& 1\\ 1 & 0
+		\end{smallmatrix}\right)$ et $\left(\begin{smallmatrix}
+			1 & 1\\ 0 & -1
+		\end{smallmatrix}\right)$ sont trigonalisables, mais pas leur produit.
+	\end{itemize}
+\end{example}
+
+\section*{III. Endomorphismes nilpotents}
+\subsection*{A. Définition, critères, propriétés}
+
+\begin{definition}[\textnormal{[Gr] 93}]
+	On dit que $u$ est \emph{nilpotent} s'il existe $k\in\IN^*$ tel que $u^k=0_{\mathcal{L}(E)}$.
+	On définit alors \emph{l'indice (de nilpotence) de $u$} comme $\min\left\{k\in\IN^*\mid u^k = 0_{\mathcal{L}(e)}\right\}$.
+\end{definition}
+
+\begin{example}
+	La dérivation de $\IC_n[X]$ est nilpotente d'indice $n+1$.
+\end{example}
+
+\begin{proposition}[\textnormal{[Gr] e192}]
+	Soit $v\in\mathcal{L}(E)$ nilpotent. Si $u$ et $v$ commutent, alors $u+v$ et $u\circ v$ sont nilpotents.
+\end{proposition}
+
+\begin{theorem}
+	Les assertions suivantes sont équivalentes :
+	\begin{itemize}
+		\item $u$ est nilpotent
+		\item $\chi_u = X^n$
+		\item $\exists k\in \llbracket 1,n\rrbracket$, $\pi_u = X^p$
+		\item $u$ est trigonalisable et $\Sp(u) = \left\{0\right\}$.
+	\end{itemize}
+\end{theorem}
+
+\begin{corollary}
+	Si $K$ est algébriquement clos, alors $u$ est nilpotent $\iff \Sp(u)=\left\{0\right\}$. 
+\end{corollary}
+
+\begin{example}
+	$\left(\begin{smallmatrix}
+		0&0&0\\ 0&0&-1 \\ 0&1&0
+	\end{smallmatrix}\right)$ n'est pas nilpotente, mais son spectre est $\left\{0\right\}$.
+\end{example}
+
+\begin{theorem}[\textnormal{[C] 27-32}]
+	Si $K=\IR$, alors $u$ est nilpotent $\iff$ $\forall k\in \IN^*$, $\tr(u^k) = 0$.
+\end{theorem}
+
+\begin{remark}
+	Si $K$ est un corps fini, le résultat est faux : considérer $\id_{\left(\IF_p\right)^p}$.
+\end{remark}
+
+\begin{proposition}
+	Si $F$ est un sous-espace vectoriel stable par $u$ et si $u$ est nilpotent, alors $u_F\,\colon F\to F$ est nilpotent.
+\end{proposition}
+
+\subsection*{B. Réduction de \textsc{Jordan} des endomorphismes nilpotents}
+
+\begin{notation}[\textnormal{[M2] 143}]
+	Posons $$J_r := \begin{pmatrix}
+		0 & 1 & \cdots & 0 \\
+		\vdots & \ddots & \ddots & \vdots \\
+		\vdots & & \ddots & 1 \\
+		0 & \cdots & \cdots & 0
+	\end{pmatrix}$$
+
+	On l'appelle \emph{bloc de \textsc{Jordan}} d'ordre $r$.
+\end{notation}
+
+\begin{lemma}[\textnormal{[R] 678}]
+	Supposons $u$ nilpotent d'indice $p$. Soit $x\notin \Ker(u^{p-1})$, posons $F_x = \Vect(x, u(x), \dots, u^{p-1}(x))$.
+	\begin{itemize}
+		\item $F_x$ est stable par $u$ et $(x,u(x),\dots,u^{p-1}(x))$ est une base de $F_x$ ;
+		\item $F_x$ admet un supllémentaire stable par $u$.
+	\end{itemize}
+\end{lemma}
+
+\begin{theorem}[réduction de \textsc{Jordan}]
+	Supposons $u$ nilpotent. Il existe $d_1\geq \cdots\geq d_r$ et une base $\mathcal{B}$ de $E$ tels que $\Mat_{\mathcal{B}}(u) = \diag(J_{d_1},\dots,J_{d_r})$.
+\end{theorem}
+
+\begin{proposition}
+	Posons $A = \diag(J_{i_1},\dots,J_{i_r})$. On a $\chi_A = \pi_A = X^{i_r}$, et $A$ est nilpotente d'indice $r$.
+\end{proposition}
+
+\subsection*{C. Noyaux itérés et tableaux de \textsc{Young}}
+
+\begin{proposition}[\textnormal{[M2] 16}]
+	La suite $\left(\Ker(u^k)\right)_{k\in\IN}$ est croissante et stationnaire, et si on note $d_k = \dim(\Ker(u^k))$, on a $\forall k\in \IN$, $d_{k+1} = d_k + \dim(\Ker(u)\cap \im(u^k))$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[M2] 16}]
+	$\left(d_{k+1}-d_k\right)_{k\in\IN}$ est décroissante (on dit que $\left(d_k\right)_{k\in\IN}$ \emph{s'essouffle}).
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Gr] 93}]
+	$p=\min\left\{k\in \IN\mid \forall q\geq k,\, \Ker(u^q)=\Ker(u^k)\right\}$ est appelé \emph{caractère de $u$}.
+	Il vérifie $p\leq n$. Si $u$ est nilpotent, alors $p$ est aussi l'indice de nilpotence de $u$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[M2] 147}]
+	\begin{itemize}
+		\item Le \emph{tableau de \textsc{Young}} associé à une suite d'entiers $n_1\geq \cdots \geq n_r$ est le tableau à $r$ lignes tel que la $i$-ième ligne contient $n_i$ cases (alignées à gauche).
+		\item Le \emph{tableau de \textsc{Young}} d'un endomorphisme nilpotent est le tableau de \textsc{Young} de $d_2-d_1\geq d_3-d2\geq \cdots \geq d_p - d_{p-1}$ avec les notations ci-dessus.
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	FIGURE 1.
+\end{example}
+
+\begin{proposition}
+	Soit $d_1\geq \cdots\geq d_r$. La matrice par blocs $\diag(J_{d_1},\dots,J_{d_r})$ est nilpotente d'indice $d_1$.
+\end{proposition}
+
+\begin{example*}[Construction du tableau de \textsc{Young} à partir de la réduite de \textsc{Jordan}]
+	[\textnormal{[M2] 147}]
+	FIGURE 2. A PRESENTER.
+\end{example*}
+
+\begin{theorem}[\textnormal{[M2] 148}]
+	Deux endomorphismes nilpotents sont semblables si, et seulement si, ils ont la même réduction de \textsc{Jordan}.
+\end{theorem}
+
+\begin{corollary}
+	Il y a autant de classes de similitude de matrices nilpotentes que de partitions de $n$.
+\end{corollary}
+
+
+\section*{IV. Décomposition de \textsc{Dunford} et applications}
+\textcolor{paragraphtext}{Dans cette section, $\IK$ désigne $\IR$ ou $\IC$.}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[décomposition de \textsc{Dunford} - \textnormal{[R] 683}]
+	\label{156dev11}
+	Si $\chi_u$ est scindé, alors il existe un unique $(d,n)\in\mathcal{L}(E)^2$ tel que $d$ est diagonalisable, $n$ nilpotent, $d$ et $n$ commutent et $u = d + n$.
+	De plus, $(d,n)\in K[u]^2$.
+\end{theorem}
+
+\begin{application}[\textnormal{[R] 684}]
+	\label{156dev12}
+	Soit $A\in\mathcal{M}_n(\IK)$ tel que $\chi_A$ est scindé. Soit $A = D+N$ sa
+	décomposition de \textsc{Dunford}. Il existe $P\in GL_n(\IK)$ et $(\lambda_1,\dots,\lambda_n)\in\IK^n$ tels que 
+	$P^{-1}DP = \diag(\lambda_1,\dots, \lambda_n)$. On a alors :
+	$$e^A = P\diag(e^{\lambda_1},\dots, e^{\lambda_n})P^{-1}\sum_{k=0}^{n-1}\frac{N^k}{k!}$$
+\end{application}
+\end{tcolorbox}
+
+\begin{example}
+	$\exp\left(\begin{smallmatrix}
+		1&1&0\\0&1&1\\0&0&1
+	\end{smallmatrix}\right) = \exp\left(I_3 + J_3\right) = \left(\begin{smallmatrix}
+		e&e&e/2 \\ 0&e&e \\ 0&0&0
+	\end{smallmatrix}\right)$
+\end{example}
+
+\begin{application}
+	$\left\{Y\in C^1(\IR,\IK^n)\mid Y' = AY\right\} = \left\{t\mapsto e^{tA}Y_0\mid Y_0\in \IK^n\right\}$
+\end{application}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[critère de \textsc{Klarès} - \textnormal{[M2 154]}]
+	\label{156dev2}
+	Si $u\in \mathcal{L}(E)$ est trigonalisable, alors $u$ est diagonalisable si, et seulement si, $ad_u\,\colon v\in\mathcal{L}(E)\mapsto u\circ v - v\circ u$ l'est.
+\end{theorem}
+\end{tcolorbox}
 
 \section*{Développements}
-% \begin{itemize}
-% 	\item Développement 1 : Théorème \ref{155dev1}
-% 	\item Développement 2 : Proposition \ref{155dev2}
-% \end{itemize}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{156dev11} et application \ref{156dev12}
+	\item Développement 2 : Théorème \ref{156dev2}
+\end{itemize}
 
 \section*{Références}
 \begin{itemize}
@@ -3806,6 +4094,13 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 	\item[Go] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
 	\item[C] \emph{Carnet de voyage en Algébrie}, Philippe Caldero, Marie Peronnier
 \end{itemize}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/156.pdf}
+	\caption{s}
+\end{figure}
+
+
 % \begin{figure}[!htb]
 % 	\centering
 % 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/149.pdf}
