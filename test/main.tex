@@ -66,6 +66,9 @@
 \newcommand{\IZ}{\mathbb{Z}}
 \newcommand{\IU}{\mathbb{U}}
 \newcommand{\IK}{\mathbb{K}}
+\newcommand{\IP}{\mathbb{P}}
+\newcommand{\IE}{\mathbb{E}}
+\newcommand{\IV}{\mathbb{V}}
 \newcommand{\IZnZ}{\mathbb{Z}/n\mathbb{Z}}
 \newcommand{\IZpZ}{\mathbb{Z}/p\mathbb{Z}}
 \newcommand{\IQ}{\mathbb{Q}}
@@ -82,6 +85,9 @@
 \newcommand{\IRnp}{\mathbb{R}^{n\times p}}
 \newcommand{\IRpm}{\mathbb{R}^{p\times m}}
 \newcommand{\IRmp}{\mathbb{R}^{m\times p}}
+\newcommand{\M}{\mathcal{M}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
 \newcommand{\actson}{\circlearrowleft}
 
 \DeclareMathOperator{\im}{Im}
@@ -112,6 +118,8 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Com}{Com}
 \DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Hess}{Hess}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\LARGE}
@@ -280,11 +288,11 @@ Dans ce paragraphe, $K$ désigne un corps. On fixe $(n,m)\in \left(\IN^*\right)^
 \begin{proposition}[\textnormal{[R] 184/185/199/195/206}]
 	Les applications suivantes sont des actions :
 	\begin{enumerate}
-		\item Translation à gauche : $GL_n(K)\times \mathcal{M}_{n,m}(K)\to\mathcal{M}_{n,m}(K)$, $(P,A)\mapsto PA$
-		\item Translation à droite : $GL_n(K)\times \mathcal{M}_{n,m}(K)\to\mathcal{M}_{n,m}(K)$, $(P,A)\mapsto AP^{-1}$
-		\item Similitude (ou conjugaison) : $GL_n(K)\times \mathcal{M}_{n}(K)\to\mathcal{M}_{n}(K)$, $(P,A)\mapsto PAP^{-1}$
-		\item Équivalence (ou \emph{action de Steiniz}) : $\left(GL_n(K)\times GL_m(K)\right)\times \mathcal{M}_{n,m}(K)\to\mathcal{M}_{n,m}(K)$, $\left(\left(P, Q\right), A\right) \mapsto PAQ^{-1}$
-		\item Congruence : $GL_n(K)\times \mathcal{M}_{n}(K)\to\mathcal{M}_{n}(K)$, $(P,A)\to {}^tPAP$
+		\item Translation à gauche : $GL_n(K)\times \M_{n,m}(K)\to\M_{n,m}(K)$, $(P,A)\mapsto PA$
+		\item Translation à droite : $GL_n(K)\times \M_{n,m}(K)\to\M_{n,m}(K)$, $(P,A)\mapsto AP^{-1}$
+		\item Similitude (ou conjugaison) : $GL_n(K)\times \M_{n}(K)\to\M_{n}(K)$, $(P,A)\mapsto PAP^{-1}$
+		\item Équivalence (ou \emph{action de Steiniz}) : $\left(GL_n(K)\times GL_m(K)\right)\times \M_{n,m}(K)\to\M_{n,m}(K)$, $\left(\left(P, Q\right), A\right) \mapsto PAQ^{-1}$
+		\item Congruence : $GL_n(K)\times \M_{n}(K)\to\M_{n}(K)$, $(P,A)\to {}^tPAP$
 	\end{enumerate}
 \end{proposition}
 
@@ -722,7 +730,7 @@ Dans cette leçon, $K$ est un corps commutatif, et $E$ est un $K$-espace vectori
 \begin{theorem}[\textnormal{[Rb] 139}]
 	\begin{itemize}
 		\item L'ensemble $\mathcal{L}(E)$ des endomorphismes de $E$ est un anneau pour $+$ et $\circ$, dont le groupe des inversibles est noté $GL(E)$, et est appelé \emph{groupe linéaire} de $E$.
-		\item Similairement, l'ensemble $\mathcal{M}_n(K)$ des matrices carrées de taille $n\times n$ est un anneau pour $+$ et $\times$, dont le groupe des inversibles est noté $GL_n(K)$, appelé \emph{groupe linéaire d'ordre $n$ sur $K$}.
+		\item Similairement, l'ensemble $\M_n(K)$ des matrices carrées de taille $n\times n$ est un anneau pour $+$ et $\times$, dont le groupe des inversibles est noté $GL_n(K)$, appelé \emph{groupe linéaire d'ordre $n$ sur $K$}.
 	\end{itemize}
 \end{theorem}
 
@@ -771,7 +779,7 @@ Dans cette leçon, $K$ est un corps commutatif, et $E$ est un $K$-espace vectori
 \end{proposition}
 
 \subsection*{B. Opérations élémentaires}
-Soit $A\in\mathcal{M}_n(K)$. On note $L_1, \dots, L_p$ les lignes de $A$, et $C_1,\dots,C_n$ ses colonnes.
+Soit $A\in\M_n(K)$. On note $L_1, \dots, L_p$ les lignes de $A$, et $C_1,\dots,C_n$ ses colonnes.
 \begin{definition}[\textnormal{[Bu] 315-317}]
 	Soient $\alpha \in K^{\times}$, $(i,j)\in\llbracket 1,n\rrbracket^2$ tel que $i\neq j$ et $\sigma\in\mathfrak{S}_n$. On définit les matrices suivantes :
 	\begin{itemize}
@@ -843,7 +851,7 @@ Soit $q$ une forme quadratique sur $E$, de forme polaire $\varphi$. Supposons $\
 		\item Le \emph{groupe orthogonal} de $(E,q)$ est $O(q) = \left\{u\in\mathcal{L}(E)\mid q\circ u = q\right\}$
 		\item Le \emph{groupe spécial orthogonal} de $(E,q)$ est $SO(q) = \left\{u\in O(q)\mid \det u = 1\right\}$
 		\item Lorsque $\varphi$ est le produit scalaire canonique relativement à une base donnée, on note $O(E)=O(q)=\left\{u\in\mathcal{L}(E)\mid {}^tu\circ u = \id_E\right\}$ et $SO(E)=SO(q)=\left\{u\in O(E)\mid \det u = 1\right\}$.
-		\item On note également $O_n(K) = \left\{M\in\mathcal{M}_n(K)\mid {}^tMM=I_n\right\}$ et $SO_n(K)  \left\{M\in O_n(K)\mid \det M = 1\right\}$.
+		\item On note également $O_n(K) = \left\{M\in\M_n(K)\mid {}^tMM=I_n\right\}$ et $SO_n(K)  \left\{M\in O_n(K)\mid \det M = 1\right\}$.
 	\end{itemize}
 \end{definition}
 
@@ -2431,7 +2439,7 @@ restes d'être positifs, ce qui rend les reste et quotient uniques.}
 \subsection*{A. (Systèmes d') équations diophantiennes linéaires}
 
 \begin{definition}[\textnormal{[G] 163}]
-	Soit $M\in \mathcal{M}_{n,m}(IZ)$. On dit que $M$ est sous \emph{forme normale d'\textsc{Hermite}}
+	Soit $M\in \M_{n,m}(IZ)$. On dit que $M$ est sous \emph{forme normale d'\textsc{Hermite}}
 	si elle est sous la forme :
 
 	$$\left(\begin{smallmatrix}
@@ -2450,7 +2458,7 @@ restes d'être positifs, ce qui rend les reste et quotient uniques.}
 \end{definition}
 
 \begin{algorithm}[d'\textsc{Hermite} - \textnormal{[G] 164}]
-	Soit $M\in \mathcal{M}_{n,m}(\IZ)\setminus \left\{0\right\}$.
+	Soit $M\in \M_{n,m}(\IZ)\setminus \left\{0\right\}$.
 	On définit $\delta_{i_0,j}(M) = \min \left\{\vert M_{i,j}\vert \,\colon i \geq i_0,\, M_{i,j}\neq 0\right\}$.
 	L'algorithme d'\textsc{Hermite} : \\
 
@@ -2792,10 +2800,10 @@ base $\mathcal{B}=(e_1,\dots, e_n)$ de $E$, et $(x_1,\dots, x_r)\in E^r$.}
 \end{corollary}
 
 \subsection*{B. Le cas particulier des matrices}
-\textcolor{paragraphtext}{Soit $A\in\mathcal{M}_{n,p}(K)$. Notons $C_1,\dots, C_p$ ses colonnes et $L_1,\dots, L_n$ ses lignes.}
+\textcolor{paragraphtext}{Soit $A\in\M_{n,p}(K)$. Notons $C_1,\dots, C_p$ ses colonnes et $L_1,\dots, L_n$ ses lignes.}
 
 \begin{definition}[\textnormal{[Gr] 33}]
-	Le \emph{rang de $A$} est l'entier $\rg(A) = \dim\left(\left\{AX\mid X\in\mathcal{M}_{n,1}(X)\right\}\right) = \rg(C_1,\dots,C_p)$.
+	Le \emph{rang de $A$} est l'entier $\rg(A) = \dim\left(\left\{AX\mid X\in\M_{n,1}(X)\right\}\right) = \rg(C_1,\dots,C_p)$.
 \end{definition}
 
 \begin{proposition}[\textnormal{[Gr] 82}]
@@ -2977,7 +2985,7 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 \end{proposition}
 
 \subsection*{B. Déterminant d'une matrice carrée, d'un endomorphisme}
-\textcolor{paragraphtext}{Soient $u\in\mathcal{L}(E)$ et $A = \left(a_{i,j}\right)_{1\leq i,j\leq n} \in \mathcal{M}_n(\IR)$.}
+\textcolor{paragraphtext}{Soient $u\in\mathcal{L}(E)$ et $A = \left(a_{i,j}\right)_{1\leq i,j\leq n} \in \M_n(\IR)$.}
 
 \begin{definition}[\textnormal{[Go] 142}]
 	Si $C_1,\dots, C_n$ sont les colonnes de $A$, alors :
@@ -2986,7 +2994,7 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 \end{definition}
 
 \begin{proposition}[\textnormal{[Go] 142}]
-	Soient $\lambda\in K$ et $B\in\mathcal{M}_n(K)$.
+	Soient $\lambda\in K$ et $B\in\M_n(K)$.
 	\begin{enumerate}
 		\item $\det(A)$ ne change pas si on ajoute à une colonne une combinaison linéaire des autres colonnes ;
 		\item $\det(A^T)=\det(A)$
@@ -3004,15 +3012,15 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 
 \subsection*{C. Propriétés analytiques}
 \begin{proposition}[\textnormal{[Rv] 83}]
-	$A\mapsto \det A$ est polynomiale en les coefficients de $A$ (relativement à la base canonique de $\mathcal{M}_n(K)$), donc lisse.
+	$A\mapsto \det A$ est polynomiale en les coefficients de $A$ (relativement à la base canonique de $\M_n(K)$), donc lisse.
 \end{proposition}
 
 \begin{corollary}
-	$GL_n(\IK)$ est ouvert dans $\mathcal{M}_n(\IK)$, et $SL_n(\IR)$ est fermé.
+	$GL_n(\IK)$ est ouvert dans $\M_n(\IK)$, et $SL_n(\IR)$ est fermé.
 \end{corollary}
 
 \begin{proposition}[\textnormal{[Rv] 83}]
-	$\forall x\in \mathcal{M}_n(\IR)$, $\forall H\in \mathcal{M}_n(\IR)$, $d(\det)(X)(H) = \tr (\Com(X)^T H)$,
+	$\forall x\in \M_n(\IR)$, $\forall H\in \M_n(\IR)$, $d(\det)(X)(H) = \tr (\Com(X)^T H)$,
 	où $\Com(X)$ est rappelée dans le paragraphe $II. B$.
 \end{proposition}
 
@@ -3072,7 +3080,7 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 
 \subsection*{B. Mineurs, cofacteurs et développements}
 
-\textcolor{paragraphtext}{Soient $A=\left(a_{i,j}\right)_{1\leq i,j\leq n}\in\mathcal{M}_n(K)$.}
+\textcolor{paragraphtext}{Soient $A=\left(a_{i,j}\right)_{1\leq i,j\leq n}\in\M_n(K)$.}
 \begin{definition}[\textnormal{[Go] 142}]
 	Soit $(i,j)\in \llbracket 1,n \rrbracket ^2$.
 	On appelle \emph{mineur d'indice $(i,j)$ de $A$} le déterminant de la matrice extraite de $A$
@@ -3159,24 +3167,24 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 
 \begin{remark}[\textnormal{[BMP] 181}]
 	On étend la formule explicite du déterminant au cas des matrices à coefficients dans un anneau intègre $A$.
-	Si $M\in \mathcal{M}_n(A)$, alors $\det(M)\in A$, et par plongement de $A$ dans $\Frac(A)$, les propriétés dékà vues restent vraies.
+	Si $M\in \M_n(A)$, alors $\det(M)\in A$, et par plongement de $A$ dans $\Frac(A)$, les propriétés dékà vues restent vraies.
 \end{remark}
 
 \begin{definition}[\textnormal{[Go] 172}]
-	Le \emph{polynôme caractéristique de $A\in\mathcal{M}_n(K)$} est $\chi_A = \det(XI_n - A)$.
+	Le \emph{polynôme caractéristique de $A\in\M_n(K)$} est $\chi_A = \det(XI_n - A)$.
 
 	Le \emph{polynôme caractéristique d'un endomorphisme} est celui de sa matrice dans n'importe quelle base.
 \end{definition}
 
 \begin{proposition}[\textnormal{[Go] 159; [C] 47}]
 	\begin{itemize}
-		\item $\forall A\in\mathcal{M}_n(K)$, $\Sp(A) = \chi^{-1}_A(\left\{0\right\})$
-		\item $\forall (A,B)\in\mathcal{M}_n(\IC)$, $\chi_{AB} = \chi_{BA}$
+		\item $\forall A\in\M_n(K)$, $\Sp(A) = \chi^{-1}_A(\left\{0\right\})$
+		\item $\forall (A,B)\in\M_n(\IC)$, $\chi_{AB} = \chi_{BA}$
 	\end{itemize}
 \end{proposition}
 
 \begin{theorem}[de \textsc{Cayley-Hamilton} - \textnormal{[M2] 81}]
-	$\forall A\in\mathcal{M}_n(\IK)$, $\chi_A(A)=0$.
+	$\forall A\in\M_n(\IK)$, $\chi_A(A)=0$.
 \end{theorem}
 
 \begin{theorem}[Systèmes de \textsc{Cramer} - \textnormal{[Gr] 145}]
@@ -3424,7 +3432,7 @@ Soit $F$ un sous-espace vectoriel de $E$.}
 ]
 \begin{theorem}[de réduction des endomorphismes normaux - \textnormal{[R] 745}]
 	Il existe une base orthonormée $\mathcal{B}$ de $E$ telle que, par blocs, $\Mat_{\mathcal{B}}(u) = \diag(D_p, R_1,\dots, R_r)$, où 
-	$D_p\in\mathcal{M}_n(\IR)$ est diagonale, $\forall i\in \llbracket 1,n\rrbracket$, $\exists (a_i, b_i)\in\IR^2\,\colon b_i \neq 0$ et $R_i = \begin{pmatrix}
+	$D_p\in\M_n(\IR)$ est diagonale, $\forall i\in \llbracket 1,n\rrbracket$, $\exists (a_i, b_i)\in\IR^2\,\colon b_i \neq 0$ et $R_i = \begin{pmatrix}
 		a_i & -b_i \\ b_i & a_i
 	\end{pmatrix}$ et $p+2r = n$.
 \end{theorem}
@@ -3521,7 +3529,7 @@ Soit $F$ un sous-espace vectoriel de $E$.}
 \setcounter{definition}{0}
 
 \textcolor{paragraphtext}{Dans cette leçon, $\IK$ désigne $\IR$ ou $\IC$, $n\in \IN^*$
-et $(A,B)\in\mathcal{M}_n(\IK)^2$. On fixe une norme d'algèbre $\|\cdot\|$ sur $\mathcal{M}_n(\IK)$.
+et $(A,B)\in\M_n(\IK)^2$. On fixe une norme d'algèbre $\|\cdot\|$ sur $\M_n(\IK)$.
 On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 
 \begin{theorem_def}[\textnormal{[R] 761}]
@@ -3561,7 +3569,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{cexample}
 
 \begin{corollary}
-	$\exp(\mathcal{M}_n(\IK)) \subseteq GL_n(\IK)$, et $\exp(A)^{-1} = \exp(-A)$.
+	$\exp(\M_n(\IK)) \subseteq GL_n(\IK)$, et $\exp(A)^{-1} = \exp(-A)$.
 \end{corollary}
 
 \begin{proposition}[\textnormal{[R] 761-762}]
@@ -3575,7 +3583,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{proposition}
 
 \begin{corollary}
-	$\exp(\mathcal{A}_n(\IK)) \subseteq O_n(\IK)$, avec $\mathcal{A}_n(\IK) = \left\{M\in\mathcal{M}_n(\IK)\mid {}^tM = -M\right\}$.
+	$\exp(\mathcal{A}_n(\IK)) \subseteq O_n(\IK)$, avec $\mathcal{A}_n(\IK) = \left\{M\in\M_n(\IK)\mid {}^tM = -M\right\}$.
 \end{corollary}
 
 \begin{remark}
@@ -3597,7 +3605,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \begin{remark}
 	Pour $A = \begin{pmatrix}
 		0&0\\0& 2i\pi
-	\end{pmatrix}\in\mathcal{M}_2(\IC)$, on a $\exp(A) = I_2$ donc pour tout $P\in \IC[X]$, $P(\exp(A)) = P(1)I_2 \neq A$.
+	\end{pmatrix}\in\M_2(\IC)$, on a $\exp(A) = I_2$ donc pour tout $P\in \IC[X]$, $P(\exp(A)) = P(1)I_2 \neq A$.
 \end{remark}
 
 \section*{II. L'exponentielle d'une matrice en pratique}
@@ -3615,7 +3623,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{proposition}
 
 \begin{theorem}[décomposition de \textsc{Dunford} - \textnormal{[R] 613}]
-	Si $A$ est trigonalisable, alors il existe un unique $(D,B)\in \mathcal{M}_n(\IK)^2$ tel que $D$ est diagonalisable, $N$ est nilpotente, $D$ et $N$ commutents, et $A = D+N$.
+	Si $A$ est trigonalisable, alors il existe un unique $(D,B)\in \M_n(\IK)^2$ tel que $D$ est diagonalisable, $N$ est nilpotente, $D$ et $N$ commutents, et $A = D+N$.
 	De plus, $(D,N)\in K[A]^2$.
 \end{theorem}
 
@@ -3648,7 +3656,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 	$$\begin{cases}
 		Y' = AY \\ Y(t_0) = Y_0
 	\end{cases}$$
-	pour $t_0\in \IR$, $Y\in\mathcal{M}_{n,1}(\IR)$, est $t\mapsto e^{(t-t_0)A}Y_0$.
+	pour $t_0\in \IR$, $Y\in\M_{n,1}(\IR)$, est $t\mapsto e^{(t-t_0)A}Y_0$.
 \end{proposition}
 
 \begin{example}
@@ -3674,7 +3682,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{example}
 
 \begin{proposition}[formule de \textsc{Duhamel}]
-	Soient $B\,\colon \IR\to \mathcal{M}_{n,1}{\IR}$ continue, $t_0\in\IR$ et $Y_0\in\mathcal{M}_{n,1}(\IR)$.
+	Soient $B\,\colon \IR\to \M_{n,1}{\IR}$ continue, $t_0\in\IR$ et $Y_0\in\M_{n,1}(\IR)$.
 	L'unique solution du problème de \textsc{Cauchy}
 	$\begin{cases}
 		Y' = AY + B ;\quad Y(t_0) = Y_0
@@ -3687,7 +3695,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \subsection*{A. Injectivité, surjectivité}
 
 \begin{theorem}[\textnormal{[R] 769}]
-	L'application $\exp\,\colon \mathcal{M}_n(\IC)\to GL_n(\IC)$ est surjective, non injective.
+	L'application $\exp\,\colon \M_n(\IC)\to GL_n(\IC)$ est surjective, non injective.
 \end{theorem}
 
 \begin{cexample}
@@ -3695,23 +3703,23 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{cexample}
 
 \begin{theorem}
-	L'application $\exp\,\colon \mathcal{M}_n(\IR)\to GL_n(\IR)$ n'est ni surjective, ni injective.
+	L'application $\exp\,\colon \M_n(\IR)\to GL_n(\IR)$ n'est ni surjective, ni injective.
 	Plus précisément,
 	\begin{itemize}
-		\item $\exp(\mathcal{M}_n(\IR)) = \left\{M^2 \mid M\in GL_n(\IR)\right\} \neq GL_n(\IR)$
+		\item $\exp(\M_n(\IR)) = \left\{M^2 \mid M\in GL_n(\IR)\right\} \neq GL_n(\IR)$
 		\item Exemple 3 justifie la non-injectivité
 	\end{itemize}
 \end{theorem}
 
 \begin{remark}
-	Comme $\det(\exp(A)) = e^{\tr (A)} > 0$, on a $\det^{-1}(\IR^-)\cap \exp(\mathcal{M}_n(\IR)) = \emptyset$.
+	Comme $\det(\exp(A)) = e^{\tr (A)} > 0$, on a $\det^{-1}(\IR^-)\cap \exp(\M_n(\IR)) = \emptyset$.
 \end{remark}
 
 \begin{proposition}[\textnormal{[R] e768-777}]
-	Notons $\mathcal{N}_n(\IR)$ l'ensemble des matrices nilpotentes de $\mathcal{M}_n(\IR)$.
+	Notons $\mathcal{N}_n(\IR)$ l'ensemble des matrices nilpotentes de $\M_n(\IR)$.
 	L'application $\exp\,\colon \mathcal{N}_n(\IR) \to GL_n(\IR)$ est injective.
 
-	Notons $\Delta_n(\IR)$ l'ensemble des matrices diagonalisables de $\mathcal{M}_n(\IR)$.
+	Notons $\Delta_n(\IR)$ l'ensemble des matrices diagonalisables de $\M_n(\IR)$.
 	L'application $\exp\,\colon \Delta_n(\IR)\to  GL_n(\IR)$ est injective.
 \end{proposition}
 
@@ -3751,7 +3759,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 
 \subsection*{B. Régularité}
 \begin{theorem}[ADMIS - \textnormal{[Rv] 306}]
-	$\exp$ est lisse sur $\mathcal{M}_n(\IR)$.
+	$\exp$ est lisse sur $\M_n(\IR)$.
 \end{theorem}
 
 \begin{tcolorbox}[
@@ -3765,7 +3773,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 ]
 \begin{proposition}
 	\label{155dev2}
-	La différentielle de $\exp$ en $X\in\mathcal{M}_n(\IR)$ est :
+	La différentielle de $\exp$ en $X\in\M_n(\IR)$ est :
 	$$d(\exp)(X)\,\colon H\mapsto \left(\sum_{n=0}^{+\infty}\frac{[\cdot, X]^n}{(n+1)!}\right)(H)$$
 	où $[\cdot, X]\,\colon H \mapsto [H, X] = HX - XH$.
 \end{proposition}
@@ -3808,7 +3816,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{proposition_def}
 
 \begin{remark}
-	Par correspondance entre $\mathcal{L}(E)$ et $\mathcal{M}_n(K)$, ces résultats restent valables pour les matrices.
+	Par correspondance entre $\mathcal{L}(E)$ et $\M_n(K)$, ces résultats restent valables pour les matrices.
 \end{remark}
 
 \begin{definition}[\textnormal{[M2] 54}]
@@ -3863,7 +3871,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{example}
 
 \begin{application}[\textnormal{[R] 762}]
-	$\forall A\in \mathcal{M}_n(\IC)$, $\det(e^A) = e^{\tr(A)}$.
+	$\forall A\in \M_n(\IC)$, $\det(e^A) = e^{\tr(A)}$.
 \end{application}
 
 \begin{proposition}
@@ -3871,7 +3879,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 \end{proposition}
 
 \begin{proposition}
-	Si $A\in\mathcal{M}_n(K)$ s'écrit par blocs $\diag(A_1,\dots,A_r)$,
+	Si $A\in\M_n(K)$ s'écrit par blocs $\diag(A_1,\dots,A_r)$,
 	alors $\chi_A = \chi_{A_1}\cdots \chi_{A_r}$ et $\pi_A = \pi_{A_1}\vee \cdots \vee \pi_{A_r}$.
 \end{proposition}
 
@@ -4045,7 +4053,7 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 
 \begin{application}[\textnormal{[R] 684}]
 	\label{156dev12}
-	Soit $A\in\mathcal{M}_n(\IK)$ tel que $\chi_A$ est scindé. Soit $A = D+N$ sa
+	Soit $A\in\M_n(\IK)$ tel que $\chi_A$ est scindé. Soit $A = D+N$ sa
 	décomposition de \textsc{Dunford}. Il existe $P\in GL_n(\IK)$ et $(\lambda_1,\dots,\lambda_n)\in\IK^n$ tels que 
 	$P^{-1}DP = \diag(\lambda_1,\dots, \lambda_n)$. On a alors :
 	$$e^A = P\diag(e^{\lambda_1},\dots, e^{\lambda_n})P^{-1}\sum_{k=0}^{n-1}\frac{N^k}{k!}$$
@@ -4100,6 +4108,303 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 	\caption{s}
 \end{figure}
 
+\chapter*{157 : Matrices symétriques réelles, matrices hermitiennes.}
+\setcounter{definition}{0}
+\textcolor{paragraphtext}{Dans cette leçon, $\IK$ désigne $\IR$ ou $\IC$.
+On fixe $n\in\IN^*$. Pour $A\in \M_n(\IK)$, on pose $A^*={}^t\overline{A}$.
+Soient $E$ un $\IK$-espace vectoriel de dimension finie $n$, soit $\B=\left\{e_1,\dots,e_n\right\}$
+une base de $E$.}
+
+\section*{I. Généralités}
+\subsection*{A. Définitions et premières propriétés}
+
+\begin{definition}[\textnormal{[Go] 240-241}]
+	On définit :
+	\begin{itemize}
+		\item $\mathcal{S}_n(\IR) = \left\{A\in\M_n(\IR)\mid {}^tA=A\right\}$ est l'ensemble des matrices réelles dites \emph{symétriques} ;
+		\item $\A_n(\IR) = \left\{A\in\M_n(\IR)\mid {}^tA=-A\right\}$ est l'ensemble des matrices réelles dites \emph{anti-symétriques} ;
+		\item $\mathcal{H}_n(\IR) = \left\{A\in\M_n(\IC)\mid {}^t\overline{A} = A\right\}$ est l'ensemble des matrices complexes dites \emph{hermitiennes} ;
+		\item On dit que $A$ est \emph{auto-adjointe} si $A=A^*$, \emph{i.e.} si $A\in \mathcal{S}_n(\IR)$ ou $A\in\mathcal{H}_n(\IC)$.
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	$\left(\begin{smallmatrix}
+		0&1\\1&0
+	\end{smallmatrix}\right)\in\mathcal{S}_2(\IR)$ et 
+	$\left(\begin{smallmatrix}
+		0&-i\\i&1
+	\end{smallmatrix}\right)\in\mathcal{H}_2(\IC)$.
+\end{example}
+
+\begin{proposition}[\textnormal{[Go] 240-241}]
+	$\M_n(\IR) = \mathcal{S}_n(\IR)\bigoplus\A_n(\IR)$
+	et $\M_n(\IC) = \mathcal{S}_n(\IC)\bigoplus i\A_n(\IR)$.
+\end{proposition}
+
+\begin{definition}
+	On définit :
+	\begin{itemize}
+		\item $\mathcal{S}_n^+(\IR) = \left\{A\in\mathcal{S}_n(\IR)\mid \forall X\in\IRn,\,{}^tXAX \geq 0\right\}$ est l'ensemble des matrices symétriques réelles dites \emph{positives}.
+		\item $\mathcal{S}_n^{++}(\IR) = \left\{A\in\mathcal{S}_n^+(\IR)\mid \forall X\in\IRn,\,{}^tXAX = 0\implies X=0\right\}$ l'ensemble des matrices symétriques réelles dites \emph{définies positives}.
+		\item $\mathcal{H}_n^+(\IC) = \left\{A\in\mathcal{H}_n(\IC)\mid \forall X\in\IC^n,\,{}^t\overline{X}AX \geq 0\right\}$ est l'ensemble des matrices hermitiennes dites \emph{positives}.
+		\item $\mathcal{H}_n^{++}(\IC) = \left\{A\in\mathcal{H}_n(\IC)\mid \forall X\in\IC^n,\,{}^t\overline{X}AX = 0\implies X=0\right\}$ est l'ensemble des matrices hermitiennes dites \emph{définies positives}.
+	\end{itemize}
+\end{definition}
+
+\subsection*{B. Lien avec les formes quadratiques / hermitiennes}
+
+\begin{definition}[\textnormal{[Go] 240-241}]
+	Soit $\varphi\,\colon E^2\to \IR$ une forme bilinéaire. On dit que $\varphi$ est \emph{symétrique} si 
+	$\forall(x,y)\in E^2,\, \varphi(x,y)=\varphi(y,x)$. Le cas échéant, $q\,\colon x\in E \mapsto \varphi(x,x)$ est appelée \emph{forme quadratique associée à $\varphi$},
+	et $\varphi$ est appelée \emph{forme polaire associée à $q$} (elle est alors unique).
+\end{definition}
+
+\begin{definition}
+	Soit $\varphi\,\colon E^2\to\IC$ une forme sesquilinéaire (on prend l'antilinéarité à droite).
+	On dit que $\varphi$ est \emph{hermitienne} si $\forall(x,y)\in E^2,\,\varphi(x,y)=\overline{\varphi(y,x)}$.
+	Le cas échéant, $q\,\colon x\in E\mapsto \varphi(x,x)$ est appelée \emph{forme hermitienne associée à $\varphi$}, et $\varphi$ est appelée \emph{forme polaire associée à $q$} (elle est alors unique).
+\end{definition}
+
+\begin{example}[\textnormal{[Go] 239}]
+	\begin{itemize}
+		\item $(f,g)\mapsto\int_{0}^{1}f\overline{g}$ est une forme sesquilinéaire hermitienne sur $C^0([0,1],\IC)$, et induit une forme bilinéaire symétrique sur $C^0([0,1],\IR)$.
+		\item $(X,Y)\mapsto {}^t\overline{X}Y$ est bilinéaire symétrique ou sesquilinéaire hermitienne sur $\IK^n$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}[\textnormal{[Go] e241}]
+	Soit $\varphi\,\colon E^2\to \IK$ bilinéaire ou sesquilinéaire. On définit la \emph{matrice de $\varphi$ dans $\B$} comme $\Mat_{\B}(\varphi):= \left(\varphi(e_i,e_j)\right)_{i,j}$.
+	Pour $x$ et $y$ dans $E$, de vecteurs coordonées $X$ et $Y$, on a alors $\varphi(x,y)={}^t\overline{X}\cdot \Mat_{\B}(\varphi)\cdot Y$ en identifiant $\IK$ et $\M_{n,1}(\IK)$.
+	Alors, 
+	\begin{itemize}
+		\item $\varphi$ est symétrique si, et seulement si, $\Mat_{\B}(\varphi)\in \mathcal{S}_n(\IR)$
+		\item $\varphi$ est hermitienne si, et seulement si, $\Mat_{\B}(\varphi)\in \mathcal{H}_n(\IC)$
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 163}]
+	Soit $\B'$ une autre base de $E$. Si $P$ est la matrice de passage de $\B$ à $\B'$, alors $\Mat_{\B'}(\varphi)={}^t\overline{P}AP$.
+\end{proposition}
+
+\begin{proposition}
+	$\forall A\in\mathcal{S}_n(\IR)\cup \mathcal{H}_n(\IC)$, $\Sp(A)\subseteq \IR$.
+\end{proposition}
+
+\section*{II. Réduction des matrices symétriques / hermitiennes}
+\subsection*{A. Orthogonalité et théorème spectral}
+\textcolor{paragraphtext}{Soit $q$ une forme quadratique ou hermitienne sur $E$, de forme polaire $\varphi$. On pose $A =\Mat_{\B}(\varphi)$.}
+
+\begin{definition}[\textnormal{[Go] 243}]
+	On dit que $\B$ est \emph{$q$-orthogonale} si $\forall(i,j)\in\llbracket 1,n\rrbracket$, $i\neq j\implies \varphi(e_i, e_j) = 0$, \emph{i.e.} si $A$ est diagonale.
+\end{definition}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[spectral - \textnormal{[Go] 256}]
+	\label{157dev11}
+	Pour toute $M\in\mathcal{S}_n(\IR)$ (resp. $M\in\mathcal{H}_n(\IC)$),
+	il existe $P$ orthogonale (resp. unitaire) (\emph{i.e.} $P^{-1} = P^*$) telle que $P^*MP$ est diagonale.
+\end{theorem}
+\begin{theorem}[\textnormal{[Go] 243}]
+	\label{157dev12}
+	Il existe une base $q$-orthogonale de $E$.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{application}
+	Soit $A\in\mathcal{S}_n(\IR)$. Alors :
+	\begin{itemize}
+		\item $A\in\mathcal{S}_n^+(\IR)\iff \Sp(A)\subseteq \IR^+$ ;
+		\item $A\in\mathcal{S}_n^{++}(\IR) \iff \Sp(A)\subseteq \IR^{+*}$
+	\end{itemize}
+\end{application}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}
+	\label{157dev13}
+	$\forall A\in \mathcal{S}_n^{++}(\IR)$, $\forall B\in \mathcal{S}_n(\IR)$, $\exists P\in GL_n(\IR)$ tels que 
+	${}^tPAP=I_n$ et ${}^tPBP$ est diagonale.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{theorem}
+	$\forall A\in \mathcal{S}_n^+(\IR)$, $\exists ! B\in\mathcal{S}_n^+(\IR)$ : $A=B^2$ (on note $B = \sqrt{A}$).
+\end{theorem}
+
+\begin{theorem}[décomposition polaire - \textnormal{[C] 348}]
+	Toute matrice $A$ (inversible) se décompose (de manière unique)
+	sous la forme $A=\Theta S$, où $\Theta\in \mathcal{O}_n(\IR)$ et $S\in\mathcal{S}_n^{++}(\IR)$.
+\end{theorem}
+
+\subsection*{B. Réduction de \textsc{Gauss} et signature d'une forme quadratique / hermitienne}
+
+\begin{theorem}[réduction de \textsc{Gauss} - \textnormal{[R] 469}]
+	Il existe des formes linéaires $l_1,\dots, l_r$ linéairement indépendantes et $(\lambda_1,\dots,\lambda_n)\in\IK^r$ tels que $q = \lambda_1 \vert l_1\vert^2 + \dots + \lambda_r \vert l_r\vert^2$.
+\end{theorem}
+
+\begin{example}
+	\label{157ex19}
+	$q(x,y,z) = x^2+2xy-yz+\frac{3}{q}z^2=(x+y)^2 -(y+\frac{1}{2})^2 + z^2$
+\end{example}
+
+\begin{theorem}[loi d'inertie de \textsc{Sylvester} - \textnormal{[R] 477}]
+	Supposons que $\IK = \IR$, soit $\B=(e_1,\dots,e_n)$ une base $q$-orthogonale de $E$.
+	Les entiers $s = \#\left\{e_i\in\B \mid q(e_i)> 0\right\}$ et $t = \#\left\{e_i\in\B\mid q(e_i)<0\right\}$
+	ne dépendent que de $q$. Le couple $(s,t)$ est appelé \emph{signature de $q$}.
+\end{theorem}
+
+\begin{example}
+	La forme quadratique de l'exemple \ref{157ex19} a pour signature $(2,1)$.
+\end{example}
+
+\begin{corollary}[\textnormal{[R] 207}]
+	Les orbites de l'action de $GL_n(\IR)$ sur $\mathcal{S}_n(\IR)$ par congruence sont caractérisées par le rang et la signature.
+\end{corollary}
+
+\section*{III. Propriétés topologiques en lien avec $\mathcal{S}_n(\IR)$}
+
+\begin{definition}
+	Pour $A\in\M_n(\IK)$, on pose $\exp(A)=\sum_{k=0}^{+\infty} \frac{A^k}{k!}$.
+\end{definition}
+
+\begin{example}
+	$\forall (\lambda_1,\dots,\lambda_n)\in\IK^n$, $\exp(\diag(\lambda_1,\dots,\lambda_n)) = \diag(e^{\lambda_1},\dots, e^{\lambda_n})$.
+\end{example}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[C] 357}]
+	\label{157dev2}
+	On a que $\exp\,\colon \mathcal{S}_n(\IR)\to \mathcal{S}_n^{++}(\IR)$ est un homéomorphisme.
+\end{theorem}
+\end{tcolorbox}
+
+\section*{IV. Applications}
+\subsection*{A. Vecteurs gaussiens}
+
+\textcolor{paragraphtext}{Soit $(\Omega,\A,\IP)$ un espace probabilisé. On note $\langle\cdot\mid\cdot\rangle$ le produit scalaire canonique sur $\IR^n$.}
+
+\begin{definition}[\textnormal{[CR] 160,157,158}]
+	Un vecteur aléatoire $X=(X_1,\dots, X_n)\,\colon (\Omega,\A,\IP)\to (\IR^n,\B(\IR^n))$ est un \emph{vecteur gaussien} si pour tout $u\in\IR^n$, $\langle u\mid X\rangle$
+	suit une loi normale (réelle). On note alors $X\sim \mathcal{N}_n(m,\Gamma)$ où $m = {}^t(\IE[X_1],\dots, \IE[X_n])$ est l'espérance de $X$, 
+	et $\Gamma = \left(\Cov(X_i,X_j)\right)_{1\leq i,j\leq n}\in\mathcal{S}_n^+(\IR)$ sa matrice de covariance.
+\end{definition}
+
+\begin{example}[\textnormal{[CR] 160}]
+	Si $X_1,\dots,X_n$ sont indépendantes de loi $\mathcal{N}(0,1)$, alors $\begin{pmatrix}
+		X_1 \\ \vdots \\ X_n
+	\end{pmatrix}\sim \mathcal{N}(0_n, I_n)$.
+\end{example}
+
+\begin{theorem}[\textnormal{[CR] 160}]
+	Une variable aléatoire $X$ est gaussienne si, et seulement s'il existe $m\in\IR^m$ et $\Gamma\in\mathcal{S}_n^+(\IR)$ tels que :
+	$$\forall u\in\IR^n,\,\varphi_X(u) = \exp(i\langle m,u\rangle - \frac{1}{2}\langle\Gamma u, u\rangle)$$
+
+	Le cas échéant, $m$ est l'espérance, et $\Gamma$ sa matrice de covariance.
+\end{theorem}
+
+\begin{corollary}
+	La loi d'un vecteur gaussien est entièrement déterminée par son espérance et sa matrice de covariance.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[CR] 161}]
+	Si $X\sim \mathcal{N}_n(m,\Gamma)$, alors $\forall A\in\M_{p,n}(\IR),\,\forall b\in\IR^p,\, AX+b\sim \mathcal{N}_p(Am+b, A\Gamma {}^tA)$.
+\end{proposition}
+
+\begin{proposition}
+	$\forall\Gamma\in \mathcal{S}_n^{++}(\IR),\,\exists c\in\M_n(\IR)$ tels que $\Gamma = {}^tCC$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[CR] 161}]
+	Pour tous $m\in\IR^n$ et $\Gamma\in\mathcal{S}_n(\IR)$, il existe un vecteur gaussien de loi $\mathcal{N}_n(m,\Gamma)$.
+\end{corollary}
+
+\begin{theorem}
+	Soient $m\in\IR^n$, $\Gamma\in\mathcal{S}_n^+(\IR)$ et $X\sim\mathcal{N}_n(m,\Gamma)$.
+	Alors $X$ est à densité $\iff$ $\Gamma\in\mathcal{S}_n^{++}(\IR)$.
+	
+	Le cas échéant, $\forall u\in \IR^n$, $f_X(u) = \left(2\pi\right)^{-\frac{n}{2}}\det(\Gamma)^{-\frac{1}{2}}\exp\left(-\frac{1}{2}\langle\Gamma^{-1}(u-m)\mid u-m\rangle\right)$.
+\end{theorem}
+
+\subsection*{B. Optimisation des fonctions de plusieurs variables}
+
+\textcolor{paragraphtext}{Soit $f\,\colon \IR^n\to \IR$ de classe $C^2$.}
+
+\begin{definition}[\textnormal{[Rv] 294}]
+	On appelle \emph{(matrice) hessien de $f$ en $a$} la matrice $\Hess_a(f) = \left(\frac{\partial^2 f}{\partial e_i\partial e_j}(a)\right)_{1\leq i,j\leq n}$.
+\end{definition}
+
+\begin{remark}
+	$\Hess_a(f)$ est la matrice dans $\B$ de la forme bilinéaire $d^2f(a)$ : en particulier, pour tous $h = \begin{pmatrix}
+		h_1 \\ \vdots \\ h_n
+	\end{pmatrix}\in \IR^n$, $d^2f(a)(h)(k) = {}^th\cdot\Hess_a(f)\cdot k$.
+\end{remark}
+
+\begin{definition}[\textnormal{[Go] 336}]
+	On dit que $a$ est un \emph{point critique} si $df(a)=0$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[Go] 335-336}]
+	Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+
+	NB : la réciproque est vraie si on suppose en plus $\Hess_a(f)$ définie.
+\end{theorem}
+
+\begin{algorithm}[de descente de gradient à pas fixe]
+	Soient $\Omega$ un ouvert de $\IR^n$, $f\in C^1(\Omega, \Omega)$, $\alpha > 0$ et $x_0\in\Omega$.
+	La suite définie par $\forall n\in\IN$, $x_{n+1} = x_n - \alpha\nabla f(x_n)$ converge vers un $x^*\in\Omega$ vérifiant $\nabla f(x^*)$.
+\end{algorithm}
+
+\begin{theorem}[\textnormal{[BMP] 24-32}]
+	Soient $A\in\mathcal{S}_n^{++}(\IR)$ et $b\in\IR^n$.
+	La solution de $Ax=b$ est donné par le minimum de $x\mapsto \frac{1}{2}\langle Ax, x\rangle - \langle b,x\rangle$, lequel peut être trouvé par descente de gradient.
+\end{theorem}
+
+
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Partie 1) Théorèmes \ref{157dev11} et \ref{157dev12}; Partie 2) Théorème \ref{157dev13}
+	\item Développement 2 : Théorème \ref{157dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[Go] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
+	\item[C] \emph{Carnet de voyage en Algébrie}, Philippe Caldero, Marie Peronnier
+	\item[CR] \emph{Probabilités et statistiques pour l'épreuve de modélisation à l'agrégation de mathématiques}, Marie-Line Chabanol, Jean-Jacques Ruch
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+\end{itemize}
+
+\chapter*{159 : Formes linéaires et dualité en dimension finie. Exemples et applications.}
+\setcounter{definition}{0}
 
 % \begin{figure}[!htb]
 % 	\centering
@@ -4107,3 +4412,14 @@ On suppose connu et maîtrisé le calcul matriciel élémentaire.}
 % 	\caption{s}
 % \end{figure}
 \end{document}
+
+% \begin{tcolorbox}[
+%     breakable, % Allows the theorem to split across pages
+%     colback=developpement, % The background color
+%     colframe=gray!0!black, % The frame color
+%     boxrule=0pt, % The frame thickness
+%     arc=1mm, % Sharp corners
+% 	boxsep=0pt,
+% 	left=0pt, right=0pt, top=0pt, bottom=0pt
+% ]
+% \end{tcolorbox}
