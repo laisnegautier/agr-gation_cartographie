@@ -120,6 +120,8 @@
 \DeclareMathOperator{\Sp}{Sp}
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Hess}{Hess}
+\DeclareMathOperator{\eval}{eval}
+\DeclareMathOperator{\Pass}{Pass}
 
 \titleformat{\chapter}[display]
   {\normalfont\bfseries}{}{0pt}{\LARGE}
@@ -808,7 +810,7 @@ Soit $A\in\M_n(K)$. On note $L_1, \dots, L_p$ les lignes de $A$, et $C_1,\dots,C
 	et 
 	\begin{itemize}
 		\item $A D_i(\alpha)\iff C_i \longleftarrow \alpha C_i$
-		\item $AT_{i,j}(\alpha)\iff C_i \longleftarrow C_i \alpha C_j$
+		\item $AT_{i,j}(\alpha)\iff C_{\textcolor{red}{j}} \longleftarrow C_{\textcolor{red}{j}} + \alpha C_{\textcolor{red}{i}}$		
 		\item $AP_{(i,j)}\iff C_i \longleftrightarrow C_j$
 	\end{itemize}
 \end{theorem}
@@ -967,6 +969,277 @@ Dans ce paragraphe, $K$ désigne $\IR$ ou $\IC$.
 	\item[P] \emph{Cours d'algèbre}, Perrin
 	\item[B] \emph{Algèbre et géométrie: CAPES et Agrégation}, Pierre Burg
 	\item[C] \emph{Nouvelles histoires hédonistes de groupes et géométries}, P. Caldero, J. Germoni
+\end{itemize}
+
+\chapter*{108 : Exemples de parties génératrices d'un groupe. Applications.}
+\setcounter{definition}{0}
+\textcolor{paragraphtext}{Soit $(G,\cdot)$ un groupe.}
+
+\section*{0. Introduction}
+\begin{lemma}[\textnormal{[R] 10}]
+	Une intersection (quelconque) de sous-groupes de $G$ est un sous-groupe de $G$.
+\end{lemma}
+
+\begin{definition}[\textnormal{[R] 11}]
+	Soit $X$ une partie de $G$. On appelle \emph{sous-groupe engendre par $X$}, et on note $\langle X\rangle$,
+	le plus petit sous-groupe de $G$ contenant $X$. C'est l'intersection des sous-groupes de $G$ contenant $X$.
+
+	Lorsque $X = \left\{x_1,\dots, x_n\right\}$, on note plus simple $\langle X\rangle = \langle x_1,\dots, x_n\rangle$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 11}]
+	Soit $X$ une partie de $G$. Posont $X^{-1} = \left\{x^{-1}\mid x\in X\right\}$.
+	Alors :
+	$$\langle X \rangle = \left\{x_1,\dots,x_n\mid n\in\IN^*,\, (x_1,\dots, x_n)\in\left(X\cup X^{-1}\right)^n\right\}$$
+\end{proposition}
+
+\begin{definition}[\textnormal{[R] 11}]
+	Une \emph{partie génératrice de $G$} est un sous-ensemble $X\subseteq G$ tel que $G = \langle X\rangle$.
+\end{definition}
+
+\begin{example}[\textnormal{[R] 12}]
+	On pose $D(G) := \langle\left\{[a,b] = aba^{-1}b^{-1}\mid (a,b)\in G^2\right\}\rangle$.
+	On l'appelle \emph{groupe dérivé de $G$}, c'est le plus grand sous-groupe de $G$ tel que $G/D(G)$ est abélien.
+\end{example}
+
+\section*{I. Groupes monogènes, groupes cycliques}
+
+\begin{definition}[\textnormal{[R] 13}]
+	On dit que $G$ est \emph{monogène} s'il existe $g\in G$ tel que $G = \langle g \rangle$.
+	On dit que $G$ est \emph{cyclique} si $G$ est monogène et fini.
+\end{definition}
+
+\begin{theorem}[\textnormal{[R] 14}]
+	Si $G$ est monogène infi, alors $G\cong \IZ$. Si $G$ est cyclique, alors il existe $n\in \IN^*$ tel que $G\cong \IZnZ$.
+\end{theorem}
+
+\begin{proposition}
+	L'ensemble des générateurs de $\IZ$ est $\IZ^{\times} = \left\{\pm 1\right\}$.
+
+	L'ensemble des générateurs de $\IZnZ$ est $\left(\IZnZ\right)^{\times} = \left\{\overline{k}\in \IZnZ\mid \exists \overline{l}\in\IZnZ\,\colon \overline{k}\overline{l} = \overline{1}\right\} = \left\{\overline{k}\in\IZnZ \mid k\wedge n = 1\right\}$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 14}]
+	Si $G=\langle g\rangle$, alors l'ensemble des générateurs de $G$ est $\left\{g^k\mid k\wedge \# G = 1\right\}$.
+\end{corollary}
+
+\begin{proposition_def}
+	L'\emph{ordre} d'un élément $g\in G$ est le plus petit entier $k$ (ou $+\infty$) tel que $g^k = 1$. C'est aussi l'ordre de $\langle g\rangle$.
+\end{proposition_def}
+
+\begin{proposition}
+	$G$ est cyclique si, et seulement si, $G$ admet un élément d'ordre $\# G$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 14}]
+	Tout groupe d'ordre premier est cyclique, tous ses éléments sauf $1_G$ en sont les générateurs.
+\end{corollary}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[R] 292}]
+	\label{108dev1}
+	Pour tous $p\geq 3$ et $\alpha\geq 1$, $\left(\IZ/p^{\alpha}\IZ\right)^{\times}$ est cyclique.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{theorem}[ADMIS - \textnormal{[R] 294}]
+	$\left(\IZnZ\right)^{\times}$ est cyclique si, et seulement si, $n\in\left\{2,4,p^{\alpha},2p^{\alpha}\,\colon p\geq 3\text{ premier},\,\alpha\geq 1\right\}$.
+\end{theorem}
+
+\section*{II. Groupes symétriques}
+\textcolor{paragraphtext}{Soit $n\geq 3$.}
+
+\begin{definition}[\textnormal{[U] 43}]
+	Le \emph{$n$-ième groupe symétrique $\mathfrak{S}_n$} est l'ensemble des bijections de $\left\{1,\dots, n\right\}$ dans $\left\{1,\dots, n\right\}$.
+	Les éléments $\sigma\in\mathfrak{S}_n$ sont appelés \emph{permutations}.
+\end{definition}
+
+\begin{proposition_def}
+	Soit $\sigma\in\mathfrak{S}_n$. Le sous-groupe $\langle \sigma\rangle$ agit sur $\llbracket 1,n\rrbracket$ par restriction de l'action de $\mathfrak{S}_n$.
+	Les orbites de cette action sont appelées $\sigma$-orbites.
+\end{proposition_def}
+
+\begin{definition}[\textnormal{[U] 43}]
+	Un $k$-cycle ($2\leq k\leq n$) est une permutation $\sigma$ n'ayrant qu'une seule $\sigma$-orbite non ponctuelle $\left\{i_1,\dots, i_k\right\}$.
+	On la note $\sigma = (i_1,\dots, i_k)$ pour signifier que $\forall j\notin\left\{i_1,\dots, i_k\right\},\,\sigma(j)=j$, et $\sigma(i_j) = i_{j+1}$ en regardant les indices modulo $k$.
+
+	Un $2$-cycle est appelé \emph{transposition}.
+\end{definition}
+
+\begin{theorem}[\textnormal{[U] 43}]
+	Toute permutation se décompose de manièr eunique (à l'ordre des facteurs près) comme produit de cycles à supports disjoints.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[R] 44}]
+	$(i_1,\dots,i_k) = (i_1,i_2)(i_2,i_3)\cdots (i_{k-1},i_k)$
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 44}]
+	Les transpositions engendrent $\mathfrak{S}_n$.
+\end{corollary}
+
+\begin{proposition}[\textnormal{[R] 44-45}]
+	$\mathfrak{S}_n = \langle (i,i+1),\, 1\leq i\leq n\rangle = \langle (1,i),\,2\leq i\leq n\rangle = \langle (1,2), (1,2,\dots,n)\rangle$.
+\end{proposition}
+
+\begin{proposition_def}[\textnormal{[R] 47}]
+	Il existe un unique morphisme $\varepsilon\,\colon \mathfrak{S}_n\to\left\{\pm 1\right\}$ qui envoie les transposition sur $-1$.
+	On appelle \emph{signature de $\sigma$} la quantité $\varepsilon(\sigma)$.
+\end{proposition_def}
+
+\begin{definition}[\textnormal{[R] 49}]
+	On appelle \emph{$n$-ième groupe alterné} le sous-groupe $\A_n =\Ker \varepsilon$. C'est l'ensemble des permutations dites \emph{paires}.
+\end{definition}
+
+\begin{theorem}[\textnormal{[R] 49}]
+	Pour $n\geq 3$, les $3$-cyles engendrent $\A_n$, et y sont conjugués.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[R] 50}]
+	Pour $n\geq 5$, $\A_n$ est simple.
+\end{theorem}
+
+\section*{III. Groupes linéaires, groupes orthogonaux}
+\textcolor{paragraphtext}{Soient $K$ un corps et $n\geq 2$.}
+
+\subsection*{A. Groupes linéaires et pivot de \textsc{Gauss}}
+
+\begin{definition}[\textnormal{[R] 139}]
+	L'ensembe $\M_n(K)$ des matrices carrées de taille $n\times n$ est un anneau pour $+$ et $\times$, dont le groupe des inversibles est noté $GL_n(K)$, appelé \emph{groupe linéaire d'ordre $n$ sur $K$}.
+\end{definition}
+
+\begin{definition}
+	On note $SL_n(K)$ le noyau du morphisme $\det$ de $GL_n(K)$ dans $K^{\times}$.
+	On l'appelle \emph{groupe spécial linéaire d'ordre $n$ sur $K$}.
+\end{definition}
+
+\textcolor{paragraphtext}{Soit $A\in\M_n(K)$. On note $L_1,\dots, L_p$ les lignes de $A$, et $C_1,\dots, C_n$ ses colonnes.}
+
+\begin{definition}[\textnormal{[Bu] 315-317}]
+	Soient $\alpha \in K^{\times}$, $(i,j)\in\llbracket 1,n\rrbracket^2$ tel que $i\neq j$ et $\sigma\in\mathfrak{S}_n$. On définit les matrices suivantes :
+	\begin{itemize}
+		\item Matrice de \emph{dilatation} $D_i(\alpha) = \diag(1,\dots, 1, \alpha,1,\dots, 1)\in GL_n(K)$ ($\alpha$ est à la $i$-ième position)
+		\item Matrice de \emph{transvection} $T_{i,j}(\alpha) = I_n + \alpha E_{i,j}\in GL_n(K)$
+		\item Matrice de \emph{permutation} $P_{\sigma} = \left(\delta_{i,\sigma(j)}\right)_{1\leq i,j\leq n}\in GL_n(K)$
+	\end{itemize}
+\end{definition}
+
+\begin{definition}
+	On définit les \emph{opérations élémentaires} sur les colonnes :
+	\begin{itemize}
+		\item $C_i \longleftarrow \alpha C_i$ : on remplace $C_i$ par $\alpha C_i$
+		\item $C_i \longleftarrow C_i + \alpha C_j$ : on remplace $C_i$ par $\alpha C_i+\alpha C_j$
+		\item $C_i \longleftrightarrow C_j$ : on échange $C_i$ et $C_j$
+	\end{itemize}
+\end{definition}
+
+\begin{theorem}[\textnormal{[Bu] 315-318}]
+	On a les correspondances suivantes entre opérations élémentaires et multiplication matricielle :
+	\begin{itemize}
+		\item $D_i(\alpha)A\iff L_i \longleftarrow \alpha L_i$
+		\item $T_{i,j}(\alpha)A\iff L_i \longleftarrow L_i \alpha L_j$
+		\item $P_{(i,j)}A\iff L_i \longleftrightarrow L_j$
+	\end{itemize}
+	et 
+	\begin{itemize}
+		\item $A D_i(\alpha)\iff C_i \longleftarrow \alpha C_i$
+		\item $AT_{i,j}(\alpha)\iff C_{\textcolor{red}{j}} \longleftarrow C_{\textcolor{red}{j}} + \alpha C_{\textcolor{red}{i}}$
+		\item $AP_{(i,j)}\iff C_i \longleftrightarrow C_j$
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}[Pivot de Gauss - \textnormal{[Rb] 191}]
+	Pour toute matrice de rang $r$, il existe une suite d'opérations élémentaires qui transforme cette matrice en la matrice $J_{n,r} = \diag(I_r, O_{n-r})$.
+	Plus précisément, si $\rg A = n$, alors il existe $\sigma\in\mathfrak{S}_n$ et des matrices de transvection $T_1, \dots, T_p$ telles que $A = P_{\sigma}T_1\dots T_p D_{\alpha}$ où $D_{\alpha}$ est la matrice de dilatation $D_{\alpha}$ de rapport $\alpha = \det A$.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[Rb] 154, 153}]
+	\begin{itemize}
+		\item Les matrices de transvection et de dilatation engendrent $GL_n(K)$ ;
+		\item Les matrices de transvection engendrent $SL_n(K)$.
+	\end{itemize}
+\end{corollary}
+
+\subsection*{B. Groupe orthogonal d'un espace quadratique}
+\textcolor{paragraphtext}{Soit $(E,q)$ un espace quadratique sur $K$, de forme polaire $\varphi$. Supposons $\car K \neq 2$.}
+\begin{definition}[\textnormal{[P] 123-124}]
+	On définit les éléments suivants :
+	\begin{itemize}
+		\item Le \emph{groupe orthogonal de $(E,q)$} est $O(q) = \left(u\in\mathcal{L}(E)\mid q\circ u=q\right)$
+		\item Le \emph{groupe spécial orthogonal de $(E,q)$} est $SO(q) = \left\{u\in O(q)\mid \det u = 1\right\}$.
+		\item Lorsque $\varphi$ est le produit scalaire canonique relativement à une base donnée, note $O(E) = O(q)=\left\{u\in\mathcal{L}(E)\mid {}^tu\circ u =\id_E\right\}$ et $SO(E)=SO(q)=\left\{u\in O(E)\mid \det u = 1 \right\}$
+		\item No note également $\mathcal{O}_n(K) =\left\{M\in\M_n(K)\mid {}^tMM=I_n\right\}$ et $\mathcal{SO}_n(K)=\left\{M\in\mathcal{O}_n(K)\mid \det M = 1 \right\}$.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] e723}]
+	Si $\B$ est une base orthonormale de $E$, alors $u\in O(E)\iff\Mat_{\B}(u)\in\mathcal{O}_n(K)$.
+\end{proposition}
+
+\begin{theorem}[de réduction des isométries - \textnormal{[R] 746}]
+	Soit $u\in O(\IRn)$. Il existe une base orthonormale $\mathcal{B}$ de $\IRn$ telle que $\Mat_{\mathcal{B}}(u)=\diag(R(\theta_1),\dots,R(\theta_r),\varepsilon_1,\dots,\varepsilon_p)$
+	où $R(\theta_i) = \begin{pmatrix}
+		\cos \theta_i & -\sin \theta_i \\
+		\sin \theta_i & \cos \theta_i
+	\end{pmatrix}$ et $\varepsilon_i = \pm 1$.
+\end{theorem}
+
+\begin{definition}[\textnormal{[P] 125}]
+	Soit $u\in O(q)$ telle que $u^2 = \id_E$.
+	
+	On dit que $u$ est une \emph{réflexion} si $\dim(\Ker(u+\id_E)) = 1$, \emph{i.e.} si $u$ est une symétrie par rapport à un hyperplan.
+	
+	On dit que $u$ est une \emph{renversement} si $\dim(\Ker(u+\id_E)) = 2$, \emph{i.e.} si $u$ est une symétrie par rapport à un plan.
+\end{definition}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\textcolor{paragraphtext}{On suppose désormais que $E$ est un $\IR$-espace vectoriel de dimension finie $n\geq 1$, et que $q$ est définie positive.}
+\begin{theorem}[\textnormal{[P] 143}]
+	\label{108dev21}
+	Tout élément de $O(q)$ est produit d'au plus $n$ réflexions.
+\end{theorem}
+
+\begin{lemma}[\textnormal{[P] 143}]
+	\label{108dev22}
+	Si $n\geq 3$, alors pour toutes réflexions $\tau_1$ et $\tau_2$, il existe deux renversements $\sigma_1$ et $\sigma_2$ tels que $\tau_1\tau_2 = \sigma_1\sigma_2$.
+\end{lemma}
+
+\begin{theorem}[\textnormal{[P] 143}]
+	\label{109dev23}
+	Pour $n\geq 3$, tout élément de $SO(q)$ est produit d'au plus $n$ renversements.
+\end{theorem}
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{108dev1}
+	\item Développement 2 : Lemme \ref{108dev21} et Théorèmes \ref{108dev22} et \ref{108dev23}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[P] \emph{Cours d'algèbre}, Perrin
+	\item[B] \emph{Algèbre et géométrie: CAPES et Agrégation}, Pierre Burg
+	\item[U] \emph{Théorie des groupes}, Félix Ulmer
 \end{itemize}
 
 
@@ -4406,13 +4679,723 @@ une base de $E$.}
 \chapter*{159 : Formes linéaires et dualité en dimension finie. Exemples et applications.}
 \setcounter{definition}{0}
 
+\textcolor{paragraphtext}{Dans cette leçon, $K$ désigne un corps, $\IK$ désigne $\IR$ ou $\IC$, $E$ est un espace vectoriel de dimension finie $n\geq 1$, et $\B=\left\{e_1,\dots, e_n\right\}$ est une base de $E$.}
+
+\section*{I. Formes linéaires, espace dual}
+\subsection*{A. Généralités sur les formes linéaires}
+
+\begin{definition}[\textnormal{[R] 441}]
+	Une \emph{forme linéaire sur $E$} est une application linéaire de $E$ dans $K$.
+	On note $E^*$ l'ensemble des formes linéaires sur $E$, et on l'appelle \emph{(espace) dual de $E$}.
+\end{definition}
+
+\begin{example}[\textnormal{[R] 441}]
+	\begin{itemize}
+		\item Pour tout $x\in E$, il existe un unique $(e_1^*(x),\dots, e_n^*(x))\in K^n$ tel que $x = e_1^*(x)e_1 + \cdots + e_n^*(x)e_n$. L'application $e_i^*$, appellée \emph{$i$-ième application coordonnée}, est une forme linéaire sur $E$.
+		\item Si $\langle\cdot\mid\cdot\rangle$ est un produit scalaire sur $E$, alors pour tout $y\in E$, $\langle\cdot \mid y\rangle$ est une forme linéaire sure $E$.
+		\item Pour tout $A\in \M_n(K)$, $\tr(A\cdot)$ est une forme linéaire sur $\M_n(K)$.
+		\item Si $f\,\colon \IR^n\to\IR^n$ est différentiable en $a\in\IR^n$, alors $df(a)\in\left(\IR^n\right)^*$.
+		\item Pour tout $\alpha\in K$, le morphisme d'évaluation en $\alpha$ est une forme linéaire sur $K_n[X]$, l'ensemble des polynômes de $K[X]$ de degré inférieur ou égal à $n$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}[\textnormal{[R] e445}]
+	Soit $H$ un sous-espace vectoriel de $E$. 
+	$H$ est un hyperplan $\iff$ $H$ est le noyau d'une forme linéaire non nulle.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[R] 441}]
+	Une forme linéaire non nulle est surjective.
+\end{corollary}
+
+\subsection*{B. Espace dual, base duale}
+\begin{proposition_def}[\textnormal{[R] 442}]
+	$\B^* = \left\{e_1^*,\dots, e_n^*\right\}$ est une base de $E^*$, appelée \emph{base duale de $\B$}.
+	Plus précisément, $\forall \varphi\in E^*,\, \varphi = \sum_{k=1}^{n}\varphi(e_k)e_k^*$,
+	\emph{i.e.} $e_k^{**}(\varphi) = \varphi(e_k)$.
+\end{proposition_def}
+
+\begin{example}
+	\begin{itemize}
+		\item La base duale de la base canonique de $\IR^n$ est $\left\{(x_1,\dots,x_n)\mapsto x_i\right\}_{1\leq i\leq n}$
+		\item La base duale de la base canonique $\left\{E_{i,j}\right\}_{1\leq i,j\leq n}$ de $\M_n(K)$ est $\left\{\tr(E_{i,j}\cdot)\right\}_{1\leq i,j\leq n}$.
+	\end{itemize}
+\end{example}
+
+\begin{corollary}
+	$\dim E = \dim E^*$, et $E^*\cong E$.
+\end{corollary}
+
+\begin{remark}
+	Cet isomorphisme n'est pas canonique, car il dépend du choix de la base $\B$.
+\end{remark}
+
+\begin{theorem}[de représentation de \textsc{Riesz} - \textnormal{[BMF] 103}]
+	Soit $(H,\langle \cdot \mid\cdot\rangle)$ un espace de Hilbert (on choisit, dans le cas complexe, l'antilinéarité à droite).
+	$$\forall \varphi\in H^*,\,\exists ! v\in H\,\colon \varphi = \langle\cdot\mid v\rangle$$
+	De plus, $\varphi\mapsto v$ est une isométrie entre $H^*$ et $H$.
+\end{theorem}
+
+\begin{remark}
+	Si $E$ est euclidien ou hermitien, alors $y\mapsto \langle\cdot\mid y\rangle$ est un isomorphisme canonique entre $E$ et $E^*$.
+\end{remark}
+
+\begin{application}
+	On se place dans le $\IR$-espace vectoriel $\IR^3$.
+	On note $[x,y,z]$ le produit mixte de $(x,y,z)$. Pour tout $x,y\in\IR^3$, il existe un unique vecteur $x\wedge y$ tek que $[x,y,\cdot] = \langle\cdot\mid x\wedge y\rangle$,
+	que l'on appelle \emph{produit vectoriel de $x$ et $y$}.
+\end{application}
+
+\begin{example}
+	Soit $(a_0,a_1,\dots,a_n)\in K^n$ une famille de points deux à deux distincts.
+	Pour $i\in \llbracket 0,n\rrbracket$, posons $l_i = \prod_{j\neq i}\frac{X-a_i}{a_j-a_i}$
+	et $\B=\left\{l_0,l_1,\dots, l_n\right\}$ la base de $K_n[X]$ des polynômes de \textsc{Lagrange}.
+	La base duale de $\B$ est $\B^*=\left\{\eval_{a_0},\dots, \eval_{a_n}\right\}$.
+\end{example}
+
+\begin{example}Supposons que $\car K = 0$.
+	Fixons $a\in K$. Rappelons que :
+	$$\forall P\in K_n[X],\, P=\sum_{k=0}^{n}P^{(k)}(a)\frac{(X-a)^k}{k!}$$
+	et cette écriture est unique, \emph{i.e.} $\left\{\frac{(X-a)^k}{k!}\right\}_{0\leq k\leq n}$ est une base de $K_n[X]$.
+	Sa base duale est $\left\{P\mapsto P^{(k)}(a)\right\}_{0\leq k \leq n}$.
+\end{example}
+
+\begin{application}[\textnormal{[Go'] 324}]
+	Si $f\,\colon \IR^n\to \IR$ est différentiable en $a\in\IR^n$, alors il existe un unique vecteur $\nabla f(a)$, appelé \emph{gradient de $f$ en $a$}, tel que $df(a)=\langle \cdot\mid \nabla f(a)\rangle$.
+\end{application}
+
+\textcolor{paragraphtext}{\underline{Le cas particulier de $\M_n(K)$} :} Soit $n\geq 2$.
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[R] 458}]
+	\label{159dev11}
+	$A\mapsto \tr(A\cdot)$ est un isomorphisme (canonique) entre $\M_n(K)$ et $\M_n(K)^*$.
+\end{theorem}
+\begin{proposition}
+	\label{159dev12}
+	Si $\varphi\in\M_n(K)^*$ vérifie $\forall(A,B)\in\M_n(K)^2,\,\varphi(AB)=\varphi(BA)$, alors $\varphi$ est colinéaire à la trace.
+\end{proposition}
+\begin{proposition}[\textnormal{[C] 16-18}]
+	\label{159dev13}
+	\begin{itemize}
+		\item Tout hyperplan de $\M_n(K)$ contient une matrice inversible ;
+		\item Tout hyperplan de $\M_n(\IR)$ contient une matrice orthogonale.
+	\end{itemize}
+\end{proposition}
+\end{tcolorbox}
+
+\subsection*{C. Espace bidual, base antéduale}
+
+\begin{definition}[\textnormal{[R] 445}]
+	L'espace $E^{**} = \left(E^*\right)^*$ est appelé \emph{(espace) bidual de $E$}.
+\end{definition}
+\begin{theorem}[\textnormal{[R] e445}]
+	$\eval\,\colon E\to E^{**}$, $x\mapsto [\varphi\mapsto \varphi(x)]$ est un isomorphisme (canonique).
+\end{theorem}
+
+\begin{remark}
+	Ce n'est pas toujours vrai en dimension infinie !
+\end{remark}
+
+\begin{proposition}[\textnormal{[R] 443-444}]
+	Soit $\tilde{\B} = \left\{\varphi_1,\dots,\varphi_n\right\}$ une base de $E^*$.
+	Il existe une unique base $\B$ de $E$, appelée \emph{base antéduale de $\tilde{\B}$}, dont $\tilde{\B}$ est la base duale.
+\end{proposition}
+
+\section*{II. Notion d'orthogonalité}
+\subsection*{A. Orthogonal d'une partie}
+
+\begin{notation}
+	Pour $\varphi\in E^*$ et $x\in E$, on pose $\langle\varphi, x\rangle_{E^*, E} = \varphi(x)$ (ou plus simplement, $\langle\varphi,x\rangle$ s'il n'y a aucune ambiguité).
+	On appelle cette notation \emph{crochet de dualité}.
+	\textcolor{red}{Attention : c'est différent de la notation du produit scalaire.}
+\end{notation}
+
+\begin{remark}
+	Cette notation n'est pas anodine : dans le cadre eucliden ou hermitien (hilbertien en général), si $\varphi = \langle \cdot\mid y\rangle$, alors $\varphi(x)=0\iff \langle x\mid y\rangle=0$.
+\end{remark}
+
+\begin{definition}[\textnormal{[R] 447}]
+	\begin{itemize}
+		\item L'\emph{orthogonal de $A\subseteq E$} est $A^{\perp} = \left\{\varphi\in E^*\mid \forall x\in A,\, \langle \varphi,x\rangle = 0\right\}$
+		\item L'\emph{orthogonal de $B\subseteq E^*$} est $B^{\circ} = \left\{\varphi\in E^*\mid \forall \varphi\in B,\, \langle \varphi,x\rangle = 0\right\}$
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[R] 447}]
+	\begin{itemize}
+		\item $A\mapsto A^{\perp}$ et $B\mapsto B^{\circ}$ sont décroissantes pour l'inclusion.
+		\item $\forall A\subseteq E$, $A^{\perp} = \Vect(A)^{\perp}$
+		\item $\forall B\subseteq E^*$, $B^{\circ} = \Vect(B)^{\circ}$
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 448}]
+	\begin{itemize}
+		\item Si $F$ est un sous-espace vectoriel de $E$, alors $\left(F^{\perp}\right)^{\circ} = F$ et $\dim F + \dim F^{\perp} = \dim E$
+		\item Si $F$ est un sous-espace vectoriel de $E^*$, alors $\left(F^{\circ}\right)^{\perp} = F$ et $\dim F + \dim F^{\circ} = \dim E$
+	\end{itemize}
+\end{proposition}
+
+\begin{corollary}
+	Pour tout sous-espace vectoriel $F$ de $E$, $F=E\iff F^{\perp}=\left\{0\right\}$.
+\end{corollary}
+
+\begin{theorem}[Équation d'un s.e.v - \textnormal{[R] 451}]
+	Si $(\varphi_1,\dots,\varphi_p)\in (E^*)^p$ est de rang $r$, alors $\bigcap_{i=1}^{p}\Ker(\varphi_i)$ est de dimension $n-r$.
+	Réciproquement, si $F$ est un sous-espace vectoriel de $E$ de dimension $n-r$, alors il existe une famille $(\varphi_1,\dots,\varphi_r)$ de $E^*$ libre telle que $F = \bigcap_{i=1}^{r} \Ker \varphi_i$.
+\end{theorem}
+
+\begin{remark}[\textnormal{[R] e446}]
+	Pour simplifier les notations, plaçons nous dans $E = K^n$.
+	Si $H = \Ker \varphi$ est un hyperplan, alors $H = \left\{(x_1,\dots,x_n)\in K^n\mid \varphi(e_1)x_1 + \cdots + \varphi(e_n)x_n = 0\right\}$ 
+	(où $\left\{e_1,\dots, e_n\right\}$ est la base canonique de $K^n$).
+	Un hyperplan est donc caractérisé par une équation, et d'après le théorème précédent, un sev de $E$ de dimension 
+	$n-r$ est caractérisé par un système de $r$ équations (à $n$ inconnues).
+\end{remark}
+
+\begin{proposition}[\textnormal{[R] 448}]
+	Soient $A$ et $B$ deux sous-espaces vectoriels de $E$.
+	Alors :
+	\begin{itemize}
+		\item $\left(A + B\right)^{\perp} = A^{\perp} \cap B^{\perp}$
+		\item $\left(A\cap B\right)^{\perp} = A^{\perp} + B^{\perp}$
+	\end{itemize}
+	On a les mêmes résultats pour l'orthogonalité dans $E^*$.
+\end{proposition}
+
+\textcolor{paragraphtext}{\underline{Application au calcul différentiel}}
+
+\begin{lemma}[\textnormal{[R] 444}]
+	$\forall (\varphi,\varphi_1,\dots,\varphi_r)\in \left(E^*\right)^{r+1}$,
+	$\varphi \in\Vect(\varphi_1,\dots,\varphi_r)\iff \bigcap_{i=1}^r g_i^{-1}(\left\{0\right\})$.
+\end{lemma}
+
+\begin{theorem}[des extrema liés - \textnormal{[Rv] 372}]
+	Soient $U$ un ouvert de $\IR^n$ et $(f,g_1,\dots, g_R)\in C^1(U,\IR)^{r+1}$. 
+	Posons $\Gamma = \bigcap_{i=1}^r g_i^{-1}(\left\{0\right\})$.
+	Si $f_{\mid \Gamma}$ admet un extremum local en $a\in \Gamma$, et si $(dg_1(a),\dots, dg_r(a))$ est libre, alors il existe des réels (uniques) $\lambda_1,\dots, \lambda_n$ appelées \emph{multiplicateurs de \textsc{Lagrange}},
+	tels que $df(a) = \lambda_1dg_1(a)+\cdots + \lambda_r dg_r(a)$.
+\end{theorem}
+
+\subsection*{B. Morphisme transposé}
+\textcolor{paragraphtext}{Dans ce paragraphe, $F$ est un $K$-espace vectoriel de dimension finie $p$, et $u\in\mathcal{L}(E,F)$.}
+
+\begin{definition}[\textnormal{[R] 452}]
+	Le morphisme \emph{transposé de $u$} est ${}^tu\,\colon F^*\to E^*$, $\varphi\mapsto \varphi\circ u$.
+\end{definition}
+
+\begin{remark}
+	Avec la notation du crochet de dualité, ${}^tu$ est le morphisme vérifiant $\forall \varphi\in F^*$
+	, $\forall x\in E$, $\langle\varphi, u(x)\rangle_{F^*,F} = \varphi\circ u (x) = {}^tu(\varphi)(x) = \langle {}^tu(\varphi),x\rangle_{E^*,E}$.
+\end{remark}
+
+\begin{remark}[\textnormal{[R] 454}]
+	Dans le cadre euclidien ou hermitien, la correspondance entre $E$ et $E^*$ tranduit une correspondance entre ${}^tu$ et $u^*$ (l'adjoint de $u$).
+\end{remark}
+
+\begin{proposition}[\textnormal{[R] 452}]
+	On a :
+	\begin{itemize}
+		\item $u\mapsto {}^tu$ est linéaire injective de $\mathcal{L}(E,F)$ dans $\mathcal{F^*,E^*}$.
+		\item $\Ker {}^tu = \left(\im u\right)^{\perp}$
+		\item $\im {}^tu = \left(\Ker u\right)^{\perp}$
+		\item Si $v\in\mathcal{L}(F,G)$, alors ${}^t\left(v\circ u\right) = {}^tu\circ{}^tv$.
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 454-452}]
+	Soient $\B_E$ et $\B_F$ des bases de $E$ et de $F$. On a $\Mat_{\B_F^*,\B_E^*}({}^tu) = {}^t\Mat_{\B_E,\B_F}(u)$.
+	En particulier, $\rg {}^tu = \rg u$.
+\end{proposition}
+
+\begin{proposition}
+	Soient $\B_1$ et $\B_2$ deux bases de $E$. Alors, $\Pass_{\B_2^*,\B_1^*} = {}^t\Pass_{\B_1,\B_2}$.
+\end{proposition}
+
+\section*{III. Application aux formes quadratiques réelles HORS-SUJET A REFAIRE}
+NB : Attention, ne peut rien faire par rapport aux espaces de Hilbert car on doit rester en dimension finie.
+Du coup la réflexivité est naturellement présente partout.
+
+\textcolor{paragraphtext}{Soient $E$ un $\IR$-espace vectoriel de dimension finie $n>0$, et $q$ une forme quadratique sur $E$.}
+
+\begin{theorem}
+	Il existe une base $q$-orthogonale, que l'on peut déterminer avec l'algorithme de \textsc{Gauss}.
+\end{theorem}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[Loi d'inertie de \textsc{Sylvester} - \textnormal{[R] 476}]
+	\label{159dev2}
+	
+\end{theorem}
+	Soit $\B=\left\{e_1,\dots, e_n\right\}$ une base de $E$ orthogonale pour $q$.
+	Quitte à renuméroter $\B$, supposons que $q(e_1)>0,\dots, q(e_s)>0, q(e_{s+1})<_,\dots,q(e_{s+t})<0,q(e_{s+t+1}) = \cdots = q(e_n)=0$.
+	Le couple $(s,t)$ ne dépend alors pas du choix de la base orthogonale : on l'appele \emph{signature de $q$}.
+\begin{example}
+	$q(a,b,c,d,e) =$
+\end{example}
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{159dev11} et Propositions \ref{159dev12}, \ref{159dev13}
+	\item Développement 2 : Théorème \ref{159dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[Go] \emph{Les maths en tête - Algèbre et probabilités}, Xavier Gourdon, 3e édition
+	\item[Go'] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition
+	\item[C] \emph{Carnet de voyage en Algébrie}, Philippe Caldero, Marie Peronnier
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[FGN] \emph{Oraux X-ENS Algèbre 2}, 2è édition 
+\end{itemize}
+
 % \begin{figure}[!htb]
 % 	\centering
 % 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/149.pdf}
 % 	\caption{s}
 % \end{figure}
+
+
+
+\chapter*{171 : Formes quadratiques réelles. Coniques. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{On suppose connue la théorie générale des espaces quadratiques, pour se concentrer sur le cas particulier d'une espace quadratique réel $(E,q)$ de dimension $n\geq 1$.
+On note $\varphi$ la forme polaire de $q$.}
+
+\section*{I. Propriétés propres aux formes quadratiques réelles}
+\subsection*{A. Positivité de définition}
+
+\begin{definition}[\textnormal{[R] 475}]
+	On dit que $q$ est \emph{positive} (resp. \emph{négative}) si $\forall x\in E\setminus\left\{0\right\}$, $q(x)\geq 0$ (resp. $q(x)\leq 0$).
+	Si cette inégalité est stricte, alors on dit que $q$ est \emph{définie positive} (resp. \emph{définie négative}).
+\end{definition}
+
+\begin{example}
+	Sur $\IR^2$, $q\,\colon (x,y)\mapsto x^2+y^2$ est définie positive, $q\,\colon(x,y)\mapsto x^2$ est positive non définie, et $q\,\colon(x,y)\mapsto xy$ est rien du tout.
+\end{example}
+
+\begin{theorem}[inégalité de \textsc{Cauchy-Schwarz} - \textnormal{[R] 475}]
+	Si $q$ est positive, alors pour tout $(x,y)\in E^2$, $\varphi(x,y)^2 \leq q(x)q(y)$, avec égalité si (et seulement si lorsque $q$ est définie positive) $x$ et $y$ sont colinéaires.
+\end{theorem}
+
+\begin{corollary}
+	Si $q$ est positive, $\sqrt{q}$ est une semi-norme.
+	Si $q$ est définie positive, alors $\sqrt{q}$ est une norme.
+\end{corollary}
+
+\begin{corollary}
+	Si $q$ est positive, alors $q$ définie positive $\iff$ $q$ non dégénérée.
+\end{corollary}
+
+\subsection*{B. Réduction et algorithme de \textsc{Gauss}}
+
+\begin{theorem}[réduction de \textsc{Gauss} - \textnormal{[R] 469}]
+	Il existe $(l_1,\dots, l_r)$ une famille libre de formes linéaires et $(\lambda_1,\dots,\lambda_n)\in\IK^r$ telles que $q = \sum_{i=1}^{r} \lambda_il_i^2$.
+\end{theorem}
+
+\begin{algorithm}[\textnormal{[R] 469-472}]
+	Écrivons $q(x_1,\dots,x_n) = \sum_{i=1}^{n} a_ix_i^2 + 2\sum_{1\leq i,j\leq n} b_{i,j}x_ix_j$.
+	
+	S'il existe $i\in \llbracket 1,n \rrbracket$ tel que $a_i\neq 0$ (quitte à renuméroter, disons $a_1\neq 0$),
+	on écrit $q(x_1,\dots, x_n) = a_1\left(x_1 + \frac{1}{a_1}\sum_{2\leq j \leq n}b_{1,j}x_j\right)^2 + [\text{ce qui manque } = f(x_2,\dots, x_n)]$.
+
+	Sinon, quitte à renuméroter, supposons que $b_{1,2}\neq 0$. Alors :
+	\begin{align*}
+		q(x_1,\dots,x_n) &= 2b_{1,2}x_1x_2 + 2x_1\sum_{3\leq j\leq n}b_{1,j}x_j + 2x_2\sum_{3\leq j\leq n}b_{2,j}x_j +\dots \\	
+		&=: 2b_{1,2}x_1x_2 + 2x_1f_1(x_3,\dots,x_n) + 2x_2f_2(x_3,\dots, x_n) + \dots \\
+		&= 2b_{1,2}(x_1 + \frac{1}{b_{1,2}}f_2(x_3,\dots, x_n))(x_2 + \frac{1}{b_{1,2}}f_1(x_3,\dots, x_n)) + \dots \\
+		&=: 2b_{1,2}l_1l_2 + \dots
+	\end{align*}
+
+	puis on écrit $l_1l_2 = \frac{1}{4}\left((l_1+l_2)^2 - (l_1-l_2)^2\right)$
+	Puis on itère sur les autres variables.
+\end{algorithm}
+
+\begin{example}[\textnormal{[R] 485}]
+	$5xy+6xz+3yz = \frac{1}{20}(5x+5y+9z)^2 - \frac{1}{20}(5x+5y-3z)^2 - \frac{18}{5}z^2$
+\end{example}
+
+\begin{corollary}[\textnormal{[R] 473}]
+	Il existe une base $q$-orthogonale de $E$, \emph{i.e.} dans laquelle la matrice de $q$ est diagonale.
+\end{corollary}
+
+\begin{theorem}[orthogonalisation simultanée - \textnormal{[Gr] e315, [Au] 271}]
+	Si $q$ et $q'$ sont deux formes quadratiques sur $E$ avec $q$ définie positive, alors il existe une base de $E$ qui est à la fois $q$-orthogonale et $q'$-orthogonale.
+
+	Matriciellement, si $M\in\mathcal{S}_n^{++}(\IR)$ et $N\in\mathcal{S}_n(\IR)$, alors il existe $P\in GL_n(\IR)$ telle que 
+	${}^tPMP = I_n$ et ${}^tPNP$ est diagonale.
+\end{theorem}
+
+\subsection*{C. Signature et classification}
+\begin{definition}[\textnormal{[R] 477}]
+	Notons $\P$ (resp. $\mathcal{N}$) l'ensemble des sous-espaces $f$ de $E$ tels que $q_{\mid F}$ est définie positive (resp. définie négative).
+	Posons $s = \max_{F\in\P} \dim F$ et $t = \max_{F\in\mathcal{N}} \dim F$ avec la convention $\max \emptyset = 0$.
+
+	Le coupe $(s,t)$ est appelé \emph{signature de $q$}.
+\end{definition}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[loi d'inertie de Sylvester - \textnormal{[R] 476}]
+	\label{171dev1}
+	Supposons que $\B$ est $q$-orthogonale.
+	Alors $s = \#\left\{i\in \llbracket 1,n\rrbracket \mid q(e_i)> 0\right\}$
+	et $t=\#\left\{i\in \llbracket 1,n \rrbracket \mid q(e_i) > 0\right\}$.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{remark}[\textnormal{[R] 476}]
+	En particulier, $s+t = \rg q$
+\end{remark}
+
+\begin{corollary}
+	Les classes déquivalence sont caractérisées par la signature. En particulier, il y a $n+1$ classes non dégénérées.
+\end{corollary}
+
+\begin{example}[\textnormal{[R] 491}]
+	La signature de $M\mapsto \tr(M^2)$ est $\left(\frac{n(n+1)}{2}, \frac{n(n-1)}{2}\right)$.
+\end{example}
+
+\subsection*{D. Matrice hessienne et optimisation}
+\textcolor{paragraphtext}{Soit $f\in C^2(\IR^n,\IR)$.}
+
+\begin{theorem}[\textnormal{[BMP] 18}]
+	Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un 
+	point critique, et $\Hess_a(f)$ est négative (resp. positive).
+
+	La réciproque est vraie si on suppose en plus $\Hess_a(f)$ définie.
+
+	Si $a$ est un point critique et si $\Hess_a(f)$ admet deux valeurs propres de signes strictement opposés, alors $a$ est un \emph{point-selle}.
+\end{theorem}
+
+\begin{remark}
+	$x\mapsto x^4$ admet un minimum globale en $0$, mais hessienne (sa dérivée seconde) est nulle en $0$.
+\end{remark}
+
+\begin{example}[\textnormal{[BMP] 24-32}]
+	Soient $A\in\mathcal{S}_n^{++}(\IR)$, $b\in\IR^n$ et $J\,\colon x\mapsto \frac{1}{2}\langle AX\mid X\rangle - \langle b\mid x\rangle$.
+	Alors $\forall x\in \IR^n$, $\nabla J(x)=Ax-b$ et $\Hess_J(x) = A\in\mathcal{S}_n^{++}(\IR)$.
+	En particulier, $J$ admet un unique minimum (global) qui est la solution de $Ax= b$.
+\end{example}
+
+\section*{II. Étude des coniques d'un plan affine euclidien}
+\textcolor{paragraphtext}{Soient $\mathcal{P}$ un plan affine euclidien. On fixe un repère orthonormé.}
+
+\subsection*{A. Définition algébrique, classification}
+\begin{definition}[\textnormal{[R] 493-494}]
+	Soient $(a,b,c)\in\IR^3$ non tous nuls, et $(d,e,f)\in\IR^3$.
+	On pose $q\,\colon (x,y)\mapsto ax^2+bxy+cy^2$ et $l\,\colon(x,y)\mapsto dx+ey$.
+	Une \emph{conique} est 
+	$$\mathcal{C} = \left\{(x,y)\in \mathcal{P} \mid q(x,y)+l(x,y)+f = 0\right\}$$
+
+	On définit $Q\,\colon (x,y,z) \mapsto q(x,y)+l(x,y)z + fz^2$.
+\end{definition}
+
+\begin{example}[\textnormal{[Au] 228-231}]
+	On a les coniques suivantes :
+	\begin{itemize}
+		\item $\left\{(x,y)\in\mathcal{P} \mid (x-\alpha)^2+(y-\beta)^2 = r^2\right\} = \text{Cercle}\left(\begin{pmatrix}
+			\alpha \\ \beta
+		\end{pmatrix}, r\right)$
+		\item $\left\{(x,y)\in\mathcal{P} \mid (x/\alpha)^2+(y/\beta)^2 = r^2\right\}$ est une ellipse.
+		\item $\left\{(x,y)\in\mathcal{P} \mid y = 2px^2\right\}$ est une parabole.
+	\end{itemize}
+\end{example}
+
+\begin{theorem}
+	Classification : \textcolor{paragraphtext}{ANNEXE 1}
+\end{theorem}
+
+\begin{proposition}
+	Soit $\Delta = b^2 - 4ac \equiv \textnormal{disc}(q)$ avec les notations de Def 19.
+	\begin{itemize}
+		\item Si $\Delta < 0$, alors $\mathcal{C}$ est une ellipse, un point ou vide ;
+		\item Si $\Delta = 0$, alors $\mathcal{C}$ est une parabole, deux droites parallèles ou vide ;
+		\item Si $\Delta > 0$, alors $\mathcal{C}$ est une hyperbole, deux droites sécantes ou vide.
+	\end{itemize}
+\end{proposition}
+
+\subsection*{B. Définitions géométriques}
+\begin{proposition}[FIG. 2 - \textnormal{[R] 494}]
+	Les ellipses, paraboles, hyperboles, points, et couples de droites sécantes sont obtenus comme intersection d'un cône et d'un plan.
+\end{proposition}
+
+\begin{theorem}[FIG. 3 - \textnormal{[R] 505-506}]
+	Soient $\mathcal{D}$ une droite de $\mathcal{P}$, $F\in \mathcal{P}\setminus \mathcal{D}$ et $e > 0$.
+	L'ensemble $\mathcal{C} = \left(M\in\mathcal{P} \mid d(M,F) = ed(M,\mathcal{D})\right)$ est une conique, on appelle $\mathcal{D}$ la \emph{directrice}, $F$ son \emph{foyer} et $e$ son \emph{excentricité}.
+
+	Plus précisément, $\mathcal{C}$ est soit vide, soit une ellipse si $e < 1$, une parabole si $e=1$, une hyperbole si $e> 1$.
+\end{theorem}
+
+\begin{remark}[\textnormal{[R] 506}]
+	On peut déterminer une équation dans un repère bien choisi, comme détaillé dans FIGURE 3.
+\end{remark}
+
+\begin{theorem}[FIG. 1 - \textnormal{[Au] 233-234}]
+	\begin{itemize}
+		\item Si $\mathcal{C}$ est une ellipse, alors il existe $F$ et $F'$ dans $\mathcal{P}$ (appelés \emph{foyers} de $\mathcal{C}$) et $a > 0$ (appelé \emph{demi-grand axe de $\mathcal{C}$}) tels que : $$\mathcal{C} = \left\{M\in\mathcal{P} \mid MF + MF' = 2a\right\}$$
+		\item Si $\mathcal{C}$ est une hyperbole, alors il existe $F$ et $F'$ dans $\mathcal{P}$ (appelés \emph{foyers de $\mathcal{C}$}) et $a>0$ (appelé \emph{demi-grand axe de $\mathcal{C}$}) tels que : $$\mathcal{C} = \left\{M\in\mathcal{P} \mid \vert MF - MF'\vert = 2a\right\}$$
+	\end{itemize}
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[Ei] 52}]
+	\label{171dev2}
+	Soient $A,B,C,D$ et $E$ cinq points de $\mathcal{P}$ distincts.
+	\begin{enumerate}
+		\item Il existe une conique passant par $A,B,C,D$ et $E$ ;
+		\item Elle est unique si, et seulement si, $4$ points ne sont pas alignés ;
+		\item Elle est non dégénérée si, et seulement si, $3$ points ne sont pas alignés.
+	\end{enumerate}
+\end{theorem}
+\end{tcolorbox}
+
+ANNEXE 1 : Classification des coniques
+\begin{table}[]
+\begin{tabular}{|l|l|l|l|l|}
+Type & Signature de $q$ & Signature de $Q$ & Éq. réduite \\
+Ellipse & $(2,0) / (0,2)$ & $(2,1) / (1,2)$ & $x^2+y^2 = 1$ \\
+Parabole & $(1,0) / (0,1)$ & $(2,1)/(1,2)$ &  $x^2 +y=1$\\
+Hyperbole & $(1,1)$  & $(2,1)/(1,2)$ & $x^2-y^2=1$\\
+Droites sécantes & $(1,1)$ &  $(1,1)$ & $x^2-y^2=0$\\
+Droites parallèles & $(1,0)/(0,1)$ & $(1,1)$ & $x^2 = 1$\\
+Droites confondues & $(1,0)/(0,1)$ & $(1,0)/(0,1)$ & $x^2 = 0$ \\
+Point & $(2,0) / (0,2)$ & $(2,0)/(0,2)$ & $x^2+y^2 = 0$ \\
+Vide (1) & $(2,0) / (0,2)$ & $(3,0)/(0,3)$ & $x^2 + y^2 = -1$\\
+Vide (2) & $(1,0) / (0,1)$ & $(2,0)/(0,2)$ & $x^2 = -1$
+\end{tabular}
+\end{table}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{171dev1}
+	\item Développement 2 : Théorème \ref{171dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[Au] \emph{Géométrie}, Audin
+	\item[Ei] \emph{Géométrie analytique classique}, Eiden
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/171.pdf}
+	\caption{s}
+\end{figure}
+
+
+\chapter*{IMPASSE / PAS FINI 162 : Systèmes d'équations linéaires ; opérations élémentaires, aspects algorithmiques et conséquences théoriques.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{On considère $K$ un corps commutatif. Soient $n,p\geq 1$.}
+
+\section*{I. Mise en place du problème}
+\begin{definition}[\textnormal{[TL1] 377; [Gr] 37}]
+	Un système d'équations linéaires à $n$ équations et $p$ inconnues est un système de la forme :
+	\begin{align*}
+		(S) \iff \begin{cases}
+			a_{1,1}x_1 + a_{1,p}x_p = b_1 \\
+			a_{2,1}x_1 + a_{2,p}x_p = b_2 \\
+			\vdots \\
+			a_{n,1}x_1 + a_{n,p}x_p = b_n \\
+		\end{cases}
+	\end{align*}
+	où les coefficients $a_{i,j}$ et $b_i$ appartiennent $K$.
+	Si tous les $b_i$ sont nuls, le système est dit \emph{homogène} (ou sans second membre).
+
+	La matrice $A = \left(a_{i,j}\right)\in\M_{n,p}(K)$ est la matrice du système.
+\end{definition}
+
+\begin{proposition}[\textnormal{[TL1] 378}]
+	Le système $(S)$ prend la forme matricielle $AX = B$, où $B = {}^t(b_1,\dots,b_n)$ et $X = {}^t(x_1,\dots, x_n)$.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[TL1] 378}]
+	Un système linéaire homogène de $n$ équations à $n$ inconnues possède une solution non trivial si, et seulement si, sa matrice $A$ n'est pas inversible.
+\end{theorem}
+
+\begin{definition}[\textnormal{[TL1] 379; [R] 191}]
+	Le système $(S)$ est dit \emph{compatible} s'il possède au moins une solution et \emph{incompatible} sinon.
+\end{definition}
+
+\begin{proposition}[\textnormal{[TL1] 379}]
+	Les assertions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item Le système $(S)$ est compatible ;
+		\item $B$ est combinaison linéaire (non triviale) des collones de $A$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	Supposons $A = 0_{n,p}$. Si $B = 0_{n,1}$, alors tout vecteur $X$ est solution du système.
+	Si $B\neq 0_{n,1}$, alors le système n'a pas de solution.
+\end{proposition}
+
+\section*{II. Techniques de résolutions dans des cas précis}
+\textcolor{paragraphtext}{On considère jusqu'à la fin de la leçon un système $(S)$ à $n$ équations et $p$ inconnues.
+On note $A$ la matrice associée à ce système.}
+
+\subsection*{A. Méthode de Cramer}
+\begin{definition}[\textnormal{[TL1] 379}]
+	Le système $(S)$ est appelé \emph{système de Cramer} si $n=p$ et si $A$ est inversible.
+\end{definition}
+
+\begin{theorem}[\textnormal{[TL1] 380}]
+	Supposons que $(S)$ soit un système de Cramer.
+	Il possède alors une unique solution $X\in K^n$, qui est $X = A^{-1}B$.
+	Ses coefficients $x_j$ vérifient, pour tout $1\leq j\leq n$ :
+	$$x_j = \frac{\det(C_1,\dots, C_{j-1}, B, C_{j+1},\dots, C_n)}{\det A}$$
+	où $C_i$ est donnée par la $i$-ième colonne de $A$.
+\end{theorem}
+
+\begin{example}[\textnormal{[TL1] 380}]
+	Considérons le système 
+	\begin{align*}
+		(S)\,\colon \begin{cases}
+			x-y+z &= 1\\
+			2x+4y+9z&=1\\
+			3x-4y+2z &= 1
+		\end{cases}
+	\end{align*}
+
+La matrice associée à ce système est $A = \begin{pmatrix}
+	1 & -1 & 1 \\ 2 & 4 & 9 \\ 3 & -4 & 2
+\end{pmatrix}$, en particulier $\det A = 1 \neq 0$ donc il existe une unique solution à ce système.
+Cette dernière est donnée par :
+\begin{align*}
+	x = \begin{vmatrix}
+		1 & -1 & 1 \\ 1 & 4 & 9 \\ 1 & -4 & 2
+	\end{vmatrix},\, 
+	y = \begin{vmatrix}
+		1 & 1 & 1 \\ 2& 1 & 9 \\ 3 & 1 & 2
+	\end{vmatrix},\,\text{et }
+	z = \begin{vmatrix}
+		1 & -1 & 1 \\ 2 & 4 & 1 \\ 3 & -4 & 1
+	\end{vmatrix}
+\end{align*}
+
+donc $x = 29$, $y=15$ et $z=-13$.
+\end{example}
+
+\begin{remark}[\textnormal{[TL1] 381}]
+	Intérêt essentiellement théorique car coût plus élevé que de résoudre le système par pivot de \textsc{Gauss}.
+\end{remark}
+
+\subsection*{B. Matrices échelonnées et méthode de remontée}
+\begin{definition}[\textnormal{[R] 187}]
+	On dit que $A$ est échelonnée en ligne si elle est nulle ou si il existe $r\in \llbracket 1,n \rrbracket$ tel que les lignes $L_i$ de $A$ vérifient :
+	\begin{enumerate}
+		\item $L_i\neq 0$, $\forall 1\leq i \leq r$
+		\item $L_i = 0$, $\forall i\geq r+1$
+		\item $1\leq d_1<d_2<\cdots<d_r\leq p$ où $d_i = \min\left\{1\leq j\leq p\mid a_{ij}\neq 0\right\}$.
+	\end{enumerate}
+
+	Les coefficients $a_{i,d_i}$ sont appelés les \emph{pivots} de la \emph{matrice échelonnée $A$}.
+\end{definition}
+
+\begin{example}[\textnormal{[Gr] 39}]
+	La matrice définie par :
+	\begin{align*}
+		\begin{pmatrix}
+			2&3&1&0&1&2&6 \\
+			0&0&7&1&8&2&0 \\
+			0&0&0&0&0&6&2 \\
+			0&0&0&0&0&0&0
+		\end{pmatrix}
+	\end{align*}
+	est échelonnée, mais ce n'est pas le cas de :
+	\begin{align*}
+		\begin{pmatrix}
+			1&3&1&0&1&5&9 \\
+			0&0&7&1&8&2&0 \\
+			0&0&5&1&0&6&2 \\
+			0&0&0&3&2&1&5
+		\end{pmatrix}
+	\end{align*}
+\end{example}
+
+\begin{proposition}[\textnormal{[R] 187}]
+	Avec les notations précédentes, une matrice $A$ non nulle échelonnée en lignes est de rang $r$ ($=$ le nombre de lignes non nulles).
+\end{proposition}
+
+\begin{definition}[\textnormal{[R] 188}]
+	On dit qu'un système linéaire $AX = B$ est \emph{échelonné} si la matrice $A$ est échelonnée en lignes.
+\end{definition}
+
+\begin{algorithm}[Échelonnage d'une matrice - \textnormal{[R] 193}]
+	A FAIRE
+\end{algorithm}
+
+
+\section*{Développements}
+% \begin{itemize}
+% 	\item Développement 1 : Théorème \ref{171dev1}
+% 	\item Développement 2 : Théorème \ref{171dev2}
+% \end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[C] \emph{Carnets de voyage en Algébrie}, Caldero
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[TL1] \emph{Mathématiques Tout-en-un pour la Licence 1}, Jean-Pierre Ramis, André Warusfel
+\end{itemize}
+
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/171.pdf}
+% 	\caption{s}
+% \end{figure}
+
 \end{document}
 
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/149.pdf}
+% 	\caption{s}
+% \end{figure}
 % \begin{tcolorbox}[
 %     breakable, % Allows the theorem to split across pages
 %     colback=developpement, % The background color
