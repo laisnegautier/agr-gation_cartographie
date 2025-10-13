@@ -5389,6 +5389,599 @@ donc $x = 29$, $y=15$ et $z=-13$.
 % 	\caption{s}
 % \end{figure}
 
+\chapter*{203 : Utilisation de la notion de compacité}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans toute la leçon, $(X,d)$ et $(Y,\delta)$ sont des espaces métriques.}
+\section*{I. Notion de compacité : définition, caractérisation, propriétés}
+
+\begin{definition}[\textnormal{[G] 27}]
+	On dit que $(X,d)$ est \emph{compact} si de tout recouvrement de $X$ par des ouvers on peut extraire un sous-recouvrement fini de $X$.
+\end{definition}
+
+\begin{example}[\textnormal{[G] 27}]
+	Si $X$ est fini, alors $(X,d)$ est compact.
+	$(\IR,\vert\cdot\vert)$ n'est pas compact : $\IR = \bigcup_{n\in\IN^*}]-n,n[$.
+\end{example}
+
+\begin{proposition}[\textnormal{[G] 27}]
+	Un espace métrique compact est borné.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[G] 28}]
+	Si $(X,d)$ est compact, alors toute intersection ddécroissante de fermés non vides de $X$ est non vide.
+\end{proposition}
+
+\begin{remark}[\textnormal{[G] 28}]
+	La compacité est cruciale : considérer $X = \IR$, et $\left([n,+\infty[\right)_{n\in\IN}$.
+\end{remark}
+
+\begin{theorem}[de \textsc{Bolzano-Weierstrass} - \textnormal{[G] 28}]
+	$(X,d)$ est compact si, et seulement si, de toute suite d'éléments de $X$ on peut extraire une sous-suite convergente.
+\end{theorem}
+
+\begin{example}
+	Pout tout $(a,b)\in\IR^2$ tel que $a\leq b$, $[a,b]$ est compact.
+\end{example}
+
+\begin{corollary}[\textnormal{[G] 30}]
+	Tout espace métrique compact est complet.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[G] 30}]
+	Toute partie fermée d'un compacte est compacte.
+\end{corollary}
+
+\begin{example}[\textnormal{[G] 30}]
+	Les compacts de $\IR$ sont les fermés bornés.
+\end{example}
+
+\begin{proposition}[\textnormal{[G] 30}]
+	Tout compact est fermé et borné.
+\end{proposition}
+
+\begin{remark}
+	La réciproque est fausse : la boule unité fermée de $(\IR[X], \|\cdot\|_{\infty})$ est fermée et bornée, mais pas compacte.
+\end{remark}
+
+\begin{theorem}[\textnormal{[G] 30}]
+	Les compacts de $(\IR, \|\cdot\|_{\infty})$ sont les fermés bornés.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Tychonov} - \textnormal{[G] 30}]
+	Un produit fini de compacts est compact.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[G] 30}]
+	Dans un espace compact, une suite converge si, et seulement si, elle admet une unique valeur d'adhérence.
+\end{proposition}
+
+\begin{remark}
+	La compacité est cruciale : considérer $\left(n\delta_{n\in 2\IN}\right)_{n\in\IN}\in\IR^{\IN}$.
+\end{remark}
+
+\textcolor{paragraphtext}{Dans toute la suite, on supposera $(X,d)$ compact.}
+\section*{Fonctions continues sur un compact}
+\subsection*{A. Cas des fonctions numériques}
+
+\begin{theorem}[\textnormal{[G] 31}]
+	L'image d'un compact par une application continue est compacte.
+\end{theorem}
+
+\begin{example}
+	La compacité est cruciale : $\IR = \arctan\left(]-\frac{\pi}{2},\frac{\pi}{2}[\right)$
+\end{example}
+
+\begin{proposition}[\textnormal{[G] 31}]
+	La réciproque d'une bijection continue sur un compact est continue (on a donc homéomorphisme).
+\end{proposition}
+
+\begin{theorem}[des bornes atteintes - \textnormal{[G] 31}]
+	Toute fonction de $C(X,\IR)$ est bornée et atteint ses bornes.
+\end{theorem}
+
+\begin{example}[\textnormal{[Rv] 413}]
+	Existence d'une trajectoire fermée à $3$ revonds sur un billard elliptique.
+\end{example}
+
+\begin{example}[\textnormal{[G] e33}]
+	Soit $F\subseteq X$ non vide fermée. Pour tout $x\in X$, il existe $y\in F$ tel que $d(x,y)=d(x,F)=\inf_{z\in F} d(x,z)$.
+\end{example}
+
+\textcolor{paragraphtext}{Dans la suite de ce paragraphe, $(X,d) = ([a,b], \|\cdot\|)$, et on fixe $f\in C^0([a,b], \IR)$.}
+
+\begin{theorem}[de \textsc{Rolle} - \textnormal{[G] 73, [R] 251}]
+	Si $f$ est déribale sur $]a,b[$ et vérifie $f(a)=f(b)$, alors il existe $c\in ]a,b[$ tel que $f'(c)=0$.
+\end{theorem}
+
+\begin{example}[\textnormal{[R] 243}]
+	Si $f$ est $n$ fois dérivabme sur $]a,b[$ et s'annule $n+1$ fois, alors $f^{(n)}$ s'annule au moins une fois.
+\end{example}
+
+\begin{theorem}[des accroissements finis - \textnormal{[G] 74, [R] 258}]
+	Si $f$ est dérivable sur $]a,b[$, alors il existe $c\in ]a,b[$ tel que $f(b)-f(a) = f'(c)(b-1)$.
+\end{theorem}
+
+\begin{example}[\textnormal{[G] 74, [R] 261}]
+	Soit $I$ un intervalle de $\IR$, soit $f\,\colon I\to \IR$ continue sur $I$ et dérivable sur $\mathring{I}$. Alors $f$ est croissante sur $I$ si, et seulement si, $f'\geq 0$ sur $\mathring{I}$.
+\end{example}
+
+\begin{example}[\textnormal{[R] 238, [G] 96}]
+	Soit $I\subseteq \IR$ un intervalle non ponctuel, soit $f\,\colon I\to\IR$ deux fois dérivable.
+	Si $f''\geq 0$, alors $f$ est convexe.
+\end{example}
+
+
+\subsection*{B. Uniforme continuité, approximation uniforme}
+
+\begin{theorem}[de \textsc{Heine} - \textnormal{[G] 31}]
+	Une fonction continue sur un compact $y$ est uniformément continue.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Dini} - \textnormal{[G] 238}]
+	\begin{enumerate}
+		\item Soit $\left(f_n\right)_{n}\in \mathcal{C}(X,\IR)^{\IN}$. Si $\left(f_n\right)_n$ est croissante et converge simplement vers $f\in\mathcal{C}(X,\IR)$, alors $\left(f_n\right)_n$ converge uniformément vers $f$.
+		\item Soit $\left(f_n\right)_n\in\mathcal{C}([a,b],\IR)^{\IN}$ telle que pour tout $n\in\IN$, $f_n$ est croissante. Si $\left(f_n\right)_n$ converge simplement vers $f\in\mathcal{C}([a,b],\IR)$, alors $\left(f_n\right)_n$ converge uniformément vers $f$.
+	\end{enumerate}
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{example}[\textnormal{[HL] 26}]
+	\label{203dev11}
+	Soit $\left(P_n\right)_n$ définie par $\forall x \in[-1,1],\, P_0(x)= 0$ et $\forall n\in \IN,\, P_{n+1}(x) = P_n(x) + \frac{1}{2}(x^2 - P_n^2(x))$.
+	La suite $\left(P_n\right)_n$ converge uniformément vers $\vert\cdot\vert$ sur $[-1,1]$.
+\end{example}
+\begin{theorem}[de \textsc{Stone-Weierstrass} - \textnormal{[HL] 26}]
+	\label{203dev12}
+	Toute sous-algèbre $H$ de $C(X,\IR)$ unitaire et séparante (\emph{i.e.} $\forall (x,y)\in X^2$, $x\neq y\implies \exists h\in H\,\colon h(x)\neq h(y)$)
+	est dense pour $\|\cdot\|_{\infty}$.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{corollary}[théorème de \textsc{Weierstrass} - \textnormal{[G] 304}]
+	Toute fonction continue sur un segmet est limite uniforme d'une suite de fonctions polynômiales.
+\end{corollary}
+
+\subsection*{C. Équicontinuité}
+
+\begin{definition}[\textnormal{[HL] 37}]
+	Soit $\A\in\mathcal{C}(X,Y)$. On dit que $\A$ est :
+	\begin{itemize}
+		\item \emph{équicontinue en $x_0\in X$} si $\forall \varepsilon >0,\,\exists\eta >0\,\colon \forall f\in\A,\,\forall x\in X,\, d(x_0,x)<\eta\implies\delta(f(x), f(x_0))< \varepsilon$.
+		\item \emph{uniformément équicontinue} si $\forall\varepsilon > 0,\,\exists \eta > 0\,\colon \forall f\in \A,\,\forall (x,y)\in X^2,\, d(x,y)< \eta\implies \delta(f(x),f(y))< \varepsilon$.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[HL] 38}]
+	$(X,d)$ étant compact, $\A$ est uniformément équicontinue si, et seulement si, elle est équicontinue en tout point de $X$.
+\end{proposition}
+
+\begin{example}[\textnormal{[HL] 38}]
+	Toute famille finie de $\mathcal{C}(X,Y)$ est uniformément équicontinue, de même que les familles de fonctions $k$-lipschitziennes, pour tout $k> 0$ fixé.
+\end{example}
+
+\begin{theorem}[d'\textsc{Ascoli-Arzelà} - \textnormal{[HL] 39}]
+	Les parties compactes de $C(X,Y)$ sont les fermés bornés équicontinus.
+\end{theorem}
+
+\begin{example}[\textnormal{[HL] 39}]
+	Munissons $Y$ d'une mesure $\mu$ finie, et supposons $Y$ compact.
+	Pour $K \in C(X\times Y,\IR)$, on définit $T_K\,\colon C(Y,\IR)\to C(X,\IR),\, f\mapsto \int_Y K(\cdot, y)f(y)d\mu(y)$.
+	Alors $\overline{T_K(\overline{\B_{C(Y)}(0,1)})}$ est compact.
+\end{example}
+
+\section*{III. Compacité dans les espaces vectoriels normés}
+\textcolor{paragraphtext}{On fixe $(E,\|\cdot \|_E)$ et $(F,\|\cdot\|_F)$ deux $\IK$-espaces de Banach.}
+
+\subsection*{A. Parties compactes et dimension finie}
+\begin{theorem}
+	Si $E$ est de dimension finie, alors ses compacts sont les fermés bornés.
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[G] 50}]
+	\label{203dev21}
+	Si $E$ est de dimension finie, alors toutes ses normes sont équivalentes.
+\end{theorem}
+\begin{theorem}[de \textsc{Riesz} - \textnormal{[G] 56}]
+	\label{203dev22}
+	$E$ est de dimension finie si, et seulement si, sa boule unité fermée (pour une norme quelconque) est compacte.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{example}[\textnormal{[G] 33}]
+	Supposons $E$ de dimension finie. Soit $f\,\colon E\to \IR$ continue.
+	Si $f(x) \to_{\|x\|\to +\infty}+\infty$, alors $f$ est minorée et atteint son minimum.
+\end{example}
+
+\subsection*{B. Opérateurs compacts}
+\begin{definition}[\textnormal{[HL] 186}]
+	On dit que $T\in\mathcal{L}(E,F)$ est \emph{compact} si $\overline{T(\overline{\B_E(0,1)})}$ est compact.
+\end{definition}
+
+\begin{example}[\textnormal{[HL] 186}]
+	Les opérateurs à noyau, \emph{i.e.} de la forme donnée dans Exemple 37, sont des opérateurs compacts.
+\end{example}
+
+\begin{proposition}[\textnormal{[HL] 186}]
+	\begin{itemize}
+		\item Les opérateurs de rang fini sont compacts ;
+		\item $\id_E$ est compact si, et seulement si, $E$ est de dimension finie.
+	\end{itemize}
+\end{proposition}
+
+\begin{notation}
+	On note $\mathcal{K}(E,F)$ l'ensemble des opérateurs compactes de $E$ dans $F$, et $\mathcal{K}(E) = \mathcal{K}(E,E)$.
+\end{notation}
+
+\begin{proposition}[\textnormal{[HL] 187}]
+	$\mathcal{K}(E)$ est un idéal.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[HL] 187}]
+	$\mathcal{K}(E,F)$ est un fermé de $(\mathcal{L}(E,F), \vertiii \cdot)$.
+\end{proposition}
+
+\begin{corollary}[\textnormal{[HL] 188}]
+	Une limite d'une suite d'opérateurs de rang fini est compacte.
+\end{corollary}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Exemple \ref{203dev11} et Théorème \ref{203dev12}
+	\item Développement 2 : Théorèmes \ref{203dev21} et \ref{203dev22}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[HL] \emph{Éléments d'analyse fonctionnelle}, Francis Hirsch, Giles Lacombe
+	\item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvier, 4e édition
+\end{itemize}
+
+
+\chapter*{208 : Espaces vectoriels normés, applications linéaires continues. Exemples.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $\IK$ désigne $\IR$ ou $\IC$, et $E$ et $F$ deux $\IK$-espaces vectoriels.}
+\section*{I. Normes et opérateurs sur un espace vectoriel}
+\subsection*{A. Norme sur un espace vectoriel}
+
+\begin{definition}[\textnormal{[G] 7}]
+	Une \emph{norme sur $E$} est une application $N\,\colon E\to\IR^+$ telle que :
+	\begin{itemize}
+		\item $\forall x\in E,\, \|x\|=0\implies x=0$ (séparation)
+		\item $\forall x\in E,\,\forall\lambda\in\IR,\,\|\lambda x\|=\vert\lambda\vert\cdot\|x\|$ (homogénéité)
+		\item $\forall (x,y)\in E^2,\, \|x+y\|\leq \|x\|+\|y\|$ (inégalité triangulaire)
+	\end{itemize}
+\end{definition}
+
+\begin{example}[\textnormal{[G] 7-8}]
+	\begin{itemize}
+		\item Le module est une norme sur $\IK$ ;
+		\item Sur $\IK^n$, $\|\cdot\|_p\,\colon (x_1,\dots, x_n)\mapsto \left(\sum_{k=1}^{n} \vert x_k\vert^p\right)^{1/p}$, avec $p\in [1,+\infty[$ est une norme ;
+		\item Sur $\IK^n$, $\|\cdot\|_p\,\colon (x_1,\dots, x_n)\mapsto \max_{1\leq k\leq n} \vert x_k\vert$ est une norme ;
+		\item Soit $(X,d)$ un espace métrique compact. L'application suivante est une norme : $$\|\cdot\|_{\infty}\,\colon f\in\mathcal{C}(X,\IK)\mapsto \max_{x\in X}\vert f(x)\vert$$
+		\item Pour $p\in [1,+\infty[$, $\|\cdot\|_p\,\colon f\in\mathcal{C}([a,b],\IK)\mapsto \left(\int_{a}^{b}\vert f(t)\vert^p dt\right)^{1/p}$ est une norme.
+	\end{itemize}
+\end{example}
+
+\begin{definition}[\textnormal{[G] 47}]
+	Soient $N_1$ et $N_2$ deux normes sur $E$. On dit que $N_1$ et $N_2$ sont \emph{équivalentes} s'il existe $\alpha > 0$ et $\beta > 0$ tels que $\alpha N_1\leq N_2\leq \beta N_1$.
+\end{definition}
+
+\begin{example}
+	\begin{itemize}
+		\item Sur $\IK^n,\,\|\cdot\|_{\infty}\leq \|\cdot\|_2\leq n\|\cdot\|_{\infty}$.
+		\item Sur $C([0,1], \IK)$, $\|\cdot\|_1 \leq \|\cdot\|_{\infty}$, mais $\|\cdot\|_{\infty}\not \leq  \|\cdot\|_1$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}
+	\begin{itemize}
+		\item Sur $\IK^n$, pour $p\in[1,+\infty[$, $\|\cdot\|_p\leq n^{\frac{1}{p}}\|\cdot\|_{\infty}$
+		\item Sur $\mathcal{C}([a,b],\IK)$, pour $p\in[1,+\infty[$, $\|\cdot\|_p\leq (b-a)^{\frac{1}{p}}\|\cdot\|_{\infty}$.
+	\end{itemize}
+
+	Corollaire : sur ces deux espaces, $\|\cdot\|_p \to_{p\to +\infty}\|\cdot\|_{\infty}$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[BP] 157, 158, 175}]
+	Soit $(X,\A,\mu)$ un espace mesuré. Pour $p\in [1,+\infty]$, on note $L^p(X,\A, \mu)$ l'\emph{espace de \textsc{Lebesgue}}, et $\|\cdot\|_p$ la norme usuelle sur $L^p(X,\A,\mu)$.
+	Les esâce $\left(L^p(\Omega,\A,\mu), \|\cdot\|_p\right)$ sont des espaces vectoriels normés.
+\end{definition}
+
+\subsection*{B. Opératuers (applications linéaires continues)}
+
+\begin{theorem}[\textnormal{[G] 48}]
+	Soit $T\,\colon E\to F$ linéaire. Sont équivalentes :
+	\begin{enumerate}
+		\item $T$ est continu sur $E$
+		\item $T$ est continu en $0_E$
+		\item $T$ est uniformément continue sur $E$
+		\item $T$ est lipschitzien 
+		\item $T$ est borné sur $E$, \emph{i.e.} $\exists C>0\,\colon \forall x\in E,\,\|Tx\| \leq C\|x\|$
+		\item $T$ est borné sur $\overline{\B(0,1)}$
+		\item $T$ est borné sur $S(0,1)$
+	\end{enumerate}
+\end{theorem}
+
+\begin{notation}
+	On note $\mathcal{L}(E,F)$ l'ensemble des applications linéaires \underline{continues} de $E$ dans $F$.
+	On pose également $\mathcal{L}(E)=\mathcal{L}(E,E)$.
+\end{notation}
+
+\begin{example}
+	L'application $D\,\colon \left(C^1([0,1]),\|\cdot\|_{\infty}\right)\to \left(C^0([0,1]), \|\cdot\|_{\infty}\right)$, $f\mapsto f'$ est 
+	linéaire mais pas continue. Cependant, elle le devien si on munit $C^1([0,1])$ de la norme $f\mapsto \|f\|_{\infty} + \|f'\|_{\infty}$. La continuité dépend donc de la norme !
+\end{example}
+
+\begin{proposition}
+	La continuité est préservée pour des normes équivalentes.
+\end{proposition}
+
+\begin{definition}[\textnormal{[G] 48}]
+	Soient $\|\cdot\|_E$ et $\|\cdot\|_F$ deux normes sur $E$ et sur $F$. Soit $T\in\mathcal{L}(E,F)$.
+	On pose $\vertiii{T} = \sup \left\{\frac{\|Tx\|_F}{\|x\|_E}\,\mid x\in E\setminus \left\{0\right\}\right\}$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[G] 48}]
+	L'application $\vertiii{\cdot}$ est appelée \emph{norme d'opérateur}, ou \emph{norme subordonnée à $\|\cdot\|_E$ et $\|\cdot\|_F$}. C'est une norme sur $\mathcal{L}(E,F)$. 
+\end{proposition}
+
+\begin{example}
+	\begin{itemize}
+		\item Soit $T\,\colon u\in l^{\infty}(\IN)\mapsto \sum_{n=0}^{+\infty} \frac{u_n}{12^n}$ : on a $\vertiii{T} = \frac{12}{11}$.
+		\item Soit $T\,\colon f\in\left(\mathcal{C}([0,1], \|\cdot\|°{\infty})\right) \mapsto f'$ : on a $\vertiii{T} = 1$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}[\textnormal{[G] 48}]
+	Soit $(G,\|\cdot\|_G)$ un espace vectoriel normé.
+	$\forall f\in \mathcal{L}(E,F),\,\forall g\in\mathcal{L}(F,G),\, \vertiii{g\circ f}\leq \vertiii{f}\cdot\vertiii{g}$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[G] 48}]
+	Soit $T\in\mathcal{L}(E,F)$.
+	\begin{align*}
+		\vertiii{T} &= \sup_{\|x\|_2\leq 1} \|Tx\|_F \\
+		&= \sup_{\|x\|_2 = 1} \|Tx\|_F \\
+		&= \inf\left\{c>0\mid \forall x\in E,\, \|Tx\|_F \leq C\|x\|_E\right\}
+	\end{align*}
+\end{proposition}
+
+\begin{lemma}
+	Si $T\,\colon E\to F$ est linéaire, alors $T$ est de rang fini $r$ si, et seulement si, il existe $\varphi_1,\dots,\varphi_r\,\colon E\to \IK$ linéaires, linéairement indépendantes, et $(a_1,\dots,a_r)\in F^r$ libre, telles que $\forall x\in E,\, T(x) = \sum_{i=1}^{r}\varphi_i(x) a_i$.
+\end{lemma}
+
+\begin{theorem}[\textnormal{[G] e55-56}]
+	Soit $T\,\colon E\to F$ linéaire et de rang fini.
+	$T$ est continu si, et seulement si, $\Ker T$ est fermé.
+\end{theorem}
+
+\section*{II. Espaces de dimension finie}
+\textcolor{paragraphtext}{Dans ce paragraphe, on suppose $E$ de dimension finie $n$.}
+\subsection*{A. Équivalence des normes}
+\begin{definition}
+	Soit $\B$ une base de $E$. Soit $x\in E$, notons $(x_1,\dots, x_n)$ le vecteur coordonées de $x$ dans $\B$. Pour $p\in[1,+\infty]$, on définit $\|x\|_p$ comme étant $\|(x_1,\dots, x_n)\|_p$ dans $\IK^n$.
+\end{definition}
+
+\begin{proposition}
+	Toute norme sur $E$ est une application continue de $\left(E,\|\cdot\|_{\infty}\right)$ dans $\left\{\IR, \vert\cdot\vert\right\}$.
+\end{proposition}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[\textnormal{[G] 50}]
+	\label{208dev11}
+	Toutes les normes sur $E$ sont équivalentes.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{corollary}[\textnormal{[G] 50}]
+	Toute application linéaire de $E$ dans $F$ est continue.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[G] 50}]
+	$E$ est complet.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[G] 50}]
+	Tout sous-espace vectoriel de dimension finie est fermé.
+\end{corollary}
+
+\begin{application}
+	Soit $M$ un sous-espace vectoriel de $F$ de dimension finie.
+	Alors, $\forall y\in F,\,\exists x\in M\,\colon d(y,F) = \|x-y\|_F$.
+\end{application}
+
+\begin{corollary}[\textnormal{[G] 50}]
+	Les compacts de $E$ sont les fermés bornés.
+\end{corollary}
+
+\begin{remark}
+	On munit $\IR[X]$ de $\|\cdot\|_{\infty}\,\colon \sum_{k=0}^{+\infty}a_kX^k\mapsto \max_{k\in\IN} \vert a_k\vert$.
+	La boule unité est fermée et bornée, mais elle n'est pas compacte : la dimension finie est donc cruciale !
+\end{remark}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de \textsc{Riesz} - \textnormal{[G] 56}]
+	\label{208dev12}
+	$E$ est de dimension finies si, et seulement si, $\overline{\B_E(0,1)}$ est compacte.
+\end{theorem}
+\end{tcolorbox}
+
+
+\subsection*{B. Normes matricielles}
+
+\begin{definition}
+Une \emph{norme matricielle} est une norme d'algèbre sur $\M_n(\IK)$, \emph{i.e.} une norme $\vertiii{\cdot}$ vérifiant $\forall (A,B)\in\M_n(\IK)^2$, $\vertiii{AB}\leq \vertiii{A}\cdot\vertiii{B}$.
+\end{definition}
+
+\begin{example}
+	D'après Proposition 14, tout norme subordonée à une norme sur $\IK^n$ est une norme matricielle, en confondant $\IK^n$ et $\M_{n,1}(\IK)$, et $\M_n(\IK)$ et $\mathcal{L}(\IK^n)$.
+\end{example}
+
+\begin{theorem}[\textnormal{[Rv] 24}]
+	Pour $(p,q)\in[1,+\infty]^2$, pour $A\in\M_n(\IK)$, on pose $\vertiii{A}_{p,q} = \sup\left\{\frac{\|Ax\|_p}{\|x\|_q}\,\colon x\in\IK^n\setminus \{0\}\right\}$
+	Soit $A =\left(a_{i,j}\right)_{1\leq i,j\leq n}$. On a :
+	\begin{itemize}
+		\item $\vertiii{A}_{1,1} = \max_{1\leq j\leq n}\sum_{i=1}^{n}\vert a_{i,j}\vert$
+		\item $\vertiii{A}_{\infty,\infty} = \max_{1\leq i\leq n}\sum_{j=1}^{n}\vert a_{i,j}\vert$
+		\item $\vertiii{A}_{2,2} = \sqrt{\rho(AA^*)} = \sqrt{\rho(A^*A)} = \vertiii{A^*}_2$ où $A^* = {}^t\overline{A}$ et $\rho(M) = \max_{\lambda\in\Sp(M)} \vert \lambda \vert$.
+	\end{itemize}
+\end{theorem}
+
+\section*{III. Espaces de Banach : exemples et applications}
+\subsection*{A. Définition et premiers exemples}
+
+\begin{definition}[\textnormal{[G] 47}]
+	Un \emph{espace de Banach} est un espace vectoriel normé complet.
+\end{definition}
+
+\begin{example}
+	\begin{itemize}
+		\item Tout espace vectoriel normé de dimension finie est un espace de Banach.
+		\item $\mathcal{C}([a,b], \IK)$ est de Banach pour $\|\cdot\|_{\infty}$ mais pas pour $\|\cdot\|_1$.
+	\end{itemize}
+\end{example}
+
+\begin{theorem}[de \textsc{Riezs-Fisher} - \textnormal{[BP] 166-176}]
+	$\left(L^p(X,\A,\mu), \|\cdot\|_p\right)$ est un espace de Banach.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[G] 48}]
+	Si $N_1$ et $N_2$ sont deux normes équivalentes sur $E$, et si $(E, N_1)$ est de Banach pour $N_1$, alors $(E,N_2)$ est de Banach.
+\end{proposition}
+
+\begin{theorem}
+	$(E,N)$ est de Banach si, et seulement si, toutes ses séries normalement convergentes sont convergentes (dans $(E,N)$).
+\end{theorem}
+
+\begin{proposition}[\textnormal{[G] 49}]
+	Si $(F,\|\cdot\|_F)$ est de Banach, alors $\left(\mathcal{L}(E,F),\vertiii{\cdot}\right)$ est de Banach.
+\end{proposition}
+
+\begin{application}[lemme de \textsc{von Neumann} - \textnormal{[G] 49}]
+	Soit $u\in\mathcal{L}(E)$ avec $E$ de Banach. Si $\vertiii{u}<1$, alors $\id_E-u$ est inversible, d'inverse $\sum_{k=0}^{+\infty} u^k$.
+\end{application}
+
+\subsection*{B. Espaces de Hilbert}
+
+\begin{definition}[\textnormal{[HL] 84}]
+	Un \emph{produit scalaire hermitien sur $E$} est une application $\langle\cdot,\cdot\rangle\,\colon E^2\to \IK$ telle que pour tous $(x,y,z)\in E^3$ et $\lambda\in \IK$, on a :
+	\begin{itemize}
+		\item $\langle x+\lambda y, z\rangle = \langle x,z\rangle + \lambda\langle y,z\rangle$
+		\item $\langle x, y+ \lambda z\rangle = \langle x,y\rangle + \overline{\lambda}\langle x,z\rangle$
+		\item $\langle x,y \rangle = \overline{\langle y, x\rangle}$
+		\item $\langle x,x\rangle \geq 0$
+		\item $\langle x,x \rangle = 0\implies x = 0$
+	\end{itemize}
+
+	L'application $\|\cdot\|\,\colon x\mapsto\sqrt{\langle x,x\rangle}$ est une norme sur $E$, appelée \emph{norme associée au produit scalaire hermitien $\langle\cdot,\cdot\rangle$.}
+\end{definition}
+
+\begin{example}[\textnormal{[HL] 84}]
+	\begin{itemize}
+		\item Sur $\IK^n,\, (x,y)\mapsto \sum_{i=1}^{n} x_i \overline{y_i}$ est un produit scalaire hermitien.
+		\item Sur $L^2(X\A,\mu),\, (f,g)\mapsto \int_Xf(x)\overline{g(x)}d\mu(x)$ est un produit scalaire hermitien.
+	\end{itemize}
+\end{example}
+
+\begin{definition}[\textnormal{[HL] 88}]
+	On dit que $(H, \langle\cdot,\cdot\rangle)$ est un \emph{espace de Hilbert} si $(H,\|\cdot\|)$ est 
+	un espace de Banach pour la norme $\|\cdot\|$ associée à $\langle\cdot,\cdot\rangle$.
+\end{definition}
+
+\begin{example}[\textnormal{[HL] 88}]
+	Munis des produits scalaires hermitiens de Ex 39, $\IK^n$ et $L^2(X,\A,\mu)$ sont des espaces de Hilbert.
+\end{example}
+
+\begin{theorem}[de \textsc{Fréchet - von Neumann - Jordan}]
+	Une norme $\|\cdot\|$ est associée à un produit scalaire hermitien si, et seulement si, elle vérifie l'identité du parallélogramme :
+	\begin{align*}
+		\forall x,y,\, \|x+y\|^2 + \|x-y\|^2 = 2(\|x\|^2 + \|y\|^2)
+	\end{align*}
+
+	Le cas échéant, le produit scalaire hermitien associé est $(x,y)\mapsto \frac{1}{4}\sum_{k=0}^{3} i^k\|x+i^ky\|$.
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de projection sur un convexe fermé - \textnormal{[HL] 91}]
+	\label{208dev21}
+
+	Soient $(H,\langle\cdot,\cdot\rangle)$ un espace de Hilbert et $C$ un convexe de $H$. Alors :
+	\begin{align*}
+		\forall x\in H,\, \exists ! y\in C\,\colon \|x-y\| = d(x,C)
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}[de \textsc{Riesz}]
+	\label{208dev22}
+	$\forall\varphi \in H',\, \exists ! x\in H\,\colon \varphi\langle \cdot \mid x\rangle$.
+\end{theorem}
+\end{tcolorbox}
+
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorèmes \ref{208dev11} et \ref{208dev12}
+	\item Développement 2 : Théorèmes \ref{208dev21} et \ref{208dev22}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[HL] \emph{Éléments d'analyse fonctionnelle}, Francis Hirsch, Giles Lacombe
+	\item[BP] \emph{Théorie de l'intégration}, Marc Briane, Filles Pagès, 7e édition
+	% \item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvier, 4e édition
+\end{itemize}
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/171.pdf}
+% 	\caption{s}
+% \end{figure}
 \end{document}
 
 % \begin{figure}[!htb]
