@@ -41,6 +41,7 @@
   {}                                         % Code before the title text (empty for now)
   
 \newtheorem{definition}{Définition}
+\newtheorem{methode}[definition]{Méthode}
 \newtheorem{theorem}[definition]{Théorème}
 \newtheorem{theorem_def}[definition]{Théorème/Définition}
 \newtheorem{proposition}[definition]{Proposition}
@@ -6973,18 +6974,302 @@ admet un unique maximum, en $\frac{1}{n}(1,\dots,1)$.
 \chapter*{220 : Illustrer par des exemples la théorie des équations différentielles ordinaires.}
 \setcounter{definition}{0}
 
+\section*{I. Solutions d'une EDO : existence, unicité, survie}
+\subsection*{A. Définitions et cadre de la leçon}
+
+\begin{definition}[\textnormal{[G] 373}]
+	Une \emph{équation différentielle ordinaire} (EDO) est une équation d'inconnue une fonction $y$ liant celle-ci à ses dérivées, \emph{i.e.} de la forme $\forall t\in I,\, g(t,y(t),y'(t),\dots, y^{(n)}(t)) = 0$,
+	où $I\subseteq \IR$ est un intervalle ouvert, $y\,\colon I\to\IR^d$ et $g\,\colon I\times\Omega\to\IR^d$.
+	On dit que cette équation est \emph{réduite} si elle peut être écrite de manière équivalente sous la forme $y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$.
+	L'entier $n$ est alors appelé \emph{ordre} de cette EDO.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Be] 20}]
+	Soit $(E)\,\colon y^{(n)}(t) = f(t,y(y),\dots,y^{(n-1)}(t))$ une EDI où $y \,\colon I\to \IR^d$.
+	Posons $Y = {}^t(y, y', \cdots, y^{(n-1)})\,\colon I\to \left(\IR^d\right)^n$ 
+	et $F\,\colon I\times \left(\IR^d\right)^n\to \left(\IR^d\right)^n$, 
+	$(t,Y)\mapsto {}^t(y',\dots, y^{(n-1)},f(t,y,y',\dots,y^{(n-1)}))$.
+
+	Alors $(E)\iff (E')\,\colon \forall t\in I,\, Y'(t) = F(t,Y)$.
+\end{proposition}
+
+\textcolor{paragraphtext}{Dans toute la suite, on considère un intervalle 
+ouvert $I\subseteq \IR$, $f\,\colon I\times \Omega\to\IR^d$ avec $\Omega\subseteq \IR^d$ ouvert, et $(E)\,\colon y'(t) = f(t,y(t))$ que l'on notera abusivement $(E)\,\colon y'=f(t,y)$.}
+
+\begin{definition}[\textnormal{[Be] 11}]
+	Une \emph{solution de $(E)$} est la donnée d'un intervalle $J\subseteq I$ et d'une fonction $y\in C^1(J,\IR^d)$ satisfaisant $(E)$ pour tout $t\in J$.
+\end{definition}
+
+\begin{definition}[\textnormal{[Be] 14-16}]
+	Soient $(J_1,y_1)$ et $(J_2,y_2)$ deux solutions de $(E)$.
+	\begin{itemize}
+		\item On dit que $(J_2,y_2)$ est un \emph{prolongement de $(J_1,y_1)$} si $J_1\subseteq J_2$ et si ${y_2}_{J_1} = y_1$.
+		\item On dit que $(J_1, y_1)$ est \emph{maximale} si elle n'admet pas de prolongement (strict).
+		\item On dit que $(J_1,y1)$ est \emph{globale} si $J_1 = I$ (en particulier elle est maximale).
+	\end{itemize}
+\end{definition}
+
+\begin{remark}[\textnormal{[Be] 16}]
+	Pour $(E) \,\colon y' = y^2$ sur $\IR$, $(\IR^{-*}, t\mapsto -\frac{1}{t})$ est maximale non globale.
+\end{remark}
+
+\begin{definition}[\textnormal{[Be] 12}]
+	Soit $(t_0, y_0)\in I\times \Omega$. Un \emph{problème de \textsc{Cauchy}} est la recherche d'une solution satisfaisant une \emph{condition initiale}.
+	On notera $(C)\,\colon \begin{cases}
+		(E)\,\colon y'=f(t,y) \\
+		y(t_0) = y_0
+	\end{cases}$ un tel problème de \textsc{Cauchy}.
+\end{definition}
+
+\textcolor{paragraphtext}{Dans la suite, on fixe $(t_0,y_0)\in I\times \Omega$ et $(C)\,\colon \begin{cases}
+	(E)\,\colon y' = f(t,y)\\ y(t_0)=y_0
+\end{cases}$.}
+
+\subsection*{B. Le théorème de \textsc{Cauchy-Lipschitz} et ses conséquences}
+\begin{definition}[\textnormal{[Be] 84}]
+	On dit que $f$ est \emph{localement lipschitzienne selon sa deuxième variable} si :
+	$\forall(t_0,y_0)\in I\times \Omega,\, \forall v\in\mathcal{V}\left((t_0,y_0)\right),\, \exists \lambda > 0\,\colon \forall t\in I,\, \forall (y_1,y_2)\in\Omega^2,\, \left((t,y_1),(t,y_2)\right)\in\mathcal{V}^2\implies \|f(t,y_1) - f(t,y_2)\| \geq \lambda\|y_1-y_2\|$.
+\end{definition}
+
+\begin{theorem}[de \textsc{Cauchy-Lipschitz} - \textnormal{[Be] 85}]
+	Si $f$ est continue sur $I\times \Omega$ et localement lipschitzienne selon sa deuxième variable, alors $(C)$ admet une unique solution maximale.
+
+	Si $f$ est globalement lipschitzienne selon sa deuxième variable, alors cette solution est globale.
+\end{theorem}
+
+\begin{cexample}
+	$f\,\colon (t,y)\mapsto 2\sqrt{\vert y\vert}$ n'est pas localement lipschitzienne, et $y'=2\sqrt{\vert y\vert}$ admet plusieurs solutions telles que $y(0)=0$ (ex : $0,\, t\mapsto t\cdot \vert t\vert$).
+\end{cexample}
+
+\begin{application}[schéma d'\textsc{Euler} explicite - \textnormal{[Be] 318-319}]
+	Soit $\Delta t > 0$ petit. On pose $Y_0 = y(t_0)=y_0$ et pour $n\in\IN$, $Y_{n+1} = Y_n + \Delta t f(t_0 + n\Delta t, Y_n)$.
+	La fonction affine par morceaux $Y$ telle que $\forall n\in \IN,\, Y(t_0 + n\Delta t) = Y_n$ approche la solution de $(C)$ lorsque $f$ est $C^1$ et globalement lipschitzienne selon $Y$.	
+\end{application}
+
+\subsection*{C. Durée de vie et explosion des solutions}
+
+\begin{lemma}[de \textsc{Grönwall} différentiel - \textnormal{[Be] 18}]
+	Soient $w\in C^1(I,\IR)$ et $v\in C^0(I,\IR)$ telles que $w' \leq w\cdot v$ sur $I$. Alors :
+	$$\forall t\in I,\quad t\geq t_0\implies w(t)\leq w(t_0)\exp\left(\int_{t_0}^{t} v\right)$$
+\end{lemma}
+
+\begin{lemma}[de \textsc{Grönwall} intégral - \textnormal{[Be] 18}]
+	Soient $u\in C^0(I,\IR)$, $v\in C^0(I,\IR^+)$ et $a\in \IR$ telles que $\forall t\in I$, $t\geq t_0\implies u(t)\leq a + \int_{t_0}^{t} uv$. Alors :
+	$$\forall t\in I,\quad t\geq t_0\implies u(t)\leq a\exp\left(\int_{t_0}^{t}v\right)$$
+\end{lemma}
+
+\begin{theorem}[des bouts - \textnormal{[Be] 110}]
+	Sous les hypothèses de Théorème 8 : une solution de $(E)$ est maximale si, et seulement si, aux voisinage des bords de $I$, son graphe n'est contenu dans aucun compact.
+\end{theorem}
+
+\begin{cexample}[FIG. 1]
+	Une solution bornée (dans l'espace) est globale.
+\end{cexample}
+
+\begin{cexample}
+	Si $f$ est lipschitzienne, alors $(E)$ admet une unique solution globale.
+\end{cexample}
+
+\begin{example}
+	C'est le cas pour une équation linéaire (\emph{c.f.} II. A.)
+\end{example}
+
+\section*{II. Méthodes et exemples de résolution}
+\subsection*{A. Cas linéaire}
+
+\textcolor{paragraphtext}{Soient $A\,\colon I\to \M_d(\IR)$ et $b\,\colon I\to \IR^d$ continues. Dans ce paragraphe, $(E)\,\colon y'(t) = f(t,y)=A(t)y(t)+b(t)$.}
+
+\begin{proposition}[\textnormal{[Be] 34-35}]
+	L'ensemble $S_I(E)$ des solutions de $(E)$ est un sous-espace affine de $C^1(I,\IR^d)$ de dimension $d$, de direction $S_I(H)$.
+\end{proposition}
+
+\begin{example}
+	Pour $\omega > 0$, $S_{\IR}(y''+\omega y = \cos) = \frac{\cos}{1-\omega^2} + \IR\sin_{\omega} + \IR\cos_{\omega}$.
+\end{example}
+
+\textcolor{paragraphtext}{Soient $p\,\colon I\to \IR$ et $q\,\colon I\to \IR$ continues et $(E)\,\colon y''+py'+qy = 0$.}
+
+\begin{methode}[\textnormal{[Be] 144, [G] 380}]
+Si $y_0$ est une solution de $(E)$ qui ne s'annule pas sur $I$, alors
+$$y\in S_I(E) \iff z' := \left(\frac{y}{y_0}\right)' \in S_I(x' = A\times \left(2 + \frac{y_0'}{y_0}\right)x)$$
+\end{methode}
+
+
+\begin{methode}[\textnormal{[Be] 149}]
+	Si $p$ et $q$ sont développables en série entière, alors $(E)$ admet une solution développable en série entière.
+\end{methode}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{example}[\textnormal{[Da] 538}]
+	\label{220dev1}
+	Pour $\omega > 0$, résolution de $ty''+2y'-\omega^2ty = 0$ sur $\IR$ et $\IR^{\pm*}$.
+\end{example}
+\end{tcolorbox}
+
+\subsection*{B. Cas non linéaire}
+\textcolor{paragraphtext}{Soient $a,b,\,\colon I\to \IR$ continues.}
+
+\begin{proposition}[équations de \textsc{Bernoulli} - \textnormal{[G] 391, [Be] 138}]
+	Soit $m\geq 2$. En faisant le changement de variable $z=y^{1-m}$, on ramène léquation $(E)\,\colon y'=ay + by^m$ à l'équation équivalente $(E')\,\colon z' = (1-m)a + (1-m)b$.
+\end{proposition}
+
+\begin{proposition}[équation de \textsc{Ricatti} - \textnormal{[G] 391, [Be] 139}]
+	Si $y_0$ est une solution de $(E)\,\colon y'=ay^2 + by + c$, 
+	alors on ramène $(E)$ à une équation de \textsc{Bernoulli} par le changement de variables $z=y-y_0$.
+\end{proposition}
+
+\begin{example}
+	??
+\end{example}
+
+\subsection*{C. Équations à variables séparées}
+[\textnormal{[Be] 130}]
+\textcolor{paragraphtext}{Dans ce paragraphe, on considère un intervalle $J$, $h\in C^0(I, \IR)$, $g\in C^0(J,\IR)$, $(t_0, y_0)\in I\times J$, et $(C)\,\colon \begin{cases}
+	(E)\,\colon y'=h(t)g(y) \\ y(t_0) = y_0
+\end{cases}$. On dit que $(E)$ est à \emph{variables séparées}.}
+
+\begin{theorem}
+	Supposons que $g$ ne s'annule jamais. Posons $H\,\colon t\in I\mapsto \int_{t_0}^{t} h$ et $G\,\colon y\in J\mapsto \int_{y_0}^{y}\frac{1}{g}$.
+	Si $K$ est un intervalle tel que $H(K)\subseteq G(J)$, alors $(C)$ admet une unique solution. Celle-ci vérifie $\forall t\in K,\, G(y(t)) = H(t)$.
+\end{theorem}
+
+\begin{remark}
+	En pratique, on écrit abusivement $\frac{dy}{ds} = g(y)h(s)\implies \frac{dy}{g(y)} = h(s)ds \implies \int_{t_0}^{t}h(s)ds = \int_{t_0}^{t}\frac{dy}{g(y)} = \int_{y_0}^{y(t)}\frac{1}{g(s)}ds$.
+\end{remark}
+
+\begin{example}
+	$(E)\,\colon y' = -\frac{1}{t}y^2 \longrightarrow -\frac{dy}{y^2} = \frac{ds}{s} = \int_{1}^{t}\frac{ds}{s} = \int_{1}^{t}-\frac{dy}{y^2} = \int_{y(1)}^{y(t)}-\frac{1}{s^2}ds$
+	$\longrightarrow \ln(t) = \frac{1}{y(t)} - \frac{1}{y(1)} \longrightarrow y(t) = \left(\ln(t) + {y(-1)^{-1}}^{-1}\right)^{-1}$.
+\end{example}
+
+\section*{III. Étude qualitative des solutions}
+\begin{definition}[\textnormal{[G] 433}]
+	Un \emph{système autonome} est une EDO dont la variation ne dépend pas du temps, \emph{i.e.} de la forme $y'=f(y)$ où $f\,\colon \Omega\to \IR^d$ est un champ de vecteurs.
+\end{definition}
+
+\textcolor{paragraphtext}{Dans toute la suite, $(E)\,\colon y'=f(y)$ est un système autonome de $\IR^2$. On décompose $f$ selon la base canonique $f=(f_1,f_2)$ et on suppose $f$ continue et localement lipschitzienne.}
+
+\subsection*{A. Points d'équilibre, isoclines, intégrales premières}
+
+\begin{definition}[\textnormal{[Be] 187 ? ?}]
+	On définit les éléments suivants :
+	\begin{itemize}
+		\item Un \emph{point d'équilibre de $(E)$} est un point $y_*$ tel que $f(y_*) = 0$.
+		\item On dit que $y_*$ est \emph{stable} si, $(\IR^{+*}, y)$ étant solution de $(E)$, $$\forall \varepsilon > °,\, \exists \delta > 0\,\colon \|y(0)-y_*\|\leq \delta \implies \forall t\geq 0,\, \|y(t) - y_*\|\leq \varepsilon$$ On dit que $y_*$ est \emph{instable} sinon.
+		\item On dit que $y_*$ est \emph{asymptotiquement stable} si, $(\IR^{+*}, y)$ étant solution de $(E)$, $$\exists \delta > 0\,\colon \|y(0) - y_*\|\leq \delta\implies \lim_{t\to +\infty} \|y(t)-y_*\| = 0$$
+	\end{itemize}
+\end{definition}
+
+\begin{example}[pendule - FIG. 2 - \textnormal{[Be] 401-410}]
+	Soient $\gamma \geq 0$ et $\omega \geq 0$. On considère $(E)\,\colon \theta''=-\gamma\theta' - \omega^2\sin \theta$,
+	qui se réécrit $(E')\,\colon \begin{pmatrix}
+		\theta \\ \theta'
+	\end{pmatrix}' = \begin{pmatrix}
+		\theta' \\ -\gamma\theta'-\omega^2\sin \theta
+	\end{pmatrix}$. Alors :
+	\begin{itemize}
+		\item Les $(\pi+2k\pi, 0)$ pour $k\in \IZ$ sont des points d'équilibre instables ;
+		\item Si $\gamma = 0$, les $(2k\pi, 0)$ pour $k\in\IZ$ sont des points d'équilibre stables non asymptotiquement stables ;
+		\item Si $\gamma > 0$, les $(2k\pi, 0)$ pour $k\in\IZ$ sont des points d'équilibre stables asymptotiquement stables.
+	\end{itemize}
+\end{example}
+
+\begin{definition}[\textnormal{[Be] 186}]
+	On définit :
+	\begin{itemize}
+		\item L'\emph{isocline verticale} (resp. \emph{horizontale}) de $f$ par l'ensemble : $I_{\infty} = \left\{\underline{x}\in \Omega\mid f_1(\underline{x}) = 0\right\}$ (resp. $I_0 = \left\{\underline{x}\in\Omega \mid f_2(\underline{x}) = 0\right\}$)
+		\item L'\emph{isocline d'inclinaison $\alpha\in \IR$ de $f$} est l'ensemble $I_{\alpha} = \left\{\underline{x}\in\Omega\mid f_2(\underline{x}) = \alpha f_1(\underline{x})\right\}$.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[Be] 186}]
+	Soit $\alpha\in [0,+\infty]$. Si $\underline{x}\in I_{\alpha}$, alors $f(\underline{x})$ dirige une doite de pente $\alpha$.
+	Cela servira plus bas à tracer des portraits de phase, car $y'(t) = f(y(t))$ est tangent à la courbe décrite par $y$ en $t$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Be] 189}]
+	L'ensemble des points d'équilibre de $(E)$ est $I_0\cap I_{\infty}$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[Be] 191-193}]
+	\begin{itemize}
+		\item Les \emph{courbes intégrales de $f$} sont les trajectoires des solutions maximales de $(E)$ ;
+		\item L'\emph{orbite de $(E)$ issue de $y_0\in\Omega$} est la courbe intégrale de $f$ passant par $y_0$ (qui est bien unique d'après le théorème de \textsc{Cauchy-Lipschitz}) ;
+		\item Une \emph{intégrale première de $(E)$} est une fonction $H\in C^1(\Omega,\IR)$ telle que pour toute solution $(J,y)$ de $(E)$, on a $\forall t\in J,\, \frac{d}{dt}\left[H(y(t))\right] = 0$.
+	\end{itemize}
+\end{definition}
+
+\begin{example}[\textnormal{[Be] 403}]
+	L'énergie mécanique est une intégrale première en dynamique du point.
+	Aussi, $\theta'' + \omega^2\sin \theta = 0 \longrightarrow 2\theta''\theta + 2\omega^2\theta'\sin\theta = 0\longrightarrow H\left(\begin{pmatrix}
+		\theta\\\theta'
+	\end{pmatrix}\right) = \left(\theta'\right)^2 - 2\omega^2\cos\theta$.
+\end{example}
+
+\subsection*{B. Portraits de phase d'un système autonome en dimension / degré $2$}
+\begin{definition}[\textnormal{[Be] 191}]
+	Un \emph{portrait de phase} est une représentatino géométrique de la rtajectoire d'un système dynamique dans l'espace (dit \emph{de phase}) où il prend ses valeurs.
+\end{definition}
+
+\begin{remark}[\textnormal{[Gr] 434}]
+	Par unicité dans le théorème de \textsc{Cauchy-Lipschitz}, chaque point de l'espace de phase appartient à une unique trajectoire : en particulier, les différentes trajectoires ne s'intersectent pas. Cela correspond donc à la partition de $\Omega$ en orbites.
+\end{remark}
+
+\begin{example}[FIG. 3 - \textnormal{[Be] 187-188}]
+	$(E)\,\colon\begin{cases}
+		x'=y^2-x \\ y' = x^2+y^2 - 1
+	\end{cases}$
+\end{example}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\textcolor{red}{Système proie-prédateur de \textsc{Lotka-Volterra}. DEV 2}
+
+\textcolor{paragraphtext}{Soit $(a,b,c,d)\in\left(\IR^{+*}\right)^4$. On considère $(E)\,\colon\begin{cases}
+	x' = ax - bxy \\ y' = -cy' + dxy
+\end{cases}$.}
+\begin{proposition}
+	\label{220dev21}
+	$H\,\colon\begin{pmatrix}
+		x \\ y
+	\end{pmatrix}\mapsto dx + by - c\ln(x) - a\ln(y)$ est une intégrale première de $(E)$ sur $\left(\IR^{+*}\right)^2$.
+\end{proposition}
+\begin{proposition}
+	\label{220dev22}
+	Soient $t_0\in \IR$, $x_0> 0$ et $y_0>0$. Le problème de \textsc{Cauchy} $\begin{cases}
+		(E) \\ x(t_0) = x_0 \\ y(t_0) = y_0
+	\end{cases}$ admet une unique solution définie sur $\IR$. Celle-ci est périodique.
+\end{proposition}
+\textcolor{paragraphtext}{\emph{c.f.} FiGURE 4 pour le portrait de phase de $(E)$.}
+[\textnormal{[Be] 204}]
+\end{tcolorbox}
+
 \section*{Développements}
 \begin{itemize}
-	\item Développement 1 : Théorèmes \ref{219dev11} et \ref{219dev12}
-	\item Développement 2 : Application \ref{219dev2}
+	\item Développement 1 : Résolution \ref{220dev1}
+	\item Développement 2 : Propositions \ref{220dev21} et \ref{220dev22}
 \end{itemize}
 
 \section*{Références}
 \begin{itemize}
 	\item[Be] \emph{Équations différentielles}, Florent Berthelin
-	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
 	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
-
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
 \end{itemize}
 
 \begin{figure}[!htb]
@@ -6992,6 +7277,107 @@ admet un unique maximum, en $\frac{1}{n}(1,\dots,1)$.
 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/220.pdf}
 	\caption{s}
 \end{figure}
+
+
+\chapter*{223 : Suites réelles et complexes. Convergence, valeurs d’adhérence. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $\IK$ désigne $\IR$ ou $\IC$ et $\left(u_n\right)_{n\in\IN}\in\IK^{\IN}$ une suite.}
+
+\section*{I. Comportement asymptotique des suites numériques}
+\subsection*{A. Convergence et limites}
+
+\begin{definition}[\textnormal{[EA] 12-13}]
+	On dit que $\left(u_n\right)_{n\in\IN}$ :
+	\begin{itemize}
+		\item \emph{converge vers $l\in\IK$} si $\forall \varepsilon >0,\, \exists N\in\IN\,\colon \forall n\geq N,\, \vert u_n - l\vert \leq \varepsilon$. On note alors $\lim_{n\to +\infty} u_n = l$ ou $u_n\longrightarrow_{n\to +\infty} l$, et $l$ est appelée \emph{limite de $\left(u_N\right)_{n\in\IN}$.}
+		\item \emph{diverge} sinon.
+	\end{itemize}
+\end{definition}
+
+\begin{example}[\textnormal{[EA] ? 3 3}]
+	\begin{itemize}
+		\item $\left(n\right)_{n\in\IN}$ diverge, $\left(1+\frac{1}{n}\right)_{n\in\IN}$ converge vers $1$.
+		\item Une \emph{suite arithmétique de raison $r$}, vérifiant $\forall n\in\IN,\, u_{n+1} = u_n + r$, s'explicite $\forall n/in \IN$, $u_n = u_0+nr$. Si $r \neq 0$n alors $\left(u_n\right)_{n\in \IN}$ diverge.
+		\item Une \emph{suite géométrique de raison $q$}, vérifiant $\forall n\in \IN$, $u_{n+1} = qu_n$, s'explicite $\forall n\in\IN$, $u_n = u_0q^n$. Si $\vert q\vert < 1$, alors $\left(u_n\right)_{n\in\IN}$ converge vers $0$.
+	\end{itemize}
+\end{example}
+
+\begin{theorem}[\textnormal{[EA] 12}]
+	Si $\left(u_n\right)_{n\in\IN}$ converge, alors sa limite est unique.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[EA] 13}]
+	Toute suite convergente est bornée.
+\end{proposition}
+
+\begin{cexample}[\textnormal{[EA] 13}]
+	$\left((-1)^n\right)_{n\in\IN}$ est bornée divergente.
+\end{cexample}
+
+\begin{proposition}[\textnormal{[EA] 16}]
+	Si $u_n\to u_n$, $v_n\to v$, et $w_n\to w$, alors $u_n+v_nw_n\to u+vw$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[R] 165}]
+	Soient $a\in\IK$ et $f\,\colon \IK\to\IK$. Alors $f$ est continue en $a \iff$
+	$$\forall \left(u_n\right)_{n\in\IN} \in \IK^{\IN},\,\lim_{n\to +\infty} u_n = a \implies \lim_{n\to +\infty} f(u_n) = f(a)$$
+\end{proposition}
+
+\begin{definition}[\textnormal{[EA] 34}]
+	On dit que $\left(u_n\right)_{n\in\IN}$ est \emph{de \textsc{Cauchy}} si :
+	$$\forall \varepsilon > 0,\, \exists N\in \IN\,\colon \forall n\geq N,\, \forall p\geq N,\, \vert u_n - u_m\vert \leq \varepsilon$$
+\end{definition}
+
+\begin{theorem}[\textnormal{[EA] e35+34}]
+	$\left(u_n\right)_{n\in\IN}$ converge si, et seulement si, elle est de \textsc{Cauchy}.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Cesàro} - \textnormal{[EA] 53}]
+	Si $u_n\longrightarrow_{n\to +\infty} l$, alors $\frac{1}{n}\sum_{k=1}^{n} u_k \longrightarrow_{n\to +\infty} l$. (Contre-exemple :  $(-1)^n$)
+\end{theorem}
+
+\subsection*{B. Valeurs d'adhérence}
+\begin{definition}[\textnormal{[EA] 14}]
+	Une \emph{suite extraite de $\left(u_n\right)_{n\in\IN}$} est une suite $\left(u_{\varphi(n)}\right)_{n\in\IN}$ où $\varphi\,\colon\IN\to\IN$ est strictement croissante.
+\end{definition}
+
+\begin{definition}[\textnormal{[EA] 15}]
+	Une \emph{valeur d'adhérence} de $\left(u_n\right)_{n\in\IN}$ est la limite d'une suite extraite de $\left(u_n\right)_{n\in\IN}$ convergente.
+\end{definition}
+
+\begin{proposition}
+	Si $u_n\longrightarrow_{n\to +\infty} l$, alors pour toute suite $\left(u_{\varphi(n)}\right)_{n\in\IN}$ extraite de $\left(u_n\right)_{n\in\IN}$, $\left(u_{\varphi(n)}\right)\longrightarrow_{n\to +\infty} l$.
+\end{proposition}
+
+\begin{remark}[\textnormal{[EA] 15}]
+	Une suite convergente admet sa limite comme unique valeur d'adhérence. Réciproquement,
+	la suite $\left(n(1+(-1)^n)\right)_{n\in\IN}$ a une unique valeur d'adhérence, mais ne converge pas.
+\end{remark}
+
+
+
+% \section*{Développements}
+% \begin{itemize}
+% 	\item Développement 1 : Résolution \ref{220dev1}
+% 	\item Développement 2 : Propositions \ref{220dev21} et \ref{220dev22}
+% \end{itemize}
+
+\section*{Références}
+\begin{itemize}	
+	\item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
+	\item[EA] \emph{Suites et séries numériques. Suites et séries de fonctions}, Mohamed El Amrani
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[FGN] \emph{Oraux X-ENS, Analyse 2}, Francinou, Gianella, Nicolas
+	\item[Be] \emph{Analyse pour l'agrégation de mathématiques, 40 développements}, Julien Bernis et Laurent Bernis
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/223.pdf}
+	\caption{s}
+\end{figure}
+
 \end{document}
 
 % \begin{figure}[!htb]
