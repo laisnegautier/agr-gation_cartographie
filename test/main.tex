@@ -61,6 +61,7 @@
 \newtheorem{notation}[definition]{Notation}
 \newtheorem*{notation*}{Notation}
 \newtheorem*{example*}{Exemple}
+\newtheorem*{application*}{Application}
 
 \newcommand{\IN}{\mathbb{N}}
 \newcommand{\IZ}{\mathbb{Z}}
@@ -89,9 +90,11 @@
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\actson}{\circlearrowleft}
+\newcommand{\ps}[2]{\langle #1\mid #2\rangle}
 
 \DeclareMathOperator{\im}{Im}
 % \DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\Jac}{Jac}
 \DeclareMathOperator{\pgcd}{pgcd}
 \DeclareMathOperator{\ppcm}{ppcm}
 \DeclareMathOperator{\rg}{rg}
@@ -3546,6 +3549,26 @@ On fixe une base $\mathcal{B}=(e_1,\dots,e_n)$ de $E$.}
 	\caption{s}
 \end{figure}
 
+\section*{Le p'tit recul personnel}
+\textbf{En quoi est-ce que la continuité du déterminant est intéressante (dim finie) ?}
+\begin{enumerate}
+	\item \textbf{Stabilité :} en dim finie, le déterminant est un indicateur de bijectivité, tout comme le noyau est un indicateur d'injectivité. La continuité de la fonction $\det$ permet d'affirmer que si un endomorphisme est de déterminant disons 50, alors les endomorphismes \emph{proches} de celui-ci devraient être bijectifs. De même lorsqu'on est proche de $0$, où on peut se demander en pratique si une valeur de déterminant de $0.001$ n'implique pas que l'on travaille avec des endomorphismes dangereusement proches de la non-inversibilité. C'est ce qu'on fait en robotique en étudiant soit le déterminant de la Jacobienne d'un système, soit la dernière valeur singulière si la Jacobienne n'est pas carrée.
+	\item \textbf{Topologie :} toute image réciproque d'un ouvert par une application continue est un ouvert. On a dont naturellement le fait que $GL_n(\IR) = \det^{-1}(\IR^*)$ est un ouvert de $\M_n(\IR)$. Comme $GL_n(\IR)$ est un groupe (multiplicatif non-abélien), sa structure topologique lui induit une structure de variété différentielle et donc de groupe de Lie.
+	\item \textbf{Exponentielle :} cf. partie topologie : continuité de $\det \implies GL_n(\IR) = \det^{-1}(\IR^*)$ est un ouvert de $\M_n(\IR) \implies$ $GL_n(\IR)$ est un groupe de Lie donc c'est le cadre naturel pour l'existence et la définition de l'exponentielle dessus.
+	\item \textbf{Continuité des valeurs propres :} 1) $\det A$ (et $\tr A$) sont des polynômes en les coefficients de $A$; 2) en analyse complexe un théorème dit que les racines d'un polynôme varient continûment en fct de ses coefficients $\implies$ valeurs propres d'une matrice sont des fcts continues des coefficients de cette matrice.
+\end{enumerate}
+
+\textbf{Pourquoi ça fait chier qu'elle ne soit pas forcément assurée en dimension infinie ?}
+\begin{enumerate}
+	\item \textbf{Inversibilité n'est plus stable :} voila. L'inversibilité c'est une propriété fragile désormais. En particulier, une suite d'opérateurs inversibles peuvent converger vers un opérateur non-inversible. Exemple : sur $\ell^2(\IN)$, $A_{\varepsilon} \,\colon (x_1,x_2,x_3\dots)\mapsto (\varepsilon x_1, x_2,x_3,\dots)$. L'inverse de $A_{\varepsilon}$ est naturellement $A_{1/\varepsilon}$ pour tout $\varepsilon > 0$ aussi petit soit-il. Par contre si on fait tendre $\varepsilon \longrightarrow +\infty$, alors $A_{\varepsilon}\to A_0$ qui n'est pas invesible (de noyau toutes les suites de la formes $(c,0,0,\dots)$).
+	\item \textbf{Généralement :} en fait la notion d'inversibilité ne devrait pas être transposée en dimension finie : on devrait plutôt avoir une notion de \emph{oui c'est inversible, \textbf{mais c'est à un cheveu de ne pas l'être}}, ou \emph{à quel point est l'opérateur inversible ?}
+\end{enumerate}
+
+\textbf{Comment on y remédie en dim infinie ?}
+\begin{enumerate}
+	\item \textbf{Déterminant de Fredholm :} $A\mapsto \det(I+A) = \prod_{\lambda\in \Sp(A)} (1+\lambda)$ avec $A$ un opérateur à trace (\emph{i.e.} suffisament "petit" : la somme de ses valeurs singulières est finie - c'est une condition très forte, bien plus qu'être compact) joue un rôle analogue au déterminant en dimension finie : il est non nul si et seulement si l'équation suivante admet une unique solution pour tout $g$ : $g(x) = f(x) + \int K(x,y)f(y)dy$, qui est une équation de la forme $g = (I+A)f$ où $A$ est un opérateur intégral. On a bien ici que le déterminant de Fredholm est continue pour cette classe de matrices.
+\end{enumerate}
+
 \chapter*{151 : Sous-espaces stables par un endomorphisme ou une famille d'endomorphismes d'un espace vectoriel de dimension finie. Applications.}
 \setcounter{definition}{0}
 
@@ -5481,7 +5504,7 @@ donc $x = 29$, $y=15$ et $z=-13$.
 \end{theorem}
 
 \begin{example}[\textnormal{[Rv] 413}]
-	Existence d'une trajectoire fermée à $3$ revonds sur un billard elliptique.
+	Sur un billard elliptique, il existe une trajectoir fermée à 3 rebonds.
 \end{example}
 
 \begin{example}[\textnormal{[G] e33}]
@@ -5977,11 +6000,998 @@ Une \emph{norme matricielle} est une norme d'algèbre sur $\M_n(\IK)$, \emph{i.e
 	% \item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
 	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvier, 4e édition
 \end{itemize}
-% \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/171.pdf}
-% 	\caption{s}
-% \end{figure}
+
+\chapter*{213 : Espaces de Hilbert. Exemples d’applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $\IK$ désigne $\IR$ ou $\IC$, et $H$ est un $\IK$-espace vectoriel.}
+
+\section*{I. Les espaces de Hilbert et leur structure}
+\subsection*{A. Produit scalaire / hermitien, orthogonalité}
+
+\begin{definition}[\textnormal{[HL] 84}]
+	Un \emph{produit scalaire} est une application $\ps{\cdot}{\cdot}\,\colon H^2\to\IK$ vérifiant :
+	$\forall (x,y,z)\in H^3$, $\forall\lambda\in\IK$,
+	\begin{itemize}
+		\item $\ps{x+\lambda y}{z} = \ps{x}{z}+\lambda\ps{y}{z}$
+		\item $\ps{x}{y} = \overline{\ps{y}{x}}$
+		\item $\ps{x}{x} \geq 0$
+		\item $\ps{x}{x} = 0 \implies x=0$
+	\end{itemize}
+\end{definition}
+
+\begin{example}[\textnormal{[HL] 84}]
+	\begin{itemize}
+		\item $(\underline{x},\underline{y})\mapsto \sum_{k=1}^{n} x_k\overline{y_k}$ est un produit scalaire sur $\IK^n$ (dit \emph{usuel}).
+		\item $(f,g)\mapsto\int_{0}^{1} f\overline{g}$ est un produit scalaire sur $C^0([0,1])$.
+		\item $(A,B)\mapsto \tr(A{}^t\overline{B})$ est un produit scalaire sur $\M_n(\IK)$.
+	\end{itemize}
+\end{example}
+
+\textcolor{paragraphtext}{On fixe un produit scalaire $\ps{\cdot}{\cdot}$.}
+
+\begin{proposition}[\textnormal{[HL] 86}]
+	$\|\cdot\|\,\colon x\mapsto\sqrt{\ps{x}{x}}$ est une norme sur $H$, dite \emph{associée à $\ps{\cdot}{\cdot}$.}
+\end{proposition}
+
+\begin{definition}[\textnormal{[HL] 86,88}]
+	On dit que $(H,\ps{\cdot}{\cdot})$ est un \emph{espace préhilbertien}.
+	Si $(H, \|\cdot\|)$ est complet, alors $(H,\ps{\cdot}{\cdot})$ est un \emph{espace de Hilbert}.
+\end{definition}
+
+\begin{example}[\textnormal{[HL] 88}]
+	\begin{itemize}
+		\item Un espace euclidien ou hermitien est de Hilbert.
+		\item $l^2(\IN)$ est un espace de Hilbert pour $\ps{\cdot}{\cdot}\,\colon (u,v)\mapsto\sum_{n=0}^{+\infty} u_n\overline{v_n}$.
+	\end{itemize}
+\end{example}
+
+\textcolor{paragraphtext}{On suppose désormais que $(H, \ps{\cdot}{\cdot})$ est un espace de Hilbert.}
+
+\begin{theorem}[inégalité de \textsc{Cauchy-Schwarz} - \textnormal{[HL] 86}]
+	Pour tout $(x,y)\in H^2$, $\vert \ps{x}{y}\vert \leq \|x\|\cdot\|y\|$ avec égalité si, et seulement si, $(x,y)$ est liée.
+\end{theorem}
+
+\begin{application}
+	On définit l'\emph{écart angulaire} entre deux vecteurs non nuls $x,y\in H$ comme $\arccos\left(\frac{\vert \ps{x}{y}\vert}{\|x\|\cdot\|y\|}\right)$.
+\end{application}
+
+\begin{theorem}[identité du parallélogramme - \textnormal{[HL] 87}]
+	$\forall x,y\in H$, on a 
+	$$2(\|x\|^2+\|y\|^2) = \|x+y\|^2 + \|x-y\|^2$$
+\end{theorem}
+
+\begin{remark}
+	Une norme sur $H$ est associée à un produit scalaire si, et seulement si, elle vérifie l'identité du parallélogramme (= théorème de \textsc{Fréchet - von Neumann - Jordan}).
+\end{remark}
+
+\begin{definition}[\textnormal{[HL] 87}]
+	Soit $A\subseteq H$. On définit l'\emph{orthogonal de $A$} comme :
+	$$A^{\perp} = \left\{x\in H \mid \forall y\in A,\, \ps{x}{y} = 0\right\} = \bigcap_{y\in A} \Ker\left(\ps{\cdot}{y}\right)$$
+\end{definition}
+
+\begin{proposition}[\textnormal{[HL] 87}]
+	Soient $A\subseteq H$ et $B\subseteq H$.
+	\begin{itemize}
+		\item $A^{\perp}$ est un sous-espace vectoriel fermé de $H$,
+		\item $B\subseteq A\implies A^{\perp}\subseteq B^{\perp}$
+		\item $A^{\perp}=\Vect(A)^{\perp}=\overline{A}^{\perp}$
+		\item $A\cap A^{\perp} \subseteq \left\{0\right\}$
+		\item $A\subseteq A^{\perp\perp}$
+	\end{itemize}
+\end{proposition}
+
+\begin{example}
+	???
+\end{example}
+
+\subsection*{B. Projection sur un convex fermé, conséquences}
+\textcolor{paragraphtext}{Soient $C$ un convexe fermé non vide de $H$ et $F$ un sous-espace vectoriel fermé de $H$.}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de projection sur un convexe fermé - FIG. 1 - \textnormal{[HL] 91}]
+	\label{213dev1a}
+	$\forall x\in H,\, \exists ! P_C(x)\in C\,\colon \|x-P_C(x)\| = d(x,C) =: \inf_{y\in C} \|x-y\|$.
+
+	De plus, $P_C(x)$ est caractérisé par $\forall y\in C,\, \Re(\ps{x-P_C(x)}{x-y})\leq 0$.
+
+	Dans le cas de $F$, le projeté $P_F(x)$ est caractérisé par $P_F(x)\in F$ et $x-P_F(x)\in F^{\perp}$.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{corollary}[\textnormal{[HL] 92-93}]
+	$P_C$ est $1$-lipschitzienne, $P_F$ est un projecteur orthogonal de norme $1$.
+\end{corollary}
+
+\begin{cexample}
+	C'est faux si $H$ est seulement de Banach : dans $(\IR^2,\|\cdot\|_{\infty})$, tous les $(x,0)$ tels que $-1\leq x\leq 1$ réalisent $d\left(\begin{pmatrix}
+		0\\1
+	\end{pmatrix}, \Vect\left(\begin{pmatrix}
+		1\\0
+	\end{pmatrix}\right)\right)$.
+\end{cexample}
+
+\begin{corollary}[\textnormal{[HL] 93}]
+	$H = F\oplus F^{\perp}$ (et $H = \overline{F}\oplus F^{\perp}$ si $F$ n'est pas supposé fermé).
+\end{corollary}
+
+\begin{cexample}
+	C'est faux si $F$ n'est pas fermé : dans $H = l^2(\IN)$, pour $F = \IK^{(\IN)}$, on a $F^{\perp} = \left\{0\right\}$ mais $H = F\oplus \left\{0\right\} = F$.
+\end{cexample}
+
+\begin{corollary}[\textnormal{[HL] 94-93}]
+	On a :
+	\begin{itemize}
+		\item $F = F^{\perp\perp}$
+		\item Pour tout sous-espace vectoriel $G$ de $H$, $\overline{G} = H \iff G^{\perp} = \left\{0\right\}$
+	\end{itemize}
+\end{corollary}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de représentation de \textsc{Riesz} - \textnormal{[HL] 96}]
+	\label{213dev1b}
+	$J\,\colon H\to H'$, $y\mapsto\ps{\cdot}{y}$ est un isomorphisme d'espaces de Hilbert, \emph{i.e.} une isométrie linéaire surjective.
+\end{theorem}
+\end{tcolorbox}
+
+\begin{application}[\textnormal{[Bu] 501, [G] 324}]
+	\begin{itemize}
+		\item Pour tout $x,y\in \IR^3$, il existe un unique vecteur $x\wedge y\in \IR^3$ appelé \emph{produit vectoriel de $x$ et $y$} tel que $[x,y,\cdot] = \ps{\cdot}{x\wedge y}$ où $[\cdot,\cdot,\cdot]$ est le produit mixte.
+		\item Soit $f\,\colon \IR^n\to \IR$ différentiable en $a\in\IR^n$. Il existe un unique vecteur $\nabla f(a)\in\IR^n$ appelé \emph{gradiant de $f$ en $a$}, tel que $df(a) = \ps{\cdot}{\nabla f(a)}$. 
+	\end{itemize}
+\end{application}
+
+\begin{definition}[\textnormal{[HL] 97}]
+	Pour tout $T\in\mathcal{L}(H)$, il existe un unique $T^*\in\mathcal{L}(H)$ tel que $\forall x,y\in H$, $\ps{Tx}{y}=\ps{x}{T^*y}$. On l'appelle \emph{adjoint de $T$}.
+	On dit que $T$ est \emph{auto-adjoint} si $T = T^*$.
+\end{definition}
+
+\subsection*{C. Notion de base hilbertienne}
+
+\begin{definition}[\textnormal{[HL] 107-108 ?}]
+	Soit $(e_i)_{i\in I}$ une famille déléments de $H$. On dit que $(e_i)_{i\in I}$ est :
+	\begin{itemize}
+		\item \emph{orthogonale} si $\forall (i,j)\in I^2,\, i\neq j\implies \ps{e_i}{e_j} = 0$
+		\item \emph{orthonormale} si $\forall (i,j)\in I^2,\, \ps{e_i}{e_j} = \delta_{i,j}$
+		\item \emph{totale} si $\overline{\Vect(\left\{e_i\right\}_{i\in I})} = H$.
+	\end{itemize}
+\end{definition}
+
+\begin{definition}[\textnormal{[HL] 108}]
+	Une \emph{base hilbertienne} de $H$ est une famille orthonormale et totale.
+\end{definition}
+
+\begin{theorem}[ADMIS - \textnormal{[HL] 113}]
+	$H$ est séparable $\iff$ $H$ admet une base hilbertienne dénombrable.
+\end{theorem}
+
+\textcolor{paragraphtext}{Dans la suite, on suppose $H$ séparable, et $(e_n)_{n\in\IN}$ désigne une base hilbertienne de $H$.}
+
+\begin{example}[\textnormal{[HL] ? - 108}]
+	\begin{itemize}
+		\item En dimension finie pour le produit scalaire usuel, toute base (algébrique) orthonormée est hilbertienne.
+		\item $\left((\delta_{k,n})_{n\in\IN}\right)_{k\in\IN}$ est une base hilbertienne de $l^2(\IN)$.
+	\end{itemize}
+\end{example}
+
+\begin{remark}
+	Dans un espace euclidien ou hermitien, les notions de base hilbertienne et de base (algébrique) orthogonal coincident. Ce n'est plus vrai en dimension infinie, comme on le verra par la suite.
+\end{remark}
+
+\begin{proposition}[\textnormal{[HL] 109}]
+	Soit $(e_0,\dots,e_n)\in H^{n+1}$ une famille orthonormale, posons $F = \Vect(e_0,\dots, e_n)$.
+	Alors,
+	$$P_F = \sum_{k=0}^{n} \ps{\cdot}{e_k}e_k$$
+\end{proposition}
+
+\begin{theorem}[procédé de \textsc{Gram-Schmidt} - FIG. 2 - \textnormal{[HL] 112}]
+	Soit $\left(f_n\right)_{n\in\IN}$ libre. On définit $e_1 = \frac{f_1}{\|f_1\|}$ et pour tout $n\in \IN^*$, $\tilde{e}_k = f_k - \sum_{i=0}^{k-1}e_i = f_k - P_{\Vect(e_0,\dots, e_{k-1})}(f_k)$
+	et $e_k = \frac{\tilde{e}_k}{\|\tilde{e}_k\|}$.
+
+	La famille $\left(e_n\right)_{n\in \IN}$ est orthonormale.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[HL] e103}]
+	Soit $\left(e_n\right)_{n\in\IN}$ une famille orthonormée.
+	Les assertions suivantes sont équivalentes :
+	\begin{itemize}
+		\item $\left(e_n\right)_{n\in\IN}$ est une base hilbertienne de $H$
+		\item $\forall x\in H$, $x = \sum_{n=0}^{+\infty} \ps{x}{e_n}e_n$ au sens $\|x - \sum_{n=0}^{N}\ps{x}{e_n}e_n \longrightarrow_{N\to +\infty} 0$
+		\item $\forall x\in H$, $\|x\|^2 = \sum_{n=0}^{+\infty}\vert \ps{x}{e_n}\vert^2$ (égalité de \textsc{Bessel-Parseval})
+		\item $\left\{e_n\right\}_{n\in\IN}^{\perp} = \left\{0\right\}$.
+	\end{itemize}
+\end{theorem}
+
+\begin{theorem}[\textnormal{[HL] 109}]
+	$x\mapsto (\ps{x}{e_n})_{n\in \IN}$ est un isomorphisme d'espaces de Hilbert de $H$ dans $l^2(\IN)$.
+\end{theorem}
+
+\section*{II. L'exemple fondamental : les espace $L^2$}
+\begin{theorem}[\textnormal{[HL] e125}]
+	Soit $(X,\A, \mu)$ un espace mesuré. Pour $f$ et $g$ dans $L^2(X,\A,\mu)$, posons $\ps{f}{g}= \int_{X}f(x)\overline{g(x)}d\mu(x)$ (produit scalaire usuel).
+	L'espace $L^2(X,\A,\mu)$ muni de $\ps{\cdot}{\cdot}$ est un espace de Hilbert.
+\end{theorem}
+
+\subsection*{A. Cas des fonctions périodiques : séries de \textsc{Fourier}}
+\textcolor{paragraphtext}{Dans ce paragraphe, $H = L^2_{2\pi}$ est l'espace des fonctions $2\pi$-périodiques de carré intégrable sur $[-\pi,\pi]$.
+On pose $\forall f,g\in H,\, \ps{f}{g} = \int_{-\pi}^{\pi}f(t)\overline{g(t)}\frac{dt}{2\pi}$. Pn pose $\forall n\in \IZ,\, e_n\,\colon t\mapsto e^{int}$. On not $\sum_{n=-\infty}^{+\infty} u_n = \lim_{N\to +\infty}\sum_{n=-N}^{N} u_n$
+et $\sum_{n\in \IZ}u_n = u_0 + \sum_{n\in\IN^*} u_n + u_{-n}$.}
+
+\begin{proposition}[\textnormal{[EA] 172}]
+	$\left(e_n\right)_{n\in \IZ}$ est orthonormale.
+\end{proposition}
+
+\begin{definition}[\textnormal{[EA] 173}]
+	Pour $n\in \IZ$ et $f\in L_{2\pi}^1$, on pose $c_n(f) = \int_{-\pi}^{\pi}f(t)e^{-int}\frac{dt}{2\pi}$.
+	Si $f\in L^2_{2\pi}$, alors $c_n(f)=\ps{f}{e_n}$. On l'appelle \emph{$n$-ième coefficient de \textsc{Fourier} de $f$}.
+\end{definition}
+
+\begin{definition}[\textnormal{[EA] 184-186}]
+	Soient $f\in H$ et $N\in \IN^*$. On pose :
+	\begin{itemize}
+		\item $D_N = \sum_{n=-N}^{N} e_n$ (\emph{noyau de \textsc{Dirichlet}})
+		\item $K_N = \frac{1}{N}\sum_{n=0}^{N_1} D_n = \sum_{n=-N}^{N} (1-\frac{\vert n\vert}{N})e_n$ (\emph{noyau de \textsc{Féjer}})
+		\item $S_N(f) = \sum_{n=-N}^{N}c_n(f)e_n = D_n * f$
+		\item $\sigma_N(f) = \frac{1}{N}\sum_{n=0}^{N_1}S_n(f) = K_N * f$
+	\end{itemize}
+\end{definition}
+
+\begin{remark}
+	$S_N(f)$ est le projeté de $f$ sur $\Vect\left(\left\{e_n\right\}_{-N\leq n\leq N}\right)$.
+\end{remark}
+
+\begin{proposition}[\textnormal{[EA] 184-186}]
+	Soient $N\in \IN^*$ et $t\in \IR$.
+	\begin{itemize}
+		\item $D_N(-t) = D_N(t)=\sin\left((N+\frac{1}{2})t\right) / \sin(t/2)$
+		\item $\|D_N\|_1 = 1$
+		\item $K_N(t) = \frac{1}{N}\left(\frac{\sin(\frac{NT}{2})}{\sin(\frac{t}{2})}\right)^2\geq 0$
+		\item $\|K_N\|_1 = 1$
+		\item $\forall \delta\in ]0,\pi],\, \int_{\pi \geq \vert t \vert \geq \delta}K_N(t)dt \longrightarrow_{N\to +\infty} 0$
+	\end{itemize}
+\end{proposition}
+
+\begin{theorem}[de \textsc{Féjer} - \textnormal{[EA] 190}]
+	\begin{itemize}
+		\item $\forall f\in C^0_{2\pi}$, $\forall N\in \IN^*$, $\|\sigma_N(f)\|_{\infty}\leq \|f\|_{\infty}$ et $\|\sigma_N(f) - f\|_{\infty} \longrightarrow_{N\to +\infty} 0$
+		\item $\forall p \geq 1$, $\forall f\in L^0_{2\pi}$, $\forall N\in \IN^*$, $\|\sigma_N(f)\|_{p}\leq \|f\|_{p}$ et $\|\sigma_N(f) - f\|_{p} \longrightarrow_{N\to +\infty} 0$
+	\end{itemize}	
+\end{theorem}
+
+\begin{corollary}[\textnormal{[EA] 193}]
+	$\left(e_n\right)_{n\in\IZ}$ est une base hilbertienne de $L^2_{2\pi}$. En particulier, $\forall f\in L^2_{2\pi}$, 
+	\begin{itemize}
+		\item $\|S_N(f)-f\|_2 \longrightarrow_{N\to +\infty} 0$
+		\item $\|f\|^2_2 = \sum_{n=-\infty}^{+\infty} \vert c_n(f) \vert^2$. Plus précisément, $f\mapsto \left(c_n(f)\right)_{n\in\IZ}$ est une isométrie linéaire de $L^2_{2\pi}$ dans $\ell^2(\IZ)$.
+	\end{itemize}
+\end{corollary}
+
+\begin{application}
+	$\sum_{n=1}^{+\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$ et $\sum_{n=1}^{+\infty} \frac{1}{n^4} = \frac{\pi^4}{90}$.
+\end{application}
+
+\subsection*{B. Cas des variables aléatoires}
+
+\textcolor{paragraphtext}{Soient $(\Omega, \A, \IP)$ un espace probabilisé, $X$ et $Y$ dans $L^2(\Omega, \A, \IP)$ à valeurs réelles, et $\B\subseteq \A$ une sous-tribu.}
+
+\begin{proposition}
+	$(X,Y)\mapsto \IE[XY]$ est le produit scalaire usuel sur $L^2(\Omega, \A,\IP)$, qui en fait donc un espace de Hilbert.
+\end{proposition}
+
+\begin{remark}
+	$\Cov\,\colon (X,Y)\mapsto \IE\left[(X-\IE[X])(Y-\IE[Y])\right] = \IE[XY] - \IE[X]\IE[Y]$ est un semi-produit scalaire (\emph{i.e.} un produit scalaire ne vérifiant pas $\ps{x}{x} = 0 \implies x = 0$) sur $L^2(\Omega,\A,\IP)$.
+	Sa semi-norme associée est $X \mapsto \sigma_X = \sqrt{\IV[X]}$. On dispose de l'inégalité de \textsc{Cauchy-Schwarz} : $\vert\Cov(X,Y)\vert \leq \sigma_X\sigma_Y$.
+\end{remark}
+
+\begin{remark}
+	On dit que $X$ et $Y$ sont \emph{non corrélées} si $\Cov(X,Y) = 0$, \emph{i.e.} si $X$ et $Y$ sont orthogonales pour $\Cov$. Si $X$ et $Y$ sont indépendantes, alors elles sont non corrélées, mais la réciproque est fausse en général (elle est cependant vraie si $X$ et $Y$ sont des vecteurs gaussiens).
+\end{remark}
+
+\begin{definition}[\textnormal{[CR] 77}]
+	L'\emph{espérance conditionnelle de $X$ sachant $\B$} est le projeté de $X$ sur $L^2(\B)$.
+	On la note $\IE[X\mid \B]$, et elle est caractérisée par $\forall z\in L^2(\B)$, $\IE[XZ] = \IE\left[\IE[X\mid \B]Z\right]$.
+\end{definition}
+
+\begin{remark}
+	Si on note $\ps{X}{Y}=\IE[XY]$, $F = L^2(\B)$ et $\IE[X\mid \B]=P_F(X)$, cette caractérisation dit que $P_F(X)$ est l'unique vecteur de $F$ tel que $\forall z\in F,\, \ps{X}{Z} = \ps{P_F(X)}{Z}$, \emph{i.e.} $\forall z\in F,\, \ps{X-P_F(X)}{Z}=0$ \emph{i.e.} $X -P_F(X)\in F^{\perp}$ : on retombe sur nos pattes !
+\end{remark}
+
+\subsection*{C. Opérateurs de \textsc{Hilbert-Schmidt}}
+
+\textcolor{paragraphtext}{Soit $(\Omega, \A,\mu)$ un espace mesuré tel que $H := L^2(\Omega, \A, \mu)$ est séparable. Soit $T\in \mathcal{L}(H)$.}
+
+\begin{definition}[\textnormal{[LM] 114-122}]
+	On dit que $T$ est un \emph{opérateur de \textsc{Hilbert-Schmidt}} s'il existe une base hilbertienne $\left(e_n\right)_{n\in\IN}$ de $H$ telle que $\sum_{n=0}^{+\infty} \|Te_n\|^2 < +\infty$.
+	On note $\mathcal{HS}(H)$ l'ensemble des opérateurs de \textsc{Hilbert-Schmidt} de $H$.
+\end{definition}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}
+	\label{213dev21}
+	$T \in\mathcal{HS}(H) \iff T^*\in \mathcal{HS}(H)$, et la valeur de $\sum_{n=0}^{+\infty} \|Te_n\|^2$ (finie ou non) ne dépend pas du choix de $\left(e_n\right)_{n\in\IN}$. On la note $\|T\|_2$.
+\end{theorem}
+
+\begin{proposition}
+	\label{213dev22}
+	$\mathcal{HS}(H)$ est un espace de Hilbert pour le produit scalaire défini par :
+	\begin{align*}
+		\forall (S,T)\in \mathcal{HS}(H)^2,\, \ps{S}{T}_2 := \sum_{n=0}^{+\infty} \ps{Se_n}{T_en}
+	\end{align*}
+\end{proposition}
+
+\begin{lemma}
+	\label{213dev23}
+	L'ensemble des opérateurs de rang fini est dense dans $\mathcal{HS}(H)$.
+\end{lemma}
+
+\begin{theorem}
+	\label{213dev24}
+	$T\in\mathcal{HS}(H)\iff \exists K\in L^2(\Omega\times\Omega, \mu\otimes\mu)\,\colon T=T_K$, 
+	où $T_K\,\colon f\in H \mapsto \int_{\Omega} K(x,\cdot)f(x)d\mu(x)$.
+\end{theorem}
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{213dev1a} et Théorème \ref{213dev1b}
+	\item Développement 2 : Tout de \ref{213dev21} à \ref{213dev24}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[HL] \emph{Éléments d'analyse fonctionnelle}, Francis Hirsch, Giles Lacombe
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[EA] \emph{Analyse de Fourier dans les espaces fonctionnels}, Mohamed El Amrani
+	\item[LM] \emph{Analyse fonctionnelle}, Gilles Lacombes, Pascal Massat
+	\item[B] \emph{Algèbre et géométrie: CAPES et Agrégation}, Pierre Burg
+	% \item[BP] \emph{Théorie de l'intégration}, Marc Briane, Filles Pagès, 7e édition
+	\item[CR] \emph{Probabilités et statistiques pour l'épreuvre de modélisation à l'agrégation de mathématiques}, Chabanol, Ruch
+\end{itemize}
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/213.pdf}
+	\caption{s}
+\end{figure}
+
+\chapter*{214 : Théorème d’inversion locale, théorème des fonctions implicites. Illustrations en analyse et en géométrie.}
+\textcolor{paragraphtext}{IMPASSE}
+
+
+\chapter*{215 : Applications différentiables définies sur un ouvert de Rn. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $U\subseteq \IR$ ($n\geq 1$) est ouvert, $f\,\colon U\to \IR^p$ ($p\geq 1$), et $a\in U$.
+On note $\ps{\cdot}{\cdot}$ le produit scalaire sur $\IR^n$, $\|\cdot\|$ sur norme sur $\IR^n$, $\B=(e_1,\dots,e_n)$ une base de $\IR^n$, $\B'=(\varepsilon_1,\dots,\varepsilon_p)$ une base de $\IR^p$.
+On décompose $f$ dans $\B'\,\colon \forall x\in U,\,f(x) = \sum_{k=1}^{p} f_k(x)\varepsilon_k$.}
+
+\section*{I. Définitions et premières propriétés}
+\subsection*{A. Différentielle et dérivée directionnelle}
+
+\begin{definition}[\textnormal{[G] 323}]
+	On dit que $f$ est \emph{différentiable en $a$} s'il existe $u_a\in\mathcal{L}(\IR^n,\IR^p)$ telle que $\frac{\|f(a+h)-f(a)-u_a(h)\|}{\|h\|}\longrightarrow_{h\to 0}0$.
+	Dans ce cas, $u_a$ est unique : on l'appelle \emph{différentielle de $f$ en $a$}, et on la note $df(a)$.
+	Si $f$ est différentiable en tout point de $U$, alors on dit que $f$ est \emph{différentiable sur $U$}, et on sidpose de $df\,\colon U\to \mathcal{L}(\IR^n,\IR^p)$, $a\mapsto df(a)$.
+\end{definition}
+
+\begin{example}[\textnormal{[G] 323}]
+	Si $f\,\colon \IR\to\IR^p$, alors $f$ est différentiable en $a$ si, et seulement si, $f$ est dérivable en $a$.
+	Le cas échéant, $df(a)\,\colon h\mapsto h\cdot f'(a)$.
+\end{example}
+
+\begin{definition}[\textnormal{[G] 324}]
+	On dit que $f$ admet une \emph{dérivée directionnelle suivant $h\in\IR^n$} si $D_hf(a) := \lim_{t\to D} \frac{f(a+th) - f(a)}{t}$ existe.
+\end{definition}
+
+\begin{proposition}[\textnormal{[G] 324}]
+	Si $f$ est différentiable en $a$, alors $f$ admet une dérivée directionnelle en $a$ suivant tout vecteur. Plus précisément, $\forall h\in \IR^n$, $D_hf(a)=df(a)(h)$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[G] 324}]
+	Si $f$ est différentiable en $a$, alors $f$ est continue en $a$.
+\end{proposition}
+
+\begin{theorem}[inégalité des accroissements finies - \textnormal{[G] 327}]
+	Soit $(a,b)\in U^2$ tel que $[a,b]\subseteq U$. Si $f$ est continue sur $[a,b]$ et différentiable sur $]a,b[$, alors :
+	$$\|f(a)-f(b)\|\leq \sup_{x\in ]a,b[} \vertiii{df(c)\cdot \|b-a\|}$$
+\end{theorem}
+
+\begin{example}
+	$f\,\colon (x,y)\mapsto x^2 + y^2$ est en tout point différentiable, et $\forall \underline{a}\in\IR^2,\, df(\underline{a}) = 2\ps{a}{\cdot}$.
+\end{example}
+
+\subsection*{B. Opérations sur les applications différentiables, exemples}
+
+\begin{proposition}
+	Si $B\,\colon \IR^n\times\IR^m\to\IR^p$ est bilinéaire, alors elle est différentiable en tout point, et $\forall(a,b)\in\IR^n\times\IR^m$, $\forall (h,k)\in\IR^n\times\IR^m$, $dB(a,b)(h,k) = B(h,b) + B(a,k)$.
+\end{proposition}
+
+\begin{example}
+	$\varphi\,\colon (x,y)\in \IR^2 \mapsto xy$ est bilinéaire, et $d\varphi(a,b)(h,k) = hb+ak$.
+\end{example}
+
+\begin{example}
+	Soit $A\in\M_n(\IR)$. L'application $u\,\colon (x,y)\in\IR^n\times\IR^n\mapsto \ps{Ax}{y}$ est bilinéaire, et $\forall(a,b)\in\IR^n\times\IR^n,\, \forall (h,k)\in\IR^n\times\IR^n,\, du(a,b)(h,k) = \ps{Ah}{b} + \ps{Aa}{k}$.
+\end{example}
+
+\begin{proposition}
+	Si $f$ et $g\,\colon U\to \IR^p$ sont différentiables en $a$, alors pour tout $(\alpha, \beta)\in\IR^2$, $\alpha f + \beta g$ est différentiable en $a$, et $d(\alpha f + \beta g)(a) = \alpha df(a) + \beta dg(a)$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[G] 324}]
+	Soient $V\subseteq f(U)$ ouvert et $g\,\colon V\to \IR^d$. Si $f$ est différentiable en $a$ et $g$ en $f(a)$, alors $g\circ g$ est différentiable en $a$, et $d(g\circ f)(a) = df(f(a))\circ dg(a)$.
+\end{proposition}
+
+\begin{example}
+	Si $f,g\,\colon \IR^n\to \IR$ sont différentiables en $a$, alors $fg$ est différentiable en $a$, et $d(fg)(a). d(\varphi\circ (f,g))(a) = f\cdot dg(a) + g\cdot df(a)$ ($\varphi$ est donnée en exemple 9).
+\end{example}
+
+\subsection*{C. Dérivées partielles d'ordre $1$, classe $C^1$}
+
+\begin{definition}[\textnormal{[G] 325}]
+	On dit que $f$ admet en $a$ une \emph{$j$-ième dérivée partielle dans $\B$} si $f$ admet une dérivée suivant $e_j$, que l'on note plutôt $\frac{\partial f}{\partial e_j}(a)$ ou $\partial_jf(a)$.
+\end{definition}
+
+\begin{remark}[\textnormal{[G] 325}]
+	Si $f$ est différentiable en $a$, alors $f$ admet des dérivées partielles, mais la réciproque est fausse : considérer $f\,\colon (x,y)\in \IR^2\setminus \left\{(0,0)\right\}\mapsto \frac{xy}{x^2+y^2}$, $(0,0)\mapsto 0$.
+\end{remark}
+
+\begin{notation*}
+	Lorsque $x = \sum_{k=1}^{n}x_ke_k$, on note $\frac{\partial f}{\partial x_j}(x) = \frac{\partial f}{\partial e_j}(x)$, qui se calcule en considérant les $x_i$, $i\neq j$ comme constants, et en dérivant la fonction de $x_j$.
+\end{notation*}
+
+\begin{definition}[\textnormal{[G] 327}]
+	Si $f$ admet en $a$ des dérivées partielles suivant chaque $e_j$, alors on définit la \emph{(matrice) jacobienne de $f$ en $a$} : 
+	\begin{align*}
+		\Jac_a(f) = \left(\partial_jf_i(a)\right)_{\substack{1\leq i\leq p \\ 1\leq j, n}}
+	\end{align*}
+
+	Pour tout $h\in \IR^n$, $df(a)(h)=\Jac_a(f)\cdot\left(e_i^*(h)\right)_{1\leq i\leq n}$.
+\end{definition}
+
+\begin{proposition}[règle de la chaîne - \textnormal{[G] 327}]
+	Sous les hypothèses de la propositoin 12, $\Jac_a(g\circ f) = \Jac_{f(a)}(g)\Jac_a(f)$, \emph{i.e.} $\frac{\partial (g\circ f)_i}{\partial e_j}(a) = \sum_{k=1}^{n}\frac{\partial g_i}{\partial \varepsilon_j}(f(a))\times\frac{\partial f_k}{\partial e_j}(a)$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[G] 323}]
+	On dit que $f$ est \emph{de classe $C^1$ sur $U$} si $f$ est différentiable sur $U$ et si $df$ est continue sur $U$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[G] e325}]
+	Les dérivées partielles (d'ordre $1$) dans $\B$ existent et sont continues sur $U$ si, et seulement si, $f$ est de classe $C^1$ sur $U$.
+\end{proposition}
+
+\section*{II. Ordre supérieur - Étude locale}
+\subsection*{A. Différentielle et dérivée partielles d'ordre supérieur}
+
+\begin{definition}[\textnormal{[Rv] 283}]
+	On dit que $f$ est \emph{deux fois différentiable en $a$} si $f$ est différentiable sur $U$ et si $df$ est différentiable en $a$.
+	On note alors $d^2f(a) := d(df)(a)$. On dit que $f$ est \emph{$k$ fois différentiable en $a$} si $f$ est $k-1$ fois différentiable sur $U$ et si $d^{k-1}f$ est différentiable en $a$.
+\end{definition}
+
+\begin{remark}[\textnormal{[Rv] 294}]
+	Si $f$ est deux fois différentiable sur $U$, alors on dispose de $d^2f\,\colon U\to \mathcal{L}(\IR^n, \mathcal{L}(\IR^n,\IR^p))\cong \mathcal{L}_2(\IR^n\times\IR^n,\IR^p),\, a\mapsto d^2f(a)$.
+	Ainsi, $d^2f(a)$ s'identifie à une forme bilinéaire sur $\IR^n$.
+\end{remark}
+
+\begin{definition}[\textnormal{[Rv] 294}]
+	Sous réserve d'existence, on appelle \emph{dérivées partielles d'ordre $2$ de $f$ dans $\B$ en $a$} les vecteurs
+	$$\frac{\partial^2f}{\partial e_i \partial e_j}(a) := \frac{\partial}{\partial e_i}\left[\frac{\partial f}{\partial e_j}\right](a)$$
+	On appelle \emph{dérivées partielles d'ordre $k$ de $f$ dans $\B$ en $a$} les vecteurs $\frac{\partial^2f}{\partial e_{i_1}\dots\partial e_{i_k}}(a) := \frac{\partial}{\partial e_{i_1}}\left[\frac{\partial f}{\partial e_{i_2}\dots\partial e_{i_k}}\right](a)$ ($1\leq k\leq n,\, 1\leq i_1,\dots, i_k\leq n$).
+\end{definition}
+
+\begin{remark}[\textnormal{[Rv] 296}]
+	En général, $\frac{\partial^2 f}{\partial e_i\partial e_j}(a)\neq \frac{\partial^2 f}{\partial e_j\partial e_i}(a)$ : considérer la fonction de Remarque $15$.
+\end{remark}
+
+\begin{proposition}
+	Proposition 19 reste vraie en remplaçant $1$ par $k$, pour tout $k\geq 1$.
+\end{proposition}
+
+\begin{theorem}[de \textsc{Schwarz} - \textnormal{[Rv] 294}]
+	Si $f$ est deux fois différentiable en $a$, alors :
+	\begin{align*}
+		\forall (i,j)\in\llbracket 1,n\rrbracket^2,\,  \frac{\partial^2 f}{\partial e_i\partial e_j}(a) = \frac{\partial^2 f}{\partial e_j\partial e_i}(a)
+	\end{align*}
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[Différentielle de l'exponentielle matricielle]
+	\label{215dev1}
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{B. Étude locale}
+\begin{theorem}[d'inversion locale - \textnormal{[G] 341}]
+	Si $f\in C^1(U,\IR^n)$ et si $df(a)$ est inversible, alors il existe un voisinage $V\subseteq U$ de $a$ tel que $f$ induit une bijection de $V$ dans $f(V)$ de réciproque $C^1$.
+\end{theorem}
+
+\begin{example}[\textnormal{[Rv] 208}]
+	Définition locale d'un logarithme matriciel.
+\end{example}
+
+\begin{theorem}[des fonctions implicites - \textnormal{[Rv] 344}]
+	Soient $\Omega\subseteq \IR^n\times\IR^m$ un ouvert, $(a,b)\in \Omega$ et $f\in C^1(\Omega,\IR^p)$.
+	Si $f(a,b)=0$ et si $f(a,\cdot)$ est différentiable en $b$, de différentielle inversible, alors il existe des voisinages $U$ de $a$ et $V$ de $b$ tels que $U\times V \subseteq \Omega$,
+	et une unique application $\varphi\in C^1(U,V)$ telle que : $\left\{(x,y)\in U\times V\mid f(x,y)=0\right\} = \left( (x,\varphi(x)) \mid x\in U\right)$.
+\end{theorem}
+
+\begin{example}[\textnormal{[Rv] 348}]
+	Détermination des équations d'était d'un système thermodynamique qui satisfait la loi des gaz parfaits : $f(P,V,T) = PV - nRT = 0$.
+\end{example}
+
+\begin{theorem}[formule de \textsc{Taylor} - \textnormal{[Rv] 296}]
+	Si $f$ est $k$ fois différentiable en $a$, alors $\forall h\in U$, 
+	\begin{align*}
+		f(a+h) &= \sum_{j=0}^{k}\frac{1}{j!}d^jf(a)(h)\dots (h)\quad \text{[$(h)$ appliqué $j$ fois]} \\
+		&= \sum_{j=0}^{k}\left(\sum_{i=1}^{n} h_i\frac{\partial}{\partial e_i}\right)^k[f](a) + o(\|h\|^k)
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}[formule de \textsc{Taylor} avec reste intégral - \textnormal{[Rv] 298}]
+	Si $f\in C^{k+1}(U,\IR^n)$, alors pour tout $h\in\IR^n$ tel que $[a,a+h]\subseteq U$,
+	\begin{align*}
+		f(a+h) &= \sum_{j=0}^{k}\frac{1}{j!}d^jf(a)(h)\dots(h) + \int_{0}^{1}\frac{(1-t)^k}{k!}d^{k+1}f(a+th)(h)\dots(h)dt
+	\end{align*} 
+	NB : sous la somme, il y $j$ fois $(h)$, tandis que sous l'intégral il y a $k+1$ fois $(h)$.
+\end{theorem}
+
+\section*{III. Cas des fonctions à valeurs dans $\IR$}
+\textcolor{paragraphtext}{Dans ce paragraphe, on suppose que $f\,\colon U\subseteq \IR^n\to \IR$ est différentiable en $a$.}
+
+\subsection*{A. Gradient, hessienne}
+
+\begin{definition}[\textnormal{[G] 324}]
+	On appelle \emph{gradient de $f$ en $a$} l'unique vecteur $\nabla f(a)\in\IR^n$ tel que $df(a) = \ps{\cdot}{\nabla f(a)}$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Rv] 325}]
+	$df(a) = \sum_{k=1}^{n}\frac{\partial f}{\partial e_k}(a)e_k^*$ et si $\B$ est orthonormale, $\nabla f(a) = \sum_{k=1}^{n} \frac{\partial f}{\partial e_k}(a)e_k$.
+\end{proposition}
+
+\textcolor{paragraphtext}{À partir de maintenant, sauf mention contraire, $f\in C^2(U,\IR)$.}
+
+\begin{definition}[\textnormal{[Rv] 294}]
+	On appelle \emph{(matrice) hessienne de $f$ en $a$} la matrice
+	\begin{align*}
+		\Hess_a(f) = \left(\frac{\partial^2 f}{\partial e_i\partial e_j}(a)\right)_{1\leq i,j\leq n}
+	\end{align*}
+\end{definition}
+
+\begin{remark}
+	D'après le théorème de \textsc{Schwarz}, $\Hess_a(f)$ est symétrique. C'est la matrice de la forme bilinéaire $d^2f(a)$ dans $\B$. Pour tout $(h,k)\in\IR^n\times\IR^n$, $d^2f(a)(h)(k) = {}^t\left(e_i^*(h)\right)_{1\leq i\leq n}\cdot \Hess_a(f)\cdot \left(e_i^*(k)\right)_{1\leq i\leq n}$.
+\end{remark}
+
+\begin{example}
+	Expression du laplacien en coordonées polaires $[\varphi\,\colon (r,\theta)\mapsto (r\cos(\theta), r\sin(\theta))]$ :
+	\begin{align*}
+		\Delta f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = \frac{\partial^2(f\circ \varphi)}{\partial r^2} + \frac{1}{r}\frac{\partial(f\circ\varphi)}{\partial r} + \frac{1}{r^2}\frac{\partial^2(f\circ \varphi)}{\partial \theta^2}
+	\end{align*}
+\end{example}
+
+\subsection*{B. Optimisation}
+\begin{definition}[\textnormal{[G] 336}]
+	On dit que $a$ est un \emph{point critique} si $df(a) = 0_{\mathcal{L}(\IR^n,\IR)}$.
+\end{definition}
+
+\begin{theorem}[FIGURE - \textnormal{[G] 335-336}]
+	\begin{itemize}
+		\item Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+		\item La réciproque est vraie si on suppose en plus $\Hess_a(f)$ définie.
+		\item Si $a$ est un point critique et si $\Hess_a(f)$ admet deux valeurs propres de signes strictement opposés, alors $a$ est un \emph{point-selle}.
+	\end{itemize}
+\end{theorem}
+
+\begin{example}
+	Si $f\,\colon \IR \to \IR$, alors on retrouve un résultat bien connu :
+	\begin{itemize}
+		\item Si $f'(a) = 0$ et $f''(a) > 0$ (resp. $f''(a)< 0$), alors $f$ admet un minimum (resp. un maximum) local en $a$.
+		\item Si $f'(a) = f''(a)$ et $f'''(a) \neq 0$, alors $a$ est un point d'inflexion.
+	\end{itemize}
+\end{example}
+
+\begin{example}[\textnormal{[BMP] 24-32}]
+	Soient $A\in \mathcal{S}_n^{++}(\IR)$ et $b\in\IR^n$. La solution de $Ax= b$ est le minimum global de $J\cdot x \mapsto \frac{1}{2}\ps{Ax}{x} = \ps{b}{x}$.
+\end{example}
+
+\begin{theorem}[des extrema liés - \textnormal{[Rv] 372}]
+	Soit $(f, g_1,\dots, g_r)\in C^1(U, \IR)^{r+1}$, posons $\Gamma = \left\{x\in U \mid g_1(x)=\cdots=g_r(x)=0\right\}$.
+	Si $f_{\mid \Gamma}$ admet un extremum local en $a\in \Gamma$, et si $(dg_1(a),\dots,dg_r(a))$ est libre, alors il existe des réels $\lambda_1,\dots,\lambda_r$, appelés \emph{multiplicateurs de \textsc{Lagrange}}, tels que :
+	$$df(a) = \sum_{k=1}^{r} \lambda_kdg_k(a)$$
+\end{theorem}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{application*}[\textnormal{[Rv] 413}]
+	\label{215dev2}
+	Existence d'une trajectoire fermée à 3 rebonds sur un billard elliptique.
+\end{application*}
+\end{tcolorbox}
+
+\begin{remark}
+	Ce théorème permet de ramener la recherche d'un extremum local en dimension $n$ sous $r$ contraintes à la résolution du système carré $n+r$ :
+	$$\{ \forall i\in\llbracket 1,n\rrbracket,\, \frac{\partial f}{\partial e_i}(a) = \sum_{k=1}^{r}\lambda_k\frac{\partial g_k}{\partial e_i}(a)\quad g_1(a) = \cdots = g_r(a) = 0$$
+\end{remark}
+
+\begin{proposition}[\textnormal{[Rv] 127}]
+	Supposons $U$ convexe. 
+	\begin{itemize}
+		\item Si $f$ est différentiable sur $U$, alors $f$ est convexe si, et seulement si : $$\forall(x,y)\in U^2,\, f(y)-f(x)\geq df(x)(y-x)$$
+		\item Si $f$ est deux fois différentiable sur $U$, alors $f$ est convexe si, et seulement si, pour tout $a\in U$, $\Hess_a(f)$ est (symétrique) positive.
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Rv] 381}]
+	Si $U$ est convexe, si $f$ est convexe, et si $a$ est un point critique, alors $f$ admet en $a$ un minimum global sur $U$.
+\end{proposition}
+
+\section*{IV. Cas des fonctions du plan : holomorphie}
+\textcolor{paragraphtext}{On suppose que $f\,\colon \IR^2\to \IR^2$. On note $u$ et $v$ les applications coordonées de $f$ dans la base canonique : $f=(u,v)$. Soit $z_0\in\IR^2$.}
+
+\begin{definition}[\textnormal{[T] e59}]
+	On dit que $f$ est \emph{holomorphe en $z_0$} si $f$ est différentiable en $z_0$ et vérifie la condition de \textsc{Cauchy-Riemann} :
+	\begin{align*}
+		\frac{\partial u}{\partial x}(z_0) = \frac{\partial v}{\partial y}(z_0)\quad\text{et}\quad \frac{\partial u}{\partial y}(z_0) = -\frac{\partial v}{\partial x}(z_0)
+	\end{align*}
+
+	Le cas échéant, on pose $f'(z_0) := \frac{\partial f}{\partial x}(z_0) = \left(\frac{\partial u}{\partial x}(z_0), \frac{\partial v}{\partial x}(z_0)\right)$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[T] e60-61}]
+	Si $f$ est différentiable en $z_0$, alors $\forall h=(h_x,h_y)\in\IR^2$, $df(z_0)(h) = \ps{\partial_z f(z_0)}{h} + \ps{\partial_{\overline{z}} f(z_0)}{\overline{h}}$
+	où $\overline{h} = (h_x, -h_y)$, $\partial_z f(z_0) = \frac{1}{2}\left(\frac{\partial f}{\partial x}(z_0), -\frac{\partial f}{\partial y}(z_0)\right)$ et $\partial_{\overline{z}} f(z_0) = \frac{1}{2}\left(\frac{\partial f}{\partial x}(z_0), \frac{\partial f}{\partial y}(z_0)\right)$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[T] e61}]
+	$f$ est holomorphe en $z_0$ si, et seulement si, $f$ est différentiable en $z_0$ et $\partial_{\overline{z}}f(z_0) = 0$. Le cas échéant, $f'(z_0) = \partial_z f(z_0)$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[T] e69}]
+	Soit $\gamma = (\gamma_x, \gamma_y)\,\colon [a,b]\to \IR^2$ un arc paramétré de classe $C^1$.
+	On définit l'\emph{intégrale de $f$ le long de $\gamma$} comme :
+	\begin{align*}
+		\int_{\gamma} f(z)dz = \int_{a}^{b} (f\circ \gamma)(t)\times \gamma'(t)dt
+	\end{align*}
+\end{definition}
+
+\begin{theorem}[formule de \textsc{Cauchy} - \textnormal{[T] e77}]
+	Soient $U\subseteq \IR^2$ ouvert, $a\in \IR^2$ et $R> 0$ tels que $\overline{\B}(a,r)\subseteq U$. Supposons $f$ holomorphe sur $U$. Alors,
+	\begin{align*}
+		f(a) = \frac{1}{2\pi}\int_{\gamma} \frac{f(z)}{z-a}dz
+	\end{align*}
+	pù $\gamma\,\colon [0,2\pi]\to \IR^2$, $t\mapsto a+R(\cos(t), \sin(t))$.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[T] 78}]
+	Si $f$ est holomorphe en $z_0$, alors $f$ est infiniment différentiable en $z_0$.
+\end{theorem}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{215dev1}
+	\item Développement 2 : Application \ref{215dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[T] \emph{Analyse complexe pour la licence 3}, Patrice Tauvel, 2e édition
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/215.pdf}
+	\caption{s}
+\end{figure}
+
+
+\chapter*{219 : Extremums : existence, caractérisation, recherche. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Soient $(E,\|\cdot\|)$ un $\IR$-espace vectoriel normé, $U\subseteq E$ non vide et $f\,\colon U\to \IR$.}
+
+\section*{I. Existence et unicité d'extrema}
+\begin{definition}
+	On dit que $f$ admet un \emph{maximum local} (resp. un \emph{minimum local}) en $a\in U$ s'il existe un voisinage $V$ de $a$ tel que $\forall x\in V\cap Y,\, f(x)\leq f(a)$ (resp. $f(x) \geq f(a)$).
+
+	Si cette inégalité est vraie pour tout $x\in U$, alors $f(a)$ est un \emph{maximum global} (resp. un \emph{minimum global}) de $f$.
+\end{definition}
+
+\begin{remark}
+	Un extremum global est local, mais la réciproque est fausse ! Considérer $x\mapsto (x-2)x(x+2)$ sur $\IR$.
+\end{remark}
+
+\subsection*{A. Optimisation des fonctions continues sur un compact}
+\begin{theorem}[des bornes atteintes - \textnormal{[G] 31}]
+	Si $U$ est compact, alors $f$ est bornée et atteint ses bornes.
+\end{theorem}
+
+\begin{remark}
+	\begin{itemize}
+		\item $\IR$ n'est pas compact, $\arctan$ est continue et bornée sur $\IR$ mais n'atteint pas ses bornes.
+		\item $f\,\colon x\neq 0\mapsto 1/x$, $0\mapsto 0$ n'est pas continue sur le compact $[-1,1]$, et n'est pas bornée.
+	\end{itemize}
+\end{remark}
+
+\begin{corollary}[\textnormal{[G] e33}]
+	Si $U = E\cong \IR^n$, $f$ est continue sur $U$ et $\lim_{\|x\|\to +\infty} f(x) = +\infty$, alors $f$ admet et atteint un minimum global.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[BMP] 30}]
+	Soit $F\subseteq E$ fermé non vide. Pour tout $x\in E$, il existe $y\in F$ tel que
+	\begin{align*}
+		\|x-y\| = d(x,F) = \inf_{z\in F} \|x-z\|
+	\end{align*}
+\end{corollary}
+
+\subsection*{B. Optimisation et convexité}
+\textcolor{paragraphtext}{Supposons $U$ convexe, \emph{i.e.} $\forall(x,y)\in U^2,\,\forall \lambda\in[0,1],\, \lambda x + (1-\lambda)y \in U$.}
+
+\begin{definition}[\textnormal{[BMP] 26}]
+	On dit que $f$ est \emph{convexe} si :
+	$$\forall (x,y)\in U^2,\,\forall \lambda\in [0,1],\, f(\lambda x + (1-y)y) \leq \lambda f(x) + (1-\lambda)f(y)$$
+	On dit que $f$ est \emph{strictement convexe} si cette inégalité est stricte pour $x\neq y$ et $\lambda\notin \left\{0,1\right\}$.
+\end{definition}
+
+\begin{example}[\textnormal{[BMP] e32}]
+	Soient $E = U = \IR^n$, $A\in\mathcal{S}_n(\IR)$ $f\,\colon x\mapsto \ps{Ax}{x}$.
+	Alors $f$ est (strictement) convexe si, et seulement si, $A$ est (définie) positive.
+\end{example}
+
+\begin{proposition}[\textnormal{[BMP] 30}]
+	Si $f$ est convexe et admet un minimum local, alors c'est un minimum global. Si $f$ est de plus strictement convexe, alors ce minimum est unique.
+\end{proposition}
+
+\textcolor{paragraphtext}{Soient $(H,\ps{\cdot}{\cdot})$ un espace de Hilbert, $C\subseteq H$ un convexe fermé non vide, et $F$ un sous-espace vectoriel fermé de $H$.}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de projection sur un convexe fermé - FIG. 1 - \textnormal{[HL] 91}]
+	\label{219dev11}
+	$\forall x\in H,\, \exists ! P_C(x)\in C\,\colon \|x-P_C(x)\| = d(x,C) =: \inf_{y\in C} \|x-y\|$.
+
+	De plus, $P_C(x)$ est caractérisé par $\forall y\in C,\, \Re(\ps{x-P_C(x)}{x-y})\leq 0$.
+
+	Dans le cas de $F$, le projeté $P_F(x)$ est caractérisé par $P_F(x)\in F$ et $x-P_F(x)\in F^{\perp}$.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Riesz} - \textnormal{[HL] 96}]
+	\label{219dev12}
+	$J\,\colon H\to H'$, $y\mapsto\ps{\cdot}{y}$ est un isomorphisme d'espaces de Hilbert, \emph{i.e.} une isométrie linéaire surjective.
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{C. Optimisation et holomorphie}
+\textcolor{paragraphtext}{On prend $E =\IC$, $U$ ouvert connexe, et $f$ holomorphe sur $U$.}
+
+\begin{theorem}[\textnormal{[BMP] 72}]
+	$\forall a\in U$, $\forall r > 0$, 
+	$$\B(a,r)\subseteq U \implies f(a) = \frac{1}{2\pi}\int_{0}^{2\pi} f(a + re^{i\theta})d\theta$$
+\end{theorem}
+
+\begin{theorem}[principe du maximum local - \textnormal{[BMP] 72}]
+	Si $\vert f\vert$ admet un maximum local, alors $f$ est constant.
+\end{theorem}
+
+\begin{theorem}[principe du maximum global - \textnormal{[BMP] 72}]
+	Supposons $U$ borné et $f$ continue sur $\overline{U}$. Alors $\sup_U \vert f\vert = \max_{\partial U} \vert f\vert$
+	et si ce maximum est atteint en un point de $U$, alors $f$ est constante.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Liouville}]
+	Si $f$ est holomorphe sur $\IC$ et bornée, alors $f$ est constante.
+\end{theorem}
+
+\begin{theorem}[d'\textsc{Alembert-Gauss}]
+	$\IC$ est algébriquement clos.
+\end{theorem}
+
+\section*{II. Optimisation des fonctions différentiables - caractérisation des extremums.}
+\textcolor{paragraphtext}{Dans ce paragraphe, $E = \IR^n$ et $U$ est ouvert.}
+
+\subsection*{A. Conditions de premier ordre}
+\begin{definition}[\textnormal{[BMP] 16}]
+	On dit que $a$ est un \emph{point critique} si $df(a) = 0_{\mathcal{L}(\IR^n, \IR)}$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[BMP] 18}]
+	Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+\end{theorem}
+
+\begin{remark}
+	$x\mapsto x^3$ admet un point critique qui n'est pas un extremum.
+\end{remark}
+
+\begin{theorem}[de \textsc{Rolle} - \textnormal{[R] 251}]
+	Si $f$ est continue sur $[a,b]$, dérivable sur $]a,b[$, et si $f(a) = f(b)$, alors il existe $c\in ]a,b[$ tel que $f'(c) = 0$.
+\end{theorem}
+
+\begin{theorem}[des accroissements finis - \textnormal{[R] 258}]
+	Si $f$ est continue sur $[a,b]$ et dérivable sur $]a,b[$, alors il existe $c\in ]a,b[$ tel que $f(b)-f(a) = f'(c)(b-a)$.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[R] 205-238}]
+	\begin{itemize}
+		\item Si $f$ est dérivable sur un intervalle de dérivée positive, alors $f$ est croissante.
+		\item Si $f$ est deux fois dérivable sur un intervalle de dérivée seconde positive, alors $f$ est convexe.
+	\end{itemize}
+\end{corollary}
+
+\subsection*{B. Conditions de second ordre}
+\begin{theorem}[FIGURE 2 - \textnormal{[BMP] e18}]
+	\begin{itemize}
+		\item Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+		\item La réciproque est vraie si on suppose en plus $\Hess_a(f)$ définie.
+		\item Si $a$ est un point critique et si $\Hess_a(f)$ admet deux valeurs propres de signes strictement opposés, alors $a$ est un \emph{point-selle}.
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}[\textnormal{[Rv] 371}]
+	$x\mapsto x^4$ admet un minimum global en $0$, mais sa hessienne (sa dérivée seconde) est nulle en $0$.
+\end{remark}
+
+
+\begin{example}[\textnormal{[BMP] 24-32}]
+	Soient $A\in\mathcal{S}_n^{++}(\IR)$, $b\in\IR^n$ et $J\,\colon x\mapsto \frac{1}{2}\langle AX\mid X\rangle - \langle b\mid x\rangle$.
+	Alors $\forall x\in \IR^n$, $\nabla J(x)=Ax-b$ et $\Hess_J(x) = A\in\mathcal{S}_n^{++}(\IR)$.
+	En particulier, $J$ admet un unique minimum (global) qui est la solution de $Ax= b$.
+\end{example}
+
+\subsection*{C. Optimisation sous contrainte}
+
+
+\begin{theorem}[des extrema liés - \textnormal{[Rv] 372}]
+	Soient $U$ un ouvert de $\IR^n$ et $(f,g_1,\dots, g_R)\in C^1(U,\IR)^{r+1}$. 
+	Posons $\Gamma = \bigcap_{i=1}^r g_i^{-1}(\left\{0\right\})$.
+	Si $f_{\mid \Gamma}$ admet un extremum local en $a\in \Gamma$, et si $(dg_1(a),\dots, dg_r(a))$ est libre, alors il existe des réels (uniques) $\lambda_1,\dots, \lambda_n$ appelées \emph{multiplicateurs de \textsc{Lagrange}},
+	tels que $df(a) = \lambda_1dg_1(a)+\cdots + \lambda_r dg_r(a)$.
+\end{theorem}
+
+ \begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{application}[\textnormal{[Rv] 413}]
+	\label{219dev2}
+	Sur un billard elliptique, il existe une trajectoir fermée à 3 rebonds.
+\end{application}
+\end{tcolorbox}
+
+\begin{remark}
+	Ce théorème permet de ramener la recherche d'un extremum local en dimension $n$ sous $r$ contraintes à la résolution du système carré $n+r$ :
+	$$\{ \forall i\in\llbracket 1,n\rrbracket,\, \frac{\partial f}{\partial e_i}(a) = \sum_{k=1}^{r}\lambda_k\frac{\partial g_k}{\partial e_i}(a)\quad g_1(a) = \cdots = g_r(a) = 0$$
+\end{remark}
+
+\begin{example}[\textnormal{[Rv] 411, 412}]
+Soient $a_1,\dots, a_n,a$ des réels deux à deux distincts, et posons $\Sigma = \left\{(p_1,\dots,p_n)\in \left(\IR^{+*}\right)^n \mid \sum_{k=1}^{n} p_k = 1\text{ et } \sum_{k=1}^{n}a_kp_k = a\right\}$ (qui est non vide).
+La fonction :
+\begin{align*}
+	H\,\colon (p_1,\dots,p_n)\in\Sigma\mapsto -\sum_{k=1}^{n} p_k\ln(p_k)
+\end{align*}
+admet un unique maximum, en $\frac{1}{n}(1,\dots,1)$.
+\end{example}
+
+\section*{III. Optimisation numérique : algorithmes de recherche d'extrema}
+\begin{theorem}[méthode de \textsc{Newton} - \textnormal{[R] 345-346}]
+	Soient $a < b$ deux réels, $f\,\colon[a,b]\to \IR$ de classe $C^2$ telle que $f(a)< 0 f(b)$ et $f'>0$ sur $[a,b]$.
+	soit $\left(x_n\right)_{n\in\IN}$ définie par :
+	$$x_0\in [a,b]\quad\text{et}\quad \forall n\in\IN,\, x_{n+1} = x_n - f(x_n)/f'(x_n)$$
+	\begin{enumerate}
+		\item Pour $x_0$ assez proche de l'unique zéro $\alpha$ de $f$, $\left(x_n\right)_n$ converge vers $\alpha$ à vitesse quadratique.
+		\item Si $f''>0$ sur $[a,b]$, alors la convergence (quadratique) de $\left(x_n\right)_n$ ne dépend pas du choix de $x_0$, et $$x_{n+1} - ÷alpha \sim \frac{1}{2}\frac{f''(\alpha)}{f'(\alpha)(x_n-\alpha)^2}$$
+	\end{enumerate}
+\end{theorem}
+
+\begin{application}
+	\begin{itemize}
+		\item Recherche de points critiques
+		\item Schéma d'\textsc{Euler} implicite
+	\end{itemize}
+\end{application}
+
+\begin{theorem}[méthode du gradient - \textnormal{[BMP] 22-23}]
+	Soit $a\in U$ où $f$ atteint un minimum local, soit $x_0\in U$ proche de $a$.
+	La suite définie par $x_0 = x_0$ et $\forall n/in \IN$, $x_{n+1} = x_n - \nabla f(x_n)$ converge (sous certaines hypothèses) vers $a$.
+\end{theorem}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorèmes \ref{219dev11} et \ref{219dev12}
+	\item Développement 2 : Application \ref{219dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[R] \emph{Éléments d'analyse réelle}, Rombaldi
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[HL] \emph{Éléments d'analyse fonctionnelle}, Francis Hirsch, Giles Lacombe
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/219.pdf}
+	\caption{s}
+\end{figure}
+
+
+\chapter*{220 : Illustrer par des exemples la théorie des équations différentielles ordinaires.}
+\setcounter{definition}{0}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorèmes \ref{219dev11} et \ref{219dev12}
+	\item Développement 2 : Application \ref{219dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Be] \emph{Équations différentielles}, Florent Berthelin
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/220.pdf}
+	\caption{s}
+\end{figure}
 \end{document}
 
 % \begin{figure}[!htb]
