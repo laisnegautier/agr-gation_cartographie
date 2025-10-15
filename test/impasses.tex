@@ -10,7 +10,6 @@
 \usepackage{graphicx}
 \usepackage{stmaryrd}
 \usepackage{xcolor}
-\usepackage{bbold}
 \usepackage{framed}
 \usepackage{enumitem}
 \usepackage{titlesec}
@@ -5251,6 +5250,169 @@ Vide (2) & $(1,0) / (0,1)$ & $(2,0)/(0,2)$ & $x^2 = -1$
 \end{figure}
 
 
+\chapter*{IMPASSE / PAS FINI 162 : Systèmes d'équations linéaires ; opérations élémentaires, aspects algorithmiques et conséquences théoriques.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{On considère $K$ un corps commutatif. Soient $n,p\geq 1$.}
+
+\section*{I. Mise en place du problème}
+\begin{definition}[\textnormal{[TL1] 377; [Gr] 37}]
+	Un système d'équations linéaires à $n$ équations et $p$ inconnues est un système de la forme :
+	\begin{align*}
+		(S) \iff \begin{cases}
+			a_{1,1}x_1 + a_{1,p}x_p = b_1 \\
+			a_{2,1}x_1 + a_{2,p}x_p = b_2 \\
+			\vdots \\
+			a_{n,1}x_1 + a_{n,p}x_p = b_n \\
+		\end{cases}
+	\end{align*}
+	où les coefficients $a_{i,j}$ et $b_i$ appartiennent $K$.
+	Si tous les $b_i$ sont nuls, le système est dit \emph{homogène} (ou sans second membre).
+
+	La matrice $A = \left(a_{i,j}\right)\in\M_{n,p}(K)$ est la matrice du système.
+\end{definition}
+
+\begin{proposition}[\textnormal{[TL1] 378}]
+	Le système $(S)$ prend la forme matricielle $AX = B$, où $B = {}^t(b_1,\dots,b_n)$ et $X = {}^t(x_1,\dots, x_n)$.
+\end{proposition}
+
+\begin{theorem}[\textnormal{[TL1] 378}]
+	Un système linéaire homogène de $n$ équations à $n$ inconnues possède une solution non trivial si, et seulement si, sa matrice $A$ n'est pas inversible.
+\end{theorem}
+
+\begin{definition}[\textnormal{[TL1] 379; [R] 191}]
+	Le système $(S)$ est dit \emph{compatible} s'il possède au moins une solution et \emph{incompatible} sinon.
+\end{definition}
+
+\begin{proposition}[\textnormal{[TL1] 379}]
+	Les assertions suivantes sont équivalentes :
+	\begin{enumerate}
+		\item Le système $(S)$ est compatible ;
+		\item $B$ est combinaison linéaire (non triviale) des collones de $A$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	Supposons $A = 0_{n,p}$. Si $B = 0_{n,1}$, alors tout vecteur $X$ est solution du système.
+	Si $B\neq 0_{n,1}$, alors le système n'a pas de solution.
+\end{proposition}
+
+\section*{II. Techniques de résolutions dans des cas précis}
+\textcolor{paragraphtext}{On considère jusqu'à la fin de la leçon un système $(S)$ à $n$ équations et $p$ inconnues.
+On note $A$ la matrice associée à ce système.}
+
+\subsection*{A. Méthode de Cramer}
+\begin{definition}[\textnormal{[TL1] 379}]
+	Le système $(S)$ est appelé \emph{système de Cramer} si $n=p$ et si $A$ est inversible.
+\end{definition}
+
+\begin{theorem}[\textnormal{[TL1] 380}]
+	Supposons que $(S)$ soit un système de Cramer.
+	Il possède alors une unique solution $X\in K^n$, qui est $X = A^{-1}B$.
+	Ses coefficients $x_j$ vérifient, pour tout $1\leq j\leq n$ :
+	$$x_j = \frac{\det(C_1,\dots, C_{j-1}, B, C_{j+1},\dots, C_n)}{\det A}$$
+	où $C_i$ est donnée par la $i$-ième colonne de $A$.
+\end{theorem}
+
+\begin{example}[\textnormal{[TL1] 380}]
+	Considérons le système 
+	\begin{align*}
+		(S)\,\colon \begin{cases}
+			x-y+z &= 1\\
+			2x+4y+9z&=1\\
+			3x-4y+2z &= 1
+		\end{cases}
+	\end{align*}
+
+La matrice associée à ce système est $A = \begin{pmatrix}
+	1 & -1 & 1 \\ 2 & 4 & 9 \\ 3 & -4 & 2
+\end{pmatrix}$, en particulier $\det A = 1 \neq 0$ donc il existe une unique solution à ce système.
+Cette dernière est donnée par :
+\begin{align*}
+	x = \begin{vmatrix}
+		1 & -1 & 1 \\ 1 & 4 & 9 \\ 1 & -4 & 2
+	\end{vmatrix},\, 
+	y = \begin{vmatrix}
+		1 & 1 & 1 \\ 2& 1 & 9 \\ 3 & 1 & 2
+	\end{vmatrix},\,\text{et }
+	z = \begin{vmatrix}
+		1 & -1 & 1 \\ 2 & 4 & 1 \\ 3 & -4 & 1
+	\end{vmatrix}
+\end{align*}
+
+donc $x = 29$, $y=15$ et $z=-13$.
+\end{example}
+
+\begin{remark}[\textnormal{[TL1] 381}]
+	Intérêt essentiellement théorique car coût plus élevé que de résoudre le système par pivot de \textsc{Gauss}.
+\end{remark}
+
+\subsection*{B. Matrices échelonnées et méthode de remontée}
+\begin{definition}[\textnormal{[R] 187}]
+	On dit que $A$ est échelonnée en ligne si elle est nulle ou si il existe $r\in \llbracket 1,n \rrbracket$ tel que les lignes $L_i$ de $A$ vérifient :
+	\begin{enumerate}
+		\item $L_i\neq 0$, $\forall 1\leq i \leq r$
+		\item $L_i = 0$, $\forall i\geq r+1$
+		\item $1\leq d_1<d_2<\cdots<d_r\leq p$ où $d_i = \min\left\{1\leq j\leq p\mid a_{ij}\neq 0\right\}$.
+	\end{enumerate}
+
+	Les coefficients $a_{i,d_i}$ sont appelés les \emph{pivots} de la \emph{matrice échelonnée $A$}.
+\end{definition}
+
+\begin{example}[\textnormal{[Gr] 39}]
+	La matrice définie par :
+	\begin{align*}
+		\begin{pmatrix}
+			2&3&1&0&1&2&6 \\
+			0&0&7&1&8&2&0 \\
+			0&0&0&0&0&6&2 \\
+			0&0&0&0&0&0&0
+		\end{pmatrix}
+	\end{align*}
+	est échelonnée, mais ce n'est pas le cas de :
+	\begin{align*}
+		\begin{pmatrix}
+			1&3&1&0&1&5&9 \\
+			0&0&7&1&8&2&0 \\
+			0&0&5&1&0&6&2 \\
+			0&0&0&3&2&1&5
+		\end{pmatrix}
+	\end{align*}
+\end{example}
+
+\begin{proposition}[\textnormal{[R] 187}]
+	Avec les notations précédentes, une matrice $A$ non nulle échelonnée en lignes est de rang $r$ ($=$ le nombre de lignes non nulles).
+\end{proposition}
+
+\begin{definition}[\textnormal{[R] 188}]
+	On dit qu'un système linéaire $AX = B$ est \emph{échelonné} si la matrice $A$ est échelonnée en lignes.
+\end{definition}
+
+\begin{algorithm}[Échelonnage d'une matrice - \textnormal{[R] 193}]
+	A FAIRE
+\end{algorithm}
+
+
+\section*{Développements}
+% \begin{itemize}
+% 	\item Développement 1 : Théorème \ref{171dev1}
+% 	\item Développement 2 : Théorème \ref{171dev2}
+% \end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[R] \emph{Mathématiques pour l'agrégation - Algèbre et géométrie}, Jean-Étienne Rombaldi, 2e édition
+	\item[C] \emph{Carnets de voyage en Algébrie}, Caldero
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[TL1] \emph{Mathématiques Tout-en-un pour la Licence 1}, Jean-Pierre Ramis, André Warusfel
+\end{itemize}
+
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/171.pdf}
+% 	\caption{s}
+% \end{figure}
+
 \chapter*{203 : Utilisation de la notion de compacité}
 \setcounter{definition}{0}
 
@@ -6062,7 +6224,7 @@ Une \emph{norme matricielle} est une norme d'algèbre sur $\M_n(\IK)$, \emph{i.e
 	$x\mapsto (\ps{x}{e_n})_{n\in \IN}$ est un isomorphisme d'espaces de Hilbert de $H$ dans $l^2(\IN)$.
 \end{theorem}
 
-\section*{II. L'exemple fondamental : les espaces $L^2$}
+\section*{II. L'exemple fondamental : les espace $L^2$}
 \begin{theorem}[\textnormal{[HL] e125}]
 	Soit $(X,\A, \mu)$ un espace mesuré. Pour $f$ et $g$ dans $L^2(X,\A,\mu)$, posons $\ps{f}{g}= \int_{X}f(x)\overline{g(x)}d\mu(x)$ (produit scalaire usuel).
 	L'espace $L^2(X,\A,\mu)$ muni de $\ps{\cdot}{\cdot}$ est un espace de Hilbert.
@@ -6216,6 +6378,906 @@ et $\sum_{n\in \IZ}u_n = u_0 + \sum_{n\in\IN^*} u_n + u_{-n}$.}
 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/213.pdf}
 	\caption{s}
 \end{figure}
+
+\chapter*{214 : Théorème d’inversion locale, théorème des fonctions implicites. Illustrations en analyse et en géométrie.}
+\textcolor{paragraphtext}{IMPASSE}
+
+
+\chapter*{215 : Applications différentiables définies sur un ouvert de $\IR^n$. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $U\subseteq \IR$ ($n\geq 1$) est ouvert, $f\,\colon U\to \IR^p$ ($p\geq 1$), et $a\in U$.
+On note $\ps{\cdot}{\cdot}$ le produit scalaire sur $\IR^n$, $\|\cdot\|$ sur norme sur $\IR^n$, $\B=(e_1,\dots,e_n)$ une base de $\IR^n$, $\B'=(\varepsilon_1,\dots,\varepsilon_p)$ une base de $\IR^p$.
+On décompose $f$ dans $\B'\,\colon \forall x\in U,\,f(x) = \sum_{k=1}^{p} f_k(x)\varepsilon_k$.}
+
+\section*{I. Définitions et premières propriétés}
+\subsection*{A. Différentielle et dérivée directionnelle}
+
+\begin{definition}[\textnormal{[G] 323}]
+	On dit que $f$ est \emph{différentiable en $a$} s'il existe $u_a\in\mathcal{L}(\IR^n,\IR^p)$ telle que $\frac{\|f(a+h)-f(a)-u_a(h)\|}{\|h\|}\longrightarrow_{h\to 0}0$.
+	Dans ce cas, $u_a$ est unique : on l'appelle \emph{différentielle de $f$ en $a$}, et on la note $df(a)$.
+	Si $f$ est différentiable en tout point de $U$, alors on dit que $f$ est \emph{différentiable sur $U$}, et on sidpose de $df\,\colon U\to \mathcal{L}(\IR^n,\IR^p)$, $a\mapsto df(a)$.
+\end{definition}
+
+\begin{example}[\textnormal{[G] 323}]
+	Si $f\,\colon \IR\to\IR^p$, alors $f$ est différentiable en $a$ si, et seulement si, $f$ est dérivable en $a$.
+	Le cas échéant, $df(a)\,\colon h\mapsto h\cdot f'(a)$.
+\end{example}
+
+\begin{definition}[\textnormal{[G] 324}]
+	On dit que $f$ admet une \emph{dérivée directionnelle suivant $h\in\IR^n$} si $D_hf(a) := \lim_{t\to D} \frac{f(a+th) - f(a)}{t}$ existe.
+\end{definition}
+
+\begin{proposition}[\textnormal{[G] 324}]
+	Si $f$ est différentiable en $a$, alors $f$ admet une dérivée directionnelle en $a$ suivant tout vecteur. Plus précisément, $\forall h\in \IR^n$, $D_hf(a)=df(a)(h)$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[G] 324}]
+	Si $f$ est différentiable en $a$, alors $f$ est continue en $a$.
+\end{proposition}
+
+\begin{theorem}[inégalité des accroissements finies - \textnormal{[G] 327}]
+	Soit $(a,b)\in U^2$ tel que $[a,b]\subseteq U$. Si $f$ est continue sur $[a,b]$ et différentiable sur $]a,b[$, alors :
+	$$\|f(a)-f(b)\|\leq \sup_{x\in ]a,b[} \vertiii{df(c)\cdot \|b-a\|}$$
+\end{theorem}
+
+\begin{example}
+	$f\,\colon (x,y)\mapsto x^2 + y^2$ est en tout point différentiable, et $\forall \underline{a}\in\IR^2,\, df(\underline{a}) = 2\ps{a}{\cdot}$.
+\end{example}
+
+\subsection*{B. Opérations sur les applications différentiables, exemples}
+
+\begin{proposition}
+	Si $B\,\colon \IR^n\times\IR^m\to\IR^p$ est bilinéaire, alors elle est différentiable en tout point, et $\forall(a,b)\in\IR^n\times\IR^m$, $\forall (h,k)\in\IR^n\times\IR^m$, $dB(a,b)(h,k) = B(h,b) + B(a,k)$.
+\end{proposition}
+
+\begin{example}
+	$\varphi\,\colon (x,y)\in \IR^2 \mapsto xy$ est bilinéaire, et $d\varphi(a,b)(h,k) = hb+ak$.
+\end{example}
+
+\begin{example}
+	Soit $A\in\M_n(\IR)$. L'application $u\,\colon (x,y)\in\IR^n\times\IR^n\mapsto \ps{Ax}{y}$ est bilinéaire, et $\forall(a,b)\in\IR^n\times\IR^n,\, \forall (h,k)\in\IR^n\times\IR^n,\, du(a,b)(h,k) = \ps{Ah}{b} + \ps{Aa}{k}$.
+\end{example}
+
+\begin{proposition}
+	Si $f$ et $g\,\colon U\to \IR^p$ sont différentiables en $a$, alors pour tout $(\alpha, \beta)\in\IR^2$, $\alpha f + \beta g$ est différentiable en $a$, et $d(\alpha f + \beta g)(a) = \alpha df(a) + \beta dg(a)$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[G] 324}]
+	Soient $V\subseteq f(U)$ ouvert et $g\,\colon V\to \IR^d$. Si $f$ est différentiable en $a$ et $g$ en $f(a)$, alors $g\circ g$ est différentiable en $a$, et $d(g\circ f)(a) = df(f(a))\circ dg(a)$.
+\end{proposition}
+
+\begin{example}
+	Si $f,g\,\colon \IR^n\to \IR$ sont différentiables en $a$, alors $fg$ est différentiable en $a$, et $d(fg)(a). d(\varphi\circ (f,g))(a) = f\cdot dg(a) + g\cdot df(a)$ ($\varphi$ est donnée en exemple 9).
+\end{example}
+
+\subsection*{C. Dérivées partielles d'ordre $1$, classe $C^1$}
+
+\begin{definition}[\textnormal{[G] 325}]
+	On dit que $f$ admet en $a$ une \emph{$j$-ième dérivée partielle dans $\B$} si $f$ admet une dérivée suivant $e_j$, que l'on note plutôt $\frac{\partial f}{\partial e_j}(a)$ ou $\partial_jf(a)$.
+\end{definition}
+
+\begin{remark}[\textnormal{[G] 325}]
+	Si $f$ est différentiable en $a$, alors $f$ admet des dérivées partielles, mais la réciproque est fausse : considérer $f\,\colon (x,y)\in \IR^2\setminus \left\{(0,0)\right\}\mapsto \frac{xy}{x^2+y^2}$, $(0,0)\mapsto 0$.
+\end{remark}
+
+\begin{notation*}
+	Lorsque $x = \sum_{k=1}^{n}x_ke_k$, on note $\frac{\partial f}{\partial x_j}(x) = \frac{\partial f}{\partial e_j}(x)$, qui se calcule en considérant les $x_i$, $i\neq j$ comme constants, et en dérivant la fonction de $x_j$.
+\end{notation*}
+
+\begin{definition}[\textnormal{[G] 327}]
+	Si $f$ admet en $a$ des dérivées partielles suivant chaque $e_j$, alors on définit la \emph{(matrice) jacobienne de $f$ en $a$} : 
+	\begin{align*}
+		\Jac_a(f) = \left(\partial_jf_i(a)\right)_{\substack{1\leq i\leq p \\ 1\leq j, n}}
+	\end{align*}
+
+	Pour tout $h\in \IR^n$, $df(a)(h)=\Jac_a(f)\cdot\left(e_i^*(h)\right)_{1\leq i\leq n}$.
+\end{definition}
+
+\begin{proposition}[règle de la chaîne - \textnormal{[G] 327}]
+	Sous les hypothèses de la propositoin 12, $\Jac_a(g\circ f) = \Jac_{f(a)}(g)\Jac_a(f)$, \emph{i.e.} $\frac{\partial (g\circ f)_i}{\partial e_j}(a) = \sum_{k=1}^{n}\frac{\partial g_i}{\partial \varepsilon_j}(f(a))\times\frac{\partial f_k}{\partial e_j}(a)$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[G] 323}]
+	On dit que $f$ est \emph{de classe $C^1$ sur $U$} si $f$ est différentiable sur $U$ et si $df$ est continue sur $U$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[G] e325}]
+	Les dérivées partielles (d'ordre $1$) dans $\B$ existent et sont continues sur $U$ si, et seulement si, $f$ est de classe $C^1$ sur $U$.
+\end{proposition}
+
+\section*{II. Ordre supérieur - Étude locale}
+\subsection*{A. Différentielle et dérivée partielles d'ordre supérieur}
+
+\begin{definition}[\textnormal{[Rv] 283}]
+	On dit que $f$ est \emph{deux fois différentiable en $a$} si $f$ est différentiable sur $U$ et si $df$ est différentiable en $a$.
+	On note alors $d^2f(a) := d(df)(a)$. On dit que $f$ est \emph{$k$ fois différentiable en $a$} si $f$ est $k-1$ fois différentiable sur $U$ et si $d^{k-1}f$ est différentiable en $a$.
+\end{definition}
+
+\begin{remark}[\textnormal{[Rv] 294}]
+	Si $f$ est deux fois différentiable sur $U$, alors on dispose de $d^2f\,\colon U\to \mathcal{L}(\IR^n, \mathcal{L}(\IR^n,\IR^p))\cong \mathcal{L}_2(\IR^n\times\IR^n,\IR^p),\, a\mapsto d^2f(a)$.
+	Ainsi, $d^2f(a)$ s'identifie à une forme bilinéaire sur $\IR^n$.
+\end{remark}
+
+\begin{definition}[\textnormal{[Rv] 294}]
+	Sous réserve d'existence, on appelle \emph{dérivées partielles d'ordre $2$ de $f$ dans $\B$ en $a$} les vecteurs
+	$$\frac{\partial^2f}{\partial e_i \partial e_j}(a) := \frac{\partial}{\partial e_i}\left[\frac{\partial f}{\partial e_j}\right](a)$$
+	On appelle \emph{dérivées partielles d'ordre $k$ de $f$ dans $\B$ en $a$} les vecteurs $\frac{\partial^2f}{\partial e_{i_1}\dots\partial e_{i_k}}(a) := \frac{\partial}{\partial e_{i_1}}\left[\frac{\partial f}{\partial e_{i_2}\dots\partial e_{i_k}}\right](a)$ ($1\leq k\leq n,\, 1\leq i_1,\dots, i_k\leq n$).
+\end{definition}
+
+\begin{remark}[\textnormal{[Rv] 296}]
+	En général, $\frac{\partial^2 f}{\partial e_i\partial e_j}(a)\neq \frac{\partial^2 f}{\partial e_j\partial e_i}(a)$ : considérer la fonction de Remarque $15$.
+\end{remark}
+
+\begin{proposition}
+	Proposition 19 reste vraie en remplaçant $1$ par $k$, pour tout $k\geq 1$.
+\end{proposition}
+
+\begin{theorem}[de \textsc{Schwarz} - \textnormal{[Rv] 294}]
+	Si $f$ est deux fois différentiable en $a$, alors :
+	\begin{align*}
+		\forall (i,j)\in\llbracket 1,n\rrbracket^2,\,  \frac{\partial^2 f}{\partial e_i\partial e_j}(a) = \frac{\partial^2 f}{\partial e_j\partial e_i}(a)
+	\end{align*}
+\end{theorem}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[Différentielle de l'exponentielle matricielle]
+	\label{215dev1}
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{B. Étude locale}
+\begin{theorem}[d'inversion locale - \textnormal{[G] 341}]
+	Si $f\in C^1(U,\IR^n)$ et si $df(a)$ est inversible, alors il existe un voisinage $V\subseteq U$ de $a$ tel que $f$ induit une bijection de $V$ dans $f(V)$ de réciproque $C^1$.
+\end{theorem}
+
+\begin{example}[\textnormal{[Rv] 208}]
+	Définition locale d'un logarithme matriciel.
+\end{example}
+
+\begin{theorem}[des fonctions implicites - \textnormal{[Rv] 344}]
+	Soient $\Omega\subseteq \IR^n\times\IR^m$ un ouvert, $(a,b)\in \Omega$ et $f\in C^1(\Omega,\IR^p)$.
+	Si $f(a,b)=0$ et si $f(a,\cdot)$ est différentiable en $b$, de différentielle inversible, alors il existe des voisinages $U$ de $a$ et $V$ de $b$ tels que $U\times V \subseteq \Omega$,
+	et une unique application $\varphi\in C^1(U,V)$ telle que : $\left\{(x,y)\in U\times V\mid f(x,y)=0\right\} = \left( (x,\varphi(x)) \mid x\in U\right)$.
+\end{theorem}
+
+\begin{example}[\textnormal{[Rv] 348}]
+	Détermination des équations d'était d'un système thermodynamique qui satisfait la loi des gaz parfaits : $f(P,V,T) = PV - nRT = 0$.
+\end{example}
+
+\begin{theorem}[formule de \textsc{Taylor} - \textnormal{[Rv] 296}]
+	Si $f$ est $k$ fois différentiable en $a$, alors $\forall h\in U$, 
+	\begin{align*}
+		f(a+h) &= \sum_{j=0}^{k}\frac{1}{j!}d^jf(a)(h)\dots (h)\quad \text{[$(h)$ appliqué $j$ fois]} \\
+		&= \sum_{j=0}^{k}\left(\sum_{i=1}^{n} h_i\frac{\partial}{\partial e_i}\right)^k[f](a) + o(\|h\|^k)
+	\end{align*}
+\end{theorem}
+
+\begin{theorem}[formule de \textsc{Taylor} avec reste intégral - \textnormal{[Rv] 298}]
+	Si $f\in C^{k+1}(U,\IR^n)$, alors pour tout $h\in\IR^n$ tel que $[a,a+h]\subseteq U$,
+	\begin{align*}
+		f(a+h) &= \sum_{j=0}^{k}\frac{1}{j!}d^jf(a)(h)\dots(h) + \int_{0}^{1}\frac{(1-t)^k}{k!}d^{k+1}f(a+th)(h)\dots(h)dt
+	\end{align*} 
+	NB : sous la somme, il y $j$ fois $(h)$, tandis que sous l'intégral il y a $k+1$ fois $(h)$.
+\end{theorem}
+
+\section*{III. Cas des fonctions à valeurs dans $\IR$}
+\textcolor{paragraphtext}{Dans ce paragraphe, on suppose que $f\,\colon U\subseteq \IR^n\to \IR$ est différentiable en $a$.}
+
+\subsection*{A. Gradient, hessienne}
+
+\begin{definition}[\textnormal{[G] 324}]
+	On appelle \emph{gradient de $f$ en $a$} l'unique vecteur $\nabla f(a)\in\IR^n$ tel que $df(a) = \ps{\cdot}{\nabla f(a)}$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Rv] 325}]
+	$df(a) = \sum_{k=1}^{n}\frac{\partial f}{\partial e_k}(a)e_k^*$ et si $\B$ est orthonormale, $\nabla f(a) = \sum_{k=1}^{n} \frac{\partial f}{\partial e_k}(a)e_k$.
+\end{proposition}
+
+\textcolor{paragraphtext}{À partir de maintenant, sauf mention contraire, $f\in C^2(U,\IR)$.}
+
+\begin{definition}[\textnormal{[Rv] 294}]
+	On appelle \emph{(matrice) hessienne de $f$ en $a$} la matrice
+	\begin{align*}
+		\Hess_a(f) = \left(\frac{\partial^2 f}{\partial e_i\partial e_j}(a)\right)_{1\leq i,j\leq n}
+	\end{align*}
+\end{definition}
+
+\begin{remark}
+	D'après le théorème de \textsc{Schwarz}, $\Hess_a(f)$ est symétrique. C'est la matrice de la forme bilinéaire $d^2f(a)$ dans $\B$. Pour tout $(h,k)\in\IR^n\times\IR^n$, $d^2f(a)(h)(k) = {}^t\left(e_i^*(h)\right)_{1\leq i\leq n}\cdot \Hess_a(f)\cdot \left(e_i^*(k)\right)_{1\leq i\leq n}$.
+\end{remark}
+
+\begin{example}
+	Expression du laplacien en coordonées polaires $[\varphi\,\colon (r,\theta)\mapsto (r\cos(\theta), r\sin(\theta))]$ :
+	\begin{align*}
+		\Delta f = \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2} = \frac{\partial^2(f\circ \varphi)}{\partial r^2} + \frac{1}{r}\frac{\partial(f\circ\varphi)}{\partial r} + \frac{1}{r^2}\frac{\partial^2(f\circ \varphi)}{\partial \theta^2}
+	\end{align*}
+\end{example}
+
+\subsection*{B. Optimisation}
+\begin{definition}[\textnormal{[G] 336}]
+	On dit que $a$ est un \emph{point critique} si $df(a) = 0_{\mathcal{L}(\IR^n,\IR)}$.
+\end{definition}
+
+\begin{theorem}[FIGURE - \textnormal{[G] 335-336}]
+	\begin{itemize}
+		\item Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+		\item La réciproque est vraie si on suppose en plus $\Hess_a(f)$ définie.
+		\item Si $a$ est un point critique et si $\Hess_a(f)$ admet deux valeurs propres de signes strictement opposés, alors $a$ est un \emph{point-selle}.
+	\end{itemize}
+\end{theorem}
+
+\begin{example}
+	Si $f\,\colon \IR \to \IR$, alors on retrouve un résultat bien connu :
+	\begin{itemize}
+		\item Si $f'(a) = 0$ et $f''(a) > 0$ (resp. $f''(a)< 0$), alors $f$ admet un minimum (resp. un maximum) local en $a$.
+		\item Si $f'(a) = f''(a)$ et $f'''(a) \neq 0$, alors $a$ est un point d'inflexion.
+	\end{itemize}
+\end{example}
+
+\begin{example}[\textnormal{[BMP] 24-32}]
+	Soient $A\in \mathcal{S}_n^{++}(\IR)$ et $b\in\IR^n$. La solution de $Ax= b$ est le minimum global de $J\cdot x \mapsto \frac{1}{2}\ps{Ax}{x} = \ps{b}{x}$.
+\end{example}
+
+\begin{theorem}[des extrema liés - \textnormal{[Rv] 372}]
+	Soit $(f, g_1,\dots, g_r)\in C^1(U, \IR)^{r+1}$, posons $\Gamma = \left\{x\in U \mid g_1(x)=\cdots=g_r(x)=0\right\}$.
+	Si $f_{\mid \Gamma}$ admet un extremum local en $a\in \Gamma$, et si $(dg_1(a),\dots,dg_r(a))$ est libre, alors il existe des réels $\lambda_1,\dots,\lambda_r$, appelés \emph{multiplicateurs de \textsc{Lagrange}}, tels que :
+	$$df(a) = \sum_{k=1}^{r} \lambda_kdg_k(a)$$
+\end{theorem}
+
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{application*}[\textnormal{[Rv] 413}]
+	\label{215dev2}
+	Existence d'une trajectoire fermée à 3 rebonds sur un billard elliptique.
+\end{application*}
+\end{tcolorbox}
+
+\begin{remark}
+	Ce théorème permet de ramener la recherche d'un extremum local en dimension $n$ sous $r$ contraintes à la résolution du système carré $n+r$ :
+	$$\{ \forall i\in\llbracket 1,n\rrbracket,\, \frac{\partial f}{\partial e_i}(a) = \sum_{k=1}^{r}\lambda_k\frac{\partial g_k}{\partial e_i}(a)\quad g_1(a) = \cdots = g_r(a) = 0$$
+\end{remark}
+
+\begin{proposition}[\textnormal{[Rv] 127}]
+	Supposons $U$ convexe. 
+	\begin{itemize}
+		\item Si $f$ est différentiable sur $U$, alors $f$ est convexe si, et seulement si : $$\forall(x,y)\in U^2,\, f(y)-f(x)\geq df(x)(y-x)$$
+		\item Si $f$ est deux fois différentiable sur $U$, alors $f$ est convexe si, et seulement si, pour tout $a\in U$, $\Hess_a(f)$ est (symétrique) positive.
+	\end{itemize}
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Rv] 381}]
+	Si $U$ est convexe, si $f$ est convexe, et si $a$ est un point critique, alors $f$ admet en $a$ un minimum global sur $U$.
+\end{proposition}
+
+\section*{IV. Cas des fonctions du plan : holomorphie}
+\textcolor{paragraphtext}{On suppose que $f\,\colon \IR^2\to \IR^2$. On note $u$ et $v$ les applications coordonées de $f$ dans la base canonique : $f=(u,v)$. Soit $z_0\in\IR^2$.}
+
+\begin{definition}[\textnormal{[T] e59}]
+	On dit que $f$ est \emph{holomorphe en $z_0$} si $f$ est différentiable en $z_0$ et vérifie la condition de \textsc{Cauchy-Riemann} :
+	\begin{align*}
+		\frac{\partial u}{\partial x}(z_0) = \frac{\partial v}{\partial y}(z_0)\quad\text{et}\quad \frac{\partial u}{\partial y}(z_0) = -\frac{\partial v}{\partial x}(z_0)
+	\end{align*}
+
+	Le cas échéant, on pose $f'(z_0) := \frac{\partial f}{\partial x}(z_0) = \left(\frac{\partial u}{\partial x}(z_0), \frac{\partial v}{\partial x}(z_0)\right)$.
+\end{definition}
+
+\begin{proposition}[\textnormal{[T] e60-61}]
+	Si $f$ est différentiable en $z_0$, alors $\forall h=(h_x,h_y)\in\IR^2$, $df(z_0)(h) = \ps{\partial_z f(z_0)}{h} + \ps{\partial_{\overline{z}} f(z_0)}{\overline{h}}$
+	où $\overline{h} = (h_x, -h_y)$, $\partial_z f(z_0) = \frac{1}{2}\left(\frac{\partial f}{\partial x}(z_0), -\frac{\partial f}{\partial y}(z_0)\right)$ et $\partial_{\overline{z}} f(z_0) = \frac{1}{2}\left(\frac{\partial f}{\partial x}(z_0), \frac{\partial f}{\partial y}(z_0)\right)$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[T] e61}]
+	$f$ est holomorphe en $z_0$ si, et seulement si, $f$ est différentiable en $z_0$ et $\partial_{\overline{z}}f(z_0) = 0$. Le cas échéant, $f'(z_0) = \partial_z f(z_0)$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[T] e69}]
+	Soit $\gamma = (\gamma_x, \gamma_y)\,\colon [a,b]\to \IR^2$ un arc paramétré de classe $C^1$.
+	On définit l'\emph{intégrale de $f$ le long de $\gamma$} comme :
+	\begin{align*}
+		\int_{\gamma} f(z)dz = \int_{a}^{b} (f\circ \gamma)(t)\times \gamma'(t)dt
+	\end{align*}
+\end{definition}
+
+\begin{theorem}[formule de \textsc{Cauchy} - \textnormal{[T] e77}]
+	Soient $U\subseteq \IR^2$ ouvert, $a\in \IR^2$ et $R> 0$ tels que $\overline{\B}(a,r)\subseteq U$. Supposons $f$ holomorphe sur $U$. Alors,
+	\begin{align*}
+		f(a) = \frac{1}{2\pi}\int_{\gamma} \frac{f(z)}{z-a}dz
+	\end{align*}
+	pù $\gamma\,\colon [0,2\pi]\to \IR^2$, $t\mapsto a+R(\cos(t), \sin(t))$.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[T] 78}]
+	Si $f$ est holomorphe en $z_0$, alors $f$ est infiniment différentiable en $z_0$.
+\end{theorem}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorème \ref{215dev1}
+	\item Développement 2 : Application \ref{215dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[T] \emph{Analyse complexe pour la licence 3}, Patrice Tauvel, 2e édition
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/215.pdf}
+	\caption{s}
+\end{figure}
+
+
+\chapter*{219 : Extremums : existence, caractérisation, recherche. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Soient $(E,\|\cdot\|)$ un $\IR$-espace vectoriel normé, $U\subseteq E$ non vide et $f\,\colon U\to \IR$.}
+
+\section*{I. Existence et unicité d'extrema}
+\begin{definition}
+	On dit que $f$ admet un \emph{maximum local} (resp. un \emph{minimum local}) en $a\in U$ s'il existe un voisinage $V$ de $a$ tel que $\forall x\in V\cap Y,\, f(x)\leq f(a)$ (resp. $f(x) \geq f(a)$).
+
+	Si cette inégalité est vraie pour tout $x\in U$, alors $f(a)$ est un \emph{maximum global} (resp. un \emph{minimum global}) de $f$.
+\end{definition}
+
+\begin{remark}
+	Un extremum global est local, mais la réciproque est fausse ! Considérer $x\mapsto (x-2)x(x+2)$ sur $\IR$.
+\end{remark}
+
+\subsection*{A. Optimisation des fonctions continues sur un compact}
+\begin{theorem}[des bornes atteintes - \textnormal{[G] 31}]
+	Si $U$ est compact, alors $f$ est bornée et atteint ses bornes.
+\end{theorem}
+
+\begin{remark}
+	\begin{itemize}
+		\item $\IR$ n'est pas compact, $\arctan$ est continue et bornée sur $\IR$ mais n'atteint pas ses bornes.
+		\item $f\,\colon x\neq 0\mapsto 1/x$, $0\mapsto 0$ n'est pas continue sur le compact $[-1,1]$, et n'est pas bornée.
+	\end{itemize}
+\end{remark}
+
+\begin{corollary}[\textnormal{[G] e33}]
+	Si $U = E\cong \IR^n$, $f$ est continue sur $U$ et $\lim_{\|x\|\to +\infty} f(x) = +\infty$, alors $f$ admet et atteint un minimum global.
+\end{corollary}
+
+\begin{corollary}[\textnormal{[BMP] 30}]
+	Soit $F\subseteq E$ fermé non vide. Pour tout $x\in E$, il existe $y\in F$ tel que
+	\begin{align*}
+		\|x-y\| = d(x,F) = \inf_{z\in F} \|x-z\|
+	\end{align*}
+\end{corollary}
+
+\subsection*{B. Optimisation et convexité}
+\textcolor{paragraphtext}{Supposons $U$ convexe, \emph{i.e.} $\forall(x,y)\in U^2,\,\forall \lambda\in[0,1],\, \lambda x + (1-\lambda)y \in U$.}
+
+\begin{definition}[\textnormal{[BMP] 26}]
+	On dit que $f$ est \emph{convexe} si :
+	$$\forall (x,y)\in U^2,\,\forall \lambda\in [0,1],\, f(\lambda x + (1-y)y) \leq \lambda f(x) + (1-\lambda)f(y)$$
+	On dit que $f$ est \emph{strictement convexe} si cette inégalité est stricte pour $x\neq y$ et $\lambda\notin \left\{0,1\right\}$.
+\end{definition}
+
+\begin{example}[\textnormal{[BMP] e32}]
+	Soient $E = U = \IR^n$, $A\in\mathcal{S}_n(\IR)$ $f\,\colon x\mapsto \ps{Ax}{x}$.
+	Alors $f$ est (strictement) convexe si, et seulement si, $A$ est (définie) positive.
+\end{example}
+
+\begin{proposition}[\textnormal{[BMP] 30}]
+	Si $f$ est convexe et admet un minimum local, alors c'est un minimum global. Si $f$ est de plus strictement convexe, alors ce minimum est unique.
+\end{proposition}
+
+\textcolor{paragraphtext}{Soient $(H,\ps{\cdot}{\cdot})$ un espace de Hilbert, $C\subseteq H$ un convexe fermé non vide, et $F$ un sous-espace vectoriel fermé de $H$.}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{theorem}[de projection sur un convexe fermé - FIG. 1 - \textnormal{[HL] 91}]
+	\label{219dev11}
+	$\forall x\in H,\, \exists ! P_C(x)\in C\,\colon \|x-P_C(x)\| = d(x,C) =: \inf_{y\in C} \|x-y\|$.
+
+	De plus, $P_C(x)$ est caractérisé par $\forall y\in C,\, \Re(\ps{x-P_C(x)}{x-y})\leq 0$.
+
+	Dans le cas de $F$, le projeté $P_F(x)$ est caractérisé par $P_F(x)\in F$ et $x-P_F(x)\in F^{\perp}$.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Riesz} - \textnormal{[HL] 96}]
+	\label{219dev12}
+	$J\,\colon H\to H'$, $y\mapsto\ps{\cdot}{y}$ est un isomorphisme d'espaces de Hilbert, \emph{i.e.} une isométrie linéaire surjective.
+\end{theorem}
+\end{tcolorbox}
+
+\subsection*{C. Optimisation et holomorphie}
+\textcolor{paragraphtext}{On prend $E =\IC$, $U$ ouvert connexe, et $f$ holomorphe sur $U$.}
+
+\begin{theorem}[\textnormal{[BMP] 72}]
+	$\forall a\in U$, $\forall r > 0$, 
+	$$\B(a,r)\subseteq U \implies f(a) = \frac{1}{2\pi}\int_{0}^{2\pi} f(a + re^{i\theta})d\theta$$
+\end{theorem}
+
+\begin{theorem}[principe du maximum local - \textnormal{[BMP] 72}]
+	Si $\vert f\vert$ admet un maximum local, alors $f$ est constant.
+\end{theorem}
+
+\begin{theorem}[principe du maximum global - \textnormal{[BMP] 72}]
+	Supposons $U$ borné et $f$ continue sur $\overline{U}$. Alors $\sup_U \vert f\vert = \max_{\partial U} \vert f\vert$
+	et si ce maximum est atteint en un point de $U$, alors $f$ est constante.
+\end{theorem}
+
+\begin{theorem}[de \textsc{Liouville}]
+	Si $f$ est holomorphe sur $\IC$ et bornée, alors $f$ est constante.
+\end{theorem}
+
+\begin{theorem}[d'\textsc{Alembert-Gauss}]
+	$\IC$ est algébriquement clos.
+\end{theorem}
+
+\section*{II. Optimisation des fonctions différentiables - caractérisation des extremums.}
+\textcolor{paragraphtext}{Dans ce paragraphe, $E = \IR^n$ et $U$ est ouvert.}
+
+\subsection*{A. Conditions de premier ordre}
+\begin{definition}[\textnormal{[BMP] 16}]
+	On dit que $a$ est un \emph{point critique} si $df(a) = 0_{\mathcal{L}(\IR^n, \IR)}$.
+\end{definition}
+
+\begin{theorem}[\textnormal{[BMP] 18}]
+	Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+\end{theorem}
+
+\begin{remark}
+	$x\mapsto x^3$ admet un point critique qui n'est pas un extremum.
+\end{remark}
+
+\begin{theorem}[de \textsc{Rolle} - \textnormal{[R] 251}]
+	Si $f$ est continue sur $[a,b]$, dérivable sur $]a,b[$, et si $f(a) = f(b)$, alors il existe $c\in ]a,b[$ tel que $f'(c) = 0$.
+\end{theorem}
+
+\begin{theorem}[des accroissements finis - \textnormal{[R] 258}]
+	Si $f$ est continue sur $[a,b]$ et dérivable sur $]a,b[$, alors il existe $c\in ]a,b[$ tel que $f(b)-f(a) = f'(c)(b-a)$.
+\end{theorem}
+
+\begin{corollary}[\textnormal{[R] 205-238}]
+	\begin{itemize}
+		\item Si $f$ est dérivable sur un intervalle de dérivée positive, alors $f$ est croissante.
+		\item Si $f$ est deux fois dérivable sur un intervalle de dérivée seconde positive, alors $f$ est convexe.
+	\end{itemize}
+\end{corollary}
+
+\subsection*{B. Conditions de second ordre}
+\begin{theorem}[FIGURE 2 - \textnormal{[BMP] e18}]
+	\begin{itemize}
+		\item Si $f$ admet un maximum (resp. un minimum) local en $a$, alors $a$ est un point critique, et $\Hess_a(f)$ est négative (resp. positive).
+		\item La réciproque est vraie si on suppose en plus $\Hess_a(f)$ définie.
+		\item Si $a$ est un point critique et si $\Hess_a(f)$ admet deux valeurs propres de signes strictement opposés, alors $a$ est un \emph{point-selle}.
+	\end{itemize}
+\end{theorem}
+
+\begin{remark}[\textnormal{[Rv] 371}]
+	$x\mapsto x^4$ admet un minimum global en $0$, mais sa hessienne (sa dérivée seconde) est nulle en $0$.
+\end{remark}
+
+
+\begin{example}[\textnormal{[BMP] 24-32}]
+	Soient $A\in\mathcal{S}_n^{++}(\IR)$, $b\in\IR^n$ et $J\,\colon x\mapsto \frac{1}{2}\langle AX\mid X\rangle - \langle b\mid x\rangle$.
+	Alors $\forall x\in \IR^n$, $\nabla J(x)=Ax-b$ et $\Hess_J(x) = A\in\mathcal{S}_n^{++}(\IR)$.
+	En particulier, $J$ admet un unique minimum (global) qui est la solution de $Ax= b$.
+\end{example}
+
+\subsection*{C. Optimisation sous contrainte}
+
+
+\begin{theorem}[des extrema liés - \textnormal{[Rv] 372}]
+	Soient $U$ un ouvert de $\IR^n$ et $(f,g_1,\dots, g_R)\in C^1(U,\IR)^{r+1}$. 
+	Posons $\Gamma = \bigcap_{i=1}^r g_i^{-1}(\left\{0\right\})$.
+	Si $f_{\mid \Gamma}$ admet un extremum local en $a\in \Gamma$, et si $(dg_1(a),\dots, dg_r(a))$ est libre, alors il existe des réels (uniques) $\lambda_1,\dots, \lambda_n$ appelées \emph{multiplicateurs de \textsc{Lagrange}},
+	tels que $df(a) = \lambda_1dg_1(a)+\cdots + \lambda_r dg_r(a)$.
+\end{theorem}
+
+ \begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{application}[\textnormal{[Rv] 413}]
+	\label{219dev2}
+	Sur un billard elliptique, il existe une trajectoir fermée à 3 rebonds.
+\end{application}
+\end{tcolorbox}
+
+\begin{remark}
+	Ce théorème permet de ramener la recherche d'un extremum local en dimension $n$ sous $r$ contraintes à la résolution du système carré $n+r$ :
+	$$\{ \forall i\in\llbracket 1,n\rrbracket,\, \frac{\partial f}{\partial e_i}(a) = \sum_{k=1}^{r}\lambda_k\frac{\partial g_k}{\partial e_i}(a)\quad g_1(a) = \cdots = g_r(a) = 0$$
+\end{remark}
+
+\begin{example}[\textnormal{[Rv] 411, 412}]
+Soient $a_1,\dots, a_n,a$ des réels deux à deux distincts, et posons $\Sigma = \left\{(p_1,\dots,p_n)\in \left(\IR^{+*}\right)^n \mid \sum_{k=1}^{n} p_k = 1\text{ et } \sum_{k=1}^{n}a_kp_k = a\right\}$ (qui est non vide).
+La fonction :
+\begin{align*}
+	H\,\colon (p_1,\dots,p_n)\in\Sigma\mapsto -\sum_{k=1}^{n} p_k\ln(p_k)
+\end{align*}
+admet un unique maximum, en $\frac{1}{n}(1,\dots,1)$.
+\end{example}
+
+\section*{III. Optimisation numérique : algorithmes de recherche d'extrema}
+\begin{theorem}[méthode de \textsc{Newton} - \textnormal{[R] 345-346}]
+	Soient $a < b$ deux réels, $f\,\colon[a,b]\to \IR$ de classe $C^2$ telle que $f(a)< 0 f(b)$ et $f'>0$ sur $[a,b]$.
+	soit $\left(x_n\right)_{n\in\IN}$ définie par :
+	$$x_0\in [a,b]\quad\text{et}\quad \forall n\in\IN,\, x_{n+1} = x_n - f(x_n)/f'(x_n)$$
+	\begin{enumerate}
+		\item Pour $x_0$ assez proche de l'unique zéro $\alpha$ de $f$, $\left(x_n\right)_n$ converge vers $\alpha$ à vitesse quadratique.
+		\item Si $f''>0$ sur $[a,b]$, alors la convergence (quadratique) de $\left(x_n\right)_n$ ne dépend pas du choix de $x_0$, et $$x_{n+1} - ÷alpha \sim \frac{1}{2}\frac{f''(\alpha)}{f'(\alpha)(x_n-\alpha)^2}$$
+	\end{enumerate}
+\end{theorem}
+
+\begin{application}
+	\begin{itemize}
+		\item Recherche de points critiques
+		\item Schéma d'\textsc{Euler} implicite
+	\end{itemize}
+\end{application}
+
+\begin{theorem}[méthode du gradient - \textnormal{[BMP] 22-23}]
+	Soit $a\in U$ où $f$ atteint un minimum local, soit $x_0\in U$ proche de $a$.
+	La suite définie par $x_0 = x_0$ et $\forall n\in \IN$, $x_{n+1} = x_n - \nabla f(x_n)$ converge (sous certaines hypothèses) vers $a$.
+\end{theorem}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Théorèmes \ref{219dev11} et \ref{219dev12}
+	\item Développement 2 : Application \ref{219dev2}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[BMP] \emph{Objectif Agrégation}, Vincent Beck, Jérôme Malick, Gabriel Peyré, 2e édition
+	\item[R] \emph{Éléments d'analyse réelle}, Rombaldi
+	\item[Rv] \emph{Petit guide du calcul différentiel}, François Rouvière, 4e édition
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	\item[HL] \emph{Éléments d'analyse fonctionnelle}, Francis Hirsch, Giles Lacombe
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/219.pdf}
+	\caption{s}
+\end{figure}
+
+
+\chapter*{220 : Illustrer par des exemples la théorie des équations différentielles ordinaires.}
+\setcounter{definition}{0}
+
+\section*{I. Solutions d'une EDO : existence, unicité, survie}
+\subsection*{A. Définitions et cadre de la leçon}
+
+\begin{definition}[\textnormal{[G] 373}]
+	Une \emph{équation différentielle ordinaire} (EDO) est une équation d'inconnue une fonction $y$ liant celle-ci à ses dérivées, \emph{i.e.} de la forme $\forall t\in I,\, g(t,y(t),y'(t),\dots, y^{(n)}(t)) = 0$,
+	où $I\subseteq \IR$ est un intervalle ouvert, $y\,\colon I\to\IR^d$ et $g\,\colon I\times\Omega\to\IR^d$.
+	On dit que cette équation est \emph{réduite} si elle peut être écrite de manière équivalente sous la forme $y^{(n)}(t) = f(t,y(t),y'(t),\dots,y^{(n-1)}(t))$.
+	L'entier $n$ est alors appelé \emph{ordre} de cette EDO.
+\end{definition}
+
+\begin{proposition}[\textnormal{[Be] 20}]
+	Soit $(E)\,\colon y^{(n)}(t) = f(t,y(y),\dots,y^{(n-1)}(t))$ une EDI où $y \,\colon I\to \IR^d$.
+	Posons $Y = {}^t(y, y', \cdots, y^{(n-1)})\,\colon I\to \left(\IR^d\right)^n$ 
+	et $F\,\colon I\times \left(\IR^d\right)^n\to \left(\IR^d\right)^n$, 
+	$(t,Y)\mapsto {}^t(y',\dots, y^{(n-1)},f(t,y,y',\dots,y^{(n-1)}))$.
+
+	Alors $(E)\iff (E')\,\colon \forall t\in I,\, Y'(t) = F(t,Y)$.
+\end{proposition}
+
+\textcolor{paragraphtext}{Dans toute la suite, on considère un intervalle 
+ouvert $I\subseteq \IR$, $f\,\colon I\times \Omega\to\IR^d$ avec $\Omega\subseteq \IR^d$ ouvert, et $(E)\,\colon y'(t) = f(t,y(t))$ que l'on notera abusivement $(E)\,\colon y'=f(t,y)$.}
+
+\begin{definition}[\textnormal{[Be] 11}]
+	Une \emph{solution de $(E)$} est la donnée d'un intervalle $J\subseteq I$ et d'une fonction $y\in C^1(J,\IR^d)$ satisfaisant $(E)$ pour tout $t\in J$.
+\end{definition}
+
+\begin{definition}[\textnormal{[Be] 14-16}]
+	Soient $(J_1,y_1)$ et $(J_2,y_2)$ deux solutions de $(E)$.
+	\begin{itemize}
+		\item On dit que $(J_2,y_2)$ est un \emph{prolongement de $(J_1,y_1)$} si $J_1\subseteq J_2$ et si ${y_2}_{J_1} = y_1$.
+		\item On dit que $(J_1, y_1)$ est \emph{maximale} si elle n'admet pas de prolongement (strict).
+		\item On dit que $(J_1,y1)$ est \emph{globale} si $J_1 = I$ (en particulier elle est maximale).
+	\end{itemize}
+\end{definition}
+
+\begin{remark}[\textnormal{[Be] 16}]
+	Pour $(E) \,\colon y' = y^2$ sur $\IR$, $(\IR^{-*}, t\mapsto -\frac{1}{t})$ est maximale non globale.
+\end{remark}
+
+\begin{definition}[\textnormal{[Be] 12}]
+	Soit $(t_0, y_0)\in I\times \Omega$. Un \emph{problème de \textsc{Cauchy}} est la recherche d'une solution satisfaisant une \emph{condition initiale}.
+	On notera $(C)\,\colon \begin{cases}
+		(E)\,\colon y'=f(t,y) \\
+		y(t_0) = y_0
+	\end{cases}$ un tel problème de \textsc{Cauchy}.
+\end{definition}
+
+\textcolor{paragraphtext}{Dans la suite, on fixe $(t_0,y_0)\in I\times \Omega$ et $(C)\,\colon \begin{cases}
+	(E)\,\colon y' = f(t,y)\\ y(t_0)=y_0
+\end{cases}$.}
+
+\subsection*{B. Le théorème de \textsc{Cauchy-Lipschitz} et ses conséquences}
+\begin{definition}[\textnormal{[Be] 84}]
+	On dit que $f$ est \emph{localement lipschitzienne selon sa deuxième variable} si :
+	$\forall(t_0,y_0)\in I\times \Omega,\, \forall v\in\mathcal{V}\left((t_0,y_0)\right),\, \exists \lambda > 0\,\colon \forall t\in I,\, \forall (y_1,y_2)\in\Omega^2,\, \left((t,y_1),(t,y_2)\right)\in\mathcal{V}^2\implies \|f(t,y_1) - f(t,y_2)\| \geq \lambda\|y_1-y_2\|$.
+\end{definition}
+
+\begin{theorem}[de \textsc{Cauchy-Lipschitz} - \textnormal{[Be] 85}]
+	Si $f$ est continue sur $I\times \Omega$ et localement lipschitzienne selon sa deuxième variable, alors $(C)$ admet une unique solution maximale.
+
+	Si $f$ est globalement lipschitzienne selon sa deuxième variable, alors cette solution est globale.
+\end{theorem}
+
+\begin{cexample}
+	$f\,\colon (t,y)\mapsto 2\sqrt{\vert y\vert}$ n'est pas localement lipschitzienne, et $y'=2\sqrt{\vert y\vert}$ admet plusieurs solutions telles que $y(0)=0$ (ex : $0,\, t\mapsto t\cdot \vert t\vert$).
+\end{cexample}
+
+\begin{application}[schéma d'\textsc{Euler} explicite - \textnormal{[Be] 318-319}]
+	Soit $\Delta t > 0$ petit. On pose $Y_0 = y(t_0)=y_0$ et pour $n\in\IN$, $Y_{n+1} = Y_n + \Delta t f(t_0 + n\Delta t, Y_n)$.
+	La fonction affine par morceaux $Y$ telle que $\forall n\in \IN,\, Y(t_0 + n\Delta t) = Y_n$ approche la solution de $(C)$ lorsque $f$ est $C^1$ et globalement lipschitzienne selon $Y$.	
+\end{application}
+
+\subsection*{C. Durée de vie et explosion des solutions}
+
+\begin{lemma}[de \textsc{Grönwall} différentiel - \textnormal{[Be] 18}]
+	Soient $w\in C^1(I,\IR)$ et $v\in C^0(I,\IR)$ telles que $w' \leq w\cdot v$ sur $I$. Alors :
+	$$\forall t\in I,\quad t\geq t_0\implies w(t)\leq w(t_0)\exp\left(\int_{t_0}^{t} v\right)$$
+\end{lemma}
+
+\begin{lemma}[de \textsc{Grönwall} intégral - \textnormal{[Be] 18}]
+	Soient $u\in C^0(I,\IR)$, $v\in C^0(I,\IR^+)$ et $a\in \IR$ telles que $\forall t\in I$, $t\geq t_0\implies u(t)\leq a + \int_{t_0}^{t} uv$. Alors :
+	$$\forall t\in I,\quad t\geq t_0\implies u(t)\leq a\exp\left(\int_{t_0}^{t}v\right)$$
+\end{lemma}
+
+\begin{theorem}[des bouts - \textnormal{[Be] 110}]
+	Sous les hypothèses de Théorème 8 : une solution de $(E)$ est maximale si, et seulement si, aux voisinage des bords de $I$, son graphe n'est contenu dans aucun compact.
+\end{theorem}
+
+\begin{cexample}[FIG. 1]
+	Une solution bornée (dans l'espace) est globale.
+\end{cexample}
+
+\begin{cexample}
+	Si $f$ est lipschitzienne, alors $(E)$ admet une unique solution globale.
+\end{cexample}
+
+\begin{example}
+	C'est le cas pour une équation linéaire (\emph{c.f.} II. A.)
+\end{example}
+
+\section*{II. Méthodes et exemples de résolution}
+\subsection*{A. Cas linéaire}
+
+\textcolor{paragraphtext}{Soient $A\,\colon I\to \M_d(\IR)$ et $b\,\colon I\to \IR^d$ continues. Dans ce paragraphe, $(E)\,\colon y'(t) = f(t,y)=A(t)y(t)+b(t)$.}
+
+\begin{proposition}[\textnormal{[Be] 34-35}]
+	L'ensemble $S_I(E)$ des solutions de $(E)$ est un sous-espace affine de $C^1(I,\IR^d)$ de dimension $d$, de direction $S_I(H)$.
+\end{proposition}
+
+\begin{example}
+	Pour $\omega > 0$, $S_{\IR}(y''+\omega y = \cos) = \frac{\cos}{1-\omega^2} + \IR\sin_{\omega} + \IR\cos_{\omega}$.
+\end{example}
+
+\textcolor{paragraphtext}{Soient $p\,\colon I\to \IR$ et $q\,\colon I\to \IR$ continues et $(E)\,\colon y''+py'+qy = 0$.}
+
+\begin{methode}[\textnormal{[Be] 144, [G] 380}]
+Si $y_0$ est une solution de $(E)$ qui ne s'annule pas sur $I$, alors
+$$y\in S_I(E) \iff z' := \left(\frac{y}{y_0}\right)' \in S_I(x' = A\times \left(2 + \frac{y_0'}{y_0}\right)x)$$
+\end{methode}
+
+
+\begin{methode}[\textnormal{[Be] 149}]
+	Si $p$ et $q$ sont développables en série entière, alors $(E)$ admet une solution développable en série entière.
+\end{methode}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\begin{example}[\textnormal{[Da] 538}]
+	\label{220dev1}
+	Pour $\omega > 0$, résolution de $ty''+2y'-\omega^2ty = 0$ sur $\IR$ et $\IR^{\pm*}$.
+\end{example}
+\end{tcolorbox}
+
+\subsection*{B. Cas non linéaire}
+\textcolor{paragraphtext}{Soient $a,b,\,\colon I\to \IR$ continues.}
+
+\begin{proposition}[équations de \textsc{Bernoulli} - \textnormal{[G] 391, [Be] 138}]
+	Soit $m\geq 2$. En faisant le changement de variable $z=y^{1-m}$, on ramène léquation $(E)\,\colon y'=ay + by^m$ à l'équation équivalente $(E')\,\colon z' = (1-m)a + (1-m)b$.
+\end{proposition}
+
+\begin{proposition}[équation de \textsc{Ricatti} - \textnormal{[G] 391, [Be] 139}]
+	Si $y_0$ est une solution de $(E)\,\colon y'=ay^2 + by + c$, 
+	alors on ramène $(E)$ à une équation de \textsc{Bernoulli} par le changement de variables $z=y-y_0$.
+\end{proposition}
+
+\begin{example}
+	??
+\end{example}
+
+\subsection*{C. Équations à variables séparées}
+[\textnormal{[Be] 130}]
+\textcolor{paragraphtext}{Dans ce paragraphe, on considère un intervalle $J$, $h\in C^0(I, \IR)$, $g\in C^0(J,\IR)$, $(t_0, y_0)\in I\times J$, et $(C)\,\colon \begin{cases}
+	(E)\,\colon y'=h(t)g(y) \\ y(t_0) = y_0
+\end{cases}$. On dit que $(E)$ est à \emph{variables séparées}.}
+
+\begin{theorem}
+	Supposons que $g$ ne s'annule jamais. Posons $H\,\colon t\in I\mapsto \int_{t_0}^{t} h$ et $G\,\colon y\in J\mapsto \int_{y_0}^{y}\frac{1}{g}$.
+	Si $K$ est un intervalle tel que $H(K)\subseteq G(J)$, alors $(C)$ admet une unique solution. Celle-ci vérifie $\forall t\in K,\, G(y(t)) = H(t)$.
+\end{theorem}
+
+\begin{remark}
+	En pratique, on écrit abusivement $\frac{dy}{ds} = g(y)h(s)\implies \frac{dy}{g(y)} = h(s)ds \implies \int_{t_0}^{t}h(s)ds = \int_{t_0}^{t}\frac{dy}{g(y)} = \int_{y_0}^{y(t)}\frac{1}{g(s)}ds$.
+\end{remark}
+
+\begin{example}
+	$(E)\,\colon y' = -\frac{1}{t}y^2 \longrightarrow -\frac{dy}{y^2} = \frac{ds}{s} = \int_{1}^{t}\frac{ds}{s} = \int_{1}^{t}-\frac{dy}{y^2} = \int_{y(1)}^{y(t)}-\frac{1}{s^2}ds$
+	$\longrightarrow \ln(t) = \frac{1}{y(t)} - \frac{1}{y(1)} \longrightarrow y(t) = \left(\ln(t) + {y(-1)^{-1}}^{-1}\right)^{-1}$.
+\end{example}
+
+\section*{III. Étude qualitative des solutions}
+\begin{definition}[\textnormal{[G] 433}]
+	Un \emph{système autonome} est une EDO dont la variation ne dépend pas du temps, \emph{i.e.} de la forme $y'=f(y)$ où $f\,\colon \Omega\to \IR^d$ est un champ de vecteurs.
+\end{definition}
+
+\textcolor{paragraphtext}{Dans toute la suite, $(E)\,\colon y'=f(y)$ est un système autonome de $\IR^2$. On décompose $f$ selon la base canonique $f=(f_1,f_2)$ et on suppose $f$ continue et localement lipschitzienne.}
+
+\subsection*{A. Points d'équilibre, isoclines, intégrales premières}
+
+\begin{definition}[\textnormal{[Be] 187 ? ?}]
+	On définit les éléments suivants :
+	\begin{itemize}
+		\item Un \emph{point d'équilibre de $(E)$} est un point $y_*$ tel que $f(y_*) = 0$.
+		\item On dit que $y_*$ est \emph{stable} si, $(\IR^{+*}, y)$ étant solution de $(E)$, $$\forall \varepsilon > °,\, \exists \delta > 0\,\colon \|y(0)-y_*\|\leq \delta \implies \forall t\geq 0,\, \|y(t) - y_*\|\leq \varepsilon$$ On dit que $y_*$ est \emph{instable} sinon.
+		\item On dit que $y_*$ est \emph{asymptotiquement stable} si, $(\IR^{+*}, y)$ étant solution de $(E)$, $$\exists \delta > 0\,\colon \|y(0) - y_*\|\leq \delta\implies \lim_{t\to +\infty} \|y(t)-y_*\| = 0$$
+	\end{itemize}
+\end{definition}
+
+\begin{example}[pendule - FIG. 2 - \textnormal{[Be] 401-410}]
+	Soient $\gamma \geq 0$ et $\omega \geq 0$. On considère $(E)\,\colon \theta''=-\gamma\theta' - \omega^2\sin \theta$,
+	qui se réécrit $(E')\,\colon \begin{pmatrix}
+		\theta \\ \theta'
+	\end{pmatrix}' = \begin{pmatrix}
+		\theta' \\ -\gamma\theta'-\omega^2\sin \theta
+	\end{pmatrix}$. Alors :
+	\begin{itemize}
+		\item Les $(\pi+2k\pi, 0)$ pour $k\in \IZ$ sont des points d'équilibre instables ;
+		\item Si $\gamma = 0$, les $(2k\pi, 0)$ pour $k\in\IZ$ sont des points d'équilibre stables non asymptotiquement stables ;
+		\item Si $\gamma > 0$, les $(2k\pi, 0)$ pour $k\in\IZ$ sont des points d'équilibre stables asymptotiquement stables.
+	\end{itemize}
+\end{example}
+
+\begin{definition}[\textnormal{[Be] 186}]
+	On définit :
+	\begin{itemize}
+		\item L'\emph{isocline verticale} (resp. \emph{horizontale}) de $f$ par l'ensemble : $I_{\infty} = \left\{\underline{x}\in \Omega\mid f_1(\underline{x}) = 0\right\}$ (resp. $I_0 = \left\{\underline{x}\in\Omega \mid f_2(\underline{x}) = 0\right\}$)
+		\item L'\emph{isocline d'inclinaison $\alpha\in \IR$ de $f$} est l'ensemble $I_{\alpha} = \left\{\underline{x}\in\Omega\mid f_2(\underline{x}) = \alpha f_1(\underline{x})\right\}$.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[Be] 186}]
+	Soit $\alpha\in [0,+\infty]$. Si $\underline{x}\in I_{\alpha}$, alors $f(\underline{x})$ dirige une doite de pente $\alpha$.
+	Cela servira plus bas à tracer des portraits de phase, car $y'(t) = f(y(t))$ est tangent à la courbe décrite par $y$ en $t$.
+\end{proposition}
+
+\begin{proposition}[\textnormal{[Be] 189}]
+	L'ensemble des points d'équilibre de $(E)$ est $I_0\cap I_{\infty}$.
+\end{proposition}
+
+\begin{definition}[\textnormal{[Be] 191-193}]
+	\begin{itemize}
+		\item Les \emph{courbes intégrales de $f$} sont les trajectoires des solutions maximales de $(E)$ ;
+		\item L'\emph{orbite de $(E)$ issue de $y_0\in\Omega$} est la courbe intégrale de $f$ passant par $y_0$ (qui est bien unique d'après le théorème de \textsc{Cauchy-Lipschitz}) ;
+		\item Une \emph{intégrale première de $(E)$} est une fonction $H\in C^1(\Omega,\IR)$ telle que pour toute solution $(J,y)$ de $(E)$, on a $\forall t\in J,\, \frac{d}{dt}\left[H(y(t))\right] = 0$.
+	\end{itemize}
+\end{definition}
+
+\begin{example}[\textnormal{[Be] 403}]
+	L'énergie mécanique est une intégrale première en dynamique du point.
+	Aussi, $\theta'' + \omega^2\sin \theta = 0 \longrightarrow 2\theta''\theta + 2\omega^2\theta'\sin\theta = 0\longrightarrow H\left(\begin{pmatrix}
+		\theta\\\theta'
+	\end{pmatrix}\right) = \left(\theta'\right)^2 - 2\omega^2\cos\theta$.
+\end{example}
+
+\subsection*{B. Portraits de phase d'un système autonome en dimension / degré $2$}
+\begin{definition}[\textnormal{[Be] 191}]
+	Un \emph{portrait de phase} est une représentatino géométrique de la rtajectoire d'un système dynamique dans l'espace (dit \emph{de phase}) où il prend ses valeurs.
+\end{definition}
+
+\begin{remark}[\textnormal{[Gr] 434}]
+	Par unicité dans le théorème de \textsc{Cauchy-Lipschitz}, chaque point de l'espace de phase appartient à une unique trajectoire : en particulier, les différentes trajectoires ne s'intersectent pas. Cela correspond donc à la partition de $\Omega$ en orbites.
+\end{remark}
+
+\begin{example}[FIG. 3 - \textnormal{[Be] 187-188}]
+	$(E)\,\colon\begin{cases}
+		x'=y^2-x \\ y' = x^2+y^2 - 1
+	\end{cases}$
+\end{example}
+
+\begin{tcolorbox}[
+    breakable, % Allows the theorem to split across pages
+    colback=developpement, % The background color
+    colframe=gray!0!black, % The frame color
+    boxrule=0pt, % The frame thickness
+    arc=1mm, % Sharp corners
+	boxsep=0pt,
+	left=0pt, right=0pt, top=0pt, bottom=0pt
+]
+\textcolor{red}{Système proie-prédateur de \textsc{Lotka-Volterra}. DEV 2}
+
+\textcolor{paragraphtext}{Soit $(a,b,c,d)\in\left(\IR^{+*}\right)^4$. On considère $(E)\,\colon\begin{cases}
+	x' = ax - bxy \\ y' = -cy' + dxy
+\end{cases}$.}
+\begin{proposition}
+	\label{220dev21}
+	$H\,\colon\begin{pmatrix}
+		x \\ y
+	\end{pmatrix}\mapsto dx + by - c\ln(x) - a\ln(y)$ est une intégrale première de $(E)$ sur $\left(\IR^{+*}\right)^2$.
+\end{proposition}
+\begin{proposition}
+	\label{220dev22}
+	Soient $t_0\in \IR$, $x_0> 0$ et $y_0>0$. Le problème de \textsc{Cauchy} $\begin{cases}
+		(E) \\ x(t_0) = x_0 \\ y(t_0) = y_0
+	\end{cases}$ admet une unique solution définie sur $\IR$. Celle-ci est périodique.
+\end{proposition}
+\textcolor{paragraphtext}{\emph{c.f.} FiGURE 4 pour le portrait de phase de $(E)$.}
+[\textnormal{[Be] 204}]
+\end{tcolorbox}
+
+\section*{Développements}
+\begin{itemize}
+	\item Développement 1 : Résolution \ref{220dev1}
+	\item Développement 2 : Propositions \ref{220dev21} et \ref{220dev22}
+\end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[Be] \emph{Équations différentielles}, Florent Berthelin
+	\item[Gr] \emph{Algèbre linéaire}, Joseph Grifone, 6e édition, 2e version
+	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+\end{itemize}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/220.pdf}
+	\caption{s}
+\end{figure}
+
 
 \chapter*{223 : Suites réelles et complexes. Convergence, valeurs d’adhérence. Exemples et applications.}
 \setcounter{definition}{0}
@@ -6389,7 +7451,7 @@ et $\sum_{n\in \IZ}u_n = u_0 + \sum_{n\in\IN^*} u_n + u_{-n}$.}
 \end{application}
 
 \section*{II. Suites particulières}
-\subsection*{A. Séries numériques}
+\subsection{A. Séries numériques}
 \textcolor{paragraphtext}{Pour $n\in\IN^*$, posons $S_n = \sum_{k=0}^{n} u_k$.}
 
 \begin{example}
@@ -6534,7 +7596,7 @@ et $\sum_{n\in \IZ}u_n = u_0 + \sum_{n\in\IN^*} u_n + u_{-n}$.}
 \section*{Développements}
 \begin{itemize}
 	\item Développement 1 : Exemple \ref{223dev11} et Application \ref{223dev12}
-	\item Développement 2 : Théorème \ref{223dev2} POTENTIELLEMENT CONVERGENCE METHODE DE NEWTON?
+	\item Développement 2 : Théorème \ref{223dev2}
 \end{itemize}
 
 \section*{Références}
@@ -6552,574 +7614,6 @@ et $\sum_{n\in \IZ}u_n = u_0 + \sum_{n\in\IN^*} u_n + u_{-n}$.}
 	\caption{s}
 \end{figure}
 
-
-\chapter*{228 : Continuité, dérivabilité des fonctions réelles d’une variable réelle. Exemples et applications.}
-\setcounter{definition}{0}
-
-\textcolor{paragraphtext}{Dans cette leçon, $I$ et $J$ sont des intervalles, $f\,\colon I\to \IR$ et $g\,\colon J\to\IR$. 
-Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
-
-\section*{I. Classes de régularité des fonctions numériques}
-\subsection*{A. Définitions, premiers exemples}
-
-\begin{definition}[\textnormal{[R] 162-13-198-197-201-201}]
-	\begin{itemize}
-		\item{On dit que $f$ est \emph{continue en $a$} si $\forall \varepsilon > 0,\,\exists \nu >0\,\colon\forall x\in I,\quad \vert x - a\vert \leq \nu \implies \vert f(x) - f(a) \vert \leq \varepsilon$.
-		On note $C^0(I,\IR)$ l'ensemble des fonctions de $I$ dans $\IR$ continues sur $I$, \emph{i.e.} continues en tout point de $I$.}
-		
-		\item {On dit que $f$ est \emph{uniformément continue sur $I$} si $\forall \varepsilon > 0,\, \exists \nu > 0\,\colon \forall (x,y)\in I^2,\quad \vert x-y\vert \leq \nu \implies \vert f(x)-f(y)\vert \leq \varepsilon$.
-		On note $UC^0(I,\IR)$ l'ensemble des fonctions uniformément continues sur $I$.}
-		
-		\item {On dit que $f$ est \emph{dérivable à gauche} (resp. \emph{à droite}) \emph{en $a$} si 
-		$\displaystyle{f'_g(a) := \lim_{\substack{x\to a^- \\ x\neq a}}\frac{f(x)-f(a)}{x-a}}$ (resp. $\displaystyle{f'_d(a) := \lim_{\substack{x\to a^+ \\ x\neq a}}\frac{f(x)-f(a)}{x-a}}$)
-		existe et est finie. Le réel $f'_g(a)$ (resp. $f'_d(a)$) est appelé \emph{dérivée à gauche} (resp. \emph{à droite}) \emph{de $f$ en $a$}.}
-
-		\item {On dit que $f$ est \emph{dérivable en $a\in\mathring{I}$} si $f$ est dérivable à droite et à gauche en $a$, et si $f'_g(a)=f'_d(a)$. Le réel $f'(a):= f'_g(a)=f'_d(a)$ est appelé \emph{dérivée de $f$ en $a$}. 
-		On note $D^1(I,\IR)$ l'ensemble des fonctions de $I$ dans $\IR$ \emph{dérivables sur $I$}, \emph{i.e.} dérivables en tout point de $I$. Si $f$ est dérivable sur $I$, alors on dispose de la \emph{dérivée de $f$}, qui est la fonction $f'\,\colon I\to \IR$, $a\mapsto f'(a)$.}
-
-		\item {On dit que $f$ est \emph{$n$ fois dérivable en $a$} s'il existe un voisinage $V\subseteq I$ de $a$ tel que $f$, sa dérivée $f' =: f^{(1)}$, sa dérivée seconde $f'' =: f^{(2)} =: (f')'$, etc. jusqu'à sa dérivée $(n-2)$-uème $f^{(n-2)}$ sont dérivables sur $V$, et $f^{(n-1)}$ est dérivable en $a$, de dérivée $f^{(n)}(a) := (f^{(n-1)})'(a)$. 
-		On note $D^n(I,\IR)$ l'ensemble des fonctions $n$ fois dérivables sur $I$. Par convention, $f^{(0)} = f$.}
-
-		\item {On note $C^n(I,\IR)$ l'ensemble des fonctions $f\,\colon I\to \IR$ telles que $f, f', \dots, f^{(n-1)}$ sont dérivables sur $I$, et $f^{(n)}$ est continue sur $I$. Une fonction de $C^n(I,\IR)$ est dite de \emph{calsse $C^1$ sur $I$}.}
-	\end{itemize}
-\end{definition}
-
-\begin{remark}
-	La valeur de la dérivée de $f$ en $a$ correspond au coefficient directeur de la tangente au graphe de $f$ en $a$. Ainsi, $f$ n'est pas dérivable en $a$ si cette tangente n'existe pas, ou est verticale.
-\end{remark}
-
-\begin{example}
-	\begin{itemize}
-		\item Les fonctions rationnelles, trigonométriques, $\exp$, $\ln$, sont de classe $C^{\infty}$ sur leurs domaines de définition.
-		\item $x\mapsto \vert x\vert$ est continue sur $\IR$. Elle admet à droite et à gauche une dérivée en $0$, mais n'est pas dérivable en $0$ (la tangente n'existe pas).
-		\item $x\mapsto \sqrt{x}$ est continue sur $\IR^*$, dérivable sur $\IR^{+*}$ (la tangente est verticale).
-		\item $f\,\colon x\mapsto x^2\sin(\frac{1}{x})\in D^1(\IR,\IR) \setminus C^1(\IR,\IR)$
-		\item $\forall (a,b)\in \IR^2,\, x\mapsto ax+b\in UC^0(\IR,\IR)$
-		\item $x\mapsto x^2 \in C^0(\IR,\IR) \setminus UC^0(\IR,\IR)$
-	\end{itemize}
-\end{example}
-
-\subsection*{B. Propriétés principales}
-
-\begin{proposition}[caractérisation séquentielle de la continuité - \textnormal{[R] 165}]
-	$f$ est continue en $a$ $\iff\forall \left(a_n\right)_n \in I^{\IN},\, a_n\to a\implies f(a_n)\to f(a)$.
-\end{proposition}
-
-\begin{proposition}[\textnormal{[R] 195?}]
-	On a les propriétés suivantes :
-	\begin{itemize}
-		\item $C^{\infty}(I,\IR) \subsetneq \cdots \subsetneq C^n(I,R) \subsetneq D^n(I,\IR)\subsetneq \cdots \subsetneq D^1(I,\IR) \subsetneq C^0(I,\IR)$
-		\item $f$ dérivable en $a \implies$ continue en $a$
-		\item $UC^0(I,\IR)\subseteq C^0(I,\IR)$
-	\end{itemize}
-\end{proposition}
-
-\begin{proposition}[\textnormal{[R] 202}]
-	Si $f$ et $g$ sont dérivables en $a$, alors pour tout $(\lambda,\mu)\in \IR^2$, $\lambda f + \mu g$ est dérivable en $a$, et $(\lambda f + \mu g)'(a) = \lambda f'(a) + \mu g'(a)$.
-\end{proposition}
-
-\begin{theorem}[formule de \textsc{Leibniz} - \textnormal{[R] 202}]
-	Si $f$ et $g$ sont $n$ fois dérivable en $a$, alors $fg$ est $n$ fois dérivable en $a$, et on a 
-	$$(fg)^{(n)}(a) = \sum_{k=0}^{n} {n\choose k} f^{(k)}(a)g^{(n-k)}(a)$$
-\end{theorem}
-
-\begin{corollary}
-	$C^n(I,\IR)$ et $D^n(I,\IR)$ sont des algèbres de multiplication.
-\end{corollary}
-
-\begin{proposition}[\textnormal{[R] 203}]
-	Si $f$ est dérivable en $a$ et $g$ en $f(a)$, alors $g\circ f$ est dérivable en $a$, de dérivée $(g\circ f)'(a) = f'(a)\times (g'\circ f)(a)$.
-\end{proposition}
-
-\begin{proposition}
-	Si $f$ est bijective, dérivable en $a$, et si $f'(a)\neq 0$, alors $f^{-1}$ est dérivable en $a$, avec $(f^{-1})'(a) = 1 / (f'\circ f^{-1})(a)$.
-\end{proposition}
-
-\begin{theorem}[de \textsc{Heine} - \textnormal{[R] 170}]
-	$\forall (a,b)\in\IR^2$, $a<b$, $C^0([a,b], \IR) = UC^0([a,b], \IR)$.
-\end{theorem}
-
-\begin{application}[\textnormal{[R] e171}]
-	Les fonctions périodiques, ou admettant une limite finie en $\pm\infty$, sont uniformément continues.
-\end{application}
-
-\begin{theorem}[des bornes atteintes - \textnormal{[R] 172}]
-	Une fonction continue sur un segment $g$ est bornée et atteint ses bornes.
-\end{theorem}
-
-\begin{application}
-	Si $f\in C^0(\IR,\IR)$ et $\displaystyle{\lim_{\pm\infty} f = +\infty}$, alors $f$ admet un minimum global.
-\end{application}
-
-\begin{theorem}[de \textsc{Weierstrass} - \textnormal{[R] 45}]
-	Soit $(a,b)\in \IR^2$, $a<b$. Toute fonction continue sur $[a,b]$ est limite uniforme d'une suite de fonctions polynomiales.
-\end{theorem}
-
-\begin{application}
-	On a que $\left\{f\in C^0([0,1],\IR)\mid \forall n\in \IN,\, \int_{0}^{1} t^nf(t)dt = 0 \right\} = \left\{0\right\}$.
-\end{application}
-
-\begin{theorem}[des valeurs intermédiaires - \textnormal{[R] 173}]
-	L'image d'un intervalle par une fonction continue est un intervalle.
-\end{theorem}
-
-\begin{application}
-	Tout polynôme réel de degré impair admet une racine réelle.
-\end{application}
-
-\subsection*{C. Des extremums locaux aux formules de \textsc{Taylor}}
-
-\textcolor{paragraphtext}{Soit $(a,b)\in\IR^2$ tel que $a<b$ et $[a,b]\subseteq I$.}
-
-\begin{proposition}[condition nécessaire d'extremum local - \textnormal{[R] 210}]
-	Si $f$ est dérivable en $x_0\in ]a,b[$ et si $f$ admet en $x_0$ un extremum local en $x_0$, alors $f'(x_0) = 0$
-\end{proposition}
-
-\textcolor{paragraphtext}{Jusqu'à Théorème 24, on suppose que $f\in C^0([a,b],\IR) \cap D^1(]a,b[,\IR)$.}
-
-\begin{theorem}[de \textsc{Rolle} - \textnormal{[R] 251}]
-	$\exists c\in ]a,b[$, $f'(c) = 0$?
-\end{theorem}
-
-\begin{theorem}[égalité des accroissements finis - \textnormal{[R] 258}]
-	$\exists c\in ]a,b[,\, f(b)-f(a) = f'(c)(b-a)$.
-\end{theorem}
-
-\begin{corollary}[\textnormal{[R] 261}]
-	$f$ est croissante si, et seulement si, $\forall x\in ]a,b[,\, f'(x) \geq 0$.
-\end{corollary}
-
-\begin{theorem}[de \textsc{Darboux} - \textnormal{[R] 250-277}]
-	Si $f$ est dérivable sur l'intervalle $I$, alors $f'(I)$ est un intervalle (sans que $f'$ soit nécessairement continue !).
-\end{theorem}
-
-\begin{theorem}[inégalité des accroissements finies - \textnormal{[R] 255}]
-	S'il existe $(m,M)\in \IR^2$ tel que $\forall x\in ]a,b[$, $m\leq f(x)\leq M$, alors $m(b-a)\leq f(b)-f(a)\leq M(b-a)$.
-\end{theorem}
-
-\begin{definition}
-	Soit $\lambda \geq 0$. On dit que $f$ est \emph{$\lambda$-lipshitzienne sur $I$} si $\forall (x,y)\in I^2,\, \vert f(x)-f(y)\vert \leq \lambda \vert x-y\vert$.
-\end{definition}
-
-\begin{theorem}[inégalité des accroissements finis]
-	Si $f\in D^1(I,\IR)$ et si $\exists \lambda >0$ : $\forall x\in I,\, \vert f'(x)\vert \leq \lambda$, alors $f$ est $\lambda$-lipschitzienne sur $I$.
-\end{theorem}
-
-\begin{theorem}[formule de \textsc{Taylor} avec reste intégral - \textnormal{[R] 288}]
-	Si $f\in C^{n+1}(I,\IR)$, alors :
-	$$\forall x\in I,\quad f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k + \int_{a}^{x} \frac{f^{(n+1)}(t)}{n!}(x-t)^ndt$$
-\end{theorem}
-
-\begin{theorem}[\textnormal{[R] 292}]
-	Si $f\in C^n(I,\IR)$, alors :
-	$$\forall x\in I,\quad f(x) = \sum_{k=0}^{n} \frac{f^{(k)}(a)}{k!}(x-a)^k + o_{x\to a}((x-a)^n)$$
-\end{theorem}
-
-\begin{application}[\textnormal{[R] e293}]
-	Si $f\in C^2(I,\IR)$ et si $f''(a) > 0$, alors la courbe de $f$ est au-dessus de sa tangente en $a$ sur un voisinage de $a$.
-\end{application}
-
-\section*{II. Cas de fonctions particulières}
-\subsection*{A. Fonctions monotones, convexes, lipschitziennes}
-
-\begin{definition}
-	On dit que $f$ est \emph{lipschitzienne} (sur $I$) s'il existe $\lambda \geq 0$ tel que $f$ est $\lambda$-lipschitzienne sur $I$.
-\end{definition}
-
-\begin{proposition}
-	Si $f$ est lipschitzienne sur $I$, alors $f\in UC^0(I,\IR)$.
-\end{proposition}
-
-\begin{theorem}[de \textsc{Rademacher}]
-	$f$ est lipschitzienne sur $I$ si, et seulement s'il existe $g\mathcal{L}^{\infty}(I,\IR)$ telle que $\forall (x,y)\in I,/, f(x) - f(y) = \int_{x}^{y}g(t)dt$.
-\end{theorem}
-
-\begin{corollary}
-	Une fonction lipschitzienne est presque partout dérivable.
-\end{corollary}
-
-\begin{definition}[\textnormal{[R] 225}]
-	On dit que $f$ est \emph{convexe (sur $I$)} si sa courbe représentative est en-dessous de toutes ses cordes, \emph{i.e.} si :
-	$$\forall (a,b)\in I^2,\, \forall \lambda\in [0,1],\, f(\lambda a + (1-\lambda)b) \leq \lambda f(a) + (1-\lambda)f(b)$$
-\end{definition}
-
-\begin{theorem}[\textnormal{[R] 231 (238)}]
-	Si $f$ est convexe, alors pour tout $[a,b]\subseteq \mathring{I}$, $f$ est lipschitzienne sur $[a,b]$. En particulier $f$ est continue sur $\mathring{I}$.
-\end{theorem}
-
-\begin{theorem}[\textnormal{[R] 235}]
-	Si $f$ est convexe, alors $f$ est dérivable à droite et à gauche en tout point de $\mathring{I}$, et pour tout $(a,b)\in \mathring{I}^2$ tel que $a<b$ :
-	$$f'_g(a) \leq f'_d(a)\leq \frac{f(b)-f(a)}{b-a}\leq f'_g(b)\leq f'(d)(b)$$
-\end{theorem}
-
-\begin{theorem}[\textnormal{[R] 236-238}]
-	Les points suivants caractérisent la convexité de $f$ :
-	\begin{itemize}
-		\item $f\in C^0(I,\IR)$ et $f'_d$ est définie et croissante sur $I$;
-		\item (si $f\in D^1(I,\IR)$) $f'$ est croissante sur $I$
-		\item (si $f\in D^1(I, \IR)$) la courbe représentative de $f$ est au-dessus de sa tangente en tout point de $I$
-		\item (si $f\in D^2(I,\IR)$) $f''\geq 0$ sur $I$.
-	\end{itemize}
-\end{theorem}
-
-\begin{proposition}[\textnormal{[R] 175}]
-	Si $f$ est monotone et si $f(I)$ est un intervalle, alors $f$ est continue sur $I$.
-\end{proposition}
-
-\begin{corollary}[\textnormal{[R] 211}]
-	Si $f$ est convexe et dérivable, alors $f$ est de classe $C^1$ sur $I$.
-\end{corollary}
-
-\subsection*{B. Fonctions définies par une intégrale dépendant d'un paramètre}
-\textcolor{paragraphtext}{Soient $(X,\A,\mu)$ un espace mesuré, $f\,\colon I\times X\to \IR$ et $F\,\colon t\mapsto\int_X f(t,x)d\mu(x)$.}
-
-\begin{theorem}[de continuité sous le signe intégrale - \textnormal{[F] 93}]
-	Soit $t_0\in I$. Si :
-	\begin{itemize}
-		\item $\forall t\in I$, $x\mapsto f(t,x)$ est mesurable sur $X$,
-		\item Pour $\mu$-presque tout $x\in X$, $t\mapsto f(t,x)$ est continue en $t_0$,
-		\item $\exists \varphi\in L^1(X,\A, \mu)\,\colon \forall t/in I$, pour $\mu$-presque tout $x\in X,\, \vert f(t,x) \vert \leq \varphi(x)$.
-	\end{itemize}
-	Alors $F$ est bien définie sur $I$ et continue en $t_0$.
-\end{theorem}
-
-\begin{theorem}[de dérivabilité sous le signe intégrale - \textnormal{[F] 94}]
-	Si :
-	\begin{itemize}
-		\item $\forall t\in I,\, x\mapsto f(t,x)\in L^1(X,\A, \mu)$,
-		\item Pour $\mu$-presque tout $x\in X$, $t\mapsto f(t,x)$ est dérivable sur $I$, de dérivée $t\mapsto \frac{\partial f}{\partial t}(t,x)$,
-		\item $\exists \varphi\in L^1(X,\A, \mu)\,\colon \forall t\in I,$ pour $\mu$-presque tout $x\in X$, $\vert \frac{\partial f}{\partial t}(t,x) \vert \leq \varphi(x)$.
-	\end{itemize}
-	Alors $F$ est bien définie et dérivable sur $I$, de dérivée :
-	$$F'\,\colon t\mapsto \int_X \frac{\partial f}{\partial u}(u,x)d\mu(x)$$
-\end{theorem}
-
-\begin{tcolorbox}[
-    breakable, % Allows the theorem to split across pages
-    colback=developpement, % The background color
-    colframe=gray!0!black, % The frame color
-    boxrule=0pt, % The frame thickness
-    arc=1mm, % Sharp corners
-	boxsep=0pt,
-	left=0pt, right=0pt, top=0pt, bottom=0pt
-]
-\begin{example}[\textnormal{[F] 99, [B] 258}]
-	\label{228dev1}
-	Calcul de $\int_{0}^{+\infty} \frac{\sin(t)}{t}dt$ par transformée de \textsc{Laplace}
-\end{example}
-\end{tcolorbox}
-
-\begin{tcolorbox}[
-    breakable, % Allows the theorem to split across pages
-    colback=developpement, % The background color
-    colframe=gray!0!black, % The frame color
-    boxrule=0pt, % The frame thickness
-    arc=1mm, % Sharp corners
-	boxsep=0pt,
-	left=0pt, right=0pt, top=0pt, bottom=0pt
-]
-\begin{example}[\textnormal{[G] 315}]
-	\label{228dev2}
-	Étude de $\Gamma\,\colon x > 0 \mapsto \int_{0}^{+\infty} e^{-t}t^{x-1}dt$.
-\end{example}
-\end{tcolorbox}
-
-\section*{Développements}
-\begin{itemize}
-	\item Développement 1 : Exemple \ref{228dev1}
-	\item Développement 2 : Exemple \ref{228dev2}
-\end{itemize}
-
-\section*{Références}
-\begin{itemize}	
-	\item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
-	\item[EA] \emph{Suites et séries numériques. Suites et séries de fonctions}, Mohamed El Amrani
-	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
-	\item[F] \emph{Calcul intégral}, Jacques Faraut
-	\item[Be] \emph{Analyse pour l'agrégation de mathématiques, 40 développements}, Julien Bernis et Laurent Bernis
-\end{itemize}
-
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/228.pdf}
-	\caption{s}
-\end{figure}
-
-
-\chapter*{234 : Fonctions et espaces de fonctions \textsc{Lebesgue}-intégrables.}
-\setcounter{definition}{0}
-\textcolor{paragraphtext}{Dans cette leçon, $(X,\A,\mu)$ est un espace mesuré, et $\IK$ désigne $\IR$ ou $\IC$.}
-
-\section*{I. Autour de l'intégrale de \textsc{Lebesgue}}
-\subsection*{A. Cas des fonctions étagées ou mesurables positives}
-
-\begin{definition}[\textnormal{[F] 7}]
-	Soit $f=\sum_{\alpha\in f(X)} \alpha \mathbb{1}_{f^{-1}{\left\{\alpha\right\}}}\,\colon X\to \overline{\IR^+}$ étagée.
-	On définit l'\emph{intégrale de $f$ sur $E\in \A$ par rapport à $\mu$} comme
-	$$\int fd\mu = \sum_{\alpha\in f(X)} \alpha \mu\left(f^{-1}(\left\{\alpha\right\})\cap E\right)\in \overline{\IR^+}$$
-\end{definition}
-\begin{definition}[\textnormal{[F] 8}]
-	Soit $f\,\colon X\to \overline{\IR^+}$ mesurable. On définit \emph{l'intégrale de $f$ sur $E\in \A$ par rapport à $\mu$} comme 
-	$$\int_E fd\mu = \sup_{\substack{s\text{ étagée},\\0\leq s\leq f}} \int_E sd\mu$$
-\end{definition}
-
-\begin{theorem}[\textnormal{[F] 4}]
-	$f\,\colon X\to \overline{\IR^+}$ est mesurable si, et seulement si, $f$ est la limite simple d'une suite croissantes de fonctions étagées positives.
-\end{theorem}
-
-\begin{theorem}[\textnormal{[F] e8-9}]
-	Soient $f,g\,\colon X\to \overline{\IR^+}$ mesurables, $(A,E)\in \A^2$ tel que $A\subseteq E$, et $c\geq 0$.
-	\begin{enumerate}
-		\item $f_{\mid E} \leq g_{\mid E} \implies \int_E fd\mu \leq \int_E gd\mu$
-		\item $\int_E fd\mu = \int_X f\mathbb{1}_E d\mu$
-		\item $\mu(E) = 0 \implies \int_Efd\mu = 0$
-		\item $\begin{cases}
-			f_{\mid A} = 0 \\ \mu(A) = 0
-		\end{cases}\implies \int_E fd\mu = \int_{E\setminus A} fd\mu$
-		\item $\int_A fd\mu\leq \int_E fd\mu$
-		\item $\int_E cd\mu = c\int_E fd\mu$
-	\end{enumerate}
-\end{theorem}
-
-\begin{theorem}[\textnormal{[F] 11-12}]
-	Soient $f,g\,\colon X\to\overline{\IR^+}$ étagées et $\left(E_n\right)_{n\geq 1}$ une partition de $E\in \A$.
-	\begin{enumerate}
-		\item $\int_E(f+g)d\mu = \int_E fd\mu + \int_E gd\mu$
-		\item $\int_E fd\mu = \sum_{n=1}^{+\infty} \int_E fd\mu$
-	\end{enumerate}
-\end{theorem}
-
-\begin{theorem}[de convergence monotone - \textnormal{[F] e9}]
-	Soit $\left(f_n\right)_{n\geq 1}$ une suite croissante de fonctions mesurables de $X$ dans $\overline{\IR^+}$.
-	La limite simple $f$ de $\left(f_n\right)_{n\geq 1}$ est mesurable, et on a :
-	$$\int_X fd\mu = \lim_{n\to +\infty}\int_X f_nd\mu$$
-\end{theorem}
-
-\begin{corollary}[\textnormal{[F] e9}]
-	Le théorème 5 reste vrai pour des fonctions mesurables positives.
-\end{corollary}
-
-\begin{lemma}[de \textsc{Fatou} - \textnormal{[F] 11}]
-	Soit $\left(f_n\right)_{n\geq 1}$ une suite de fonctions mesurables de $X$ dans $\overline{\IR^+}$.
-	On a alors :
-	$$\int_X \liminf_{n\to +\infty} f_nd\mu \leq \liminf_{n\to +\infty} \int_X f_nd\mu$$
-\end{lemma}
-
-\subsection*{B. Fonctions \textsc{Lebesgue}-intégrables}
-\textcolor{paragraphtext}{Soit $f\,\colon X\to \IR$, on pose $f^+=\max (f,0)$ et $f^- = \min (f,0)$.}
-
-\begin{definition}
-	On dit que $f$ est \emph{intégrable (pour $\mu$ sur $X$)} si $f$ est mesurable et si $\int_X \vert f \vert d\mu < +\infty$.
-	Pour $E\in \A$, on définit alors l'\emph{intégrale de $f$ sur $E$ par rapport à $\mu$} comme $\int_E fd\mu = \int_E f^+d\mu - \int_E f^-d\mu$.
-\end{definition}
-
-\begin{example}
-	Soit $f\,\colon \IN\to \IR$ intégrable pour la mesure de comptage $\#$ sur $(\IN,\mathcal{P}(\IN))$.
-	Alors $f$ est intégrable si, et seulement si, $\sum_{n\in\IN} f(n)$ converge absolument.
-	Le cas échéant, $\sum_{n=0}^{+\infty} = \int_{\IN}fd\#$.
-\end{example}
-
-\begin{example}
-	Soient $[a,b]\subseteq \IR$ et $f\,\colon [a,b]\to \IR$ continue par morceaux. La fonction $f$ est intégrable pour la mesure de 
-	\textsc{Lebesgue} $\lambda$ sur $[a,b]$, et $\int_{a}^{b} f(t)dt = \int_{[a,b]} fd\lambda$.
-	Autrement dit, l'intégrale de \textsc{Lebesgue} construite précédemment généralise l'intégrale de \textsc{Riemann}.
-\end{example}
-
-\begin{theorem}
-	Touts les Théorèmes précédents restent vrais pour $f$ et $g$ intégrables.
-\end{theorem}
-
-\begin{proposition}[\textnormal{[F] 14}]
-	Si $f$ est intégrable (sur $X$), alors on a 
-	$$\left\lvert\int_X fd\mu \right\rvert \leq \int_X \vert f \vert d\mu$$
-\end{proposition}
-
-\begin{theorem}[de convergence dominée - \textnormal{[F] 17}]
-	Soit $\left(f_n\right)_{n\geq 1}$ une suite de fonctions intégrables qui converge simplement presque partout vers $f\,\colon X\to \IR$.
-	S'il existe $g\geq 0$ intégrable sur $X$ telle que $\forall n\geq 1$, $\lvert f_n \rvert \leq g$, presque partout, alors :
-	$$\lim_{n\to +\infty} \int_X f_nd\mu = \int_X fd\mu$$
-\end{theorem}
-
-\begin{cexample}
-	$f_n = \mathbb{1}_{[n,n+1]} \xrightarrow[n\to +\infty]{\text{CVS}} 0$,$\int_{\IR} f_n d\lambda = 1 \not \xrightarrow{} 0 = \int_{\IR} 0d\lambda$.
-	L'hypothèse de domination n'est pas vérifiée.
-\end{cexample}
-
-\begin{application}[\textnormal{[F] 93}]
-	Théorèmes de transfert de régularité pour les fonctions définies par une intégrale dépendant d'un paramètre.
-\end{application}
-
-\textcolor{paragraphtext}{Dans la fin de ce paragraphe, on suppose que $\mu$ est $\sigma$-finie, et on se donne $(Y,\B, \nu)$ un espace mesuré $\sigma$-finie, et $f\,\colon X\times Y\to \overline{\IR}$ mesurable.}
-
-\begin{theorem}[de \textsc{Fubini-Tonelli} - \textnormal{[F] 61}]
-	Supposons $f$ positive.
-	Pour tout $(x,y)\in X\times Y$, alors $f(\cdot, y)$, $f(x,\cdot)$, $\int_X f(x,\cdot)d\mu(x)$ et $\int_Y f(\cdot, y)d\nu(y)$ sont mesurables, et on a 
-	\begin{align*}
-		\int_{X\times Y} fd(\mu\otimes \nu) &= \int_X\left(\int_Y f(x,y)d\nu(y)\right)d\mu(x) \\ 
-		&= \int_Y\left(\int_X f(x,y)d\mu(x)\right)d\nu(y)
-	\end{align*}
-\end{theorem}
-
-\begin{application}[\textnormal{[F] 69}]
-	$\int_{\IR} e^{-x^2}dx = \sqrt{\pi}$
-\end{application}
-
-\begin{theorem}[de \textsc{Fubini-Lebesgue} - \textnormal{[F] 59}]
-	Supposons que $f$ est intégrable pour $\mu\otimes\nu$. 
-	Pour $\mu$-presque tous $x\in X$ et $\nu$-presque tous $y\in Y$, alors
-	$f(x,\cdot)$, $f(\cdot, y)$, $\int_Xf(x,\cdot)d\mu(x)$ et $\int_Yf(\cdot,y)d\nu(y)$ sont intégrables et on a :
-	\begin{align*}
-		\int_{X\times Y} fd(\mu\otimes \nu) &= \int_X\left(\int_Y f(x,y)d\nu(y)\right)d\mu(x) \\ 
-		&= \int_Y\left(\int_X f(x,y)d\mu(x)\right)d\nu(y)
-	\end{align*}
-\end{theorem}
-
-\begin{cexample}
-	Pour $X = Y = \IZ$, $\mu=\nu=\card$ et $f\,\colon (i,j)\mapsto ?????$ et $0$ sinon, on a :
-	?????
-\end{cexample}
-
-\section*{II. Espaces $L^p$ des fonctions \textsc{Lebesgue}-intégrables}
-\subsection*{Définitions et premières propriétés}
-
-\begin{definition}[\textnormal{[BP] 157-158-175-165, [F] 43}]
-	Pour $f\,\colon X\to \IK$ mesurable, on pose :
-	\begin{itemize}
-		\item Pour $p\in [1,+\infty[,\, \|f\|_p := \left(\int_X \lvert f \rvert^p d\mu\right)^{\frac{1}{p}}$
-		\item $\|f\|_{\infty} := \inf \left\{c > 0 \mid \mu\left(\left\{x\in X\mid \lvert f(x)\rvert > c\right\}\right) = 0\right\}$
-	\end{itemize}
-	Et pour $p\in [1,+\infty]$, on pose $\mathcal{L}^p(X,\A,\mu) := \left\{f\,\colon\Omega\to\IK\text{ mesurable}\mid \|f\|_p w +\infty\right\}$
-	et $L^p(X,\A,\mu) := \mathcal{L}^p(X,\A,\mu) / \sim$ où $f\sim g\iff \mu\left(\left\{x\in X\mid f(x)\neq g(x)\right\}\right) = 0$.
-
-	Lorsque $X = \IN$ ou $X = \IZ$ et $\mu$ est la mesure de comptage sur $X$, on note plutôt $\ell^p := \mathcal{L}^p(X,\mathcal{P}(X), \mu)$.
-\end{definition}
-
-\begin{proposition}[\textnormal{[F] 43}]
-	$\|\cdot\|_p$ est une semi-norme sur $\mathcal{L}^p(X,\A,\mu)$, et $\|f\|_p = 0\iff f=0$ presque partout.
-\end{proposition}
-
-\begin{theorem}[inégalité de \textsc{Hölder} - \textnormal{[F] 42}]
-	Soit $(p,q)\in[1, +\infty]^2$ tel que $\frac{1}{p} + \frac{1}{q} = 0$. Alors 
-	$$\forall f\in L^p(X,\A,\mu),\, \forall g\in L^q(X,\A, \mu),\quad \|fg\|_1\leq \|f\|_p\|g\|_q$$
-\end{theorem}
-
-\begin{theorem}[de \textsc{Riesz-Fisher} - \textnormal{[F] 46, [BP] 166-176}]
-	Pour tout $p\in[1,+\infty]$, $(L^p(X,\A,\mu), \|\cdot\|_p)$ est (un espace vectoriel normé) complet.
-\end{theorem}
-
-\begin{proposition}
-	Soient $1\leq p < q \leq +\infty$.
-	\begin{itemize}
-		\item Si $\mu(X)$ est finie, alors $L^q(X,\A,\mu) \subseteq L^p(X,\A,\mu)$
-		\item Si $\mu$ est une probabilité, alors $\|\cdot\|_q \leq \|\cdot\|_p$
-		\item $\ell^p(\IN) \subseteq \ell^q(\IN)$
-	\end{itemize}
-\end{proposition}
-
-\begin{remark}
-	En général, ces inclusions sont strictes : $x\mapsto\frac{1}{x}\in L^2([1,+\infty[)\setminus L^1([1,+\infty[)$.
-\end{remark}
-
-\begin{theorem}[\textnormal{[F] 49}]
-	$\|\cdot\|_2$ dérive du produit scalaire $(f,g)\mapsto \int_X f\overline{g}d\mu$, qui fait de $L^2(X,\A,\mu)$ un espace de \textsc{Hilbert}.
-\end{theorem}
-
-\begin{tcolorbox}[
-    breakable, % Allows the theorem to split across pages
-    colback=developpement, % The background color
-    colframe=gray!0!black, % The frame color
-    boxrule=0pt, % The frame thickness
-    arc=1mm, % Sharp corners
-	boxsep=0pt,
-	left=0pt, right=0pt, top=0pt, bottom=0pt
-]
-\begin{theorem}[\textnormal{[CR] 77}]
-	\label{234dev1}
-	Supposons que $\mu$ est une mesure de probabilité. Soient $\B$ une sous-trivu de $\A$ et $X\in L^1(\Omega,\A,\mu)$ réelle.
-	Il existe une variable aléatoire $Z$ presque sûrement unique $\B$-mesurable et telle que $\forall B\in \B$, $\IE[X\mathbb{1}_B] = \IE[Z\mathbb{1}_{B}]$.
-
-	Elle est de plus intégrable. On l'appelle \emph{espérance conditionnelle de $X$ sachant $\B$}, et on la note $\IE[X\mid \B]$.
-\end{theorem}
-\end{tcolorbox}
-
-\section*{III. Convolution et transformée de \textsc{Fourier}}
-\subsection*{A. Convolution, régularisation et densités}
-\textcolor{paragraphtext}{Soient $d\in\IN^*$, $p\in[1,+\infty]$, $q\in[1,+\infty]$ tels que $\frac{1}{p} + \frac{1}{q} = 1$.}
-
-\begin{definition}[\textnormal{[BP] 297-301}]
-	\begin{itemize}
-		\item Le \emph{produit de convolution de $f\in L^p(\IR^d)$ et $g\in L^q(\IR^d)$} est la fonction $f*g$ définie pour tout $x\in \IR^d$ par $f*g(x) := \int_{\IR^d} f(t)g(x-t)dt$. On a $\|f*g\|_{\infty} \leq \|f\|_p\|g\|_q$.
-		\item Le \emph{produit de convolution de $f\in L^1(\IR^d)$ et $g\in L^1(\IR^d)$} est la fonction $f*g$ définie pour \emph{presque} tout $x\in \IR^d$ par $f*g(x) := \int_{\IR^d} f(t)g(x-t)dt$. On a $\|f*g\|_1\leq \|f\|_1\|g\|_1$.
-	\end{itemize}
-\end{definition}
-
-\begin{proposition}[\textnormal{[BP] 297}]
-	Si $f\in L^p(\IR^d),\, g\in L^q(\IR^d)$ et $1< p < +\infty$, alors $f*g(x)\xrightarrow[\|x\|\to +\infty]{} 0$.
-\end{proposition}
-
-\begin{definition}[\textnormal{[G] 304}]
-	Une \emph{approximation de l'unité} est une suite $\left(\alpha_n\right)_{n\in\IN}$ telle que :
-	\begin{itemize}
-		\item $\forall n\in\IN$, $\alpha_n \geq 0$
-		\item $\forall n\in\IN,\, \|\alpha_n\|_1 = 1$
-		\item $\forall \delta > 0,\, \int_{\lvert t\rvert > \delta}\alpha_n(t)d\mu(t)\xrightarrow[n\to +\infty]{} 0$
-	\end{itemize}
-\end{definition}
-
-\begin{example}[\textnormal{[BP] 302+307}]
-	Pour $n\in \IN$, posons $\alpha\,\colon x\in\IR\mapsto \exp(-1/[1-x^2])\mathbb{1}_{\lvert x\rvert < 1}$, et $\tilde{\alpha}_n\,\colon x\mapsto n\alpha(nx)$,
-	et $\alpha_n := \tilde{\alpha}_n/\|\tilde{\alpha}_n\|_1$.
-	Alors $\left(\alpha_n\right)_{n\in\IN^*}$ est une approximation de l'unité telle que $\forall n\in \IN$, $\alpha_n\in \mathcal{C}^{\infty}_c(\IR)$.
-\end{example}
-
-\begin{proposition}[\textnormal{[G] 304, [BP] 303}]
-	Soient $p<+\infty$, $f\in L^p(\IR)$ et $\left(\alpha_n\right)_{n\in\IN}$ une approximation de l'unité. Alors :
-	$$\|f*\alpha_n - f\|_p\xrightarrow[n\to +\infty]{} 0$$
-\end{proposition}
-
-\begin{theorem}
-	$\mathcal{C}^{\infty}_c(\IR)$ et $\mathcal{C}_c(\IR)$ sont denses dans $(L^p(\IR, \B(\IR), \lambda), \|\cdot\|_p)$.
-\end{theorem}
-
-\begin{proposition}[\textnormal{[BP] 297}]
-	Soient $1\leq p, q < +\infty$ tels que $\frac{1}{p} + \frac{1}{q} = 1$. Pour toutes $f\in L^p(\IR)$ et $g\in L^q(\IR)$, $f*g\in\mathcal{C}_0(\IR)$, \emph{i.e.} $f*g \in \mathcal{C}(\IR)$ et $f*g(x)\xrightarrow[\lvert x\rvert \to +\infty]{} 0$.
-\end{proposition}
-
-\begin{proposition}[\textnormal{[BP] 297}]
-	Pour toutes $f\in L^1(\IR)$ et $g\in L^{\infty}(\IR)$, $f*g\in \mathcal{C}_b(\IR)$.
-\end{proposition}
-
-\subsection*{B. Transformation de \textsc{Fourier} dans $L^1(\IR)$ et $L^2(\IR)$}
-
-\begin{definition}[\textnormal{[F] 130}]
-	Pour $f\in L^1(\IR)$, on définit la \emph{transformée de \textsc{Fourier} de $f$} par 
-	$$\hat{f} \,\colon \zeta \mapsto \int_{\IR} f(x)e^{-ix\zeta}dx$$
-
-	La \emph{transformation de \textsc{Fourier}} est l'application $\mathcal{F}\,\colon f\mapsto \hat{f}$.
-\end{definition}
-
-\section*{Développements}
-\begin{itemize}
-	\item Développement 1 : Théorème \ref{234dev1}
-	% \item Développement 2 : Exemple \ref{228dev2}
-\end{itemize}
-
-\section*{Références}
-\begin{itemize}	
-	% \item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
-	\item[EA] \emph{Analyse de Fourier dans les espaces fonctionnels}, Mohamed El Amrani
-	\item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
-	\item[F] \emph{Calcul intégral}, Jacques Faraut
-	% \item[FGN] \emph{Oraux X-ENS Algèbre 1}, Serge Francinou, Hervé Gianella, Serge Nicolas  
-	\item[CR] \emph{Probabilités et statistiques pour l'épreuve de modélisation à l'agrégation de mathématiques}, Marie-Line Chabanol, Jean-Jacques Ruch
-	\item[BP] \emph{Théorie de l'intégration}, Marc Briane, Gilles Pagès, 7e édition
-\end{itemize}
-
-% \begin{figure}[!htb]
-% 	\centering
-% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/228.pdf}
-% 	\caption{s}
-% \end{figure}
 \end{document}
 
 % \begin{figure}[!htb]

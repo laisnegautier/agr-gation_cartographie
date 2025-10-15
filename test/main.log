@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.8.9)  14 OCT 2025 12:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.8.9)  15 OCT 2025 12:47
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -210,6 +210,9 @@ Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1370.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1371.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1372.
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/bbold.sty
+Package: bbold 1994/04/06 Bbold symbol package
+LaTeX Font Info:    Redeclaring math alphabet \mathbb on input line 42.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/framed/framed.sty
 Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \OuterFrameSep=\skip57
@@ -517,28 +520,28 @@ LaTeX Warning: Unused global option(s):
 (/Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Info: Redefining \degres on input line 142.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Info: Redefining \degres on input line 143.
 Package french.ldf Info: Setting StandardItemizeEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 142.
+(french.ldf)             reported on input line 143.
 Package french.ldf Info: Setting StandardEnumerateEnv=true for
 (french.ldf)             compatibility with enumitem package,
-(french.ldf)             reported on input line 142.
-LaTeX Info: Redefining \up on input line 142.
+(french.ldf)             reported on input line 143.
+LaTeX Info: Redefining \up on input line 143.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -594,48 +597,49 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Chapitre 1.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 147.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 148.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 147.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 148.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+stmry on input line 147.
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 148.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+euf on input line 162.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 163.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
-Underfull \hbox (badness 4726) in paragraph at lines 176--177
+Underfull \hbox (badness 4726) in paragraph at lines 177--178
 []\T1/cmr/m/it/10 Le \T1/cmr/m/n/10 sta-bi-li-sa-teur \T1/cmr/m/it/10 de $\OML/cmm/m/it/10 x$ \T1/cmr/m/it/10 est l'en-semble $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/n/10 ) =
  []
 
 
 
 
-Underfull \hbox (badness 3815) in paragraph at lines 225--226
+Underfull \hbox (badness 3815) in paragraph at lines 226--227
 []\T1/cmr/bx/n/10 Proposition 13 \T1/cmr/m/n/10 ([R] ?, [U] ?)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 X[];  y \OMS/cmsy/m/n/10 2
  []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 234--235
+Underfull \hbox (badness 1990) in paragraph at lines 235--236
 []\T1/cmr/bx/n/10 Théorème 15 \T1/cmr/m/n/10 (Équa-tion aux classes - [R] 21)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--240
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 []\T1/cmr/bx/n/10 Exemple 16 \T1/cmr/m/n/10 ([R] 22)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Si $[] \OML/cmm/m/it/10 G$ \T1/cmr/m/it/10 est une puis-
  []
 
 
-Underfull \hbox (badness 1194) in paragraph at lines 239--240
+Underfull \hbox (badness 1194) in paragraph at lines 240--241
 \T1/cmr/m/it/10 sance d'un nombre pre-mier, alors son centre $\OML/cmm/m/it/10 Z\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) :=
  []
 
-
-Underfull \hbox (badness 3884) in paragraph at lines 297--298
+LaTeX Font Info:    Trying to load font information for U+bbold on input line 284.
+(/usr/local/texlive/2025/texmf-dist/tex/latex/bbold/Ubbold.fd)
+Underfull \hbox (badness 3884) in paragraph at lines 298--299
 []\T1/cmr/m/it/10 Translation à gauche : $\OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^B M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
@@ -645,38 +649,38 @@ Underfull \hbox (badness 3884) in paragraph at lines 297--298
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 300--301
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 []\T1/cmr/m/it/10 Équivalence (ou \T1/cmr/m/n/10 ac-tion de Stei-niz\T1/cmr/m/it/10 ) :
  []
 
 
-Underfull \hbox (badness 5893) in paragraph at lines 300--301
+Underfull \hbox (badness 5893) in paragraph at lines 301--302
 [] \OMS/cmsy/m/n/10 ^^B M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ! M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 ,
  []
 
 <img/101.pdf, id=24, 2075.755pt x 1467.4825pt>
 File: img/101.pdf Graphic file (type pdf)
 <use img/101.pdf>
-Package pdftex.def Info: img/101.pdf  used on input line 372.
+Package pdftex.def Info: img/101.pdf  used on input line 373.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
 
 
 [2 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/101.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 450--451
+Underfull \hbox (badness 10000) in paragraph at lines 451--452
 []\T1/cmr/bx/n/10 Proposition 11 \T1/cmr/m/n/10 ([U] 43)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 474--475
+Underfull \hbox (badness 10000) in paragraph at lines 475--476
 \T1/cmr/m/it/10 On a alors $\OML/cmm/m/it/10 ^^[ \OT1/cmr/m/n/10 = (1\OML/cmm/m/it/10 ; ^^[\OT1/cmr/m/n/10 (1)\OML/cmm/m/it/10 ; [] ; ^^[[]\OT1/cmr/m/n/10 (1)) \OMS/cmsy/m/n/10 ^^N
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 485--486
+Underfull \hbox (badness 10000) in paragraph at lines 486--487
 []\T1/cmr/bx/n/10 Proposition 17 \T1/cmr/m/n/10 ([R] 44)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
  []
 
@@ -685,17 +689,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 485--486
 [3
 
 ]
-Underfull \hbox (badness 1496) in paragraph at lines 597--599
+Underfull \hbox (badness 1496) in paragraph at lines 598--600
 []\T1/cmr/bx/n/10 Définition 39 \T1/cmr/m/n/10 ([R] 55)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Un \T1/cmr/m/n/10 po-ly-nôme sy-mé-trique \T1/cmr/m/it/10 est
  []
 
 
-Underfull \hbox (badness 1527) in paragraph at lines 597--599
+Underfull \hbox (badness 1527) in paragraph at lines 598--600
 \T1/cmr/m/it/10 un po-ly-nôme $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 K\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; [] ; X[]\OT1/cmr/m/n/10 ]$ \T1/cmr/m/it/10 tel que $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 ^^[ \OMS/cmsy/m/n/10 2 \U/euf/m/n/10 S[]$\T1/cmr/m/it/10 ,
  []
 
 
-Underfull \hbox (badness 3623) in paragraph at lines 637--639
+Underfull \hbox (badness 3623) in paragraph at lines 638--640
 \T1/cmr/m/it/10 de $[][] \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 , où pour $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 , $\OML/cmm/m/it/10 e[] \OMS/cmsy/m/n/10 ^ [] ^
  []
 
@@ -704,21 +708,21 @@ Underfull \hbox (badness 3623) in paragraph at lines 637--639
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 642.
+(amsmath)                 on input line 643.
 
 
-Underfull \hbox (badness 1728) in paragraph at lines 646--648
+Underfull \hbox (badness 1728) in paragraph at lines 647--649
 \T1/cmr/m/it/10 l'unique forme $\OML/cmm/m/it/10 n$\T1/cmr/m/it/10 -linéaire al-ter-née $[][]$ sur $\OML/cmm/m/it/10 E$ \T1/cmr/m/it/10 vé-ri-fiant
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 651--652
+Underfull \hbox (badness 10000) in paragraph at lines 652--653
 []\T1/cmr/bx/n/10 Proposition 48 \T1/cmr/m/n/10 ([R] 547)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 ,
  []
 
 File: img/101.pdf Graphic file (type pdf)
 <use img/101.pdf>
-Package pdftex.def Info: img/101.pdf  used on input line 726.
+Package pdftex.def Info: img/101.pdf  used on input line 727.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
@@ -729,19 +733,19 @@ Package pdftex.def Info: img/101.pdf  used on input line 726.
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 792--793
+Underfull \hbox (badness 10000) in paragraph at lines 793--794
 []\T1/cmr/m/it/10 Matrice de \T1/cmr/m/n/10 di-la-ta-tion $\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 792--793
+Underfull \hbox (badness 1137) in paragraph at lines 793--794
 []\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 ($\OML/cmm/m/it/10 $ \T1/cmr/m/it/10 est à la $\OML/cmm/m/it/10 i$\T1/cmr/m/it/10 -
  []
 
 
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 859--860
+Underfull \hbox (badness 3417) in paragraph at lines 860--861
 []$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 SO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 SO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 ) =
  []
 
@@ -750,12 +754,12 @@ Underfull \hbox (badness 3417) in paragraph at lines 859--860
 [6
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 []\T1/cmr/m/it/10 On note éga-le-ment $\OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 860--861
+Underfull \hbox (badness 10000) in paragraph at lines 861--862
 []$ \T1/cmr/m/it/10 et
  []
 
@@ -764,34 +768,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 860--861
 
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 1005--1007
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1008
 []\T1/cmr/bx/n/10 Exemple 5 \T1/cmr/m/n/10 ([R] 12)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 On pose $\OML/cmm/m/it/10 D\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 G\OT1/cmr/m/n/10 ) :=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1005--1007
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1008
 \OMS/cmsy/m/n/10 h[]i$\T1/cmr/m/it/10 . On l'ap-pelle \T1/cmr/m/n/10 groupe
  []
 
 
-Underfull \hbox (badness 1092) in paragraph at lines 1023--1024
-[]\T1/cmr/m/it/10 L'ensemble des gé-né-ra-teurs de $\U/msb/m/n/10 Z\OML/cmm/m/it/10 =n\U/msb/m/n/10 Z$ \T1/cmr/m/it/10 est $[][] \OT1/cmr/m/n/10 =
+Underfull \hbox (badness 1092) in paragraph at lines 1024--1025
+[]\T1/cmr/m/it/10 L'ensemble des gé-né-ra-teurs de $\U/bbold/m/n/10 Z\OML/cmm/m/it/10 =n\U/bbold/m/n/10 Z$ \T1/cmr/m/it/10 est $[][] \OT1/cmr/m/n/10 =
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1087--1088
+Underfull \hbox (badness 10000) in paragraph at lines 1088--1089
 []\T1/cmr/bx/n/10 Proposition 19 \T1/cmr/m/n/10 ([R] 44)\T1/cmr/bx/n/10 . []$\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 i[]; [] ; i[]\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1134--1135
+Underfull \hbox (badness 10000) in paragraph at lines 1135--1136
 []\T1/cmr/m/it/10 Matrice de \T1/cmr/m/n/10 di-la-ta-tion $\OML/cmm/m/it/10 D[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 \OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 1134--1135
+Underfull \hbox (badness 1137) in paragraph at lines 1135--1136
 []\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; ; \OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; [] ; \OT1/cmr/m/n/10 1) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 ($\OML/cmm/m/it/10 $ \T1/cmr/m/it/10 est à la $\OML/cmm/m/it/10 i$\T1/cmr/m/it/10 -
  []
 
@@ -800,46 +804,46 @@ Underfull \hbox (badness 1137) in paragraph at lines 1134--1135
 [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1181--1182
+Underfull \hbox (badness 10000) in paragraph at lines 1182--1183
 []\T1/cmr/m/it/10 Le \T1/cmr/m/n/10 groupe or-tho-go-nal de $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E; q\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 est $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 1183--1184
+Underfull \hbox (badness 1540) in paragraph at lines 1184--1185
 \T1/cmr/m/it/10 ment à une base don-née, note $\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 3417) in paragraph at lines 1183--1184
+Underfull \hbox (badness 3417) in paragraph at lines 1184--1185
 []$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 SO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 SO\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1186
 []\T1/cmr/m/it/10 No note éga-le-ment $\OMS/cmsy/m/n/10 O[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1184--1185
+Underfull \hbox (badness 10000) in paragraph at lines 1185--1186
 []$ \T1/cmr/m/it/10 et $[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 ) =
  []
 
 
 
 
-LaTeX Warning: Reference `108dev23' on page 9 undefined on input line 1238.
+LaTeX Warning: Reference `108dev23' on page 9 undefined on input line 1239.
 
 
 
 [9]
-Overfull \hbox (15.60179pt too wide) detected at line 1335
-[][]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OML/cmm/m/it/10 =n\U/msb/m/n/10 Z\OML/cmm/m/it/10 ; \U/msb/m/n/10 Z\OML/cmm/m/it/10 =m\U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) [] []
+Overfull \hbox (15.60179pt too wide) detected at line 1336
+[][]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 Z\OML/cmm/m/it/10 =n\U/bbold/m/n/10 Z\OML/cmm/m/it/10 ; \U/bbold/m/n/10 Z\OML/cmm/m/it/10 =m\U/bbold/m/n/10 Z\OT1/cmr/m/n/10 ) [] []
  []
 
 
 
 
-Underfull \hbox (badness 4429) in paragraph at lines 1371--1374
+Underfull \hbox (badness 4429) in paragraph at lines 1372--1375
 []\T1/cmr/bx/n/10 Théorème 19 \T1/cmr/m/n/10 (des restes chi-nois - [R] 285)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit
  []
 
@@ -848,7 +852,7 @@ Underfull \hbox (badness 4429) in paragraph at lines 1371--1374
 [10
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1480--1487
+Underfull \hbox (badness 10000) in paragraph at lines 1481--1488
 []\T1/cmr/bx/n/10 Remarque 33 \T1/cmr/m/n/10 ([R] 291)\T1/cmr/bx/n/10 . []$\OML/cmm/m/it/10 S [] \OT1/cmr/m/n/10 =
  []
 
@@ -859,7 +863,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 1480--1487
 [11]
 
 
-Overfull \hbox (25.8171pt too wide) detected at line 1708
+Overfull \hbox (25.81712pt too wide) detected at line 1709
 []
  []
 
@@ -869,10 +873,10 @@ Overfull \hbox (25.8171pt too wide) detected at line 1708
 
 ]
 
-<img/eratosthene.pdf, id=78, 2075.755pt x 2934.965pt>
+<img/eratosthene.pdf, id=81, 2075.755pt x 2934.965pt>
 File: img/eratosthene.pdf Graphic file (type pdf)
 <use img/eratosthene.pdf>
-Package pdftex.def Info: img/eratosthene.pdf  used on input line 1840.
+Package pdftex.def Info: img/eratosthene.pdf  used on input line 1841.
 (pdftex.def)             Requested size: 265.3012pt x 375.10997pt.
 
 
@@ -883,20 +887,20 @@ Package pdftex.def Info: img/eratosthene.pdf  used on input line 1840.
 [14
 
  </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/eratosthene.pdf>]
-Underfull \hbox (badness 1033) in paragraph at lines 1874--1875
+Underfull \hbox (badness 1033) in paragraph at lines 1875--1876
 []$\OML/cmm/m/it/10 P$ \T1/cmr/m/it/10 ad-met un unique corps de dé-com-po-si-tion $\OML/cmm/m/it/10 D$ \T1/cmr/m/it/10 à $\OML/cmm/m/it/10 K$\T1/cmr/m/it/10 -
  []
 
 
-Underfull \hbox (badness 7451) in paragraph at lines 1882--1883
+Underfull \hbox (badness 7451) in paragraph at lines 1883--1884
 []\T1/cmr/bx/n/10 Exemple 5. []\T1/cmr/m/it/10 Soit $\OML/cmm/m/it/10 p$ \T1/cmr/m/it/10 un nombre pre-mier. L'an-neau
  []
 
 
 
 
-Underfull \hbox (badness 8075) in paragraph at lines 1938--1939
-[]\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 K$ \T1/cmr/m/it/10 est une ex-ten-sion de $\U/msb/m/n/10 F[]$\T1/cmr/m/it/10 , alors $\U/msb/m/n/10 F[] \OT1/cmr/m/n/10 =
+Underfull \hbox (badness 8075) in paragraph at lines 1939--1940
+[]\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 K$ \T1/cmr/m/it/10 est une ex-ten-sion de $\U/bbold/m/n/10 F[]$\T1/cmr/m/it/10 , alors $\U/bbold/m/n/10 F[] \OT1/cmr/m/n/10 =
  []
 
 
@@ -905,10 +909,10 @@ Underfull \hbox (badness 8075) in paragraph at lines 1938--1939
 
 ]
 
-<img/diagramme_extensions_corps_finis.pdf, id=96, 2075.755pt x 1467.4825pt>
+<img/diagramme_extensions_corps_finis.pdf, id=99, 2075.755pt x 1467.4825pt>
 File: img/diagramme_extensions_corps_finis.pdf Graphic file (type pdf)
 <use img/diagramme_extensions_corps_finis.pdf>
-Package pdftex.def Info: img/diagramme_extensions_corps_finis.pdf  used on input line 2151.
+Package pdftex.def Info: img/diagramme_extensions_corps_finis.pdf  used on input line 2152.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
@@ -919,12 +923,12 @@ Package pdftex.def Info: img/diagramme_extensions_corps_finis.pdf  used on input
 [17
 
 ]
-Underfull \hbox (badness 4608) in paragraph at lines 2346--2347
-[]$\U/msb/m/n/10 C$ \T1/cmr/m/it/10 est al-gé-bri-que-ment clos
+Underfull \hbox (badness 5091) in paragraph at lines 2347--2348
+[]$\U/bbold/m/n/10 C$ \T1/cmr/m/it/10 est al-gé-bri-que-ment clos
  []
 
 
-Overfull \hbox (67.82843pt too wide) detected at line 2415
+Overfull \hbox (67.82846pt too wide) detected at line 2416
 []
  []
 
@@ -935,17 +939,17 @@ Overfull \hbox (67.82843pt too wide) detected at line 2415
 [18]
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 2546--2549
+Underfull \hbox (badness 1394) in paragraph at lines 2547--2550
 \T1/cmr/m/it/10 tel que $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 ^ \OML/cmm/m/it/10 Q \OT1/cmr/m/n/10 = 1$\T1/cmr/m/it/10 . Soient $\OML/cmm/m/it/10 V$ \T1/cmr/m/it/10 un $\OML/cmm/m/it/10 K$\T1/cmr/m/it/10 -espace vec-to-riel
  []
 
 
-Underfull \hbox (badness 4531) in paragraph at lines 2565--2567
+Underfull \hbox (badness 4531) in paragraph at lines 2566--2568
 \T1/cmr/m/it/10 est un iso-mor-phisme d'an-neaux de $\OML/cmm/m/it/10 A=\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 a[] [] a[]\OMS/cmsy/m/n/10 i$ \T1/cmr/m/it/10 dans
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2582--2584
+Underfull \hbox (badness 10000) in paragraph at lines 2583--2585
 []\T1/cmr/bx/n/10 Exemple 18 \T1/cmr/m/n/10 (In-ter-po-la-tion de La-grange)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soient
  []
 
@@ -954,75 +958,75 @@ Underfull \hbox (badness 10000) in paragraph at lines 2582--2584
 [19
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 2658--2661
+Underfull \hbox (badness 10000) in paragraph at lines 2659--2662
 []\T1/cmr/m/it/10 Les or-bites de cette ac-tion sont les $\OML/cmm/m/it/10 E[] \OT1/cmr/m/n/10 =
  []
-
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 2684.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
 (Font)              using `T1/cmr/m/scsl' instead on input line 2685.
 
 
-Underfull \hbox (badness 1603) in paragraph at lines 2707--2708
+LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
+(Font)              using `T1/cmr/m/scsl' instead on input line 2686.
+
+
+Underfull \hbox (badness 1603) in paragraph at lines 2708--2709
 []\T1/cmr/bx/n/10 Remarque 32. []\T1/cmr/m/it/10 Al-go-rithme 31[] se ter-mine en au plus
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 2712.
+(Font)              using `T1/cmr/m/scsl' instead on input line 2713.
 
 
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 2740.
+(Font)              using `T1/cmr/m/scsl' instead on input line 2741.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2738--2741
+Underfull \hbox (badness 10000) in paragraph at lines 2739--2742
 []\T1/cmr/bx/n/10 Algorithme 35 \T1/cmr/m/n/10 (d'\T1/cmr/m/sc/10 Hermite \T1/cmr/m/n/10 - [G] 164)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2738--2741
-\OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 2 M[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 n []$\T1/cmr/m/it/10 . On dé-fi-nit $\OML/cmm/m/it/10 ^^N[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) =
+Underfull \hbox (badness 10000) in paragraph at lines 2739--2742
+\OML/cmm/m/it/10 M \OMS/cmsy/m/n/10 2 M[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 Z\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 n []$\T1/cmr/m/it/10 . On dé-fi-nit $\OML/cmm/m/it/10 ^^N[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2738--2741
+Underfull \hbox (badness 10000) in paragraph at lines 2739--2742
 
  []
 
 
-Underfull \hbox (badness 3679) in paragraph at lines 2742--2749
+Underfull \hbox (badness 3679) in paragraph at lines 2743--2750
 []\T1/cmr/m/n/10 Soit $\OML/cmm/m/it/10 i[] \OT1/cmr/m/n/10 = 1$\T1/cmr/m/n/10 . Tant que $\OML/cmm/m/it/10 i[] < n$ \T1/cmr/m/n/10 : soit $\OML/cmm/m/it/10 j[] \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2742--2749
+Underfull \hbox (badness 10000) in paragraph at lines 2743--2750
 
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 2750.
+(Font)              using `T1/cmr/m/scsl' instead on input line 2751.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2759--2774
+Underfull \hbox (badness 10000) in paragraph at lines 2760--2775
 []\T1/cmr/bx/n/10 Exemple 37. []\T1/cmr/m/it/10 Cas d'une seule équa-tion li-néaire
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 2759--2774
+Underfull \hbox (badness 2376) in paragraph at lines 2760--2775
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 )  [] []  [][] [] = \OML/cmm/m/it/10 b$ \T1/cmr/m/it/10 avec $\OML/cmm/m/it/10 a[] \OMS/cmsy/m/n/10 ^ [] ^ \OML/cmm/m/it/10 a[] \OT1/cmr/m/n/10 = 1$\T1/cmr/m/it/10 .
  []
 
 
-Underfull \hbox (badness 5245) in paragraph at lines 2759--2774
-\T1/cmr/m/it/10 D'après Cor 24, il existe $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 Z\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 telle que
+Underfull \hbox (badness 5245) in paragraph at lines 2760--2775
+\T1/cmr/m/it/10 D'après Cor 24, il existe $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 GL[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 Z\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 telle que
  []
 
 
@@ -1036,8 +1040,8 @@ Underfull \hbox (badness 5245) in paragraph at lines 2759--2774
 ]
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 2953--2957
-[]\T1/cmr/bx/n/10 Exemple 14. []\T1/cmr/m/it/10 Soit $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]; [] ; a[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 C[]$\T1/cmr/m/it/10 . L'ap-pli-ca-tion
+Underfull \hbox (badness 1946) in paragraph at lines 2954--2958
+[]\T1/cmr/bx/n/10 Exemple 14. []\T1/cmr/m/it/10 Soit $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]; [] ; a[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/bbold/m/n/10 C[]$\T1/cmr/m/it/10 . L'ap-pli-ca-tion
  []
 
 
@@ -1047,24 +1051,24 @@ Underfull \hbox (badness 1845) in paragraph at lines 2953--2957
 ]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3101.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3102.
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3149--3151
+Underfull \hbox (badness 10000) in paragraph at lines 3150--3152
 []\T1/cmr/bx/n/10 Proposition/Définition 43 \T1/cmr/m/n/10 ([R] 604)\T1/cmr/bx/n/10 .
  []
 
 
-Underfull \hbox (badness 1675) in paragraph at lines 3149--3151
+Underfull \hbox (badness 1675) in paragraph at lines 3150--3152
 []$[]$ \T1/cmr/m/it/10 est un idéal non nul : son
  []
 
 
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 3247--3248
+Underfull \hbox (badness 10000) in paragraph at lines 3248--3249
 []\T1/cmr/bx/n/10 Proposition 7 \T1/cmr/m/n/10 ([Go] 141)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 E[]$\T1/cmr/m/it/10 ,
  []
 
@@ -1072,50 +1076,50 @@ Underfull \hbox (badness 10000) in paragraph at lines 3247--3248
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3318.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3319.
 
 
 
 [24
 
 ]
-Underfull \hbox (badness 2573) in paragraph at lines 3369--3370
+Underfull \hbox (badness 2573) in paragraph at lines 3370--3371
 []\T1/cmr/m/it/10 On ap-pelle \T1/cmr/m/n/10 co-ma-trice de $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 la ma-trice $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) =
  []
 
 
-Overfull \hbox (87.01474pt too wide) in paragraph at lines 3374--3375
+Overfull \hbox (87.01474pt too wide) in paragraph at lines 3375--3376
 []
  []
 
 
-Underfull \hbox (badness 1325) in paragraph at lines 3392--3393
+Underfull \hbox (badness 1325) in paragraph at lines 3393--3394
 []\T1/cmr/bx/n/10 Théorème 25 \T1/cmr/m/n/10 (For-mule de la co-ma-trice - [Go] 143)\T1/cmr/bx/n/10 .
  []
 
 
 
 
-Underfull \hbox (badness 3657) in paragraph at lines 3458--3459
+Underfull \hbox (badness 3657) in paragraph at lines 3459--3460
 []$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2 M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 ,
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3485.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3486.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3522--3523
+Underfull \hbox (badness 10000) in paragraph at lines 3523--3524
 []$\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 [][]$\T1/cmr/m/it/10 , $\OMS/cmsy/m/n/10 j []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j ^^T
  []
 
 
 
 [25]
-<img/149.pdf, id=138, 2075.755pt x 1467.4825pt>
+<img/149.pdf, id=141, 2075.755pt x 1467.4825pt>
 File: img/149.pdf Graphic file (type pdf)
 <use img/149.pdf>
-Package pdftex.def Info: img/149.pdf  used on input line 3549.
+Package pdftex.def Info: img/149.pdf  used on input line 3550.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
@@ -1124,12 +1128,12 @@ Package pdftex.def Info: img/149.pdf  used on input line 3549.
 [26 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/149.pdf>]
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3652--3655
+Underfull \hbox (badness 10000) in paragraph at lines 3653--3656
 []\T1/cmr/bx/n/10 Proposition 14 \T1/cmr/m/n/10 ([M2] 84)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Écri-vons $\OML/cmm/m/it/10 ^^_[] \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 3240) in paragraph at lines 3652--3655
+Underfull \hbox (badness 3240) in paragraph at lines 3653--3656
 [][] [][]$ \T1/cmr/m/it/10 et po-sons $\OML/cmm/m/it/10 E[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ) = [](\OML/cmm/m/it/10 ^^U [][] \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 .
  []
 
@@ -1138,96 +1142,96 @@ Underfull \hbox (badness 3240) in paragraph at lines 3652--3655
 [27
 
 ]
-Underfull \hbox (badness 4713) in paragraph at lines 3771--3772
-[]\T1/cmr/m/it/10 Pour $\OML/cmm/m/it/10 ^^U \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N[]$\T1/cmr/m/it/10 , on pose $\OML/cmm/m/it/10 J[] \OT1/cmr/m/n/10 =
+Underfull \hbox (badness 4713) in paragraph at lines 3772--3773
+[]\T1/cmr/m/it/10 Pour $\OML/cmm/m/it/10 ^^U \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/bbold/m/n/10 N[]$\T1/cmr/m/it/10 , on pose $\OML/cmm/m/it/10 J[] \OT1/cmr/m/n/10 =
  []
 
 
-LaTeX Warning: Reference `151dev14' on page 28 undefined on input line 3812.
+LaTeX Warning: Reference `151dev14' on page 28 undefined on input line 3813.
 
 
 
 
 
 [28]
-Underfull \hbox (badness 10000) in paragraph at lines 3838--3840
-[]\T1/cmr/bx/n/10 Exemple 2 \T1/cmr/m/n/10 ([R] 761)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 K[]$\T1/cmr/m/it/10 ,
+Underfull \hbox (badness 10000) in paragraph at lines 3839--3841
+[]\T1/cmr/bx/n/10 Exemple 2 \T1/cmr/m/n/10 ([R] 761)\T1/cmr/bx/n/10 . []$\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/bbold/m/n/10 K[]$\T1/cmr/m/it/10 ,
  []
 
 
-Underfull \hbox (badness 2512) in paragraph at lines 3838--3840
+Underfull \hbox (badness 2512) in paragraph at lines 3839--3841
 []\OT1/cmr/m/n/10 ([](\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 )) = [](\OML/cmm/m/it/10 e[]; [] ; e[]\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 . En par-ti-cu-
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 3883--3884
-[]\T1/cmr/bx/n/10 Corollaire 8. []$[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 K\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 K\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 , avec $\OMS/cmsy/m/n/10 A[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 K\OT1/cmr/m/n/10 ) =
+Underfull \hbox (badness 2150) in paragraph at lines 3884--3885
+[]\T1/cmr/bx/n/10 Corollaire 8. []$[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 A[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 K\OT1/cmr/m/n/10 )) \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 K\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 , avec $\OMS/cmsy/m/n/10 A[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 K\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 2318) in paragraph at lines 3898--3899
-[]\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 est dia-go-na-li-sable et $\U/msb/m/n/10 K \OT1/cmr/m/n/10 = \U/msb/m/n/10 R$\T1/cmr/m/it/10 , alors $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2
+Underfull \hbox (badness 2617) in paragraph at lines 3899--3900
+[]\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 est dia-go-na-li-sable et $\U/bbold/m/n/10 K \OT1/cmr/m/n/10 = \U/bbold/m/n/10 R$\T1/cmr/m/it/10 , alors $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3912--3920
+Underfull \hbox (badness 10000) in paragraph at lines 3913--3921
 []\T1/cmr/bx/n/10 Proposition 13. []\T1/cmr/m/it/10 Sup-po-sons $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 dia-go-na-li-sable. Il
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3912--3920
-\T1/cmr/m/it/10 existe $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 K[]$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 K\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 tels
+Underfull \hbox (badness 3792) in paragraph at lines 3913--3921
+\T1/cmr/m/it/10 existe $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/bbold/m/n/10 K[]$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 P \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 K\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 tels que
  []
 
 
-Underfull \hbox (badness 6047) in paragraph at lines 3912--3920
-\T1/cmr/m/it/10 que $\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 P [] P[]$ \T1/cmr/m/it/10 ; alors $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) =
+Underfull \hbox (badness 10000) in paragraph at lines 3913--3921
+\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 P [] P[]$ \T1/cmr/m/it/10 ; alors $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A\OT1/cmr/m/n/10 ) =
  []
 
 
 
 
-Underfull \hbox (badness 1331) in paragraph at lines 3928--3929
+Underfull \hbox (badness 1331) in paragraph at lines 3929--3930
 []\T1/cmr/bx/n/10 Proposition 15. []\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 A$ \T1/cmr/m/it/10 est nil-po-tente d'in-dice $\OML/cmm/m/it/10 r$\T1/cmr/m/it/10 , alors
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3932.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3933.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3935.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3936.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3952.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3953.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3960.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3961.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3960--3979
+Underfull \hbox (badness 10000) in paragraph at lines 3961--3980
 []\T1/cmr/bx/n/10 Exemple 21. []\T1/cmr/m/it/10 Le pro-blème de \T1/cmr/m/scsl/10 Cau-chy
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 3983.
+(Font)              using `T1/cmr/m/scsl' instead on input line 3984.
 
 
 
 [29
 
 ]
-Underfull \hbox (badness 3713) in paragraph at lines 4016--4018
-[]\T1/cmr/bx/n/10 Proposition 27 \T1/cmr/m/n/10 ([R] e768-777)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 No-tons $\OMS/cmsy/m/n/10 N[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 l'en-
+Underfull \hbox (badness 4013) in paragraph at lines 4017--4019
+[]\T1/cmr/bx/n/10 Proposition 27 \T1/cmr/m/n/10 ([R] e768-777)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 No-tons $\OMS/cmsy/m/n/10 N[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 l'en-
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 4039--4040
-[]\T1/cmr/bx/n/10 Théorème 29 \T1/cmr/m/n/10 ([C] 357)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 L'ap-pli-ca-tion $[]  [] [] \OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
+Underfull \hbox (badness 1189) in paragraph at lines 4040--4041
+[]\T1/cmr/bx/n/10 Théorème 29 \T1/cmr/m/n/10 ([C] 357)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 L'ap-pli-ca-tion $[]  [] [] \OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 R\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 !
  []
 
 
@@ -1237,24 +1241,24 @@ Underfull \hbox (badness 1077) in paragraph at lines 4039--4040
 [30
 
 ]
-Underfull \hbox (badness 3646) in paragraph at lines 4105--4107
+Underfull \hbox (badness 3646) in paragraph at lines 4106--4108
 []\T1/cmr/bx/n/10 Théorème 1 \T1/cmr/m/n/10 (de struc-ture - [M2] 2)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 L'ap-pli-ca-tion
  []
 
 
-Underfull \hbox (badness 3019) in paragraph at lines 4179--4181
+Underfull \hbox (badness 3019) in paragraph at lines 4180--4182
 []\T1/cmr/bx/n/10 Proposition 17. []\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 2 M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 s'écrit par blocs
  []
 
 
 
 
-Underfull \hbox (badness 1584) in paragraph at lines 4198--4203
+Underfull \hbox (badness 1584) in paragraph at lines 4199--4204
 []$[]$ \T1/cmr/m/it/10 et $[]$ sont tri-go-na-li-sables, mais pas leur
  []
 
 
-Underfull \hbox (badness 2368) in paragraph at lines 4259--4259
+Underfull \hbox (badness 2368) in paragraph at lines 4260--4260
 |\T1/cmr/bx/n/12 B. Ré-duc-tion de \T1/cmr/bx/sc/12 Jor-dan \T1/cmr/bx/n/12 des en-do-mor-
  []
 
@@ -1263,49 +1267,49 @@ Underfull \hbox (badness 2368) in paragraph at lines 4259--4259
 [31
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 4299--4301
+Underfull \hbox (badness 10000) in paragraph at lines 4300--4302
 []\T1/cmr/bx/n/10 Proposition 37 \T1/cmr/m/n/10 ([Gr] 93)\T1/cmr/bx/n/10 . []$\OML/cmm/m/it/10 p \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4299--4301
+Underfull \hbox (badness 10000) in paragraph at lines 4300--4302
 [] []$ \T1/cmr/m/it/10 est ap-pelé \T1/cmr/m/n/10 ca-
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 4306.
+(Font)              using `T1/cmr/m/scsl' instead on input line 4307.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 4324.
+(Font)              using `T1/cmr/m/scsl' instead on input line 4325.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 4354.
+(Font)              using `T1/cmr/m/scsl' instead on input line 4355.
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4369--4370
+Underfull \hbox (badness 10000) in paragraph at lines 4370--4371
 []\T1/cmr/bx/n/10 Application 46. []$[] \OT1/cmr/m/n/10 =
  []
 
-<img/156.pdf, id=165, 2075.755pt x 1467.4825pt>
+<img/156.pdf, id=168, 2075.755pt x 1467.4825pt>
 File: img/156.pdf Graphic file (type pdf)
 <use img/156.pdf>
-Package pdftex.def Info: img/156.pdf  used on input line 4404.
+Package pdftex.def Info: img/156.pdf  used on input line 4405.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
 [32 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/156.pdf>]
-Overfull \hbox (16.8566pt too wide) in paragraph at lines 4446--4447
-[]$\OMS/cmsy/m/n/10 S[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 R\OT1/cmr/m/n/10 ) = []$
+Overfull \hbox (14.35661pt too wide) in paragraph at lines 4447--4448
+[]$\OMS/cmsy/m/n/10 S[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 R\OT1/cmr/m/n/10 ) = []$
  []
 
 
-Overfull \hbox (20.70355pt too wide) in paragraph at lines 4448--4449
-[]$\OMS/cmsy/m/n/10 H[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 C\OT1/cmr/m/n/10 ) = []$
+Overfull \hbox (19.03693pt too wide) in paragraph at lines 4449--4450
+[]$\OMS/cmsy/m/n/10 H[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 C\OT1/cmr/m/n/10 ) = []$
  []
 
 
@@ -1315,8 +1319,8 @@ Overfull \hbox (20.70355pt too wide) in paragraph at lines 4448--4449
 [33
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 4648--4649
-[]\T1/cmr/m/it/10 Le cas échéant, $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R[]$\T1/cmr/m/it/10 , $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ) =
+Underfull \hbox (badness 10000) in paragraph at lines 4649--4650
+[]\T1/cmr/m/it/10 Le cas échéant, $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 u \OMS/cmsy/m/n/10 2 \U/bbold/m/n/10 R[]$\T1/cmr/m/it/10 , $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ) =
  []
 
 
@@ -1326,17 +1330,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 4648--4649
 [34]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 4776.
+(Font)              using `T1/cmr/m/scsl' instead on input line 4777.
 
 
 
 
-Underfull \hbox (badness 1242) in paragraph at lines 4809--4810
+Underfull \hbox (badness 1242) in paragraph at lines 4810--4811
 []\T1/cmr/bx/n/10 Proposition 16. []\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 ' \OMS/cmsy/m/n/10 2 M[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 K\OT1/cmr/m/n/10 )[]$ \T1/cmr/m/it/10 vé-ri-fie $\OMS/cmsy/m/n/10 8\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 A; B\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4814--4815
+Underfull \hbox (badness 10000) in paragraph at lines 4815--4816
 []\T1/cmr/m/it/10 Tout hy-per-plan de
  []
 
@@ -1345,82 +1349,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 4814--4815
 [35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 4854--4855
+Underfull \hbox (badness 10000) in paragraph at lines 4855--4856
 []\T1/cmr/m/it/10 L'\T1/cmr/m/n/10 orthogonal de $\OML/cmm/m/it/10 B \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 E[]$ \T1/cmr/m/it/10 est $\OML/cmm/m/it/10 B[] \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 3942) in paragraph at lines 4878--4880
+Underfull \hbox (badness 3942) in paragraph at lines 4879--4881
 []\T1/cmr/bx/n/10 Théorème 28 \T1/cmr/m/n/10 (Équa-tion d'un s.e.v - [R] 451)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Si
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4883--4888
+Underfull \hbox (badness 10000) in paragraph at lines 4884--4889
 []\T1/cmr/bx/n/10 Remarque 29 \T1/cmr/m/n/10 ([R] e446)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Pour sim-pli-fier les
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4883--4888
+Underfull \hbox (badness 10000) in paragraph at lines 4884--4889
 \T1/cmr/m/it/10 no-ta-tions, pla-çons nous dans $\OML/cmm/m/it/10 E \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 K[]$\T1/cmr/m/it/10 . Si
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4883--4888
+Underfull \hbox (badness 10000) in paragraph at lines 4884--4889
 \OML/cmm/m/it/10 H \OT1/cmr/m/n/10 = [] \OML/cmm/m/it/10 '$ \T1/cmr/m/it/10 est un hy-per-plan, alors $\OML/cmm/m/it/10 H \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4883--4888
+Underfull \hbox (badness 10000) in paragraph at lines 4884--4889
 []$ \T1/cmr/m/it/10 (où
  []
 
 
 
 
-Underfull \hbox (badness 1688) in paragraph at lines 4949--4949
+Underfull \hbox (badness 1688) in paragraph at lines 4950--4950
 |\T1/cmr/bx/n/12 III. Ap-pli-ca-tion aux formes qua-dra-tiques
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 4956.
+(Font)              using `T1/cmr/m/scsl' instead on input line 4957.
 
 
 
 [36]
-Underfull \hbox (badness 5667) in paragraph at lines 5040--5041
+Underfull \hbox (badness 5667) in paragraph at lines 5041--5042
 []\T1/cmr/bx/n/10 Théorème 6 \T1/cmr/m/n/10 (ré-duc-tion de \T1/cmr/m/sc/10 Gauss \T1/cmr/m/n/10 - [R] 469)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Il
  []
 
 
-Underfull \hbox (badness 1072) in paragraph at lines 5046--5048
+Underfull \hbox (badness 1072) in paragraph at lines 5047--5049
 []\T1/cmr/m/it/10 S'il existe $\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 \U/stmry/m/n/10 J\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; n\U/stmry/m/n/10 K$ \T1/cmr/m/it/10 tel que $\OML/cmm/m/it/10 a[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = 0$ \T1/cmr/m/it/10 (quitte à re-
  []
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 5046--5048
+Underfull \hbox (badness 1622) in paragraph at lines 5047--5049
 \T1/cmr/m/it/10 nu-mé-ro-ter, di-sons $\OML/cmm/m/it/10 a[] \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 = 0$\T1/cmr/m/it/10 ), on écrit $\OML/cmm/m/it/10 q\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; [] ; x[]\OT1/cmr/m/n/10 ) =
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5046--5048
+Underfull \hbox (badness 10000) in paragraph at lines 5047--5049
 \OML/cmm/m/it/10 a[] [][] \OT1/cmr/m/n/10 + [[] =
  []
 
 
-Overfull \hbox (65.20668pt too wide) detected at line 5055
+Overfull \hbox (65.20668pt too wide) detected at line 5056
 []
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5095--5098
+Underfull \hbox (badness 10000) in paragraph at lines 5096--5099
 []\T1/cmr/bx/n/10 Théorème 12 \T1/cmr/m/n/10 (loi d'iner-tie de Syl-ves-ter - [R]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5095--5098
+Underfull \hbox (badness 10000) in paragraph at lines 5096--5099
 \T1/cmr/m/n/10 476)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Sup-po-sons que $\OMS/cmsy/m/n/10 B$ \T1/cmr/m/it/10 est $\OML/cmm/m/it/10 q$\T1/cmr/m/it/10 -orthogonale. Alors
  []
 
@@ -1429,47 +1433,58 @@ Underfull \hbox (badness 10000) in paragraph at lines 5095--5098
 [37
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 5151--5154
+Underfull \hbox (badness 10000) in paragraph at lines 5152--5155
 []$[] \OT1/cmr/m/n/10 =
  []
 
 
-Underfull \hbox (badness 1178) in paragraph at lines 5178--5180
+Underfull \hbox (badness 1178) in paragraph at lines 5179--5181
 []\T1/cmr/bx/n/10 Théorème 24 \T1/cmr/m/n/10 (FIG. 3 - [R] 505-506)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soient $\OMS/cmsy/m/n/10 D$ \T1/cmr/m/it/10 une
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 5216.
+               Default added (so using `tbp') on input line 5217.
 
 
-Overfull \hbox (53.43863pt too wide) in paragraph at lines 5217--5229
+Overfull \hbox (53.43863pt too wide) in paragraph at lines 5218--5230
 [][] 
  []
 
 
 
-<img/171.pdf, id=191, 2075.755pt x 1467.4825pt>
+<img/171.pdf, id=194, 2075.755pt x 1467.4825pt>
 File: img/171.pdf Graphic file (type pdf)
 <use img/171.pdf>
-Package pdftex.def Info: img/171.pdf  used on input line 5248.
+Package pdftex.def Info: img/171.pdf  used on input line 5249.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
 [38 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/171.pdf>]
-Underfull \hbox (badness 1137) in paragraph at lines 5276--5277
-\T1/cmr/m/it/10 ma-tri-cielle $\OML/cmm/m/it/10 AX \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 B$\T1/cmr/m/it/10 , où $\OML/cmm/m/it/10 B \OT1/cmr/m/n/10 = [][](\OML/cmm/m/it/10 b[]; [] ; b[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 X \OT1/cmr/m/n/10 =
+Underfull \hbox (badness 1389) in paragraph at lines 5322--5323
+[]\T1/cmr/bx/n/10 Remarque 16. []\T1/cmr/m/it/10 La com-pa-cité est cru-ciale : consi-dé-rer
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5334--5335
+[]\T1/cmr/bx/n/10 Exemple 18. []\T1/cmr/m/it/10 La com-pa-cité est cru-ciale : $\U/bbold/m/n/10 R \OT1/cmr/m/n/10 =
  []
 
 
 
 
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 5347.
+Underfull \hbox (badness 10000) in paragraph at lines 5385--5386
+[]\T1/cmr/m/it/10 Soit $[][] \OMS/cmsy/m/n/10 2
+ []
 
 
-Underfull \hbox (badness 1990) in paragraph at lines 5356--5357
-[]$\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 d[] < d[] < [] < d[] \OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 p$ \T1/cmr/m/it/10 où $\OML/cmm/m/it/10 d[] \OT1/cmr/m/n/10 =
+Underfull \hbox (badness 1117) in paragraph at lines 5401--5403
+[]\T1/cmr/bx/n/10 Exemple 30 \T1/cmr/m/n/10 ([HL] 26)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit $[][]$ dé-fi-nie par $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 5406--5408
+[]\T1/cmr/bx/n/10 Théorème 31 \T1/cmr/m/n/10 (de \T1/cmr/m/sc/10 Sto-ne--Weiers-trass \T1/cmr/m/n/10 - [HL] 26)\T1/cmr/bx/n/10 .
  []
 
 
@@ -1480,73 +1495,36 @@ Underfull \hbox (badness 1990) in paragraph at lines 5356--5357
 
 
 
-[40
-
-]
-Underfull \hbox (badness 1389) in paragraph at lines 5484--5485
-[]\T1/cmr/bx/n/10 Remarque 16. []\T1/cmr/m/it/10 La com-pa-cité est cru-ciale : consi-dé-rer
+[40]
+Underfull \hbox (badness 2512) in paragraph at lines 5544--5545
+[]\T1/cmr/m/it/10 Pour $\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +\OMS/cmsy/m/n/10 1\OT1/cmr/m/n/10 [$\T1/cmr/m/it/10 , $\OMS/cmsy/m/n/10 k ^^A k[]  [] [] \OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 C\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 a; b\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; \U/bbold/m/n/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 7!
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5496--5497
-[]\T1/cmr/bx/n/10 Exemple 18. []\T1/cmr/m/it/10 La com-pa-cité est cru-ciale : $\U/msb/m/n/10 R \OT1/cmr/m/n/10 =
- []
-
-
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 5547--5548
-[]\T1/cmr/m/it/10 Soit $[][] \OMS/cmsy/m/n/10 2
- []
-
-
-Underfull \hbox (badness 1117) in paragraph at lines 5563--5565
-[]\T1/cmr/bx/n/10 Exemple 30 \T1/cmr/m/n/10 ([HL] 26)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit $[][]$ dé-fi-nie par $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 x \OMS/cmsy/m/n/10 2
- []
-
-
-Underfull \hbox (badness 2799) in paragraph at lines 5568--5570
-\T1/cmr/m/it/10 sous-algèbre $\OML/cmm/m/it/10 H$ \T1/cmr/m/it/10 de $\OML/cmm/m/it/10 C\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \U/msb/m/n/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 uni-taire et sé-pa-rante (\T1/cmr/m/n/10 i.e.
- []
-
-
-
-[41
-
-]
-
-
-
-[42]
-Underfull \hbox (badness 2334) in paragraph at lines 5706--5707
-[]\T1/cmr/m/it/10 Pour $\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +\OMS/cmsy/m/n/10 1\OT1/cmr/m/n/10 [$\T1/cmr/m/it/10 , $\OMS/cmsy/m/n/10 k ^^A k[]  [] [] \OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 C\OT1/cmr/m/n/10 ([\OML/cmm/m/it/10 a; b\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; \U/msb/m/n/10 K\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 7!
- []
-
-
-Underfull \hbox (badness 7415) in paragraph at lines 5756--5758
+Underfull \hbox (badness 7415) in paragraph at lines 5594--5596
 []\T1/cmr/bx/n/10 Exemple 9. []\T1/cmr/m/it/10 L'ap-pli-ca-tion $\OML/cmm/m/it/10 D  [] []  [] \OMS/cmsy/m/n/10 !
  []
 
 
 
 
-Underfull \hbox (badness 1622) in paragraph at lines 5761--5762
+Underfull \hbox (badness 1622) in paragraph at lines 5599--5600
 []\T1/cmr/bx/n/10 Proposition 10. []\T1/cmr/m/it/10 La conti-nuité est pré-ser-vée pour des
  []
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 5776.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 5614.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 5776.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 5614.
 
 Missing character: There is no ° in font cmr10!
 
 
-[43
+[41
 
 ]
-Underfull \hbox (badness 6893) in paragraph at lines 5906--5907
+Underfull \hbox (badness 6893) in paragraph at lines 5744--5745
 []\T1/cmr/bx/n/10 Théorème 33 \T1/cmr/m/n/10 (de \T1/cmr/m/sc/10 Riezs--Fi-sher \T1/cmr/m/n/10 - [BP] 166-176)\T1/cmr/bx/n/10 .
  []
 
@@ -1554,13 +1532,13 @@ Underfull \hbox (badness 6893) in paragraph at lines 5906--5907
 
 
 
-[44]
+[42]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6066.
+(Font)              using `T1/cmr/m/scsl' instead on input line 5904.
 
 
-Underfull \hbox (badness 2126) in paragraph at lines 6070--6071
+Underfull \hbox (badness 2126) in paragraph at lines 5908--5909
 []\T1/cmr/bx/n/10 Définition 10 \T1/cmr/m/n/10 ([HL] 87)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit $\OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 ^^R \OML/cmm/m/it/10 H$\T1/cmr/m/it/10 . On dé-fi-nit
  []
 
@@ -1568,343 +1546,236 @@ Underfull \hbox (badness 2126) in paragraph at lines 6070--6071
 
 
 
-[45
+[43
 
 ]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6218.
+(Font)              using `T1/cmr/m/scsl' instead on input line 6056.
 
 
-Underfull \hbox (badness 2564) in paragraph at lines 6229--6231
+Underfull \hbox (badness 2564) in paragraph at lines 6067--6069
 []\T1/cmr/bx/n/10 Théorème 31 \T1/cmr/m/n/10 ([HL] e125)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; ^^V\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 un es-pace
  []
 
 
-Underfull \hbox (badness 2680) in paragraph at lines 6229--6231
+Underfull \hbox (badness 2680) in paragraph at lines 6067--6069
 \T1/cmr/m/it/10 me-suré. Pour $\OML/cmm/m/it/10 f$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 g$ \T1/cmr/m/it/10 dans $\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; ^^V\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 , po-sons $\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 j
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6258--6259
+Underfull \hbox (badness 10000) in paragraph at lines 6096--6097
 []\T1/cmr/bx/n/10 Remarque 35. []$\OML/cmm/m/it/10 S[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 est le pro-jeté de $\OML/cmm/m/it/10 f$ \T1/cmr/m/it/10 sur
  []
 
 
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6274--6275
+Underfull \hbox (badness 10000) in paragraph at lines 6112--6113
 []$\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 C[]$\T1/cmr/m/it/10 ,
  []
 
 
-Underfull \hbox (badness 4416) in paragraph at lines 6274--6275
-\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 N[]$\T1/cmr/m/it/10 , $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k[] ^^T k\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 k[]$ \T1/cmr/m/it/10 et $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@
+Underfull \hbox (badness 4416) in paragraph at lines 6112--6113
+\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 N \OMS/cmsy/m/n/10 2 \U/bbold/m/n/10 N[]$\T1/cmr/m/it/10 , $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 k[] ^^T k\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 k[]$ \T1/cmr/m/it/10 et $\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@
  []
 
 
-Underfull \hbox (badness 1895) in paragraph at lines 6283--6284
+Underfull \hbox (badness 1895) in paragraph at lines 6121--6122
 []$\OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 k[] \OT1/cmr/m/n/10 = [][] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 )\OMS/cmsy/m/n/10 j[]$\T1/cmr/m/it/10 . Plus pré-ci-sé-ment, $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 7!
  []
 
 
-Underfull \hbox (badness 1052) in paragraph at lines 6293--6294
+Underfull \hbox (badness 1024) in paragraph at lines 6131--6132
 [][]\T1/cmr/m/n/10 Soient $\OT1/cmr/m/n/10 (
-\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; \U/msb/m/n/10 P\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 un es-pace pro-ba-bi-lisé, $\OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 et $\OML/cmm/m/it/10 Y$ \T1/cmr/m/n/10 dans
+\OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; \U/bbold/m/n/10 P\OT1/cmr/m/n/10 )$ \T1/cmr/m/n/10 un es-pace pro-ba-bi-lisé, $\OML/cmm/m/it/10 X$ \T1/cmr/m/n/10 et $\OML/cmm/m/it/10 Y$ \T1/cmr/m/n/10 dans
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6301.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6300--6302
-[]\T1/cmr/bx/n/10 Remarque 41. []$[]  [] [] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; Y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 7!
- []
-
-
-Underfull \hbox (badness 1406) in paragraph at lines 6300--6302
-\U/msb/m/n/10 E [] \OT1/cmr/m/n/10 = \U/msb/m/n/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 XY\OT1/cmr/m/n/10 ] \OMS/cmsy/m/n/10 ^^@ \U/msb/m/n/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X\OT1/cmr/m/n/10 ]\U/msb/m/n/10 E\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 Y\OT1/cmr/m/n/10 ]$ \T1/cmr/m/it/10 est un
- []
+(Font)              using `T1/cmr/m/scsl' instead on input line 6139.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6323.
+(Font)              using `T1/cmr/m/scsl' instead on input line 6161.
 
 
 
-[46]
-<img/213.pdf, id=227, 2075.755pt x 1467.4825pt>
+[44]
+<img/213.pdf, id=224, 2075.755pt x 1467.4825pt>
 File: img/213.pdf Graphic file (type pdf)
 <use img/213.pdf>
-Package pdftex.def Info: img/213.pdf  used on input line 6378.
+Package pdftex.def Info: img/213.pdf  used on input line 6216.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
 
 
-[47
+[45
 
  </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/213.pdf>]
+Underfull \hbox (badness 2376) in paragraph at lines 6238--6239
+[]$[][]$ \T1/cmr/m/it/10 di-verge, $[][]$
+ []
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
+(Font)              using `T1/cmr/m/scsl' instead on input line 6271.
+
+
+
+
+Underfull \hbox (badness 2368) in paragraph at lines 6346--6348
+[]\T1/cmr/bx/n/10 Théorème 24 \T1/cmr/m/n/10 (des suites ad-ja-centes - [EA] 33)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Si
+ []
+
+
+
+[46
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 6369--6370
+[]\T1/cmr/m/it/10 La \T1/cmr/m/n/10 li-mite su-pé-rieure de $[][]$ \T1/cmr/m/it/10 est
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6370--6371
+[]\T1/cmr/m/it/10 La \T1/cmr/m/n/10 li-mite in-fé-rieure de $[][]$ \T1/cmr/m/it/10 est
+ []
+
+
+Underfull \hbox (badness 2359) in paragraph at lines 6433--6434
+[]\T1/cmr/bx/n/10 Proposition 40 \T1/cmr/m/n/10 ([G] 200)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 f$ \T1/cmr/m/it/10 est conti-nue, et si
+ []
+
+
+
+
+Underfull \hbox (badness 1092) in paragraph at lines 6471--6473
+\T1/cmr/m/it/10 po-sons $\OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 = 10[]\OMS/cmsy/m/n/10 b\OT1/cmr/m/n/10 10[]\OML/cmm/m/it/10 x\OMS/cmsy/m/n/10 c$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 y[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[] \OT1/cmr/m/n/10 + 10[]$\T1/cmr/m/it/10 . Alors
+ []
+
+
+Underfull \hbox (badness 1609) in paragraph at lines 6480--6483
+[]\T1/cmr/bx/n/10 Théorème 46 \T1/cmr/m/n/10 (mé-thode de \T1/cmr/m/sc/10 New-ton \T1/cmr/m/n/10 - [R] 345-346)\T1/cmr/bx/n/10 .
+ []
+
+
+
+[47]
+Underfull \hbox (badness 1609) in paragraph at lines 6518--6519
+[]\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 f  [] [] \U/bbold/m/n/10 R \OMS/cmsy/m/n/10 ! \U/bbold/m/n/10 R$ \T1/cmr/m/it/10 est conti-nue et $\OT1/cmr/m/n/10 1$\T1/cmr/m/it/10 -périodique, alors
+ []
+
+<img/223.pdf, id=240, 2075.755pt x 1467.4825pt>
+File: img/223.pdf Graphic file (type pdf)
+<use img/223.pdf>
+Package pdftex.def Info: img/223.pdf  used on input line 6551.
+(pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
+
 
 
 
 [48
 
-
-]
-Underfull \hbox (badness 2662) in paragraph at lines 6397--6400
-[]\T1/cmr/bx/n/10 Définition 1 \T1/cmr/m/n/10 ([G] 323)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 On dit que $\OML/cmm/m/it/10 f$ \T1/cmr/m/it/10 est \T1/cmr/m/n/10 dif-fé-ren-
+ </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/223.pdf>]
+Underfull \hbox (badness 4967) in paragraph at lines 6573--6576
+[]\T1/cmr/m/it/10 On dit que $\OML/cmm/m/it/10 f$ \T1/cmr/m/it/10 est \T1/cmr/m/n/10 dé-ri-vable à gauche \T1/cmr/m/it/10 (resp. \T1/cmr/m/n/10 à
  []
 
 
-Underfull \hbox (badness 6001) in paragraph at lines 6397--6400
-\T1/cmr/m/n/10 tiable en $\OML/cmm/m/it/10 a$ \T1/cmr/m/it/10 s'il existe $\OML/cmm/m/it/10 u[] \OMS/cmsy/m/n/10 2 L\OT1/cmr/m/n/10 (\U/msb/m/n/10 R[]\OML/cmm/m/it/10 ; \U/msb/m/n/10 R[]\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 telle que
+Underfull \hbox (badness 10000) in paragraph at lines 6573--6576
+\T1/cmr/m/n/10 droite\T1/cmr/m/it/10 ) \T1/cmr/m/n/10 en $\OML/cmm/m/it/10 a$ \T1/cmr/m/it/10 si $[]$ (resp.
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 6435--6436
-[]\T1/cmr/bx/n/10 Exemple 9. []$\OML/cmm/m/it/10 '  [] [] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \U/msb/m/n/10 R[] \OMS/cmsy/m/n/10 7! \OML/cmm/m/it/10 xy$ \T1/cmr/m/it/10 est bi-li-néaire, et
+Underfull \hbox (badness 6493) in paragraph at lines 6593--6594
+[]\T1/cmr/m/it/10 Les fonc-tions ra-tion-nelles, tri-go-no-mé-
  []
 
 
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6659--6660
+[]\T1/cmr/bx/n/10 Application 16. []\T1/cmr/m/it/10 On a que
+ []
 
 
 
 [49
 
 ]
-Underfull \hbox (badness 3098) in paragraph at lines 6509--6510
-[]\T1/cmr/bx/n/10 Remarque 23 \T1/cmr/m/n/10 ([Rv] 296)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 En gé-né-ral, $[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 6\OT1/cmr/m/n/10 =
- []
-
-
-Underfull \hbox (badness 1122) in paragraph at lines 6539--6540
-[]\T1/cmr/bx/n/10 Théorème 27 \T1/cmr/m/n/10 (d'in-ver-sion lo-cale - [G] 341)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 f \OMS/cmsy/m/n/10 2
- []
-
-
-Overfull \hbox (57.64568pt too wide) detected at line 6568
-[]
- []
-
-
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6595.
+(Font)              using `T1/cmr/m/scsl' instead on input line 6808.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6631--6633
-[]\T1/cmr/bx/n/10 Théorème 42 \T1/cmr/m/n/10 (des ex-trema liés - [Rv] 372)\T1/cmr/bx/n/10 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6631--6633
-[]\T1/cmr/m/it/10 Soit $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 f; g[]; [] ; g[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 U; \U/msb/m/n/10 R\OT1/cmr/m/n/10 )[]$\T1/cmr/m/it/10 , po-sons $\OT1/cmr/m/n/10 ^^@ =
- []
-
-
-Underfull \hbox (badness 4132) in paragraph at lines 6631--6633
-[]$\T1/cmr/m/it/10 . Si $\OML/cmm/m/it/10 f[]$ \T1/cmr/m/it/10 ad-met un ex-
- []
-
-
-Overfull \hbox (2.63268pt too wide) detected at line 6654
-\OMS/cmsy/m/n/10 f8\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 \U/stmry/m/n/10 J\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; n\U/stmry/m/n/10 K\OML/cmm/m/it/10 ;  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) = [] \OML/cmm/m/it/10 ^^U[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) = [] = \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) = 0
+Underfull \hbox (badness 3623) in paragraph at lines 6823--6824
+[]\T1/cmr/bx/n/10 Exemple 43 \T1/cmr/m/n/10 ([G] 315)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Étude de $\OT1/cmr/m/n/10 ^^@  [] [] \OML/cmm/m/it/10 x > \OT1/cmr/m/n/10 0 \OMS/cmsy/m/n/10 7!
  []
 
 
 
 [50]
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6673.
-
-
-Underfull \hbox (badness 7869) in paragraph at lines 6678--6679
-[]\T1/cmr/m/it/10 Le cas échéant, on pose $\OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z[]\OT1/cmr/m/n/10 ) := [](\OML/cmm/m/it/10 z[]\OT1/cmr/m/n/10 ) =
- []
-
-
-Underfull \hbox (badness 2503) in paragraph at lines 6682--6684
-\OML/cmm/m/it/10 h\OMS/cmsy/m/n/10 i \OT1/cmr/m/n/10 + \OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 @[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 j []i$ \T1/cmr/m/it/10 où $[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 h[]; \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 h[]\OT1/cmr/m/n/10 )$\T1/cmr/m/it/10 , $\OML/cmm/m/it/10 @[]f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z[]\OT1/cmr/m/n/10 ) =
- []
-
-
-
-<img/215.pdf, id=247, 2075.755pt x 1467.4825pt>
-File: img/215.pdf Graphic file (type pdf)
-<use img/215.pdf>
-Package pdftex.def Info: img/215.pdf  used on input line 6726.
+<img/228.pdf, id=257, 2075.755pt x 1467.4825pt>
+File: img/228.pdf Graphic file (type pdf)
+<use img/228.pdf>
+Package pdftex.def Info: img/228.pdf  used on input line 6844.
 (pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
 
 
-[51 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/215.pdf>]
 
 
-Underfull \hbox (badness 1424) in paragraph at lines 6873--6874
-[]\T1/cmr/m/it/10 Si $\OML/cmm/m/it/10 f$ \T1/cmr/m/it/10 ad-met
- []
+[51
+
+ </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/228.pdf>]
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
+(Font)              using `T1/cmr/m/scsl' instead on input line 6924.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
+(Font)              using `T1/cmr/m/scsl' instead on input line 6925.
+
+
+LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
+(Font)              using `T1/cmr/m/scsl' instead on input line 6925.
 
 
 
 [52
 
 ]
-Overfull \hbox (2.63268pt too wide) detected at line 6917
-\OMS/cmsy/m/n/10 f8\OML/cmm/m/it/10 i \OMS/cmsy/m/n/10 2 \U/stmry/m/n/10 J\OT1/cmr/m/n/10 1\OML/cmm/m/it/10 ; n\U/stmry/m/n/10 K\OML/cmm/m/it/10 ;  []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) = [] \OML/cmm/m/it/10 ^^U[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) = [] = \OML/cmm/m/it/10 g[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ) = 0
+Underfull \hbox (badness 2644) in paragraph at lines 6982--6982
+|\T1/cmr/bx/n/12 II. Es-paces $\OML/cmm/m/it/12 L[]$ \T1/cmr/bx/n/12 des fonc-tions \T1/cmr/bx/sc/12 Le-besgue\T1/cmr/bx/n/12 -
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6921--6923
-[]\T1/cmr/bx/n/10 Exemple 29 \T1/cmr/m/n/10 ([Rv] 411, 412)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soient $\OML/cmm/m/it/10 a[]; [] ; a[]; a$
+Underfull \hbox (badness 10000) in paragraph at lines 6991--6993
+\T1/cmr/m/it/10 Et pour $\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 [1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 +\OMS/cmsy/m/n/10 1\OT1/cmr/m/n/10 ]$\T1/cmr/m/it/10 , on pose $\OMS/cmsy/m/n/10 L[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; ^^V\OT1/cmr/m/n/10 ) :=
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 6921--6923
-\T1/cmr/m/it/10 des réels deux à deux dis-tincts, et po-sons $\OT1/cmr/m/n/10 ^^F =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6921--6923
-[]$
- []
-
-
-LaTeX Warning: Command \textdiv invalid in math mode on input line 6936.
-
-
-LaTeX Warning: Command \textdiv invalid in math mode on input line 6936.
-
-Missing character: There is no ö in font cmr10!
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 6943.
-
-
-
-<img/219.pdf, id=260, 2075.755pt x 1467.4825pt>
-File: img/219.pdf Graphic file (type pdf)
-<use img/219.pdf>
-Package pdftex.def Info: img/219.pdf  used on input line 6969.
-(pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
-
-
-[53 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/219.pdf>]
-Underfull \hbox (badness 1552) in paragraph at lines 6981--6985
-\OML/cmm/m/it/10 y$ \T1/cmr/m/it/10 liant celle-ci à ses dé-ri-vées, \T1/cmr/m/n/10 i.e. \T1/cmr/m/it/10 de la forme $\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 2
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 6988--6992
-[]\T1/cmr/bx/n/10 Proposition 2 \T1/cmr/m/n/10 ([Be] 20)\T1/cmr/bx/n/10 . []\T1/cmr/m/it/10 Soit $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 )  [] [] \OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) =
- []
-
-
-Underfull \hbox (badness 1924) in paragraph at lines 6988--6992
-\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; [] ; y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ))$ \T1/cmr/m/it/10 une EDI où $\OML/cmm/m/it/10 y  [] [] I \OMS/cmsy/m/n/10 ! \U/msb/m/n/10 R[]$\T1/cmr/m/it/10 . Po-
+Underfull \hbox (badness 10000) in paragraph at lines 6991--6993
+[]$ \T1/cmr/m/it/10 et $\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 X; \OMS/cmsy/m/n/10 A\OML/cmm/m/it/10 ; ^^V\OT1/cmr/m/n/10 ) :=
  []
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 7021.
+(Font)              using `T1/cmr/m/scsl' instead on input line 7024.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 7026--7027
-[][]\T1/cmr/m/n/10 Dans la suite, on fixe $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t[]; y[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 I \OMS/cmsy/m/n/10 ^^B \OT1/cmr/m/n/10 
-$ \T1/cmr/m/n/10 et
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7081--7082
+[]\T1/cmr/bx/n/10 Théorème 34. []$\OMS/cmsy/m/n/10 C[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 et $\OMS/cmsy/m/n/10 C[]\OT1/cmr/m/n/10 (\U/bbold/m/n/10 R\OT1/cmr/m/n/10 )$ \T1/cmr/m/it/10 sont denses dans
  []
 
 
 
-
-
-[54
-
-]
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 7126.
-
-
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 7166.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 7166.
-
-Missing character: There is no ° in font cmr10!
-
-Overfull \hbox (8.19351pt too wide) detected at line 7166
-\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 " > ;  \OMS/cmsy/m/n/10 9\OML/cmm/m/it/10 ^^N > \OT1/cmr/m/n/10 0  [] [] \OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (0) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y[]\OMS/cmsy/m/n/10 k ^^T \OML/cmm/m/it/10 ^^N  \OT1/cmr/m/n/10 =[]\OMS/cmsy/m/n/10 )  8\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0\OML/cmm/m/it/10 ;  \OMS/cmsy/m/n/10 k\OML/cmm/m/it/10 y\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y[]\OMS/cmsy/m/n/10 k ^^T \OML/cmm/m/it/10 "
- []
-
-
-Underfull \hbox (badness 2865) in paragraph at lines 7188--7189
-\T1/cmr/m/it/10 semble : $\OML/cmm/m/it/10 I[] \OT1/cmr/m/n/10 = []$ \T1/cmr/m/it/10 (resp. $\OML/cmm/m/it/10 I[] \OT1/cmr/m/n/10 =
- []
-
-
-Underfull \hbox (badness 2875) in paragraph at lines 7204--7205
-[]\T1/cmr/m/it/10 Les \T1/cmr/m/n/10 courbes in-té-grales
- []
-
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 7205.
-
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 7223.
-
-
-
-[55]
-Underfull \hbox (badness 10000) in paragraph at lines 7227--7230
-[]\T1/cmr/bx/n/10 Exemple 38 \T1/cmr/m/n/10 (FIG. 3 - [Be] 187-188)\T1/cmr/bx/n/10 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7245--7246
-[][]\T1/cmr/m/n/10 Soit $\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a; b; c; d\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 2 [][]$\T1/cmr/m/n/10 . On consi-dère
- []
-
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 7254.
-
-<img/220.pdf, id=277, 2075.755pt x 1467.4825pt>
-File: img/220.pdf Graphic file (type pdf)
-<use img/220.pdf>
-Package pdftex.def Info: img/220.pdf  used on input line 7277.
-(pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
-
-
-
-
-[56 </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/220.pdf>]
-Underfull \hbox (badness 3364) in paragraph at lines 7300--7301
-[]$[][]$ \T1/cmr/m/it/10 di-verge, $[][]$
- []
-
-
-LaTeX Font Warning: Font shape `T1/cmr/m/scit' undefined
-(Font)              using `T1/cmr/m/scsl' instead on input line 7333.
-
-
-
-<img/223.pdf, id=287, 2075.755pt x 1467.4825pt>
-File: img/223.pdf Graphic file (type pdf)
-<use img/223.pdf>
-Package pdftex.def Info: img/223.pdf  used on input line 7377.
-(pdftex.def)             Requested size: 265.3012pt x 187.55498pt.
-
-
-[57
-
- </Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/img/223.pdf>] (/Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.aux)
+[53] (/Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1915,17 +1786,17 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 22328 strings out of 473190
- 462038 string characters out of 5715801
- 866195 words of memory out of 5000000
- 45196 multiletter control sequences out of 15000+600000
- 580420 words of font info for 97 fonts, out of 8000000 for 9000
+ 22352 strings out of 473190
+ 462552 string characters out of 5715801
+ 866286 words of memory out of 5000000
+ 45205 multiletter control sequences out of 15000+600000
+ 582405 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  113i,27n,115p,874b,1045s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary7.pfb>
-Output written on /Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.pdf (57 pages, 3370040 bytes).
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/bbold-type1/bbold7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/euler/eufm7.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfcc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfsc1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti0700.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1200.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfxc1728.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/stmaryrd/stmary7.pfb>
+Output written on /Users/gautierlaisne/Library/CloudStorage/OneDrive-Personnel/AgrÃ©gation/Documents/test/main.pdf (53 pages, 3006573 bytes).
 PDF statistics:
- 434 PDF objects out of 1000 (max. 8388607)
+ 428 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 118 words of extra memory for PDF output out of 10000 (max. 10000000)
 
