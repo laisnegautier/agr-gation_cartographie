@@ -10,8 +10,13 @@
 \usepackage{graphicx}
 \usepackage{stmaryrd}
 \usepackage{xcolor}
-\usepackage{bbold}
+\usepackage{newtxmath}
+% \usepackage{bbold}
+% \usepackage{mathalpha}
+% \usepackage{bm}
+% \usepackage{dsfont}
 \usepackage{framed}
+
 \usepackage{enumitem}
 \usepackage{titlesec}
 \usepackage{aliascnt}
@@ -90,7 +95,7 @@
 \newcommand{\IRmp}{\mathbb{R}^{m\times p}}
 \newcommand{\M}{\mathcal{M}}
 \newcommand{\B}{\mathcal{B}}
-\newcommand{\A}{\mathcal{A}}
+\newcommand{\A}{\mathscr{A}}
 \newcommand{\actson}{\circlearrowleft}
 \newcommand{\ps}[2]{\langle #1\mid #2\rangle}
 
@@ -6854,7 +6859,7 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 \subsection*{A. Cas des fonctions étagées ou mesurables positives}
 
 \begin{definition}[\textnormal{[F] 7}]
-	Soit $f=\sum_{\alpha\in f(X)} \alpha \mathbb{1}_{f^{-1}{\left\{\alpha\right\}}}\,\colon X\to \overline{\IR^+}$ étagée.
+	Soit $f=\sum_{\alpha\in f(X)} \alpha \vmathbb{1}_{f^{-1}{\left\{\alpha\right\}}}\,\colon X\to \overline{\IR^+}$ étagée.
 	On définit l'\emph{intégrale de $f$ sur $E\in \A$ par rapport à $\mu$} comme
 	$$\int fd\mu = \sum_{\alpha\in f(X)} \alpha \mu\left(f^{-1}(\left\{\alpha\right\})\cap E\right)\in \overline{\IR^+}$$
 \end{definition}
@@ -6871,7 +6876,7 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 	Soient $f,g\,\colon X\to \overline{\IR^+}$ mesurables, $(A,E)\in \A^2$ tel que $A\subseteq E$, et $c\geq 0$.
 	\begin{enumerate}
 		\item $f_{\mid E} \leq g_{\mid E} \implies \int_E fd\mu \leq \int_E gd\mu$
-		\item $\int_E fd\mu = \int_X f\mathbb{1}_E d\mu$
+		\item $\int_E fd\mu = \int_X f\vmathbb{1}_E d\mu$
 		\item $\mu(E) = 0 \implies \int_Efd\mu = 0$
 		\item $\begin{cases}
 			f_{\mid A} = 0 \\ \mu(A) = 0
@@ -6941,7 +6946,7 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 \end{theorem}
 
 \begin{cexample}
-	$f_n = \mathbb{1}_{[n,n+1]} \xrightarrow[n\to +\infty]{\text{CVS}} 0$,$\int_{\IR} f_n d\lambda = 1 \not \xrightarrow{} 0 = \int_{\IR} 0d\lambda$.
+	$f_n = \vmathbb{1}_{[n,n+1]} \xrightarrow[n\to +\infty]{\text{CVS}} 0$,$\int_{\IR} f_n d\lambda = 1 \not \xrightarrow{} 0 = \int_{\IR} 0d\lambda$.
 	L'hypothèse de domination n'est pas vérifiée.
 \end{cexample}
 
@@ -7036,7 +7041,7 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 \begin{theorem}[\textnormal{[CR] 77}]
 	\label{234dev1}
 	Supposons que $\mu$ est une mesure de probabilité. Soient $\B$ une sous-trivu de $\A$ et $X\in L^1(\Omega,\A,\mu)$ réelle.
-	Il existe une variable aléatoire $Z$ presque sûrement unique $\B$-mesurable et telle que $\forall B\in \B$, $\IE[X\mathbb{1}_B] = \IE[Z\mathbb{1}_{B}]$.
+	Il existe une variable aléatoire $Z$ presque sûrement unique $\B$-mesurable et telle que $\forall B\in \B$, $\IE[X\vmathbb{1}_B] = \IE[Z\vmathbb{1}_{B}]$.
 
 	Elle est de plus intégrable. On l'appelle \emph{espérance conditionnelle de $X$ sachant $\B$}, et on la note $\IE[X\mid \B]$.
 \end{theorem}
@@ -7067,7 +7072,7 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 \end{definition}
 
 \begin{example}[\textnormal{[BP] 302+307}]
-	Pour $n\in \IN$, posons $\alpha\,\colon x\in\IR\mapsto \exp(-1/[1-x^2])\mathbb{1}_{\lvert x\rvert < 1}$, et $\tilde{\alpha}_n\,\colon x\mapsto n\alpha(nx)$,
+	Pour $n\in \IN$, posons $\alpha\,\colon x\in\IR\mapsto \exp(-1/[1-x^2])\vmathbb{1}_{\lvert x\rvert < 1}$, et $\tilde{\alpha}_n\,\colon x\mapsto n\alpha(nx)$,
 	et $\alpha_n := \tilde{\alpha}_n/\|\tilde{\alpha}_n\|_1$.
 	Alors $\left(\alpha_n\right)_{n\in\IN^*}$ est une approximation de l'unité telle que $\forall n\in \IN$, $\alpha_n\in \mathcal{C}^{\infty}_c(\IR)$.
 \end{example}
@@ -7098,10 +7103,88 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 	La \emph{transformation de \textsc{Fourier}} est l'application $\mathcal{F}\,\colon f\mapsto \hat{f}$.
 \end{definition}
 
+\begin{example}[\textnormal{[F] 130}]
+	\begin{itemize}
+		\item $\forall \zeta\in\IR$, $\widehat{\vmathbb{1}_{[-1,1]}}(\zeta) = 2\textnormal{sinc}(\zeta)$
+		\item $\forall c >0$, $\forall \zeta\in\IR$, $\mathcal{F}[x\mapsto e^{-c\lvert x\rvert}] = \frac{2c}{c^2 + \zeta^2}$
+		\item Pour $r>0$, on pose $g_{\sigma}\,\colon x\mapsto\frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2\sigma^2}}$. Pour tout $\zeta\in\IR$, $\hat{g}_{\sigma}(\zeta) = e^{-\frac{\sigma^2\zeta^2}{2}}$
+	\end{itemize}
+\end{example}
+
+\begin{lemma}[de \textsc{Riemann-Lebesgue} - \textnormal{[F] 106}]
+	$\forall f\in L^1(\IR),\, \hat{f}\in C_0(\IR)$.
+\end{lemma}
+
+\begin{notation*}
+	Pour $f\,\colon\IR\to\IR$, on note $\check{f}\,\colon x\mapsto f(-x)$.
+\end{notation*}
+
+\begin{theorem}[\textnormal{[F] 191}]
+	$\mathcal{F}$ est un morphisme de l'algèbre de convolution $L^1(\IR)$ dans l'algèbre multiplicative $C_0(\IR)$.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[EA] e112}]
+	Soient $f\in L^1(\IR)$, $a\in\IR^*$ et $b\in\IR$. Alors,
+	$$\forall\zeta\in\IR,\quad \mathcal{F}[x\mapsto f(ax+b)] = e^{-ib\zeta}\cdot\frac{1}{a}\cdot\hat{f}(\frac{x}{a})$$
+\end{proposition}
+
+\begin{example}[\textnormal{[F] ? - 130}]
+	\begin{itemize}
+		\item $\forall a > 0$, $\forall \zeta\in\IR$, $\widehat{\vmathbb{1}_{[-a,a]}}(\zeta) = \mathcal{F}[x\mapsto \vmathbb{1}_{[-1,1]}(\frac{x}{a})](\zeta) = 2a\textnormal{sinc}(a\zeta)$
+		\item $\forall m\in\IR$, $\forall \sigma > 0$, $\forall \zeta\in\IR$, $\mathcal{F}[x\mapsto \frac{1}{\sqrt{2\pi}}\exp\left(-\frac{1}{2}\left(\frac{x-m}{\sigma}\right)^2\right)] = e^{-i\zeta m}e^{-\frac{\sigma^2\zeta^2}{2}}$
+	\end{itemize}
+\end{example}
+
+\begin{theorem}[formule d'inversion - \textnormal{[F] 133}]
+	Soit $f\in L^1(\IR)$ telle que $\hat{f}\in L^1(\IR)$. On a alors $\|f-\frac{1}{2\pi}\check{\hat{\hat{f}}}\|_1 = 0$.
+	En particulier, si $f\in C^0(\IR)$, alors $f = \frac{1}{2\pi}\check{\hat{\hat{f}}}$.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[F] 133}]
+	$\mathcal{F}$ est injective, et [admis] non surjective.
+\end{theorem}
+
+\begin{example}[\textnormal{[F] e130}]
+	Soit $c> 0$. On a $f\,\colon x\mapsto e^{-c\lvert x\rvert}\in L^1(\IR)\cap C^0(\IR)$ et $\hat{f}\,\colon \zeta\mapsto\frac{2c}{c^2+\zeta^2}\in L^1(\IR)$, 
+	donc $\forall x\in\IR$, $\hat{\hat{f}}(x) = \pi e^{-c\lvert x\rvert}$.
+\end{example}
+
+\begin{theorem}[de \textsc{Plancherel} - \textnormal{[F] 137}]
+	\label{234dev21}
+	Si $f\in L^1(\IR)\cap L^2(\IR)$, alors $\hat{f}\in L^2(\IR)$ et $\|f\|_2 = \sqrt{2\pi}\|\hat{f}\|_2$.
+	En particulier, $\mathcal{F}[L^1(\IR)\cap L^2(\IR)] \subseteq L^2(\IR)$, et cette partie est dense.
+\end{theorem}
+
+\begin{theorem}[\textnormal{[EA] 122}]
+	\label{234dev22}
+	$\mathcal{F}$ se prolonge de manière unique en un isomorphisme (toujours noté $\mathcal{F}$) de $L^2(\IR)$ dans lui-même, appelé \emph{transformation de \textsc{Fourier-Plancherel}}.
+\end{theorem}
+
+\begin{proposition}[\textnormal{[EA] 128}]
+	\begin{itemize}
+		\item $\mathcal{F}\circ\mathcal{F} = 2\pi\cdot \check{\id}_{\IR}$
+		\item $\forall(f,g)\in L^2(\IR)^2,\, \hat{f}*\hat{g} = \widehat{fg}\cdot 2\pi$.
+	\end{itemize}
+\end{proposition}
+
+\begin{remark}
+	Méthode de calcul : $\forall f\in L^2(\IR)$, $\mathcal{F}[f] = \lim_{n\to +\infty}\mathcal{F}[f\vmathbb{1}_{[-n,n]}]$.
+\end{remark}
+
+\begin{proposition}[formule d'inversion - \textnormal{[EA] e130}]
+	Soit $f\in L^1(\IR)$ telle que $\hat{f}\in L^2(\IR)$.
+	On a alors $\|f - \frac{1}{2\pi}\check{\hat{\hat{f}}}\|_2 = 0$.
+	En particulier, si $f\in C^0(\IR)$, alors $f = \frac{1}{2\pi}\check{\hat{\hat{f}}}$.
+\end{proposition}
+
+\begin{example}
+	$\vmathbb{1}_{[-1,1]}\in L^1(\IR)\cap L^2(\IR)$, $2\textnormal{sinc} = \widehat{\vmathbb{1}}_{[-1,1]}\in L^2(\IR)$ donc $\widehat{\textnormal{sinc}} = \pi\vmathbb{1}_{[-1,1]}$.
+\end{example}
+
 \section*{Développements}
 \begin{itemize}
 	\item Développement 1 : Théorème \ref{234dev1}
-	% \item Développement 2 : Exemple \ref{228dev2}
+	\item Développement 2 : Théorèmes \ref{234dev21} et \ref{234dev22}
 \end{itemize}
 
 \section*{Références}
@@ -7118,6 +7201,95 @@ Soit $a\in I$. Soit $n\in \IN\cup\left\{\infty\right\}$.}
 % \begin{figure}[!htb]
 % 	\centering
 % 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/228.pdf}
+% 	\caption{s}
+% \end{figure}
+
+\chapter*{262 : Convergences d’une suite de variables aléatoires. Théorèmes limite. Exemples et applications.}
+\setcounter{definition}{0}
+
+\textcolor{paragraphtext}{Dans cette leçon, $(\Omega, \A, \mathbb{P})$ est un espace probabilisé, $(E,\mathcal{E})$ est un espace euclidien muni d'une tribu (pour $E =\IR^d$, on prendra $\mathcal{E} = \B(\IR^d)$), et $\left(X_n\right)_{n}$ est une suite de variables aléatoires de $\Omega$ dans $E$, et $X$ également.}
+
+\section*{I. Convergence d'une suite de variables aléatoires}
+\subsection*{A. Définitions, propriétés et premiers exemples}
+
+\begin{definition}[\textnormal{[CR] 49-49-49-57}]
+	\begin{itemize}
+		\item {On dit que $\left(X_n\right)_n$ 
+		converge \emph{presque sûrement vers $X$}, et on note $X_n\xrightarrow{p.s.} X$, si
+			$\mathbb{P}(\left\{\omega\in\Omega\mid X_n(\omega)\to X(\omega)\right\})$
+		}
+		\item{
+			On dit que $\left(X_n\right)_n$ converge \emph{en probabilité vers $X$}, et on note $X_n\xrightarrow{\mathbb{P}} X$, si
+			$\forall \varepsilon > 0,\quad \mathbb{P}(\lvert X_n - X\rvert > \varepsilon)\to 0$
+		}
+		\item {
+			On dit que $\left(X_n\right)_n$ converge \emph{dans $L^p$ vers $X$}, et on note $X_n\xrightarrow{L_p} X$, si
+			$\IE[\|X_n - X\|^p]\to 0$
+		}
+		\item {
+			On dit que $\left(X_n\right)_n$ converge \emph{en loi vers $X$}, et on note $X_n\xrightarrow{\mathcal{L}} X$ ou $X_n\xrightarrow{\mathcal{L}} \mathbb{P}_X$, si
+			$\forall h\,\colon E\to\IR\text{ mesurable positive ou continue bornée,}\, \IE[h(X_n)]\to \IE[h(X)]$
+		}
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	\begin{itemize}
+		\item Soit $\left(X_n\right)_n$ telle que $nX_n\sim \mathcal{R}(1/2)$. Alors $X_n\xrightarrow{p.s.} 0$.
+		\item Soit $\left(X_n\right)_n$ telle que $\mathbb{P}(X_n=n) = 1 - \mathbb{P}(X=0) = \frac{1}{n}$. Alors $X_n\xrightarrow{\mathbb{P}} 0$.
+		\item Soit $\left(Y_n\right)_n$ une suite de v.a.i.i.d. de loi $\mathcal{P}(\lambda)$, posons $X_n = \prod_{k=1}{n}Y_k$. Alors $X_n \xrightarrow{L^1} 0$ si, et seulement si, $0< \lambda < 1$.
+		\item Soit $\left(X_n\right)_n$ telle que $X_n\sim \mathcal{E}(1-\frac{1}{n})$. Alors $X_n\xrightarrow{\mathcal{L}} \mathcal{E}(1)$.
+	\end{itemize}
+\end{example}
+
+\begin{proposition}[\textnormal{[GK] 265 265 268 296}]
+	\begin{itemize}
+		\item Si $f$ est continue sur $E$ et si $X_n\xrightarrow{p.s.}X$, alors $f(X_n)\xrightarrow{p.s.} f(X)$.
+		\item $(X_n,Y_n)\xrightarrow{p.s.}(X,Y)\iff X_n\xrightarrow{p.s.} X$ et $Y_n\xrightarrow{p.s.}Y$.
+		\item Si $X_n\xrightarrow{\mathbb{P}}X$ et $Y_n\xrightarrow{\mathbb{P}}Y$, alors $(X_n, Y_n)\xrightarrow{\mathbb{P}} (X,Y)$ et $X_n + Y_n \xrightarrow{\mathbb{P}} X + Y$.
+		\item Si $f$ est continue sur $E$ et si $X_n\xrightarrow{\mathcal{L}}X$, alors $f(X_n)\xrightarrow{\mathcal{L}}f(x)$.
+	\end{itemize}
+\end{proposition}
+
+\begin{lemma}[de \textsc{Slutsky} - \textnormal{[CR] 61}]
+	Supposons que $E = \IR$, soit $a\in \IR$.
+	Si $X_n \xrightarrow{\mathcal{L}} X$, et $Y_n\xrightarrow{\mathcal{L}}a$, alors $(X_n, Y_n)\xrightarrow{\mathcal{L}} (X,a)$.
+\end{lemma}
+
+\subsection*{B. Caractérisations}
+\begin{definition}[\textnormal{[CR] 16}]
+	Soit $\left(A_n\right)_n \in \A^{\IN}$. On définit :
+	\begin{itemize}
+		\item {$\liminf_{n\to+\infty} A_n := \cup_{n\geq 0}\cap_{p\geq n} A_p$ (tous les évènements $\omega\in \Omega$ qui appartiennent à tous les $A_n$ à partir d'un certain rang).}
+		\item {$\limsup_{n\to+\infty} A_n := \cap_{n\geq 0}\cup_{p\geq n} A_p$ (tous les évènements $\omega\in \Omega$ qui appartiennent à une infinité de $A_n$).}
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}[\textnormal{[GK] 267 ?, [CR] e45 ?}]
+	
+\end{proposition}
+
+% \section*{Développements}
+% \begin{itemize}
+% 	\item Développement 1 : Théorème \ref{234dev1}
+% 	\item Développement 2 : Théorèmes \ref{234dev21} et \ref{234dev22}
+% \end{itemize}
+
+\section*{Références}
+\begin{itemize}
+	\item[KG] \emph{De l'intégration aux probabilités}, Olivier Garet, Aline Kurtzmann, 2e édition augmentée
+	% \item[R] \emph{Éléments d'analyse réelle}, Jean-Etienne Rombaldi, 2e édition
+	% \item[EA] \emph{Analyse de Fourier dans les espaces fonctionnels}, Mohamed El Amrani
+	% \item[G] \emph{Les maths en tête - Analyse}, Xavier Gourdon, 3e édition 
+	% \item[F] \emph{Calcul intégral}, Jacques Faraut
+	% \item[FGN] \emph{Oraux X-ENS Algèbre 1}, Serge Francinou, Hervé Gianella, Serge Nicolas  
+	\item[CR] \emph{Probabilités et statistiques pour l'épreuve de modélisation à l'agrégation de mathématiques}, Marie-Line Chabanol, Jean-Jacques Ruch
+	% \item[BP] \emph{Théorie de l'intégration}, Marc Briane, Gilles Pagès, 7e édition
+\end{itemize}
+
+% \begin{figure}[!htb]
+% 	\centering
+% 	\includegraphics[trim={0 0 0 0},clip,width=1\linewidth]{img/245.pdf}
 % 	\caption{s}
 % \end{figure}
 \end{document}
